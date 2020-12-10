@@ -1,0 +1,2154 @@
+# SCT File Created 1/10/2020 10:05 AM
+#  as C:/Users/cfelletter/Documents/crss.offc/sct/SaltStorageCheck.sct
+# Generated using RiverWare Version <RiverWare_Model 7.5.3 Patch>
+# Generated from Model File <CRSS.V4.1.1.2020.Nov2019.Salinity.9005.mdl.bak>
+# CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
+#
+SCT 0 0 Version: 20.4
+SCT_PROPERTIES
+  SLOT_ITEM_CNT           205
+  PRESIM_TSTEP_CNT        1
+  POSTSIM_TSTEP_CNT       0
+  TSTEP_AXIS_HORZ         False
+  DETAIL_MODE             DETAIL_MODE_NOSUM
+  CONFIG_LOCKED           False
+
+  SHOW_RUN_STATUS         True
+
+  TSAGG_FIXED_METHOD      False
+  TSAGG_FIXED_CNT         12
+  TSAGG_INTERVAL          1 YEAR
+  TSAGG_START_MINUTE      0
+  TSAGG_START_HOUR        0
+  TSAGG_START_WDAY        0
+  TSAGG_START_MDAY        1
+  TSAGG_START_MONTH       0
+
+  WINDOW_WIDTH            1920
+  WINDOW_HEIGHT           1017
+  RIGHT_MARGIN            0
+  DIAG_WINDOW_HEIGHT      0
+
+  SLOT_LABEL_COL_WIDTH    COLFIT_METHOD_UND 0
+  SLOT_UNITS_COL_WIDTH    COLFIT_METHOD_UND 0
+  AGG_TIME_DATA_COL_WIDTH COLFIT_METHOD_UND 0
+  NOA_TIME_DATA_COL_WIDTH COLFIT_METHOD_UND 0
+
+  SHOW_SELECTION_STATS    True
+  SEL_STAT_MEDIAN_MAXCNT  31
+
+  SCT_SFAS "START"
+  SCT_SFAS "Unit_on Flow Slot_off &nbsp; FUNC Ave"
+  SCT_SFAS "Unit_on Volume Slot_off &nbsp; FUNC Last"
+  SCT_SFAS "Unit_on Length Slot_off &nbsp; FUNC Last"
+  SCT_SFAS "Unit_off NONE Slot_off &nbsp; FUNC Last"
+  SCT_SFAS "END"
+
+  SCT_FONT_SPEC "Font A" "MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0"
+  SCT_FONT_SPEC "Font B" "MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0"
+  CUR_SCT_FONT_LABEL      "Default"
+
+  SHOW_MISSING_SLOTS      True
+  DISPLAY_NANS            True
+  SHOW_GRID               True
+  DBL_CLK_TOGGLES_DETAIL  False
+  XHATCH_PREPOST_TSTEPS   False
+  TARGET_OP_FULL_ORN      True
+  SHOW_ROW_NUMS           False
+  SHOW_SLOT_TYPES_COL     True
+  SHOW_UNITS_COL          True
+  SHOW_SUM_FUNC_COL       True
+  SHOW_WEEKDAY_COL        True
+  MARK_WEEKEND_ROWDIV     False
+  MARK_MONTH_ROWDIV       False
+  COLHEAD_SHOW_UNITS      True
+  COLHEAD_SHOW_SUM_FUNC   True
+  COLHEAD_SHOW_WEEKDAY    True
+  COLHEAD_HIDE_2400       False
+  MARK_WEEKEND_COLDIV     False
+  MARK_MONTH_COLDIV       False
+  MARK_READONLY_CELLS     True
+  SLOTROW_LABEL_INDENT    0
+  SUMMARY_FLAGS_SHOWN     SUMMARY_FLAGS_ON
+
+  MARK_1HOUR_ROWDIV       False
+  MARK_1HOUR_COLDIV       False
+  MARK_4HOUR_ROWDIV       False
+  MARK_4HOUR_COLDIV       False
+  MARK_6HOUR_ROWDIV       False
+  MARK_6HOUR_COLDIV       False
+  MARK_DAY_ROWDIV         False
+  MARK_DAY_COLDIV         False
+  MARK_YEAR_ROWDIV        False
+  MARK_YEAR_COLDIV        False
+  TEXT_IN_SLOT_ROWDIV     True
+  DET_HDR_ALIGN_LEFT      True
+
+  TOOLBAR_SWAP_AXIS       True
+  TOOLBAR_DETAIL          True
+  TOOLBAR_DETAIL_USER     True
+  TOOLBAR_DETAIL_HIDE     False
+  TOOLBAR_DETAIL_SHOW     False
+  TOOLBAR_DETAIL_NOSUM    True
+  TOOLBAR_PLOT_SLOTS      True
+  TOOLBAR_RUN_CTRL        True
+  TOOLBAR_START_RUN       True
+  TOOLBAR_FLAGS           True
+  TOOLBAR_FLAG_BUT_CODES  "TBMDR"
+
+  TOOLBAR_SAVE_MODEL      False
+  TOOLBAR_OPEN_SLOTS      False
+  TOOLBAR_DTIME_SPINNER   True
+
+  COLOR_TEXT_FG             0   0   0
+  COLOR_FLAG          'O' 255 255 255
+  COLOR_FLAG          'I' 224 224 224
+  COLOR_FLAG          'T'   0 255 255
+  COLOR_FLAG          'B' 144 255   0
+  COLOR_FLAG          'M'  85 192 240
+  COLOR_FLAG          'D' 255 236 136
+  COLOR_FLAG          'R' 192 255 192
+  COLOR_FLAG          'S' 255 192 208
+  COLOR_FLAG          'G' 136 208 240
+  COLOR_FLAG          'U' 200 200 255
+  COLOR_FLAG          'Z' 224 224 224
+  COLOR_GRID              160 160 160
+  COLOR_SUMMARY_BG        224 255 224
+  COLOR_INACT_CELL_FG     128 128 128
+  COLOR_INACT_CELL_BG     192 192 192
+  COLOR_WEEKEND_DIV         0   0 255
+  COLOR_MONTH_DIV         204 204 102
+  COLOR_SIM_TSTEP_DIV       0   0 170
+  COLOR_PPSIM_XHATCH        0   0   0
+  COLOR_SLOT_DIV_BG       136 208 240
+  COLOR_COPY_XHATCH         0 255   0
+  COLOR_DISPDISA_XHATCH   255   0   0
+  COLOR_READONLY_XHATCH   224 240 255
+  COLOR_OVERDETERMINED    255   0   0
+
+  COLOR_4HOUR_DIV         170  85 255
+  COLOR_DAY_DIV             0 204   0
+  COLOR_YEAR_DIV          153 255  51
+  COLOR_STATUSBAR_FG        0   0   0
+  COLOR_STATUSBAR_BG      255 255 240
+  COLOR_POSTSIM_TSTEP_DIV 170   0   0
+  COLOR_TAB_DIV_BG        230 155 179
+
+  FULL_PRECISION_EDITING  True
+
+TAB_DIV   0
+  SLOT_LABEL        "Series Slot Sheet"
+
+SLOT_DIV  1
+  SLOT_LABEL        "Bottom of Agg Reach with Max Min"
+
+SLOT_REF  2
+  SLOT_LABEL        "UpperColoradoReach:ExportsAboveGlenwoodSprings.Salt Storage"
+  SLOT_MULTILINE    "UpperColoradoReach<br>:ExportsAboveGlenwoodSprings<br>.Salt Storage"
+  RW_SLOT_NAME      "UpperColoradoReach:ExportsAboveGlenwoodSprings.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  3
+  SLOT_LABEL        "UpperColoradoAboveCameo:MiscUsersAbvCameo.Salt Storage"
+  SLOT_MULTILINE    "UpperColoradoAboveCameo<br>:MiscUsersAbvCameo<br>.Salt Storage"
+  RW_SLOT_NAME      "UpperColoradoAboveCameo:MiscUsersAbvCameo.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  4
+  SLOT_LABEL        "GunnisonRiverAboveGrandJunction:DallasCreekProject_MiscUses.Salt Storage"
+  SLOT_MULTILINE    "GunnisonRiverAboveGrandJunction<br>:DallasCreekProject_MiscUses<br>.Salt Storage"
+  RW_SLOT_NAME      "GunnisonRiverAboveGrandJunction:DallasCreekProject_MiscUses.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  5
+  SLOT_LABEL        "DoloresRiver:ParadoxValleyWQIP.Salt Storage"
+  SLOT_MULTILINE    "DoloresRiver<br>:ParadoxValleyWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "DoloresRiver:ParadoxValleyWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  6
+  SLOT_LABEL        "GreenRAboveGreenRiverWY:RRMiscUsesBelowFontenelle.Salt Storage"
+  SLOT_MULTILINE    "GreenRAboveGreenRiverWY<br>:RRMiscUsesBelowFontenelle<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRAboveGreenRiverWY:RRMiscUsesBelowFontenelle.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  7
+  SLOT_LABEL        "GreenRAboveFlamingGorge:BlacksForkWQIP.Salt Storage"
+  SLOT_MULTILINE    "GreenRAboveFlamingGorge<br>:BlacksForkWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRAboveFlamingGorge:BlacksForkWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  8
+  SLOT_LABEL        "GreenRWhiteToSanRafael:GreenRiverUTWQIP.Salt Storage"
+  SLOT_MULTILINE    "GreenRWhiteToSanRafael<br>:GreenRiverUTWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRWhiteToSanRafael:GreenRiverUTWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  9
+  SLOT_LABEL        "YampaRiver:RRHaydenAndCraigThermalAndMisc.Salt Storage"
+  SLOT_MULTILINE    "YampaRiver<br>:RRHaydenAndCraigThermalAndMisc<br>.Salt Storage"
+  RW_SLOT_NAME      "YampaRiver:RRHaydenAndCraigThermalAndMisc.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  10
+  SLOT_LABEL        "DuchesneBelowStarv:RRMiscUsesAboveRandlette.Salt Storage"
+  SLOT_MULTILINE    "DuchesneBelowStarv<br>:RRMiscUsesAboveRandlette<br>.Salt Storage"
+  RW_SLOT_NAME      "DuchesneBelowStarv:RRMiscUsesAboveRandlette.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  11
+  SLOT_LABEL        "WhiteRiverAboveWatson:RRWhiteUTAgandMIUse.Salt Storage"
+  SLOT_MULTILINE    "WhiteRiverAboveWatson<br>:RRWhiteUTAgandMIUse<br>.Salt Storage"
+  RW_SLOT_NAME      "WhiteRiverAboveWatson:RRWhiteUTAgandMIUse.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  12
+  SLOT_LABEL        "LowerSanJuanRiver:UtahUses.Salt Storage"
+  SLOT_MULTILINE    "LowerSanJuanRiver<br>:UtahUses<br>.Salt Storage"
+  RW_SLOT_NAME      "LowerSanJuanRiver:UtahUses.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  13
+  SLOT_LABEL        "CoRivLittleCOToVirgin:GainsAboveGC.Salt Storage"
+  SLOT_MULTILINE    "CoRivLittleCOToVirgin<br>:GainsAboveGC<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivLittleCOToVirgin:GainsAboveGC.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  14
+  SLOT_LABEL        "VirginRiver:RRVegMgmt.Salt Storage"
+  SLOT_MULTILINE    "VirginRiver<br>:RRVegMgmt<br>.Salt Storage"
+  RW_SLOT_NAME      "VirginRiver:RRVegMgmt.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  15
+  SLOT_LABEL        "AboveImperialDamColoradoR:RRNativeVegetation.Salt Storage"
+  SLOT_MULTILINE    "AboveImperialDamColoradoR<br>:RRNativeVegetation<br>.Salt Storage"
+  RW_SLOT_NAME      "AboveImperialDamColoradoR:RRNativeVegetation.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_DIV  16
+  SLOT_LABEL        "NoMinMax but frequently goes zero outflow and has salt storage"
+
+SLOT_REF  17
+  SLOT_LABEL        "CoRivMeadToMohave:GainsAboveDavis.Salt Storage"
+  SLOT_MULTILINE    "CoRivMeadToMohave<br>:GainsAboveDavis<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMeadToMohave:GainsAboveDavis.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  18
+  SLOT_LABEL        "DoloresRiver:IntraBasinExportAndDoloresProject.Salt Storage"
+  SLOT_MULTILINE    "DoloresRiver<br>:IntraBasinExportAndDoloresProject<br>.Salt Storage"
+  RW_SLOT_NAME      "DoloresRiver:IntraBasinExportAndDoloresProject.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  19
+  SLOT_LABEL        "DoloresRiver:SanMiguelAgriculture.Salt Storage"
+  SLOT_MULTILINE    "DoloresRiver<br>:SanMiguelAgriculture<br>.Salt Storage"
+  RW_SLOT_NAME      "DoloresRiver:SanMiguelAgriculture.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  20
+  SLOT_LABEL        "LittleSnakeRiver:RRLittleSnakeRExports.Salt Storage"
+  SLOT_MULTILINE    "LittleSnakeRiver<br>:RRLittleSnakeRExports<br>.Salt Storage"
+  RW_SLOT_NAME      "LittleSnakeRiver:RRLittleSnakeRExports.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  21
+  SLOT_LABEL        "SanRafaelRiver:RRSanRafaelAg.Salt Storage"
+  SLOT_MULTILINE    "SanRafaelRiver<br>:RRSanRafaelAg<br>.Salt Storage"
+  RW_SLOT_NAME      "SanRafaelRiver:RRSanRafaelAg.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  22
+  SLOT_LABEL        "SanRafaelRiver:RRSanRafaelWQIP.Salt Storage"
+  SLOT_MULTILINE    "SanRafaelRiver<br>:RRSanRafaelWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "SanRafaelRiver:RRSanRafaelWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_DIV  23
+  SLOT_LABEL        "NoMinMax Shouldn't have salt storage"
+
+SLOT_REF  24
+  SLOT_LABEL        "AboveImperialDamColoradoR:CibolaAndImperialNWR.Salt Storage"
+  SLOT_MULTILINE    "AboveImperialDamColoradoR<br>:CibolaAndImperialNWR<br>.Salt Storage"
+  RW_SLOT_NAME      "AboveImperialDamColoradoR:CibolaAndImperialNWR.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  25
+  SLOT_LABEL        "AboveImperialDamColoradoR:CibolaValleyIDDPriority4.Salt Storage"
+  SLOT_MULTILINE    "AboveImperialDamColoradoR<br>:CibolaValleyIDDPriority4<br>.Salt Storage"
+  RW_SLOT_NAME      "AboveImperialDamColoradoR:CibolaValleyIDDPriority4.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  26
+  SLOT_LABEL        "AboveImperialDamColoradoR:GainsOnColoRAboveImperialDam.Salt Storage"
+  SLOT_MULTILINE    "AboveImperialDamColoradoR<br>:GainsOnColoRAboveImperialDam<br>.Salt Storage"
+  RW_SLOT_NAME      "AboveImperialDamColoradoR:GainsOnColoRAboveImperialDam.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  27
+  SLOT_LABEL        "AboveImperialDamColoradoR:ParkerAndOtherUsersPriority1.Salt Storage"
+  SLOT_MULTILINE    "AboveImperialDamColoradoR<br>:ParkerAndOtherUsersPriority1<br>.Salt Storage"
+  RW_SLOT_NAME      "AboveImperialDamColoradoR:ParkerAndOtherUsersPriority1.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  28
+  SLOT_LABEL        "AboveImperialDamColoradoR:ParkerAndOtherUsersPriority4.Salt Storage"
+  SLOT_MULTILINE    "AboveImperialDamColoradoR<br>:ParkerAndOtherUsersPriority4<br>.Salt Storage"
+  RW_SLOT_NAME      "AboveImperialDamColoradoR:ParkerAndOtherUsersPriority4.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  29
+  SLOT_LABEL        "AboveImperialDamColoradoR:RRAdditionalEnergyProjects.Salt Storage"
+  SLOT_MULTILINE    "AboveImperialDamColoradoR<br>:RRAdditionalEnergyProjects<br>.Salt Storage"
+  RW_SLOT_NAME      "AboveImperialDamColoradoR:RRAdditionalEnergyProjects.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  30
+  SLOT_LABEL        "AboveImperialDamColoradoR:RRChuckwallaGroundwater.Salt Storage"
+  SLOT_MULTILINE    "AboveImperialDamColoradoR<br>:RRChuckwallaGroundwater<br>.Salt Storage"
+  RW_SLOT_NAME      "AboveImperialDamColoradoR:RRChuckwallaGroundwater.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  31
+  SLOT_LABEL        "AboveImperialDamColoradoR:RRColoradoRIndianReservation.Salt Storage"
+  SLOT_MULTILINE    "AboveImperialDamColoradoR<br>:RRColoradoRIndianReservation<br>.Salt Storage"
+  RW_SLOT_NAME      "AboveImperialDamColoradoR:RRColoradoRIndianReservation.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  32
+  SLOT_LABEL        "AboveImperialDamColoradoR:RRLaPazCountyDemandsWIS.Salt Storage"
+  SLOT_MULTILINE    "AboveImperialDamColoradoR<br>:RRLaPazCountyDemandsWIS<br>.Salt Storage"
+  RW_SLOT_NAME      "AboveImperialDamColoradoR:RRLaPazCountyDemandsWIS.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  33
+  SLOT_LABEL        "AboveImperialDamColoradoR:RRLossDueToSenatorWashOperations.Salt Storage"
+  SLOT_MULTILINE    "AboveImperialDamColoradoR<br>:RRLossDueToSenatorWashOperations<br>.Salt Storage"
+  RW_SLOT_NAME      "AboveImperialDamColoradoR:RRLossDueToSenatorWashOperations.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  34
+  SLOT_LABEL        "AboveImperialDamColoradoR:RRPaloVerdeIrrigationDistrict.Salt Storage"
+  SLOT_MULTILINE    "AboveImperialDamColoradoR<br>:RRPaloVerdeIrrigationDistrict<br>.Salt Storage"
+  RW_SLOT_NAME      "AboveImperialDamColoradoR:RRPaloVerdeIrrigationDistrict.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  35
+  SLOT_LABEL        "AboveImperialDamColoradoR:RRPaloVerdeIrrigationDistrictWQIP.Salt Storage"
+  SLOT_MULTILINE    "AboveImperialDamColoradoR<br>:RRPaloVerdeIrrigationDistrictWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "AboveImperialDamColoradoR:RRPaloVerdeIrrigationDistrictWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  36
+  SLOT_LABEL        "AboveImperialDamColoradoR:RRPaloVerdeMesaGroundwater.Salt Storage"
+  SLOT_MULTILINE    "AboveImperialDamColoradoR<br>:RRPaloVerdeMesaGroundwater<br>.Salt Storage"
+  RW_SLOT_NAME      "AboveImperialDamColoradoR:RRPaloVerdeMesaGroundwater.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  37
+  SLOT_LABEL        "AboveImperialDamColoradoR:RRYumaCountyDemandsWIS.Salt Storage"
+  SLOT_MULTILINE    "AboveImperialDamColoradoR<br>:RRYumaCountyDemandsWIS<br>.Salt Storage"
+  RW_SLOT_NAME      "AboveImperialDamColoradoR:RRYumaCountyDemandsWIS.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  38
+  SLOT_LABEL        "BelowFlamingGorge.Salt Storage"
+  SLOT_MULTILINE    "BelowFlamingGorge<br>.Salt Storage"
+  RW_SLOT_NAME      "BelowFlamingGorge.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  39
+  SLOT_LABEL        "BelowImperialDamColoradoR:ArizonaPumpersPriority1.Salt Storage"
+  SLOT_MULTILINE    "BelowImperialDamColoradoR<br>:ArizonaPumpersPriority1<br>.Salt Storage"
+  RW_SLOT_NAME      "BelowImperialDamColoradoR:ArizonaPumpersPriority1.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  40
+  SLOT_LABEL        "BelowImperialDamColoradoR:ArizonaPumpersPriority4.Salt Storage"
+  SLOT_MULTILINE    "BelowImperialDamColoradoR<br>:ArizonaPumpersPriority4<br>.Salt Storage"
+  RW_SLOT_NAME      "BelowImperialDamColoradoR:ArizonaPumpersPriority4.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  41
+  SLOT_LABEL        "BelowImperialDamColoradoR:FtYumaReservationPriority1.Salt Storage"
+  SLOT_MULTILINE    "BelowImperialDamColoradoR<br>:FtYumaReservationPriority1<br>.Salt Storage"
+  RW_SLOT_NAME      "BelowImperialDamColoradoR:FtYumaReservationPriority1.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  42
+  SLOT_LABEL        "BelowImperialDamColoradoR:NVDesalinization.Salt Storage"
+  SLOT_MULTILINE    "BelowImperialDamColoradoR<br>:NVDesalinization<br>.Salt Storage"
+  RW_SLOT_NAME      "BelowImperialDamColoradoR:NVDesalinization.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  43
+  SLOT_LABEL        "BelowImperialDamColoradoR:OverDeliveryToMexico.Salt Storage"
+  SLOT_MULTILINE    "BelowImperialDamColoradoR<br>:OverDeliveryToMexico<br>.Salt Storage"
+  RW_SLOT_NAME      "BelowImperialDamColoradoR:OverDeliveryToMexico.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  44
+  SLOT_LABEL        "BelowImperialDamColoradoR:ReturnFlowsFromAllAmericanCanalYuma.Salt Storage"
+  SLOT_MULTILINE    "BelowImperialDamColoradoR<br>:ReturnFlowsFromAllAmericanCanalYuma<br>.Salt Storage"
+  RW_SLOT_NAME      "BelowImperialDamColoradoR:ReturnFlowsFromAllAmericanCanalYuma.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  45
+  SLOT_LABEL        "BelowImperialDamColoradoR:ReturnFlowsFromGilaAndYumaUsersPriority1.Salt Storage"
+  SLOT_MULTILINE    "BelowImperialDamColoradoR<br>:ReturnFlowsFromGilaAndYumaUsersPriority1<br>.Salt Storage"
+  RW_SLOT_NAME      "BelowImperialDamColoradoR:ReturnFlowsFromGilaAndYumaUsersPriority1.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  46
+  SLOT_LABEL        "BelowImperialDamColoradoR:ReturnFlowsFromGilaAndYumaUsersPriority2and3.Salt Storage"
+  SLOT_MULTILINE    "BelowImperialDamColoradoR<br>:ReturnFlowsFromGilaAndYumaUsersPriority2and3<br>.Salt Storage"
+  RW_SLOT_NAME      "BelowImperialDamColoradoR:ReturnFlowsFromGilaAndYumaUsersPriority2and3.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  47
+  SLOT_LABEL        "BelowImperialDamColoradoR:ReturnFlowsFromGilaAndYumaUsersPriority4.Salt Storage"
+  SLOT_MULTILINE    "BelowImperialDamColoradoR<br>:ReturnFlowsFromGilaAndYumaUsersPriority4<br>.Salt Storage"
+  RW_SLOT_NAME      "BelowImperialDamColoradoR:ReturnFlowsFromGilaAndYumaUsersPriority4.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  48
+  SLOT_LABEL        "BelowImperialDamColoradoR:ReturnFlowsFromGilaGravityMainCanalPriority1.Salt Storage"
+  SLOT_MULTILINE    "BelowImperialDamColoradoR<br>:ReturnFlowsFromGilaGravityMainCanalPriority1<br>.Salt Storage"
+  RW_SLOT_NAME      "BelowImperialDamColoradoR:ReturnFlowsFromGilaGravityMainCanalPriority1.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  49
+  SLOT_LABEL        "BelowImperialDamColoradoR:ReturnFlowsFromGilaGravityMainCanalPriority2and3.Salt Storage"
+  SLOT_MULTILINE    "BelowImperialDamColoradoR<br>:ReturnFlowsFromGilaGravityMainCanalPriority2and3<br>.Salt Storage"
+  RW_SLOT_NAME      "BelowImperialDamColoradoR:ReturnFlowsFromGilaGravityMainCanalPriority2and3.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  50
+  SLOT_LABEL        "BelowImperialDamColoradoR:RRCaliforniaPumpers.Salt Storage"
+  SLOT_MULTILINE    "BelowImperialDamColoradoR<br>:RRCaliforniaPumpers<br>.Salt Storage"
+  RW_SLOT_NAME      "BelowImperialDamColoradoR:RRCaliforniaPumpers.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  51
+  SLOT_LABEL        "BelowImperialDamColoradoR:RRMexicanTreatyDelivery.Salt Storage"
+  SLOT_MULTILINE    "BelowImperialDamColoradoR<br>:RRMexicanTreatyDelivery<br>.Salt Storage"
+  RW_SLOT_NAME      "BelowImperialDamColoradoR:RRMexicanTreatyDelivery.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  52
+  SLOT_LABEL        "BelowImperialDamColoradoR:RROtherPumpersBelowNib.Salt Storage"
+  SLOT_MULTILINE    "BelowImperialDamColoradoR<br>:RROtherPumpersBelowNib<br>.Salt Storage"
+  RW_SLOT_NAME      "BelowImperialDamColoradoR:RROtherPumpersBelowNib.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  53
+  SLOT_LABEL        "BelowImperialDamColoradoR:RRPhreatophytesImperialToNib.Salt Storage"
+  SLOT_MULTILINE    "BelowImperialDamColoradoR<br>:RRPhreatophytesImperialToNib<br>.Salt Storage"
+  RW_SLOT_NAME      "BelowImperialDamColoradoR:RRPhreatophytesImperialToNib.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  54
+  SLOT_LABEL        "BelowImperialDamColoradoR:RRWellField242ToNIB.Salt Storage"
+  SLOT_MULTILINE    "BelowImperialDamColoradoR<br>:RRWellField242ToNIB<br>.Salt Storage"
+  RW_SLOT_NAME      "BelowImperialDamColoradoR:RRWellField242ToNIB.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  55
+  SLOT_LABEL        "BelowImperialDamColoradoR:RRYumaDesaltingPlantWQIP.Salt Storage"
+  SLOT_MULTILINE    "BelowImperialDamColoradoR<br>:RRYumaDesaltingPlantWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "BelowImperialDamColoradoR:RRYumaDesaltingPlantWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  56
+  SLOT_LABEL        "ColoradoGunnisonToStateline:JuniorAgReturns.Salt Storage"
+  SLOT_MULTILINE    "ColoradoGunnisonToStateline<br>:JuniorAgReturns<br>.Salt Storage"
+  RW_SLOT_NAME      "ColoradoGunnisonToStateline:JuniorAgReturns.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  57
+  SLOT_LABEL        "ColoradoGunnisonToStateline:SeniorAgReturns.Salt Storage"
+  SLOT_MULTILINE    "ColoradoGunnisonToStateline<br>:SeniorAgReturns<br>.Salt Storage"
+  RW_SLOT_NAME      "ColoradoGunnisonToStateline:SeniorAgReturns.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  58
+  SLOT_LABEL        "CoRiverAbovePowell:DirtyDevilWQIP.Salt Storage"
+  SLOT_MULTILINE    "CoRiverAbovePowell<br>:DirtyDevilWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRiverAbovePowell:DirtyDevilWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  59
+  SLOT_LABEL        "CoRiverAbovePowell:UtahAnticipatedDepletions.Salt Storage"
+  SLOT_MULTILINE    "CoRiverAbovePowell<br>:UtahAnticipatedDepletions<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRiverAbovePowell:UtahAnticipatedDepletions.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  60
+  SLOT_LABEL        "CoRivMeadToMohave:LakeMeadNRAandNVDOW.Salt Storage"
+  SLOT_MULTILINE    "CoRivMeadToMohave<br>:LakeMeadNRAandNVDOW<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMeadToMohave:LakeMeadNRAandNVDOW.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  61
+  SLOT_LABEL        "CoRivMeadToMohave:LakeMeadNRAPriority2and3.Salt Storage"
+  SLOT_MULTILINE    "CoRivMeadToMohave<br>:LakeMeadNRAPriority2and3<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMeadToMohave:LakeMeadNRAPriority2and3.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  62
+  SLOT_LABEL        "CoRivMeadToMohave:LaughlinMAndI.Salt Storage"
+  SLOT_MULTILINE    "CoRivMeadToMohave<br>:LaughlinMAndI<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMeadToMohave:LaughlinMAndI.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  63
+  SLOT_LABEL        "CoRivMeadToMohave:MarbleCanyonCompanyPriority4.Salt Storage"
+  SLOT_MULTILINE    "CoRivMeadToMohave<br>:MarbleCanyonCompanyPriority4<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMeadToMohave:MarbleCanyonCompanyPriority4.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  64
+  SLOT_LABEL        "CoRivMohaveToHavasu:ArizonaRuralDemandsWIS.Salt Storage"
+  SLOT_MULTILINE    "CoRivMohaveToHavasu<br>:ArizonaRuralDemandsWIS<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMohaveToHavasu:ArizonaRuralDemandsWIS.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  65
+  SLOT_LABEL        "CoRivMohaveToHavasu:BillWilliamsRiver.Salt Storage"
+  SLOT_MULTILINE    "CoRivMohaveToHavasu<br>:BillWilliamsRiver<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMohaveToHavasu:BillWilliamsRiver.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  66
+  SLOT_LABEL        "CoRivMohaveToHavasu:CentralArizonaDemandsWIS.Salt Storage"
+  SLOT_MULTILINE    "CoRivMohaveToHavasu<br>:CentralArizonaDemandsWIS<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMohaveToHavasu:CentralArizonaDemandsWIS.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  67
+  SLOT_LABEL        "CoRivMohaveToHavasu:GainsAboveParker.Salt Storage"
+  SLOT_MULTILINE    "CoRivMohaveToHavasu<br>:GainsAboveParker<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMohaveToHavasu:GainsAboveParker.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  68
+  SLOT_LABEL        "CoRivMohaveToHavasu:HavasuNWRArizonaPriority2and3.Salt Storage"
+  SLOT_MULTILINE    "CoRivMohaveToHavasu<br>:HavasuNWRArizonaPriority2and3<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMohaveToHavasu:HavasuNWRArizonaPriority2and3.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  69
+  SLOT_LABEL        "CoRivMohaveToHavasu:KingmanDemandsWIS.Salt Storage"
+  SLOT_MULTILINE    "CoRivMohaveToHavasu<br>:KingmanDemandsWIS<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMohaveToHavasu:KingmanDemandsWIS.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  70
+  SLOT_LABEL        "CoRivMohaveToHavasu:LakeHavasuCityAndOthersPriority4.Salt Storage"
+  SLOT_MULTILINE    "CoRivMohaveToHavasu<br>:LakeHavasuCityAndOthersPriority4<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMohaveToHavasu:LakeHavasuCityAndOthersPriority4.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  71
+  SLOT_LABEL        "CoRivMohaveToHavasu:LowerCoRivDamProjectPriority2and3.Salt Storage"
+  SLOT_MULTILINE    "CoRivMohaveToHavasu<br>:LowerCoRivDamProjectPriority2and3<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMohaveToHavasu:LowerCoRivDamProjectPriority2and3.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  72
+  SLOT_LABEL        "CoRivMohaveToHavasu:MohaveCountyDemandsWIS.Salt Storage"
+  SLOT_MULTILINE    "CoRivMohaveToHavasu<br>:MohaveCountyDemandsWIS<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMohaveToHavasu:MohaveCountyDemandsWIS.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  73
+  SLOT_LABEL        "CoRivMohaveToHavasu:MohaveValleyIDDPriority1.Salt Storage"
+  SLOT_MULTILINE    "CoRivMohaveToHavasu<br>:MohaveValleyIDDPriority1<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMohaveToHavasu:MohaveValleyIDDPriority1.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  74
+  SLOT_LABEL        "CoRivMohaveToHavasu:MohaveValleyIDDPriority4.Salt Storage"
+  SLOT_MULTILINE    "CoRivMohaveToHavasu<br>:MohaveValleyIDDPriority4<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMohaveToHavasu:MohaveValleyIDDPriority4.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  75
+  SLOT_LABEL        "CoRivMohaveToHavasu:RRChemehuevi.Salt Storage"
+  SLOT_MULTILINE    "CoRivMohaveToHavasu<br>:RRChemehuevi<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMohaveToHavasu:RRChemehuevi.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  76
+  SLOT_LABEL        "CoRivMohaveToHavasu:RRFtMohRes.Salt Storage"
+  SLOT_MULTILINE    "CoRivMohaveToHavasu<br>:RRFtMohRes<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMohaveToHavasu:RRFtMohRes.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  77
+  SLOT_LABEL        "CoRivMohaveToHavasu:RRHavasuNWR.Salt Storage"
+  SLOT_MULTILINE    "CoRivMohaveToHavasu<br>:RRHavasuNWR<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMohaveToHavasu:RRHavasuNWR.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  78
+  SLOT_LABEL        "CoRivMohaveToHavasu:RRMohStmPlnt.Salt Storage"
+  SLOT_MULTILINE    "CoRivMohaveToHavasu<br>:RRMohStmPlnt<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMohaveToHavasu:RRMohStmPlnt.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  79
+  SLOT_LABEL        "CoRivMohaveToHavasu:RRNeedlesSBDCo.Salt Storage"
+  SLOT_MULTILINE    "CoRivMohaveToHavasu<br>:RRNeedlesSBDCo<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMohaveToHavasu:RRNeedlesSBDCo.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  80
+  SLOT_LABEL        "CoRivMohaveToHavasu:RROthersAndMisc.Salt Storage"
+  SLOT_MULTILINE    "CoRivMohaveToHavasu<br>:RROthersAndMisc<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMohaveToHavasu:RROthersAndMisc.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  81
+  SLOT_LABEL        "CoRivMohaveToHavasu:RRPhreatophytes.Salt Storage"
+  SLOT_MULTILINE    "CoRivMohaveToHavasu<br>:RRPhreatophytes<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivMohaveToHavasu:RRPhreatophytes.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  82
+  SLOT_LABEL        "CoRivPariaToLittleCO:PariaWQIP.Salt Storage"
+  SLOT_MULTILINE    "CoRivPariaToLittleCO<br>:PariaWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivPariaToLittleCO:PariaWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  83
+  SLOT_LABEL        "CoRivVirginToMead:GainsAboveHoover.Salt Storage"
+  SLOT_MULTILINE    "CoRivVirginToMead<br>:GainsAboveHoover<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivVirginToMead:GainsAboveHoover.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  84
+  SLOT_LABEL        "CoRivVirginToMead:MoapaValleyWQIP.Salt Storage"
+  SLOT_MULTILINE    "CoRivVirginToMead<br>:MoapaValleyWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivVirginToMead:MoapaValleyWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  85
+  SLOT_LABEL        "CoRivVirginToMead:NVGroundwater.Salt Storage"
+  SLOT_MULTILINE    "CoRivVirginToMead<br>:NVGroundwater<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivVirginToMead:NVGroundwater.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  86
+  SLOT_LABEL        "CoRivVirginToMead:NVTributaryConservation.Salt Storage"
+  SLOT_MULTILINE    "CoRivVirginToMead<br>:NVTributaryConservation<br>.Salt Storage"
+  RW_SLOT_NAME      "CoRivVirginToMead:NVTributaryConservation.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  87
+  SLOT_LABEL        "DoloresRiver:DoloresAgUseAbvCisco.Salt Storage"
+  SLOT_MULTILINE    "DoloresRiver<br>:DoloresAgUseAbvCisco<br>.Salt Storage"
+  RW_SLOT_NAME      "DoloresRiver:DoloresAgUseAbvCisco.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  88
+  SLOT_LABEL        "DoloresRiver:SanMiguelMiscUses.Salt Storage"
+  SLOT_MULTILINE    "DoloresRiver<br>:SanMiguelMiscUses<br>.Salt Storage"
+  RW_SLOT_NAME      "DoloresRiver:SanMiguelMiscUses.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  89
+  SLOT_LABEL        "DuchesneAboveStarv:RRDuchesneRExports.Salt Storage"
+  SLOT_MULTILINE    "DuchesneAboveStarv<br>:RRDuchesneRExports<br>.Salt Storage"
+  RW_SLOT_NAME      "DuchesneAboveStarv:RRDuchesneRExports.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  90
+  SLOT_LABEL        "DuchesneBelowStarv:RRAgAboveRandlett.Salt Storage"
+  SLOT_MULTILINE    "DuchesneBelowStarv<br>:RRAgAboveRandlett<br>.Salt Storage"
+  RW_SLOT_NAME      "DuchesneBelowStarv:RRAgAboveRandlett.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  91
+  SLOT_LABEL        "DuchesneBelowStarv:RRUintahBasinWQIP.Salt Storage"
+  SLOT_MULTILINE    "DuchesneBelowStarv<br>:RRUintahBasinWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "DuchesneBelowStarv:RRUintahBasinWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  92
+  SLOT_LABEL        "DuchesneBelowStarv:RRUpalcoUintaBonnUtes.Salt Storage"
+  SLOT_MULTILINE    "DuchesneBelowStarv<br>:RRUpalcoUintaBonnUtes<br>.Salt Storage"
+  RW_SLOT_NAME      "DuchesneBelowStarv:RRUpalcoUintaBonnUtes.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  93
+  SLOT_LABEL        "GrandValleyReach:AgriculturalUsesAbvCisco.Salt Storage"
+  SLOT_MULTILINE    "GrandValleyReach<br>:AgriculturalUsesAbvCisco<br>.Salt Storage"
+  RW_SLOT_NAME      "GrandValleyReach:AgriculturalUsesAbvCisco.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  94
+  SLOT_LABEL        "GrandValleyReach:GrandValleyWQIP.Salt Storage"
+  SLOT_MULTILINE    "GrandValleyReach<br>:GrandValleyWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "GrandValleyReach:GrandValleyWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  95
+  SLOT_LABEL        "GrandValleyReach:JuniorAgUsesBelowCameo.Salt Storage"
+  SLOT_MULTILINE    "GrandValleyReach<br>:JuniorAgUsesBelowCameo<br>.Salt Storage"
+  RW_SLOT_NAME      "GrandValleyReach:JuniorAgUsesBelowCameo.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  96
+  SLOT_LABEL        "GrandValleyReach:MiscUsesAbvCisco.Salt Storage"
+  SLOT_MULTILINE    "GrandValleyReach<br>:MiscUsesAbvCisco<br>.Salt Storage"
+  RW_SLOT_NAME      "GrandValleyReach:MiscUsesAbvCisco.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  97
+  SLOT_LABEL        "GreenRAboveFlamingGorge:GainsAboveGreendale.Salt Storage"
+  SLOT_MULTILINE    "GreenRAboveFlamingGorge<br>:GainsAboveGreendale<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRAboveFlamingGorge:GainsAboveGreendale.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  98
+  SLOT_LABEL        "GreenRAboveFlamingGorge:ManilaHenrysForkWQIP.Salt Storage"
+  SLOT_MULTILINE    "GreenRAboveFlamingGorge<br>:ManilaHenrysForkWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRAboveFlamingGorge:ManilaHenrysForkWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  99
+  SLOT_LABEL        "GreenRAboveFlamingGorge:RRAgUsesAboveGreendale.Salt Storage"
+  SLOT_MULTILINE    "GreenRAboveFlamingGorge<br>:RRAgUsesAboveGreendale<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRAboveFlamingGorge:RRAgUsesAboveGreendale.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  100
+  SLOT_LABEL        "GreenRAboveFlamingGorge:RRGreendaleUTAgandMIUses.Salt Storage"
+  SLOT_MULTILINE    "GreenRAboveFlamingGorge<br>:RRGreendaleUTAgandMIUses<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRAboveFlamingGorge:RRGreendaleUTAgandMIUses.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  101
+  SLOT_LABEL        "GreenRAboveFlamingGorge:RRLymanAreaAg.Salt Storage"
+  SLOT_MULTILINE    "GreenRAboveFlamingGorge<br>:RRLymanAreaAg<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRAboveFlamingGorge:RRLymanAreaAg.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  102
+  SLOT_LABEL        "GreenRAboveFlamingGorge:RRMiscUsesAbvGreendale.Salt Storage"
+  SLOT_MULTILINE    "GreenRAboveFlamingGorge<br>:RRMiscUsesAbvGreendale<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRAboveFlamingGorge:RRMiscUsesAbvGreendale.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  103
+  SLOT_LABEL        "GreenRAboveFontenelle:DivAboveFont.Salt Storage"
+  SLOT_MULTILINE    "GreenRAboveFontenelle<br>:DivAboveFont<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRAboveFontenelle:DivAboveFont.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  104
+  SLOT_LABEL        "GreenRAboveFontenelle:RRExportAboveFontenelle.Salt Storage"
+  SLOT_MULTILINE    "GreenRAboveFontenelle<br>:RRExportAboveFontenelle<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRAboveFontenelle:RRExportAboveFontenelle.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  105
+  SLOT_LABEL        "GreenRAboveGreenRiverWY:GainsAboveGRWY.Salt Storage"
+  SLOT_MULTILINE    "GreenRAboveGreenRiverWY<br>:GainsAboveGRWY<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRAboveGreenRiverWY:GainsAboveGRWY.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  106
+  SLOT_LABEL        "GreenRAboveGreenRiverWY:RRAGUsesAboveGreenRiverWy.Salt Storage"
+  SLOT_MULTILINE    "GreenRAboveGreenRiverWY<br>:RRAGUsesAboveGreenRiverWy<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRAboveGreenRiverWY:RRAGUsesAboveGreenRiverWy.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  107
+  SLOT_LABEL        "GreenRAboveGreenRiverWY:RRBigSandyWQIP.Salt Storage"
+  SLOT_MULTILINE    "GreenRAboveGreenRiverWY<br>:RRBigSandyWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRAboveGreenRiverWY:RRBigSandyWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  108
+  SLOT_LABEL        "GreenRAboveGreenRiverWY:RRSeedskadeeProject.Salt Storage"
+  SLOT_MULTILINE    "GreenRAboveGreenRiverWY<br>:RRSeedskadeeProject<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRAboveGreenRiverWY:RRSeedskadeeProject.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  109
+  SLOT_LABEL        "GreenRWhiteToSanRafael:GainsAboveGreenRiverUT.Salt Storage"
+  SLOT_MULTILINE    "GreenRWhiteToSanRafael<br>:GainsAboveGreenRiverUT<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRWhiteToSanRafael:GainsAboveGreenRiverUT.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  110
+  SLOT_LABEL        "GreenRWhiteToSanRafael:RRAgUsesAboveGreenRUt.Salt Storage"
+  SLOT_MULTILINE    "GreenRWhiteToSanRafael<br>:RRAgUsesAboveGreenRUt<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRWhiteToSanRafael:RRAgUsesAboveGreenRUt.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  111
+  SLOT_LABEL        "GreenRWhiteToSanRafael:RRPriceRiverExport.Salt Storage"
+  SLOT_MULTILINE    "GreenRWhiteToSanRafael<br>:RRPriceRiverExport<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRWhiteToSanRafael:RRPriceRiverExport.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  112
+  SLOT_LABEL        "GreenRWhiteToSanRafael:RRPriceRiverWQIP.Salt Storage"
+  SLOT_MULTILINE    "GreenRWhiteToSanRafael<br>:RRPriceRiverWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRWhiteToSanRafael:RRPriceRiverWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  113
+  SLOT_LABEL        "GreenRWhiteToSanRafael:RRPriceRMAndIAndEnergy.Salt Storage"
+  SLOT_MULTILINE    "GreenRWhiteToSanRafael<br>:RRPriceRMAndIAndEnergy<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRWhiteToSanRafael:RRPriceRMAndIAndEnergy.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  114
+  SLOT_LABEL        "GreenRYampaToDuchesne:RRMAndIUseBtwnGreendaleAndOuray.Salt Storage"
+  SLOT_MULTILINE    "GreenRYampaToDuchesne<br>:RRMAndIUseBtwnGreendaleAndOuray<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRYampaToDuchesne:RRMAndIUseBtwnGreendaleAndOuray.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  115
+  SLOT_LABEL        "GreenRYampaToDuchesne:RRUsesBetGreendaleAndOuray.Salt Storage"
+  SLOT_MULTILINE    "GreenRYampaToDuchesne<br>:RRUsesBetGreendaleAndOuray<br>.Salt Storage"
+  RW_SLOT_NAME      "GreenRYampaToDuchesne:RRUsesBetGreendaleAndOuray.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  116
+  SLOT_LABEL        "GunnisonRiverAboveCrystal:GainsAboveCrystal.Salt Storage"
+  SLOT_MULTILINE    "GunnisonRiverAboveCrystal<br>:GainsAboveCrystal<br>.Salt Storage"
+  RW_SLOT_NAME      "GunnisonRiverAboveCrystal:GainsAboveCrystal.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  117
+  SLOT_LABEL        "GunnisonRiverAboveGrandJunction:AgAndMAndIAbvGrandJunction.Salt Storage"
+  SLOT_MULTILINE    "GunnisonRiverAboveGrandJunction<br>:AgAndMAndIAbvGrandJunction<br>.Salt Storage"
+  RW_SLOT_NAME      "GunnisonRiverAboveGrandJunction:AgAndMAndIAbvGrandJunction.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  118
+  SLOT_LABEL        "GunnisonRiverAboveGrandJunction:DallasCreekProject_Ag.Salt Storage"
+  SLOT_MULTILINE    "GunnisonRiverAboveGrandJunction<br>:DallasCreekProject_Ag<br>.Salt Storage"
+  RW_SLOT_NAME      "GunnisonRiverAboveGrandJunction:DallasCreekProject_Ag.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  119
+  SLOT_LABEL        "GunnisonRiverAboveGrandJunction:GainsGunnisonRiverAbvGrandJunction.Salt Storage"
+  SLOT_MULTILINE    "GunnisonRiverAboveGrandJunction<br>:GainsGunnisonRiverAbvGrandJunction<br>.Salt Storage"
+  RW_SLOT_NAME      "GunnisonRiverAboveGrandJunction:GainsGunnisonRiverAbvGrandJunction.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  120
+  SLOT_LABEL        "GunnisonRiverAboveGrandJunction:LowerGunnisonWQIP.Salt Storage"
+  SLOT_MULTILINE    "GunnisonRiverAboveGrandJunction<br>:LowerGunnisonWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "GunnisonRiverAboveGrandJunction:LowerGunnisonWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  121
+  SLOT_LABEL        "GunnisonRiverAboveGrandJunction:MinimumFlowBelowCrystalTunnelDiver.Salt Storage"
+  SLOT_MULTILINE    "GunnisonRiverAboveGrandJunction<br>:MinimumFlowBelowCrystalTunnelDiver<br>.Salt Storage"
+  RW_SLOT_NAME      "GunnisonRiverAboveGrandJunction:MinimumFlowBelowCrystalTunnelDiver.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  122
+  SLOT_LABEL        "GunnisonRiverAboveGrandJunction:ReturnFlowFromTunnel.Salt Storage"
+  SLOT_MULTILINE    "GunnisonRiverAboveGrandJunction<br>:ReturnFlowFromTunnel<br>.Salt Storage"
+  RW_SLOT_NAME      "GunnisonRiverAboveGrandJunction:ReturnFlowFromTunnel.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  123
+  SLOT_LABEL        "GunnisonRiverAboveGrandJunction:TunnelDivBelowCrystalForAg.Salt Storage"
+  SLOT_MULTILINE    "GunnisonRiverAboveGrandJunction<br>:TunnelDivBelowCrystalForAg<br>.Salt Storage"
+  RW_SLOT_NAME      "GunnisonRiverAboveGrandJunction:TunnelDivBelowCrystalForAg.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  124
+  SLOT_LABEL        "ImperialDamDiversionsColoradoR:AllAmericanCanalCoachella.Salt Storage"
+  SLOT_MULTILINE    "ImperialDamDiversionsColoradoR<br>:AllAmericanCanalCoachella<br>.Salt Storage"
+  RW_SLOT_NAME      "ImperialDamDiversionsColoradoR:AllAmericanCanalCoachella.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  125
+  SLOT_LABEL        "ImperialDamDiversionsColoradoR:AllAmericanCanalImperial.Salt Storage"
+  SLOT_MULTILINE    "ImperialDamDiversionsColoradoR<br>:AllAmericanCanalImperial<br>.Salt Storage"
+  RW_SLOT_NAME      "ImperialDamDiversionsColoradoR:AllAmericanCanalImperial.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  126
+  SLOT_LABEL        "ImperialDamDiversionsColoradoR:AllAmericanCanalYumaProject.Salt Storage"
+  SLOT_MULTILINE    "ImperialDamDiversionsColoradoR<br>:AllAmericanCanalYumaProject<br>.Salt Storage"
+  RW_SLOT_NAME      "ImperialDamDiversionsColoradoR:AllAmericanCanalYumaProject.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  127
+  SLOT_LABEL        "ImperialDamDiversionsColoradoR:GilaAndYumaUsersPriority1.Salt Storage"
+  SLOT_MULTILINE    "ImperialDamDiversionsColoradoR<br>:GilaAndYumaUsersPriority1<br>.Salt Storage"
+  RW_SLOT_NAME      "ImperialDamDiversionsColoradoR:GilaAndYumaUsersPriority1.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  128
+  SLOT_LABEL        "ImperialDamDiversionsColoradoR:GilaAndYumaUsersPriority2and3.Salt Storage"
+  SLOT_MULTILINE    "ImperialDamDiversionsColoradoR<br>:GilaAndYumaUsersPriority2and3<br>.Salt Storage"
+  RW_SLOT_NAME      "ImperialDamDiversionsColoradoR:GilaAndYumaUsersPriority2and3.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  129
+  SLOT_LABEL        "ImperialDamDiversionsColoradoR:GilaAndYumaUsersPriority4.Salt Storage"
+  SLOT_MULTILINE    "ImperialDamDiversionsColoradoR<br>:GilaAndYumaUsersPriority4<br>.Salt Storage"
+  RW_SLOT_NAME      "ImperialDamDiversionsColoradoR:GilaAndYumaUsersPriority4.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  130
+  SLOT_LABEL        "ImperialDamDiversionsColoradoR:GilaGravityMainCanalPriority1.Salt Storage"
+  SLOT_MULTILINE    "ImperialDamDiversionsColoradoR<br>:GilaGravityMainCanalPriority1<br>.Salt Storage"
+  RW_SLOT_NAME      "ImperialDamDiversionsColoradoR:GilaGravityMainCanalPriority1.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  131
+  SLOT_LABEL        "ImperialDamDiversionsColoradoR:GilaGravityMainCanalPriority2and3.Salt Storage"
+  SLOT_MULTILINE    "ImperialDamDiversionsColoradoR<br>:GilaGravityMainCanalPriority2and3<br>.Salt Storage"
+  RW_SLOT_NAME      "ImperialDamDiversionsColoradoR:GilaGravityMainCanalPriority2and3.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  132
+  SLOT_LABEL        "ImperialDamDiversionsColoradoR:SaltonSea.Salt Storage"
+  SLOT_MULTILINE    "ImperialDamDiversionsColoradoR<br>:SaltonSea<br>.Salt Storage"
+  RW_SLOT_NAME      "ImperialDamDiversionsColoradoR:SaltonSea.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  133
+  SLOT_LABEL        "ImperialDamDiversionsColoradoR:YumaCityAndCocopah.Salt Storage"
+  SLOT_MULTILINE    "ImperialDamDiversionsColoradoR<br>:YumaCityAndCocopah<br>.Salt Storage"
+  RW_SLOT_NAME      "ImperialDamDiversionsColoradoR:YumaCityAndCocopah.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  134
+  SLOT_LABEL        "LeeFerryDeficitSupply.Salt Storage"
+  SLOT_MULTILINE    "LeeFerryDeficitSupply<br>.Salt Storage"
+  RW_SLOT_NAME      "LeeFerryDeficitSupply.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  135
+  SLOT_LABEL        "LittleColoradoRiver:NavajoLittleCO.Salt Storage"
+  SLOT_MULTILINE    "LittleColoradoRiver<br>:NavajoLittleCO<br>.Salt Storage"
+  RW_SLOT_NAME      "LittleColoradoRiver:NavajoLittleCO.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  136
+  SLOT_LABEL        "LittleSnakeRiver:RRColoradoUsesOnLittleSnakeR.Salt Storage"
+  SLOT_MULTILINE    "LittleSnakeRiver<br>:RRColoradoUsesOnLittleSnakeR<br>.Salt Storage"
+  RW_SLOT_NAME      "LittleSnakeRiver:RRColoradoUsesOnLittleSnakeR.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  137
+  SLOT_LABEL        "LittleSnakeRiver:RRLittleSnakeRMiscUses.Salt Storage"
+  SLOT_MULTILINE    "LittleSnakeRiver<br>:RRLittleSnakeRMiscUses<br>.Salt Storage"
+  RW_SLOT_NAME      "LittleSnakeRiver:RRLittleSnakeRMiscUses.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  138
+  SLOT_LABEL        "LittleSnakeRiver:RRWyUsesOnLittleSnakeR.Salt Storage"
+  SLOT_MULTILINE    "LittleSnakeRiver<br>:RRWyUsesOnLittleSnakeR<br>.Salt Storage"
+  RW_SLOT_NAME      "LittleSnakeRiver:RRWyUsesOnLittleSnakeR.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  139
+  SLOT_LABEL        "LowerSanJuanRiver:BelowFourCorners.Salt Storage"
+  SLOT_MULTILINE    "LowerSanJuanRiver<br>:BelowFourCorners<br>.Salt Storage"
+  RW_SLOT_NAME      "LowerSanJuanRiver:BelowFourCorners.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  140
+  SLOT_LABEL        "LowerSanJuanRiver:EnergyAndMAndI.Salt Storage"
+  SLOT_MULTILINE    "LowerSanJuanRiver<br>:EnergyAndMAndI<br>.Salt Storage"
+  RW_SLOT_NAME      "LowerSanJuanRiver:EnergyAndMAndI.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  141
+  SLOT_LABEL        "LowerSanJuanRiver:NewMexicoUsesBelowShiprock_NM.Salt Storage"
+  SLOT_MULTILINE    "LowerSanJuanRiver<br>:NewMexicoUsesBelowShiprock_NM<br>.Salt Storage"
+  RW_SLOT_NAME      "LowerSanJuanRiver:NewMexicoUsesBelowShiprock_NM.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  142
+  SLOT_LABEL        "LowerSanJuanRiver:ShiprockToFourCornersMI.Salt Storage"
+  SLOT_MULTILINE    "LowerSanJuanRiver<br>:ShiprockToFourCornersMI<br>.Salt Storage"
+  RW_SLOT_NAME      "LowerSanJuanRiver:ShiprockToFourCornersMI.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  143
+  SLOT_LABEL        "LowerSanJuanRiver:SmallResEvapFarmToShip.Salt Storage"
+  SLOT_MULTILINE    "LowerSanJuanRiver<br>:SmallResEvapFarmToShip<br>.Salt Storage"
+  RW_SLOT_NAME      "LowerSanJuanRiver:SmallResEvapFarmToShip.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  144
+  SLOT_LABEL        "MWDAndCAPReach:CAPDiversion.Salt Storage"
+  SLOT_MULTILINE    "MWDAndCAPReach<br>:CAPDiversion<br>.Salt Storage"
+  RW_SLOT_NAME      "MWDAndCAPReach:CAPDiversion.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  145
+  SLOT_LABEL        "MWDAndCAPReach:CAPMinDiversion.Salt Storage"
+  SLOT_MULTILINE    "MWDAndCAPReach<br>:CAPMinDiversion<br>.Salt Storage"
+  RW_SLOT_NAME      "MWDAndCAPReach:CAPMinDiversion.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  146
+  SLOT_LABEL        "MWDAndCAPReach:IndianWaterRightsSettlementPriority4.Salt Storage"
+  SLOT_MULTILINE    "MWDAndCAPReach<br>:IndianWaterRightsSettlementPriority4<br>.Salt Storage"
+  RW_SLOT_NAME      "MWDAndCAPReach:IndianWaterRightsSettlementPriority4.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  147
+  SLOT_LABEL        "MWDAndCAPReach:MWDDiversion.Salt Storage"
+  SLOT_MULTILINE    "MWDAndCAPReach<br>:MWDDiversion<br>.Salt Storage"
+  RW_SLOT_NAME      "MWDAndCAPReach:MWDDiversion.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  148
+  SLOT_LABEL        "NevadaDesalination.Salt Storage"
+  SLOT_MULTILINE    "NevadaDesalination<br>.Salt Storage"
+  RW_SLOT_NAME      "NevadaDesalination.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  149
+  SLOT_LABEL        "NevadaGroundwater.Salt Storage"
+  SLOT_MULTILINE    "NevadaGroundwater<br>.Salt Storage"
+  RW_SLOT_NAME      "NevadaGroundwater.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  150
+  SLOT_LABEL        "NevadaTributaryConservation.Salt Storage"
+  SLOT_MULTILINE    "NevadaTributaryConservation<br>.Salt Storage"
+  RW_SLOT_NAME      "NevadaTributaryConservation.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  151
+  SLOT_LABEL        "PariaRiver.Salt Storage"
+  SLOT_MULTILINE    "PariaRiver<br>.Salt Storage"
+  RW_SLOT_NAME      "PariaRiver.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  152
+  SLOT_LABEL        "SanJuanBelowBluff:UTSJBelowBluff.Salt Storage"
+  SLOT_MULTILINE    "SanJuanBelowBluff<br>:UTSJBelowBluff<br>.Salt Storage"
+  RW_SLOT_NAME      "SanJuanBelowBluff:UTSJBelowBluff.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  153
+  SLOT_LABEL        "SanJuanPowell:AddFutureWQIPs.Salt Storage"
+  SLOT_MULTILINE    "SanJuanPowell<br>:AddFutureWQIPs<br>.Salt Storage"
+  RW_SLOT_NAME      "SanJuanPowell:AddFutureWQIPs.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  154
+  SLOT_LABEL        "SanJuanPowell:ArizonaMiscUses.Salt Storage"
+  SLOT_MULTILINE    "SanJuanPowell<br>:ArizonaMiscUses<br>.Salt Storage"
+  RW_SLOT_NAME      "SanJuanPowell:ArizonaMiscUses.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  155
+  SLOT_LABEL        "SanJuanPowell:GainsAboveLeesFerry.Salt Storage"
+  SLOT_MULTILINE    "SanJuanPowell<br>:GainsAboveLeesFerry<br>.Salt Storage"
+  RW_SLOT_NAME      "SanJuanPowell:GainsAboveLeesFerry.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  156
+  SLOT_LABEL        "SanJuanPowell:LeeFerryDeficitSupply.Salt Storage"
+  SLOT_MULTILINE    "SanJuanPowell<br>:LeeFerryDeficitSupply<br>.Salt Storage"
+  RW_SLOT_NAME      "SanJuanPowell:LeeFerryDeficitSupply.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  157
+  SLOT_LABEL        "SanJuanPowell:USDATier2WQIP.Salt Storage"
+  SLOT_MULTILINE    "SanJuanPowell<br>:USDATier2WQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "SanJuanPowell:USDATier2WQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  158
+  SLOT_LABEL        "SanJuanTributaries:AnimasRiverAg.Salt Storage"
+  SLOT_MULTILINE    "SanJuanTributaries<br>:AnimasRiverAg<br>.Salt Storage"
+  RW_SLOT_NAME      "SanJuanTributaries:AnimasRiverAg.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  159
+  SLOT_LABEL        "SanJuanTributaries:AnimasRiverMI.Salt Storage"
+  SLOT_MULTILINE    "SanJuanTributaries<br>:AnimasRiverMI<br>.Salt Storage"
+  RW_SLOT_NAME      "SanJuanTributaries:AnimasRiverMI.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  160
+  SLOT_LABEL        "SanJuanTributaries:AnimasRiverSmallResEvap.Salt Storage"
+  SLOT_MULTILINE    "SanJuanTributaries<br>:AnimasRiverSmallResEvap<br>.Salt Storage"
+  RW_SLOT_NAME      "SanJuanTributaries:AnimasRiverSmallResEvap.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  161
+  SLOT_LABEL        "SanJuanTributaries:ColoradoAg.Salt Storage"
+  SLOT_MULTILINE    "SanJuanTributaries<br>:ColoradoAg<br>.Salt Storage"
+  RW_SLOT_NAME      "SanJuanTributaries:ColoradoAg.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  162
+  SLOT_LABEL        "SanJuanTributaries:ColoradoUsesBelowShiprock_NM.Salt Storage"
+  SLOT_MULTILINE    "SanJuanTributaries<br>:ColoradoUsesBelowShiprock_NM<br>.Salt Storage"
+  RW_SLOT_NAME      "SanJuanTributaries:ColoradoUsesBelowShiprock_NM.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  163
+  SLOT_LABEL        "SanJuanTributaries:DoloresProjImportUses.Salt Storage"
+  SLOT_MULTILINE    "SanJuanTributaries<br>:DoloresProjImportUses<br>.Salt Storage"
+  RW_SLOT_NAME      "SanJuanTributaries:DoloresProjImportUses.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  164
+  SLOT_LABEL        "SanJuanTributaries:LaPlataRiverAg.Salt Storage"
+  SLOT_MULTILINE    "SanJuanTributaries<br>:LaPlataRiverAg<br>.Salt Storage"
+  RW_SLOT_NAME      "SanJuanTributaries:LaPlataRiverAg.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  165
+  SLOT_LABEL        "SanJuanTributaries:LaPlataRiverMI.Salt Storage"
+  SLOT_MULTILINE    "SanJuanTributaries<br>:LaPlataRiverMI<br>.Salt Storage"
+  RW_SLOT_NAME      "SanJuanTributaries:LaPlataRiverMI.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  166
+  SLOT_LABEL        "SanJuanTributaries:LaPlataSmallResEvap.Salt Storage"
+  SLOT_MULTILINE    "SanJuanTributaries<br>:LaPlataSmallResEvap<br>.Salt Storage"
+  RW_SLOT_NAME      "SanJuanTributaries:LaPlataSmallResEvap.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  167
+  SLOT_LABEL        "SanJuanTributaries:McElmoCreekWQIP.Salt Storage"
+  SLOT_MULTILINE    "SanJuanTributaries<br>:McElmoCreekWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "SanJuanTributaries:McElmoCreekWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  168
+  SLOT_LABEL        "SanJuanTributaries:MiscellaneousColoradoUses.Salt Storage"
+  SLOT_MULTILINE    "SanJuanTributaries<br>:MiscellaneousColoradoUses<br>.Salt Storage"
+  RW_SLOT_NAME      "SanJuanTributaries:MiscellaneousColoradoUses.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  169
+  SLOT_LABEL        "SanJuanTributaries:TransbasinDivFromDolores.Salt Storage"
+  SLOT_MULTILINE    "SanJuanTributaries<br>:TransbasinDivFromDolores<br>.Salt Storage"
+  RW_SLOT_NAME      "SanJuanTributaries:TransbasinDivFromDolores.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  170
+  SLOT_LABEL        "SanRafaelRiver:RRMiscUses.Salt Storage"
+  SLOT_MULTILINE    "SanRafaelRiver<br>:RRMiscUses<br>.Salt Storage"
+  RW_SLOT_NAME      "SanRafaelRiver:RRMiscUses.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  171
+  SLOT_LABEL        "SanRafaelRiver:RRSanRafaelEnergyUses.Salt Storage"
+  SLOT_MULTILINE    "SanRafaelRiver<br>:RRSanRafaelEnergyUses<br>.Salt Storage"
+  RW_SLOT_NAME      "SanRafaelRiver:RRSanRafaelEnergyUses.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  172
+  SLOT_LABEL        "SanRafaelToColorado:RRUtahUsesAboveLeesFerry.Salt Storage"
+  SLOT_MULTILINE    "SanRafaelToColorado<br>:RRUtahUsesAboveLeesFerry<br>.Salt Storage"
+  RW_SLOT_NAME      "SanRafaelToColorado:RRUtahUsesAboveLeesFerry.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  173
+  SLOT_LABEL        "SJAboveNavajo:ReachColoNMAg.Salt Storage"
+  SLOT_MULTILINE    "SJAboveNavajo<br>:ReachColoNMAg<br>.Salt Storage"
+  RW_SLOT_NAME      "SJAboveNavajo:ReachColoNMAg.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  174
+  SLOT_LABEL        "SJAboveNavajo:ReachSJChamaExport.Salt Storage"
+  SLOT_MULTILINE    "SJAboveNavajo<br>:ReachSJChamaExport<br>.Salt Storage"
+  RW_SLOT_NAME      "SJAboveNavajo:ReachSJChamaExport.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  175
+  SLOT_LABEL        "SJAboveNavajo:ReachSJNewMexicoMIAbvArch.Salt Storage"
+  SLOT_MULTILINE    "SJAboveNavajo<br>:ReachSJNewMexicoMIAbvArch<br>.Salt Storage"
+  RW_SLOT_NAME      "SJAboveNavajo:ReachSJNewMexicoMIAbvArch.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  176
+  SLOT_LABEL        "SJAboveNavajo:ReachSJNewMexicoResEvapAbvArch.Salt Storage"
+  SLOT_MULTILINE    "SJAboveNavajo<br>:ReachSJNewMexicoResEvapAbvArch<br>.Salt Storage"
+  RW_SLOT_NAME      "SJAboveNavajo:ReachSJNewMexicoResEvapAbvArch.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  177
+  SLOT_LABEL        "SJBelowNavajo:AbvShiprockWQIP.Salt Storage"
+  SLOT_MULTILINE    "SJBelowNavajo<br>:AbvShiprockWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "SJBelowNavajo:AbvShiprockWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  178
+  SLOT_LABEL        "SJBelowNavajo:NewMexicoAgSJUse.Salt Storage"
+  SLOT_MULTILINE    "SJBelowNavajo<br>:NewMexicoAgSJUse<br>.Salt Storage"
+  RW_SLOT_NAME      "SJBelowNavajo:NewMexicoAgSJUse.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  179
+  SLOT_LABEL        "SJBelowNavajo:NewMexicoMiscUses.Salt Storage"
+  SLOT_MULTILINE    "SJBelowNavajo<br>:NewMexicoMiscUses<br>.Salt Storage"
+  RW_SLOT_NAME      "SJBelowNavajo:NewMexicoMiscUses.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  180
+  SLOT_LABEL        "SJBelowNavajo:NIIPGWReturns.Salt Storage"
+  SLOT_MULTILINE    "SJBelowNavajo<br>:NIIPGWReturns<br>.Salt Storage"
+  RW_SLOT_NAME      "SJBelowNavajo:NIIPGWReturns.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  181
+  SLOT_LABEL        "SJBelowNavajo:NIIPReturns.Salt Storage"
+  SLOT_MULTILINE    "SJBelowNavajo<br>:NIIPReturns<br>.Salt Storage"
+  RW_SLOT_NAME      "SJBelowNavajo:NIIPReturns.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  182
+  SLOT_LABEL        "TaylorAboveBlueMesa:GainsAboveBlueMesa.Salt Storage"
+  SLOT_MULTILINE    "TaylorAboveBlueMesa<br>:GainsAboveBlueMesa<br>.Salt Storage"
+  RW_SLOT_NAME      "TaylorAboveBlueMesa:GainsAboveBlueMesa.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  183
+  SLOT_LABEL        "TaylorAboveBlueMesa:PresLevUsesAbvBlueMesa.Salt Storage"
+  SLOT_MULTILINE    "TaylorAboveBlueMesa<br>:PresLevUsesAbvBlueMesa<br>.Salt Storage"
+  RW_SLOT_NAME      "TaylorAboveBlueMesa:PresLevUsesAbvBlueMesa.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  184
+  SLOT_LABEL        "TaylorAboveBlueMesa:UpperGunnisonDev_MiscUses.Salt Storage"
+  SLOT_MULTILINE    "TaylorAboveBlueMesa<br>:UpperGunnisonDev_MiscUses<br>.Salt Storage"
+  RW_SLOT_NAME      "TaylorAboveBlueMesa:UpperGunnisonDev_MiscUses.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  185
+  SLOT_LABEL        "UpperColoradoAboveCameo:AbvCameoWQIP.Salt Storage"
+  SLOT_MULTILINE    "UpperColoradoAboveCameo<br>:AbvCameoWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "UpperColoradoAboveCameo:AbvCameoWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  186
+  SLOT_LABEL        "UpperColoradoAboveCameo:AgricultureAboveCameo.Salt Storage"
+  SLOT_MULTILINE    "UpperColoradoAboveCameo<br>:AgricultureAboveCameo<br>.Salt Storage"
+  RW_SLOT_NAME      "UpperColoradoAboveCameo:AgricultureAboveCameo.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  187
+  SLOT_LABEL        "UpperColoradoAboveCameo:ExportsFromRoaringForkRiver.Salt Storage"
+  SLOT_MULTILINE    "UpperColoradoAboveCameo<br>:ExportsFromRoaringForkRiver<br>.Salt Storage"
+  RW_SLOT_NAME      "UpperColoradoAboveCameo:ExportsFromRoaringForkRiver.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  188
+  SLOT_LABEL        "UpperColoradoAboveCameo:GainsAboveCameo.Salt Storage"
+  SLOT_MULTILINE    "UpperColoradoAboveCameo<br>:GainsAboveCameo<br>.Salt Storage"
+  RW_SLOT_NAME      "UpperColoradoAboveCameo:GainsAboveCameo.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  189
+  SLOT_LABEL        "UpperColoradoAboveCameo:MIaboveCameo.Salt Storage"
+  SLOT_MULTILINE    "UpperColoradoAboveCameo<br>:MIaboveCameo<br>.Salt Storage"
+  RW_SLOT_NAME      "UpperColoradoAboveCameo:MIaboveCameo.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  190
+  SLOT_LABEL        "UpperColoradoAboveCameo:ShoshonePower.Salt Storage"
+  SLOT_MULTILINE    "UpperColoradoAboveCameo<br>:ShoshonePower<br>.Salt Storage"
+  RW_SLOT_NAME      "UpperColoradoAboveCameo:ShoshonePower.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  191
+  SLOT_LABEL        "UpperColoradoCameoToGunnison:GainsAboveCisco.Salt Storage"
+  SLOT_MULTILINE    "UpperColoradoCameoToGunnison<br>:GainsAboveCisco<br>.Salt Storage"
+  RW_SLOT_NAME      "UpperColoradoCameoToGunnison:GainsAboveCisco.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  192
+  SLOT_LABEL        "UpperColoradoReach:AgAndMAndIAbvGlenwoodSprings.Salt Storage"
+  SLOT_MULTILINE    "UpperColoradoReach<br>:AgAndMAndIAbvGlenwoodSprings<br>.Salt Storage"
+  RW_SLOT_NAME      "UpperColoradoReach:AgAndMAndIAbvGlenwoodSprings.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  193
+  SLOT_LABEL        "UT_COStatelinetoColorado:BLMrangelandWQIP.Salt Storage"
+  SLOT_MULTILINE    "UT_COStatelinetoColorado<br>:BLMrangelandWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "UT_COStatelinetoColorado:BLMrangelandWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  194
+  SLOT_LABEL        "UT_COStatelinetoColorado:UtahUsesAboveGreenRivConfluence.Salt Storage"
+  SLOT_MULTILINE    "UT_COStatelinetoColorado<br>:UtahUsesAboveGreenRivConfluence<br>.Salt Storage"
+  RW_SLOT_NAME      "UT_COStatelinetoColorado:UtahUsesAboveGreenRivConfluence.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  195
+  SLOT_LABEL        "VirginRiver:RRLowerVirginWQIP.Salt Storage"
+  SLOT_MULTILINE    "VirginRiver<br>:RRLowerVirginWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "VirginRiver:RRLowerVirginWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  196
+  SLOT_LABEL        "VirginRiver:RRWarnerValley.Salt Storage"
+  SLOT_MULTILINE    "VirginRiver<br>:RRWarnerValley<br>.Salt Storage"
+  RW_SLOT_NAME      "VirginRiver:RRWarnerValley.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  197
+  SLOT_LABEL        "WhiteRiverAboveWatson:RRColoradoAg.Salt Storage"
+  SLOT_MULTILINE    "WhiteRiverAboveWatson<br>:RRColoradoAg<br>.Salt Storage"
+  RW_SLOT_NAME      "WhiteRiverAboveWatson:RRColoradoAg.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  198
+  SLOT_LABEL        "WhiteRiverAboveWatson:RRColoradoMiscUses.Salt Storage"
+  SLOT_MULTILINE    "WhiteRiverAboveWatson<br>:RRColoradoMiscUses<br>.Salt Storage"
+  RW_SLOT_NAME      "WhiteRiverAboveWatson:RRColoradoMiscUses.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  199
+  SLOT_LABEL        "WhiteRiverAboveWatson:RRColoradoOilShale.Salt Storage"
+  SLOT_MULTILINE    "WhiteRiverAboveWatson<br>:RRColoradoOilShale<br>.Salt Storage"
+  RW_SLOT_NAME      "WhiteRiverAboveWatson:RRColoradoOilShale.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  200
+  SLOT_LABEL        "WhiteRiverAboveWatson:RRMeekerDomeWQIP.Salt Storage"
+  SLOT_MULTILINE    "WhiteRiverAboveWatson<br>:RRMeekerDomeWQIP<br>.Salt Storage"
+  RW_SLOT_NAME      "WhiteRiverAboveWatson:RRMeekerDomeWQIP.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  201
+  SLOT_LABEL        "WhiteRiverBelowWatson:RRUtahAgUses.Salt Storage"
+  SLOT_MULTILINE    "WhiteRiverBelowWatson<br>:RRUtahAgUses<br>.Salt Storage"
+  RW_SLOT_NAME      "WhiteRiverBelowWatson:RRUtahAgUses.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  202
+  SLOT_LABEL        "WhiteRiverBelowWatson:RRUtahSynfuels.Salt Storage"
+  SLOT_MULTILINE    "WhiteRiverBelowWatson<br>:RRUtahSynfuels<br>.Salt Storage"
+  RW_SLOT_NAME      "WhiteRiverBelowWatson:RRUtahSynfuels.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  203
+  SLOT_LABEL        "YampaRiver:RRAgUsesAboveMaybell.Salt Storage"
+  SLOT_MULTILINE    "YampaRiver<br>:RRAgUsesAboveMaybell<br>.Salt Storage"
+  RW_SLOT_NAME      "YampaRiver:RRAgUsesAboveMaybell.Salt Storage"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_DIV  204
+  SLOT_LABEL        ""
+
+# SCT File End

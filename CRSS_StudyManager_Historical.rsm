@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CADSWES, University of Colorado, http://cadswes.colorado.edu/
+RiverSMART 1.8
+Document created on Mon Mar 5 18:03:48 2018
+Document created by jshirey
+-->
+<Study mode="fullstudy" uuid="{b80a2925-d0b8-45b3-814a-5d9a9313daf2}">
+<version minor="8" patch="0" major="1"><type>RiverSMART</type>
+</version>
+<pluginList><plugin minor="0" patch="0" major="1"><type>CSV Combiner</type>
+</plugin>
+<plugin minor="1" patch="0" major="1"><type>GPAT Graphs</type>
+</plugin>
+<plugin minor="1" patch="0" major="1"><type>Hydrology Simulator</type>
+</plugin>
+<plugin minor="1" patch="0" major="1"><type>R Plugin</type>
+</plugin>
+<plugin minor="0" patch="0" major="1"><type>RDF Annualizer</type>
+</plugin>
+<plugin minor="0" patch="0" major="1"><type>RDF To Excel</type>
+</plugin>
+<plugin minor="1" patch="0" major="1"><type>RiverWare</type>
+</plugin>
+<plugin minor="1" patch="0" major="1"><type>RiverWare DMI</type>
+</plugin>
+<plugin minor="0" patch="0" major="1"><type>RiverWare DMI Sequence</type>
+</plugin>
+<plugin minor="1" patch="0" major="1"><type>RiverWare MRM</type>
+</plugin>
+<plugin minor="1" patch="0" major="1"><type>RiverWare Model</type>
+</plugin>
+<plugin minor="0" patch="0" major="1"><type>RiverWare Policy</type>
+</plugin>
+<plugin minor="0" patch="0" major="1"><type>RiverWare Run Range</type>
+</plugin>
+<plugin minor="1" patch="0" major="1"><type>Spatial Disagg</type>
+</plugin>
+<plugin minor="1" patch="0" major="1"><type>Temporal Disagg</type>
+</plugin>
+</pluginList>
+<fileInfo><createdOn>Mon Mar 5 18:03:48 2018</createdOn>
+<createdBy>jshirey</createdBy>
+</fileInfo>
+<name>CRSS Quarterly Studies</name>
+<studyDirPath>$CRSS_DIR</studyDirPath>
+<diagEnabled>1</diagEnabled>
+<scene><fontSize>12</fontSize>
+<fontColor>#ff0000</fontColor>
+</scene>
+<graph textCnt="7" eventCnt="30" fileCnt="14" numNode="51"><eventNode type="RiverWare MRM" nodeNum="0"><scenePos x="2027.5" y="2531.5"></scenePos>
+<eventConfig><uuid>{75199c63-174d-4ac7-8e29-b182f1e8e48e}</uuid>
+<name>2006</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>Hist_DNF2006</mrmConfigName>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare MRM" nodeNum="1"><scenePos x="2218.5" y="2532.5"></scenePos>
+<eventConfig><uuid>{058d970e-278c-4ab1-a672-80d8046825da}</uuid>
+<name>2009</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>Hist_DNF2009</mrmConfigName>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare MRM" nodeNum="2"><scenePos x="1958.5" y="2604.5"></scenePos>
+<eventConfig><uuid>{5a067278-2749-4ce2-9b50-62707d0579bb}</uuid>
+<name>2010</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>Hist_DNF2010</mrmConfigName>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare MRM" nodeNum="3"><scenePos x="2095.5" y="2531.5"></scenePos>
+<eventConfig><uuid>{d4d0da44-8783-40ab-b9ea-ce1f14be0940}</uuid>
+<name>2007</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>Hist_DNF2007</mrmConfigName>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare MRM" nodeNum="4"><scenePos x="2001.5" y="2677.5"></scenePos>
+<eventConfig><uuid>{7d498209-106c-4522-8b04-8f4bc854bfa6}</uuid>
+<name>2015</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>Hist_DNF2015</mrmConfigName>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare MRM" nodeNum="5"><scenePos x="2220.5" y="2605.5"></scenePos>
+<eventConfig><uuid>{dc519f3f-998f-4c9d-ad55-de55e0c20883}</uuid>
+<name>2014</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>Hist_DNF2014</mrmConfigName>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare MRM" nodeNum="6"><scenePos x="1959.5" y="2533.5"></scenePos>
+<eventConfig><uuid>{54cca810-02bf-4f5a-8f6e-600fc26f480e}</uuid>
+<name>2005</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>Hist_DNF2005</mrmConfigName>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare MRM" nodeNum="7"><scenePos x="2217.5" y="2466.5"></scenePos>
+<eventConfig><uuid>{5cbdc0f4-38f5-4747-8872-8e233329ba97}</uuid>
+<name>2004</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>Hist_DNF2004</mrmConfigName>
+</config>
+</eventConfig>
+</eventNode>
+<textNode nodeNum="8"><scenePos x="2364" y="2132"></scenePos>
+<text>Model</text>
+<fontSize>16</fontSize>
+<fontColor>#0000ff</fontColor>
+</textNode>
+<textNode nodeNum="9"><scenePos x="1996" y="2209"></scenePos>
+<text>Demand</text>
+<fontSize>16</fontSize>
+<fontColor>#0000ff</fontColor>
+</textNode>
+<textNode nodeNum="10"><scenePos x="2333" y="2538"></scenePos>
+<text>Observed Resampled - run range
+event pulls DMI with different start 
+years.  MRM pulls in evap traces as 
+well and has initialization DMI to 
+pull in historical initial conditions.</text>
+<fontSize>10</fontSize>
+<fontColor>#008000</fontColor>
+</textNode>
+<textNode nodeNum="11"><scenePos x="2627" y="2217"></scenePos>
+<text>Revert to 2007 
+FEIS No-action 
+Alternative</text>
+<fontSize>10</fontSize>
+<fontColor>#008000</fontColor>
+</textNode>
+<textNode nodeNum="12"><scenePos x="2490" y="2118"></scenePos>
+<text>Policy</text>
+<fontSize>16</fontSize>
+<fontColor>#0000ff</fontColor>
+</textNode>
+<textNode nodeNum="13"><scenePos x="2552" y="2155"></scenePos>
+<text>Interim
+Guidelines
+Extended</text>
+<fontSize>10</fontSize>
+<fontColor>#008000</fontColor>
+</textNode>
+<textNode nodeNum="14"><scenePos x="2056" y="2394"></scenePos>
+<text>Historical Supply &amp; ICs</text>
+<fontSize>16</fontSize>
+<fontColor>#0000ff</fontColor>
+</textNode>
+<eventNode type="RDF To Excel" nodeNum="15"><scenePos x="2953.5" y="2494.5"></scenePos>
+<eventConfig><uuid>{aa6d1df6-c290-4eda-ac69-0892f17c9732}</uuid>
+<name>Res RDF To Excel</name>
+<placeholder>0</placeholder>
+<scope>scenario</scope>
+<config><orient>t,r,s</orient>
+<slotname>short</slotname>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare Policy" nodeNum="16"><scenePos x="2571" y="2222"></scenePos>
+<eventConfig><uuid>{e614ed58-ea19-4e47-9a3b-5281156e5272}</uuid>
+<name>NA</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><ParamDat><RplPolicy><RplSetFile>$CRSS_DIR\ruleset\CRSS.Baseline.2027NA.v2.6.0.9001.rls</RplSetFile>
+</RplPolicy>
+</ParamDat>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare Policy" nodeNum="17"><scenePos x="2497" y="2159"></scenePos>
+<eventConfig><uuid>{cea02930-19f8-4040-bb24-bada62153f93}</uuid>
+<name>IG</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><ParamDat><RplPolicy><RplSetFile>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</RplSetFile>
+</RplPolicy>
+</ParamDat>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare" nodeNum="18"><scenePos x="2483" y="2421"></scenePos>
+<eventConfig><uuid>{73d90dfe-bfa1-47b1-a84c-18220f651c66}</uuid>
+<name>CRSS</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><rwExec showUi="1">C:/Program Files/CADSWES/RiverWare 7.2.1/riverware.exe</rwExec>
+</config>
+</eventConfig>
+</eventNode>
+<fileNode type="RDF" nodeNum="19"><scenePos x="2828" y="2495"></scenePos>
+<fileConfig><uuid>{1fe0f25e-9239-4b27-8407-634e5f2cca0d}</uuid>
+<name>Res.rdf</name>
+<fileName>Res.rdf</fileName>
+</fileConfig>
+</fileNode>
+<eventNode type="RDF To Excel" nodeNum="20"><scenePos x="2951.5" y="2585.5"></scenePos>
+<eventConfig><uuid>{80583ea8-c5ae-4d6f-a09a-693ebba03cb6}</uuid>
+<name>SystemConditions RDF To Excel</name>
+<placeholder>0</placeholder>
+<scope>scenario</scope>
+<config><orient>t,r,s</orient>
+<slotname>short</slotname>
+</config>
+</eventConfig>
+</eventNode>
+<fileNode type="Excel Workbook" nodeNum="21"><scenePos x="3064.5" y="2677.5"></scenePos>
+<fileConfig><uuid>{bfe6f175-2af0-4490-a803-720f1c66598f}</uuid>
+<name>xtraRes.xlsx</name>
+<fileName>xtraRes.xlsx</fileName>
+</fileConfig>
+</fileNode>
+<fileNode type="RDF" nodeNum="22"><scenePos x="2825" y="2769"></scenePos>
+<fileConfig><uuid>{05708091-2999-40a1-8922-6fb4f0a54117}</uuid>
+<name>CRSPPowerData.rdf</name>
+<fileName>CRSPPowerData.rdf</fileName>
+</fileConfig>
+</fileNode>
+<fileNode type="RDF" nodeNum="23"><scenePos x="2828" y="2585"></scenePos>
+<fileConfig><uuid>{1bb088e8-0b09-4808-b6f8-cacef2df4710}</uuid>
+<name>SystemConditions.rdf</name>
+<fileName>SystemConditions.rdf</fileName>
+</fileConfig>
+</fileNode>
+<eventNode type="RiverWare MRM" nodeNum="24"><scenePos x="2154.5" y="2531.5"></scenePos>
+<eventConfig><uuid>{3aa0e169-be7d-49b6-aaad-a4729f83ce65}</uuid>
+<name>2008</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>Hist_DNF2008</mrmConfigName>
+</config>
+</eventConfig>
+</eventNode>
+<fileNode type="Excel Workbook" nodeNum="25"><scenePos x="3069.5" y="2768.5"></scenePos>
+<fileConfig><uuid>{94abad30-8085-430b-a0c3-fe278a2c1a27}</uuid>
+<name>CRSPPowerData.xlsx</name>
+<fileName>CRSPPowerData.xlsx</fileName>
+</fileConfig>
+</fileNode>
+<fileNode type="Excel Workbook" nodeNum="26"><scenePos x="3070" y="2402"></scenePos>
+<fileConfig><uuid>{bb65d5ba-a6aa-4562-831b-7ef1dafa547f}</uuid>
+<name>OWDAnn.xlsx</name>
+<fileName>OWDAnn.xlsx</fileName>
+</fileConfig>
+</fileNode>
+<eventNode type="RiverWare MRM" nodeNum="27"><scenePos x="2132.5" y="2676.5"></scenePos>
+<eventConfig><uuid>{5588ad1d-2a20-4876-ae80-de90e13453aa}</uuid>
+<name>2017</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>Hist_DNF2017</mrmConfigName>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare MRM" nodeNum="28"><scenePos x="2091.5" y="2464.5"></scenePos>
+<eventConfig><uuid>{0f02f2e9-5825-4d49-8498-12258d844f17}</uuid>
+<name>2002</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>Hist_DNF2002</mrmConfigName>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare MRM" nodeNum="29"><scenePos x="2027.5" y="2461.5"></scenePos>
+<eventConfig><uuid>{f8679341-30d3-4400-adff-731e596470b7}</uuid>
+<name>2001</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>Hist_DNF2001</mrmConfigName>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare MRM" nodeNum="30"><scenePos x="2153.5" y="2607.5"></scenePos>
+<eventConfig><uuid>{4e933117-0caf-4e4f-8787-7ffbe9bf7fa4}</uuid>
+<name>2013</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>Hist_DNF2013</mrmConfigName>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare MRM" nodeNum="31"><scenePos x="2091.5" y="2605.5"></scenePos>
+<eventConfig><uuid>{b21dfd92-cc53-43d8-9b32-3ee71dbfb8de}</uuid>
+<name>2012</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>Hist_DNF2012</mrmConfigName>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare MRM" nodeNum="32"><scenePos x="2066.5" y="2677.5"></scenePos>
+<eventConfig><uuid>{12eaec26-ba20-4808-ae7b-d8b35ab5ce91}</uuid>
+<name>2016</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>Hist_DNF2016</mrmConfigName>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare MRM" nodeNum="33"><scenePos x="2154.5" y="2464.5"></scenePos>
+<eventConfig><uuid>{2629fde0-d313-453b-9889-6577a8edcafd}</uuid>
+<name>2003</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>Hist_DNF2003</mrmConfigName>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare MRM" nodeNum="34"><scenePos x="2026.5" y="2604.5"></scenePos>
+<eventConfig><uuid>{a37d053e-ad4a-4821-b8a1-8e3e9e0a81e0}</uuid>
+<name>2011</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>Hist_DNF2011</mrmConfigName>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare MRM" nodeNum="35"><scenePos x="1958" y="2460"></scenePos>
+<eventConfig><uuid>{7f7fd6c1-f640-4208-80be-56ddcd218985}</uuid>
+<name>2000</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>Hist_DNF2000</mrmConfigName>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare DMI" nodeNum="36"><scenePos x="2012.5" y="2268.5"></scenePos>
+<eventConfig><uuid>{59f2e25b-1215-4b9d-950f-9bc428a7c333}</uuid>
+<name>2007Dems</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><ParamDat><DmiConfig type="DirectConnect"><Name>2007 UB and LB Demands</Name>
+<UserCategory>Demand</UserCategory>
+<ExecTime>Init</ExecTime>
+<TraceCount>0</TraceCount>
+<ExcelDataSet name="2007 UCRC Demand Schedule" sheet="Baseline Monthly Data"/>
+<Executable path=""><Arg></Arg>
+</Executable>
+<TracesDmi TemplateCtlFile="" TracesDir=""></TracesDmi>
+</DmiConfig>
+</ParamDat>
+</config>
+</eventConfig>
+</eventNode>
+<fileNode type="RDF" nodeNum="37"><scenePos x="2828" y="2331"></scenePos>
+<fileConfig><uuid>{1b7a74a1-3e7e-4660-919a-128d47b0c104}</uuid>
+<name>KeySlots.rdf</name>
+<fileName>KeySlots.rdf</fileName>
+</fileConfig>
+</fileNode>
+<eventNode type="RDF To Excel" nodeNum="38"><scenePos x="2951.5" y="2676.5"></scenePos>
+<eventConfig><uuid>{dfb9df1a-6dea-4539-92ba-211d9959fb66}</uuid>
+<name>xtraRes RDF To Excel</name>
+<placeholder>0</placeholder>
+<scope>scenario</scope>
+<config><orient>t,r,s</orient>
+<slotname>short</slotname>
+</config>
+</eventConfig>
+</eventNode>
+<fileNode type="Excel Workbook" nodeNum="39"><scenePos x="3068.5" y="2493.5"></scenePos>
+<fileConfig><uuid>{b3d8d13c-556f-4080-9329-116f95a8f977}</uuid>
+<name>Res.xlsx</name>
+<fileName>Res.xlsx</fileName>
+</fileConfig>
+</fileNode>
+<fileNode type="Excel Workbook" nodeNum="40"><scenePos x="3065.5" y="2586.5"></scenePos>
+<fileConfig><uuid>{83de84bf-99e4-4ce0-80e2-fb78d7ff8087}</uuid>
+<name>SystemConditions.xlsx</name>
+<fileName>SystemConditions.xlsx</fileName>
+</fileConfig>
+</fileNode>
+<fileNode type="RDF" nodeNum="41"><scenePos x="2829" y="2403"></scenePos>
+<fileConfig><uuid>{1cc6fa7c-fe1a-444f-a0cf-9afb146975d5}</uuid>
+<name>OWDAnn.rdf</name>
+<fileName>OWDAnn.rdf</fileName>
+</fileConfig>
+</fileNode>
+<eventNode type="RiverWare Model" nodeNum="42"><scenePos x="2368.5" y="2164.5"></scenePos>
+<eventConfig><uuid>{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}</uuid>
+<name>VerificationModel</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><ParamDat>
+<ModelParams>
+<ModelFile>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</ModelFile>
+</ModelParams>
+</ParamDat>
+</config>
+</eventConfig>
+</eventNode>
+<fileNode type="Excel Workbook" nodeNum="43"><scenePos x="3063" y="2860"></scenePos>
+<fileConfig><uuid>{06e9bc8f-1759-40f9-b6bf-47452c430656}</uuid>
+<name>Flags.xlsx</name>
+<fileName>Flags.xlsx</fileName>
+</fileConfig>
+</fileNode>
+<fileNode type="RDF" nodeNum="44"><scenePos x="2827" y="2862"></scenePos>
+<fileConfig><uuid>{e44a513a-35a1-4dba-94a6-023c45266532}</uuid>
+<name>Flags.rdf</name>
+<fileName>Flags.rdf</fileName>
+</fileConfig>
+</fileNode>
+<eventNode type="RDF To Excel" nodeNum="45"><scenePos x="2945" y="2859"></scenePos>
+<eventConfig><uuid>{bf3d373b-7514-47d3-b4fb-9061da357b92}</uuid>
+<name>Flags RDF To Excel 001</name>
+<placeholder>0</placeholder>
+<scope>scenario</scope>
+<config><orient>t,r,s</orient>
+<slotname>short</slotname>
+</config>
+</eventConfig>
+</eventNode>
+<fileNode type="Excel Workbook" nodeNum="46"><scenePos x="3075" y="2318"></scenePos>
+<fileConfig><uuid>{889696d7-606c-4768-ade1-52a72357e49c}</uuid>
+<name>KeySlots.xlsx</name>
+<fileName>KeySlots.xlsx</fileName>
+</fileConfig>
+</fileNode>
+<eventNode type="RDF To Excel" nodeNum="47"><scenePos x="2951.5" y="2768.5"></scenePos>
+<eventConfig><uuid>{b676e76c-9e8b-4ce3-add8-70cd4742873e}</uuid>
+<name>CRSPPowerData RDF To Excel</name>
+<placeholder>0</placeholder>
+<scope>scenario</scope>
+<config><orient>t,r,s</orient>
+<slotname>short</slotname>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RDF To Excel" nodeNum="48"><scenePos x="2958" y="2318"></scenePos>
+<eventConfig><uuid>{30bbdb67-6757-43d7-ac24-b02a8eeb5ebe}</uuid>
+<name>KeySlots RDF To Excel</name>
+<placeholder>0</placeholder>
+<scope>scenario</scope>
+<config><orient>t,r,s</orient>
+<slotname>short</slotname>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RDF To Excel" nodeNum="49"><scenePos x="2956" y="2403"></scenePos>
+<eventConfig><uuid>{97ef6f43-393a-4e11-8187-ee3eb6f7d374}</uuid>
+<name>OWDAnn RDF To Excel</name>
+<placeholder>0</placeholder>
+<scope>scenario</scope>
+<config><orient>t,r,s</orient>
+<slotname>short</slotname>
+</config>
+</eventConfig>
+</eventNode>
+<fileNode type="RDF" nodeNum="50"><scenePos x="2826" y="2676"></scenePos>
+<fileConfig><uuid>{1cdb2242-e602-406c-9b3f-0ee9344a8686}</uuid>
+<name>xtraRes.rdf</name>
+<fileName>xtraRes.rdf</fileName>
+</fileConfig>
+</fileNode>
+<nodeLink from="0" to="18"><file type="RW MRM Configuration"><uuid>{9256b230-9238-4af1-8d51-36f3d424a1cc}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="1" to="18"><file type="RW MRM Configuration"><uuid>{6ce35d8d-bf73-4e58-b4f1-512ffc546a6d}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="2" to="18"><file type="RW MRM Configuration"><uuid>{fdede191-1ae7-46ba-8b94-935a82544b6a}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="3" to="18"><file type="RW MRM Configuration"><uuid>{b3492280-affc-4013-8258-28c3fcd6790f}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="4" to="18"><file type="RW MRM Configuration"><uuid>{ce9e62b3-7ea5-4351-8774-e85ca342cadf}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="5" to="18"><file type="RW MRM Configuration"><uuid>{cec29107-5e41-4d0d-8835-a8aa3395293d}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="6" to="18"><file type="RW MRM Configuration"><uuid>{3cee09bc-0ec9-4b98-adf4-bb8740ca2e33}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="7" to="18"><file type="RW MRM Configuration"><uuid>{d19bdd83-a977-4198-8d10-387931b54151}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="15" to="39"></nodeLink>
+<nodeLink from="17" to="18"><file type="RW Policy Configuration"><uuid>{eef7da1e-20b5-4950-bbae-2c5f3e80c2bb}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="18" to="37"></nodeLink>
+<nodeLink from="18" to="41"></nodeLink>
+<nodeLink from="18" to="19"></nodeLink>
+<nodeLink from="18" to="23"></nodeLink>
+<nodeLink from="18" to="50"></nodeLink>
+<nodeLink from="18" to="44"></nodeLink>
+<nodeLink from="19" to="15"></nodeLink>
+<nodeLink from="20" to="40"></nodeLink>
+<nodeLink from="22" to="47"></nodeLink>
+<nodeLink from="23" to="20"></nodeLink>
+<nodeLink from="24" to="18"><file type="RW MRM Configuration"><uuid>{c194c573-bee4-4dab-a3eb-ab330c3315df}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="27" to="18"><file type="RW MRM Configuration"><uuid>{2d6921bb-ed71-462e-89d8-03940d741f74}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="28" to="18"><file type="RW MRM Configuration"><uuid>{7a6279a9-f07f-4a9c-96c0-d45664beafef}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="29" to="18"><file type="RW MRM Configuration"><uuid>{4510a636-7a89-439a-b7f9-d047a934fc3b}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="30" to="18"><file type="RW MRM Configuration"><uuid>{2eabac54-1e7d-4e23-9f00-16ab034af920}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="31" to="18"><file type="RW MRM Configuration"><uuid>{dde2ebca-1857-4aaa-bcc4-7b2f6ff04db6}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="32" to="18"><file type="RW MRM Configuration"><uuid>{ac5ab1ef-e210-49d9-9c50-a07f9b6c62fd}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="33" to="18"><file type="RW MRM Configuration"><uuid>{d28ebe03-ae23-49d3-93c3-c03219affc4f}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="34" to="18"><file type="RW MRM Configuration"><uuid>{35d65f1f-3336-4f3b-811f-7111f85d0729}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="35" to="18"><file type="RW MRM Configuration"><uuid>{358f1a02-bac9-4989-8707-8ae16f7d2738}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="36" to="18"><file type="RW DMI Configuration"><uuid>{3685972d-580b-4246-829c-5030286a60d4}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="37" to="48"></nodeLink>
+<nodeLink from="38" to="21"></nodeLink>
+<nodeLink from="41" to="49"></nodeLink>
+<nodeLink from="42" to="18"><file type="RW Model Configuration"><uuid>{797f5af2-7b21-414d-90b9-c7cceafab709}</uuid>
+<fileName>_StudyEventOutput_.xml</fileName>
+</file>
+</nodeLink>
+<nodeLink from="44" to="45"></nodeLink>
+<nodeLink from="45" to="43"></nodeLink>
+<nodeLink from="47" to="25"></nodeLink>
+<nodeLink from="48" to="46"></nodeLink>
+<nodeLink from="49" to="26"></nodeLink>
+<nodeLink from="50" to="38"></nodeLink>
+</graph>
+<eventPlaceMod></eventPlaceMod>
+<eventIntMod></eventIntMod>
+<eventExtMod></eventExtMod>
+<scenarioMgr><scenarioList timestamp="1520296668"><nameList sepChar=","><type>MRM Config</type>
+<type>Demand</type>
+<type>Model</type>
+<type>Policy</type>
+</nameList>
+<inactiveList></inactiveList>
+<view>ascending</view>
+<customView><typeList></typeList>
+<sortKeyList></sortKeyList>
+</customView>
+<generateView><typeList><type>MRM Config</type>
+<type>Demand</type>
+<type>Model</type>
+<type>Policy</type>
+</typeList>
+</generateView>
+<simulateView><typeList><type>MRM Config</type>
+<type>Demand</type>
+<type>Model</type>
+<type>Policy</type>
+</typeList>
+<hiddenList></hiddenList>
+</simulateView>
+<postProcView><typeList><type>MRM Config</type>
+<type>Demand</type>
+<type>Model</type>
+<type>Policy</type>
+</typeList>
+<hiddenList></hiddenList>
+</postProcView>
+<scenarioSetView><typeList><type>MRM Config</type>
+<type>Demand</type>
+<type>Model</type>
+<type>Policy</type>
+</typeList>
+</scenarioSetView>
+<scenario><uuid>{a9596dc8-4ff4-4674-9a80-e5453257e32b}</uuid>
+<name>2000,2007Dems,VerificationModel,IG</name>
+<config><input type="MRM Config" name="2000" uuid="{7f7fd6c1-f640-4208-80be-56ddcd218985}">
+<configName>Hist_DNF2000</configName>
+</input>
+<input type="Policy" name="IG" uuid="{cea02930-19f8-4040-bb24-bada62153f93}">
+<rulesetPath>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</rulesetPath>
+</input>
+<input type="Demand" name="2007Dems" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}" metaType="DMI">
+<dmiName>2007 UB and LB Demands</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList>
+<dataset type="Excel" name="2007 UCRC Demand Schedule">
+<sheet>Baseline Monthly Data</sheet>
+</dataset>
+</datasetList>
+</input>
+<input type="Model" name="VerificationModel" uuid="{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}">
+<modelPath>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</modelPath>
+</input>
+</config>
+<simState><state>notRun</state>
+</simState>
+<postProcState></postProcState>
+</scenario>
+<scenario><uuid>{1711162e-227b-4f2f-900f-61f83f99f890}</uuid>
+<name>2001,2007Dems,VerificationModel,IG</name>
+<config><input type="MRM Config" name="2001" uuid="{f8679341-30d3-4400-adff-731e596470b7}">
+<configName>Hist_DNF2001</configName>
+</input>
+<input type="Policy" name="IG" uuid="{cea02930-19f8-4040-bb24-bada62153f93}">
+<rulesetPath>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</rulesetPath>
+</input>
+<input type="Demand" name="2007Dems" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}" metaType="DMI">
+<dmiName>2007 UB and LB Demands</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList>
+<dataset type="Excel" name="2007 UCRC Demand Schedule">
+<sheet>Baseline Monthly Data</sheet>
+</dataset>
+</datasetList>
+</input>
+<input type="Model" name="VerificationModel" uuid="{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}">
+<modelPath>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</modelPath>
+</input>
+</config>
+<simState><state>notRun</state>
+</simState>
+<postProcState></postProcState>
+</scenario>
+<scenario><uuid>{b1d4613c-92ff-4c97-9daf-51e44767974b}</uuid>
+<name>2002,2007Dems,VerificationModel,IG</name>
+<config><input type="MRM Config" name="2002" uuid="{0f02f2e9-5825-4d49-8498-12258d844f17}">
+<configName>Hist_DNF2002</configName>
+</input>
+<input type="Policy" name="IG" uuid="{cea02930-19f8-4040-bb24-bada62153f93}">
+<rulesetPath>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</rulesetPath>
+</input>
+<input type="Demand" name="2007Dems" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}" metaType="DMI">
+<dmiName>2007 UB and LB Demands</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList>
+<dataset type="Excel" name="2007 UCRC Demand Schedule">
+<sheet>Baseline Monthly Data</sheet>
+</dataset>
+</datasetList>
+</input>
+<input type="Model" name="VerificationModel" uuid="{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}">
+<modelPath>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</modelPath>
+</input>
+</config>
+<simState><state>notRun</state>
+</simState>
+<postProcState></postProcState>
+</scenario>
+<scenario><uuid>{e6566394-7cf2-4567-a713-4b284c5d8944}</uuid>
+<name>2003,2007Dems,VerificationModel,IG</name>
+<config><input type="MRM Config" name="2003" uuid="{2629fde0-d313-453b-9889-6577a8edcafd}">
+<configName>Hist_DNF2003</configName>
+</input>
+<input type="Policy" name="IG" uuid="{cea02930-19f8-4040-bb24-bada62153f93}">
+<rulesetPath>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</rulesetPath>
+</input>
+<input type="Demand" name="2007Dems" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}" metaType="DMI">
+<dmiName>2007 UB and LB Demands</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList>
+<dataset type="Excel" name="2007 UCRC Demand Schedule">
+<sheet>Baseline Monthly Data</sheet>
+</dataset>
+</datasetList>
+</input>
+<input type="Model" name="VerificationModel" uuid="{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}">
+<modelPath>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</modelPath>
+</input>
+</config>
+<simState><state>notRun</state>
+</simState>
+<postProcState></postProcState>
+</scenario>
+<scenario><uuid>{eb7b2ad9-c4fa-4fc9-8b56-1fa712b6a81a}</uuid>
+<name>2004,2007Dems,VerificationModel,IG</name>
+<config><input type="MRM Config" name="2004" uuid="{5cbdc0f4-38f5-4747-8872-8e233329ba97}">
+<configName>Hist_DNF2004</configName>
+</input>
+<input type="Policy" name="IG" uuid="{cea02930-19f8-4040-bb24-bada62153f93}">
+<rulesetPath>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</rulesetPath>
+</input>
+<input type="Demand" name="2007Dems" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}" metaType="DMI">
+<dmiName>2007 UB and LB Demands</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList>
+<dataset type="Excel" name="2007 UCRC Demand Schedule">
+<sheet>Baseline Monthly Data</sheet>
+</dataset>
+</datasetList>
+</input>
+<input type="Model" name="VerificationModel" uuid="{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}">
+<modelPath>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</modelPath>
+</input>
+</config>
+<simState><state>notRun</state>
+</simState>
+<postProcState></postProcState>
+</scenario>
+<scenario><uuid>{2cf69572-7d1d-4ce3-8d9b-606146d8dcae}</uuid>
+<name>2005,2007Dems,VerificationModel,IG</name>
+<config><input type="MRM Config" name="2005" uuid="{54cca810-02bf-4f5a-8f6e-600fc26f480e}">
+<configName>Hist_DNF2005</configName>
+</input>
+<input type="Policy" name="IG" uuid="{cea02930-19f8-4040-bb24-bada62153f93}">
+<rulesetPath>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</rulesetPath>
+</input>
+<input type="Demand" name="2007Dems" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}" metaType="DMI">
+<dmiName>2007 UB and LB Demands</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList>
+<dataset type="Excel" name="2007 UCRC Demand Schedule">
+<sheet>Baseline Monthly Data</sheet>
+</dataset>
+</datasetList>
+</input>
+<input type="Model" name="VerificationModel" uuid="{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}">
+<modelPath>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</modelPath>
+</input>
+</config>
+<simState><state>notRun</state>
+</simState>
+<postProcState></postProcState>
+</scenario>
+<scenario><uuid>{dd8f7b37-8623-4825-bf8c-ca57862c4593}</uuid>
+<name>2006,2007Dems,VerificationModel,IG</name>
+<config><input type="MRM Config" name="2006" uuid="{75199c63-174d-4ac7-8e29-b182f1e8e48e}">
+<configName>Hist_DNF2006</configName>
+</input>
+<input type="Policy" name="IG" uuid="{cea02930-19f8-4040-bb24-bada62153f93}">
+<rulesetPath>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</rulesetPath>
+</input>
+<input type="Demand" name="2007Dems" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}" metaType="DMI">
+<dmiName>2007 UB and LB Demands</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList>
+<dataset type="Excel" name="2007 UCRC Demand Schedule">
+<sheet>Baseline Monthly Data</sheet>
+</dataset>
+</datasetList>
+</input>
+<input type="Model" name="VerificationModel" uuid="{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}">
+<modelPath>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</modelPath>
+</input>
+</config>
+<simState><state>notRun</state>
+</simState>
+<postProcState></postProcState>
+</scenario>
+<scenario><uuid>{1e6e4953-bdd1-48eb-9b8b-df0def00de61}</uuid>
+<name>2007,2007Dems,VerificationModel,IG</name>
+<config><input type="MRM Config" name="2007" uuid="{d4d0da44-8783-40ab-b9ea-ce1f14be0940}">
+<configName>Hist_DNF2007</configName>
+</input>
+<input type="Policy" name="IG" uuid="{cea02930-19f8-4040-bb24-bada62153f93}">
+<rulesetPath>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</rulesetPath>
+</input>
+<input type="Demand" name="2007Dems" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}" metaType="DMI">
+<dmiName>2007 UB and LB Demands</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList>
+<dataset type="Excel" name="2007 UCRC Demand Schedule">
+<sheet>Baseline Monthly Data</sheet>
+</dataset>
+</datasetList>
+</input>
+<input type="Model" name="VerificationModel" uuid="{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}">
+<modelPath>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</modelPath>
+</input>
+</config>
+<simState><state>notRun</state>
+</simState>
+<postProcState></postProcState>
+</scenario>
+<scenario><uuid>{9b3e958f-6591-44b5-8073-f3104ba16eb7}</uuid>
+<name>2008,2007Dems,VerificationModel,IG</name>
+<config><input type="MRM Config" name="2008" uuid="{3aa0e169-be7d-49b6-aaad-a4729f83ce65}">
+<configName>Hist_DNF2008</configName>
+</input>
+<input type="Policy" name="IG" uuid="{cea02930-19f8-4040-bb24-bada62153f93}">
+<rulesetPath>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</rulesetPath>
+</input>
+<input type="Demand" name="2007Dems" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}" metaType="DMI">
+<dmiName>2007 UB and LB Demands</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList>
+<dataset type="Excel" name="2007 UCRC Demand Schedule">
+<sheet>Baseline Monthly Data</sheet>
+</dataset>
+</datasetList>
+</input>
+<input type="Model" name="VerificationModel" uuid="{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}">
+<modelPath>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</modelPath>
+</input>
+</config>
+<simState><state>notRun</state>
+</simState>
+<postProcState></postProcState>
+</scenario>
+<scenario><uuid>{02905d9b-956c-4bcf-99ca-0166c2e933e2}</uuid>
+<name>2009,2007Dems,VerificationModel,IG</name>
+<config><input type="MRM Config" name="2009" uuid="{058d970e-278c-4ab1-a672-80d8046825da}">
+<configName>Hist_DNF2009</configName>
+</input>
+<input type="Policy" name="IG" uuid="{cea02930-19f8-4040-bb24-bada62153f93}">
+<rulesetPath>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</rulesetPath>
+</input>
+<input type="Demand" name="2007Dems" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}" metaType="DMI">
+<dmiName>2007 UB and LB Demands</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList>
+<dataset type="Excel" name="2007 UCRC Demand Schedule">
+<sheet>Baseline Monthly Data</sheet>
+</dataset>
+</datasetList>
+</input>
+<input type="Model" name="VerificationModel" uuid="{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}">
+<modelPath>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</modelPath>
+</input>
+</config>
+<simState><state>notRun</state>
+</simState>
+<postProcState></postProcState>
+</scenario>
+<scenario><uuid>{0c2e1896-8aac-4d55-9b18-b7824c22a097}</uuid>
+<name>2010,2007Dems,VerificationModel,IG</name>
+<config><input type="MRM Config" name="2010" uuid="{5a067278-2749-4ce2-9b50-62707d0579bb}">
+<configName>Hist_DNF2010</configName>
+</input>
+<input type="Policy" name="IG" uuid="{cea02930-19f8-4040-bb24-bada62153f93}">
+<rulesetPath>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</rulesetPath>
+</input>
+<input type="Demand" name="2007Dems" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}" metaType="DMI">
+<dmiName>2007 UB and LB Demands</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList>
+<dataset type="Excel" name="2007 UCRC Demand Schedule">
+<sheet>Baseline Monthly Data</sheet>
+</dataset>
+</datasetList>
+</input>
+<input type="Model" name="VerificationModel" uuid="{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}">
+<modelPath>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</modelPath>
+</input>
+</config>
+<simState><state>notRun</state>
+</simState>
+<postProcState></postProcState>
+</scenario>
+<scenario><uuid>{f88b8a5a-05b8-41ec-ae6f-21c339a41dfc}</uuid>
+<name>2011,2007Dems,VerificationModel,IG</name>
+<config><input type="MRM Config" name="2011" uuid="{a37d053e-ad4a-4821-b8a1-8e3e9e0a81e0}">
+<configName>Hist_DNF2011</configName>
+</input>
+<input type="Policy" name="IG" uuid="{cea02930-19f8-4040-bb24-bada62153f93}">
+<rulesetPath>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</rulesetPath>
+</input>
+<input type="Demand" name="2007Dems" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}" metaType="DMI">
+<dmiName>2007 UB and LB Demands</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList>
+<dataset type="Excel" name="2007 UCRC Demand Schedule">
+<sheet>Baseline Monthly Data</sheet>
+</dataset>
+</datasetList>
+</input>
+<input type="Model" name="VerificationModel" uuid="{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}">
+<modelPath>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</modelPath>
+</input>
+</config>
+<simState><state>notRun</state>
+</simState>
+<postProcState></postProcState>
+</scenario>
+<scenario><uuid>{48661a2d-2fbe-469b-a515-6d5198a77c7c}</uuid>
+<name>2012,2007Dems,VerificationModel,IG</name>
+<config><input type="MRM Config" name="2012" uuid="{b21dfd92-cc53-43d8-9b32-3ee71dbfb8de}">
+<configName>Hist_DNF2012</configName>
+</input>
+<input type="Policy" name="IG" uuid="{cea02930-19f8-4040-bb24-bada62153f93}">
+<rulesetPath>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</rulesetPath>
+</input>
+<input type="Demand" name="2007Dems" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}" metaType="DMI">
+<dmiName>2007 UB and LB Demands</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList>
+<dataset type="Excel" name="2007 UCRC Demand Schedule">
+<sheet>Baseline Monthly Data</sheet>
+</dataset>
+</datasetList>
+</input>
+<input type="Model" name="VerificationModel" uuid="{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}">
+<modelPath>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</modelPath>
+</input>
+</config>
+<simState><state>notRun</state>
+</simState>
+<postProcState></postProcState>
+</scenario>
+<scenario><uuid>{ac4ef746-8416-4930-b278-3db150624f6c}</uuid>
+<name>2013,2007Dems,VerificationModel,IG</name>
+<config><input type="MRM Config" name="2013" uuid="{4e933117-0caf-4e4f-8787-7ffbe9bf7fa4}">
+<configName>Hist_DNF2013</configName>
+</input>
+<input type="Policy" name="IG" uuid="{cea02930-19f8-4040-bb24-bada62153f93}">
+<rulesetPath>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</rulesetPath>
+</input>
+<input type="Demand" name="2007Dems" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}" metaType="DMI">
+<dmiName>2007 UB and LB Demands</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList>
+<dataset type="Excel" name="2007 UCRC Demand Schedule">
+<sheet>Baseline Monthly Data</sheet>
+</dataset>
+</datasetList>
+</input>
+<input type="Model" name="VerificationModel" uuid="{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}">
+<modelPath>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</modelPath>
+</input>
+</config>
+<simState><state>notRun</state>
+</simState>
+<postProcState></postProcState>
+</scenario>
+<scenario><uuid>{9c8835f0-b4c7-426e-a673-d253011b8d19}</uuid>
+<name>2014,2007Dems,VerificationModel,IG</name>
+<config><input type="MRM Config" name="2014" uuid="{dc519f3f-998f-4c9d-ad55-de55e0c20883}">
+<configName>Hist_DNF2014</configName>
+</input>
+<input type="Policy" name="IG" uuid="{cea02930-19f8-4040-bb24-bada62153f93}">
+<rulesetPath>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</rulesetPath>
+</input>
+<input type="Demand" name="2007Dems" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}" metaType="DMI">
+<dmiName>2007 UB and LB Demands</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList>
+<dataset type="Excel" name="2007 UCRC Demand Schedule">
+<sheet>Baseline Monthly Data</sheet>
+</dataset>
+</datasetList>
+</input>
+<input type="Model" name="VerificationModel" uuid="{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}">
+<modelPath>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</modelPath>
+</input>
+</config>
+<simState><state>notRun</state>
+</simState>
+<postProcState></postProcState>
+</scenario>
+<scenario><uuid>{7e992f5d-be3c-4fd2-9ee5-330d8d7a9d70}</uuid>
+<name>2015,2007Dems,VerificationModel,IG</name>
+<config><input type="MRM Config" name="2015" uuid="{7d498209-106c-4522-8b04-8f4bc854bfa6}">
+<configName>Hist_DNF2015</configName>
+</input>
+<input type="Policy" name="IG" uuid="{cea02930-19f8-4040-bb24-bada62153f93}">
+<rulesetPath>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</rulesetPath>
+</input>
+<input type="Demand" name="2007Dems" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}" metaType="DMI">
+<dmiName>2007 UB and LB Demands</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList>
+<dataset type="Excel" name="2007 UCRC Demand Schedule">
+<sheet>Baseline Monthly Data</sheet>
+</dataset>
+</datasetList>
+</input>
+<input type="Model" name="VerificationModel" uuid="{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}">
+<modelPath>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</modelPath>
+</input>
+</config>
+<simState><state>notRun</state>
+</simState>
+<postProcState></postProcState>
+</scenario>
+<scenario><uuid>{db6b546c-1904-4ab2-b719-02b8d4edf8f4}</uuid>
+<name>2016,2007Dems,VerificationModel,IG</name>
+<config><input type="MRM Config" name="2016" uuid="{12eaec26-ba20-4808-ae7b-d8b35ab5ce91}">
+<configName>Hist_DNF2016</configName>
+</input>
+<input type="Policy" name="IG" uuid="{cea02930-19f8-4040-bb24-bada62153f93}">
+<rulesetPath>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</rulesetPath>
+</input>
+<input type="Demand" name="2007Dems" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}" metaType="DMI">
+<dmiName>2007 UB and LB Demands</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList>
+<dataset type="Excel" name="2007 UCRC Demand Schedule">
+<sheet>Baseline Monthly Data</sheet>
+</dataset>
+</datasetList>
+</input>
+<input type="Model" name="VerificationModel" uuid="{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}">
+<modelPath>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</modelPath>
+</input>
+</config>
+<simState><state>notRun</state>
+</simState>
+<postProcState></postProcState>
+</scenario>
+<scenario><uuid>{2213e7af-c01a-4453-ae03-bcd4a6759b67}</uuid>
+<name>2017,2007Dems,VerificationModel,IG</name>
+<config><input type="MRM Config" name="2017" uuid="{5588ad1d-2a20-4876-ae80-de90e13453aa}">
+<configName>Hist_DNF2017</configName>
+</input>
+<input type="Policy" name="IG" uuid="{cea02930-19f8-4040-bb24-bada62153f93}">
+<rulesetPath>$CRSS_DIR\ruleset\CRSS.Baseline.2027IG.v2.6.0.9002_RW72.rls</rulesetPath>
+</input>
+<input type="Demand" name="2007Dems" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}" metaType="DMI">
+<dmiName>2007 UB and LB Demands</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList>
+<dataset type="Excel" name="2007 UCRC Demand Schedule">
+<sheet>Baseline Monthly Data</sheet>
+</dataset>
+</datasetList>
+</input>
+<input type="Model" name="VerificationModel" uuid="{037fc4fc-1cd0-4380-9299-821eb8dfc2d2}">
+<modelPath>$CRSS_DIR/model/CRSS.V2.6.1.9506.2018.Aug2017_2000Start_RW72.mdl</modelPath>
+</input>
+</config>
+<simState><state>notRun</state>
+</simState>
+<postProcState></postProcState>
+</scenario>
+</scenarioList>
+</scenarioMgr>
+<scenarioSetMgr><scenarioSet uniqueId="{21e4b525-8079-41f9-b5c1-6b7df4bd52ee}" name="HydrologyCompare"></scenarioSet>
+<scenarioSet uniqueId="{c8b77ffd-94c2-4948-9cf8-b7ef2bec3fd6}" name="NatFlowCompare"></scenarioSet>
+</scenarioSetMgr>
+</Study>

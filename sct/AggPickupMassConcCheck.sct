@@ -1,0 +1,607 @@
+# SCT File Created 12/17/2019 5:24 PM
+#  as C:/Users/cfelletter/Documents/crss.offc/sct/AggPickupMassConcCheck.sct
+# Generated using RiverWare Version <RiverWare_Model 7.5.2 Patch>
+# Generated from Model File <CRSS.V4.1.1.2020.Nov2019.Salinity.9002.mdl>
+# CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
+#
+SCT 0 0 Version: 20.4
+SCT_PROPERTIES
+  SLOT_ITEM_CNT           50
+  PRESIM_TSTEP_CNT        1
+  POSTSIM_TSTEP_CNT       0
+  TSTEP_AXIS_HORZ         True
+  DETAIL_MODE             DETAIL_MODE_USER
+  CONFIG_LOCKED           False
+
+  SHOW_RUN_STATUS         True
+
+  TSAGG_FIXED_METHOD      False
+  TSAGG_FIXED_CNT         12
+  TSAGG_INTERVAL          1 YEAR
+  TSAGG_START_MINUTE      0
+  TSAGG_START_HOUR        0
+  TSAGG_START_WDAY        0
+  TSAGG_START_MDAY        1
+  TSAGG_START_MONTH       0
+
+  WINDOW_WIDTH            1920
+  WINDOW_HEIGHT           1057
+  RIGHT_MARGIN            0
+  DIAG_WINDOW_HEIGHT      0
+
+  SLOT_LABEL_COL_WIDTH    COLFIT_METHOD_UND 0
+  SLOT_UNITS_COL_WIDTH    COLFIT_METHOD_UND 0
+  AGG_TIME_DATA_COL_WIDTH COLFIT_METHOD_UND 0
+  NOA_TIME_DATA_COL_WIDTH COLFIT_METHOD_UND 0
+
+  SLOT_LABEL_SHEET_COL_WIDTH  "Series Slot Sheet" COLFIT_METHOD_ALL 355
+  SLOT_UNITS_SHEET_COL_WIDTH  "Series Slot Sheet" COLFIT_METHOD_ALL 35
+
+  SHOW_SELECTION_STATS    True
+  SEL_STAT_MEDIAN_MAXCNT  31
+
+  SCT_SFAS "START"
+  SCT_SFAS "Unit_on Mass Slot_off &nbsp; FUNC Sum"
+  SCT_SFAS "Unit_on Volume Slot_off &nbsp; FUNC Last"
+  SCT_SFAS "Unit_on Length Slot_off &nbsp; FUNC Last"
+  SCT_SFAS "Unit_off NONE Slot_off &nbsp; FUNC Last"
+  SCT_SFAS "END"
+
+  SCT_FONT_SPEC "Font A" "MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0"
+  SCT_FONT_SPEC "Font B" "MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0"
+  CUR_SCT_FONT_LABEL      "Default"
+
+  SHOW_MISSING_SLOTS      True
+  DISPLAY_NANS            True
+  SHOW_GRID               True
+  DBL_CLK_TOGGLES_DETAIL  False
+  XHATCH_PREPOST_TSTEPS   False
+  TARGET_OP_FULL_ORN      True
+  SHOW_ROW_NUMS           False
+  SHOW_SLOT_TYPES_COL     True
+  SHOW_UNITS_COL          True
+  SHOW_SUM_FUNC_COL       True
+  SHOW_WEEKDAY_COL        True
+  MARK_WEEKEND_ROWDIV     False
+  MARK_MONTH_ROWDIV       False
+  COLHEAD_SHOW_UNITS      True
+  COLHEAD_SHOW_SUM_FUNC   True
+  COLHEAD_SHOW_WEEKDAY    True
+  COLHEAD_HIDE_2400       False
+  MARK_WEEKEND_COLDIV     False
+  MARK_MONTH_COLDIV       False
+  MARK_READONLY_CELLS     True
+  SLOTROW_LABEL_INDENT    0
+  SUMMARY_FLAGS_SHOWN     SUMMARY_FLAGS_ON
+
+  MARK_1HOUR_ROWDIV       False
+  MARK_1HOUR_COLDIV       False
+  MARK_4HOUR_ROWDIV       False
+  MARK_4HOUR_COLDIV       False
+  MARK_6HOUR_ROWDIV       False
+  MARK_6HOUR_COLDIV       False
+  MARK_DAY_ROWDIV         False
+  MARK_DAY_COLDIV         False
+  MARK_YEAR_ROWDIV        False
+  MARK_YEAR_COLDIV        False
+  TEXT_IN_SLOT_ROWDIV     True
+  DET_HDR_ALIGN_LEFT      True
+
+  TOOLBAR_SWAP_AXIS       True
+  TOOLBAR_DETAIL          True
+  TOOLBAR_DETAIL_USER     True
+  TOOLBAR_DETAIL_HIDE     False
+  TOOLBAR_DETAIL_SHOW     False
+  TOOLBAR_DETAIL_NOSUM    True
+  TOOLBAR_PLOT_SLOTS      True
+  TOOLBAR_RUN_CTRL        True
+  TOOLBAR_START_RUN       True
+  TOOLBAR_FLAGS           True
+  TOOLBAR_FLAG_BUT_CODES  "TBMDR"
+
+  TOOLBAR_SAVE_MODEL      False
+  TOOLBAR_OPEN_SLOTS      False
+  TOOLBAR_DTIME_SPINNER   True
+
+  COLOR_TEXT_FG             0   0   0
+  COLOR_FLAG          'O' 255 255 255
+  COLOR_FLAG          'I' 224 224 224
+  COLOR_FLAG          'T'   0 255 255
+  COLOR_FLAG          'B' 144 255   0
+  COLOR_FLAG          'M'  85 192 240
+  COLOR_FLAG          'D' 255 236 136
+  COLOR_FLAG          'R' 192 255 192
+  COLOR_FLAG          'S' 255 192 208
+  COLOR_FLAG          'G' 136 208 240
+  COLOR_FLAG          'U' 200 200 255
+  COLOR_FLAG          'Z' 224 224 224
+  COLOR_GRID              160 160 160
+  COLOR_SUMMARY_BG        224 255 224
+  COLOR_INACT_CELL_FG     128 128 128
+  COLOR_INACT_CELL_BG     192 192 192
+  COLOR_WEEKEND_DIV         0   0 255
+  COLOR_MONTH_DIV         204 204 102
+  COLOR_SIM_TSTEP_DIV       0   0 170
+  COLOR_PPSIM_XHATCH        0   0   0
+  COLOR_SLOT_DIV_BG       136 208 240
+  COLOR_COPY_XHATCH         0 255   0
+  COLOR_DISPDISA_XHATCH   255   0   0
+  COLOR_READONLY_XHATCH   224 240 255
+  COLOR_OVERDETERMINED    255   0   0
+
+  COLOR_4HOUR_DIV         170  85 255
+  COLOR_DAY_DIV             0 204   0
+  COLOR_YEAR_DIV          153 255  51
+  COLOR_STATUSBAR_FG        0   0   0
+  COLOR_STATUSBAR_BG      255 255 240
+  COLOR_POSTSIM_TSTEP_DIV 170   0   0
+  COLOR_TAB_DIV_BG        230 155 179
+
+  FULL_PRECISION_EDITING  True
+
+TAB_DIV   0
+  SLOT_LABEL        "Series Slot Sheet"
+
+SLOT_DIV  1
+  SLOT_LABEL        "UB Mass"
+
+SLOT_REF  2
+  SLOT_LABEL        "AgAboveRandlette.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "AgAboveRandlette<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "AgAboveRandlette.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  3
+  SLOT_LABEL        "AgAndMIAbvGlenwoodSprings.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "AgAndMIAbvGlenwoodSprings<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "AgAndMIAbvGlenwoodSprings.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  4
+  SLOT_LABEL        "AgricultureAboveCameo.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "AgricultureAboveCameo<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "AgricultureAboveCameo.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  5
+  SLOT_LABEL        "AgricultureAndMIAbvGrandJunction.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "AgricultureAndMIAbvGrandJunction<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "AgricultureAndMIAbvGrandJunction.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  6
+  SLOT_LABEL        "AgUsesAboveFontenelle.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "AgUsesAboveFontenelle<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "AgUsesAboveFontenelle.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  7
+  SLOT_LABEL        "AgUsesAboveGreendale.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "AgUsesAboveGreendale<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "AgUsesAboveGreendale.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  8
+  SLOT_LABEL        "AgUsesAboveGreenRiverWy.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "AgUsesAboveGreenRiverWy<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "AgUsesAboveGreenRiverWy.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  9
+  SLOT_LABEL        "AgUsesAboveGreenRUt.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "AgUsesAboveGreenRUt<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "AgUsesAboveGreenRUt.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  10
+  SLOT_LABEL        "AgUsesAboveMaybell.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "AgUsesAboveMaybell<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "AgUsesAboveMaybell.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  11
+  SLOT_LABEL        "AnimasRiverAg.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "AnimasRiverAg<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "AnimasRiverAg.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  12
+  SLOT_LABEL        "ColoradoAg.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "ColoradoAg<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "ColoradoAg.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  13
+  SLOT_LABEL        "ColoradoAgriculture.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "ColoradoAgriculture<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "ColoradoAgriculture.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  14
+  SLOT_LABEL        "ColoradoNewMexAgAbvArch.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "ColoradoNewMexAgAbvArch<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "ColoradoNewMexAgAbvArch.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  15
+  SLOT_LABEL        "DoloresAgUsesAbvCisco.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "DoloresAgUsesAbvCisco<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "DoloresAgUsesAbvCisco.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  16
+  SLOT_LABEL        "GreendaleUTAgandMIUses.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "GreendaleUTAgandMIUses<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "GreendaleUTAgandMIUses.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  17
+  SLOT_LABEL        "ColoradoUsesBelowShiprockNM.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "ColoradoUsesBelowShiprockNM<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "ColoradoUsesBelowShiprockNM.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  18
+  SLOT_LABEL        "ColoradoUsesOnLittleSnakeR.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "ColoradoUsesOnLittleSnakeR<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "ColoradoUsesOnLittleSnakeR.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  19
+  SLOT_LABEL        "JuniorAgUsesBelowCameo.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "JuniorAgUsesBelowCameo<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "JuniorAgUsesBelowCameo.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  20
+  SLOT_LABEL        "LaPlataRiverAg.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "LaPlataRiverAg<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "LaPlataRiverAg.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  21
+  SLOT_LABEL        "LymanAreaAg.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "LymanAreaAg<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "LymanAreaAg.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  22
+  SLOT_LABEL        "NewMexicoAgFarmToShip.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "NewMexicoAgFarmToShip<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "NewMexicoAgFarmToShip.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  23
+  SLOT_LABEL        "NewMexicoAgricultureArchToFarm.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "NewMexicoAgricultureArchToFarm<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "NewMexicoAgricultureArchToFarm.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  24
+  SLOT_LABEL        "PresentLevelUsesAboveBlueMesa.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "PresentLevelUsesAboveBlueMesa<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "PresentLevelUsesAboveBlueMesa.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  25
+  SLOT_LABEL        "SanMiguelProjectAg.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "SanMiguelProjectAg<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "SanMiguelProjectAg.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  26
+  SLOT_LABEL        "SanJuanUtahUses.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "SanJuanUtahUses<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "SanJuanUtahUses.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  27
+  SLOT_LABEL        "SanRafaelAg.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "SanRafaelAg<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "SanRafaelAg.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  28
+  SLOT_LABEL        "SeniorAgUsesBelowCameo.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "SeniorAgUsesBelowCameo<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "SeniorAgUsesBelowCameo.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  29
+  SLOT_LABEL        "TunnelDiversionBelowCrystalForAg.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "TunnelDiversionBelowCrystalForAg<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "TunnelDiversionBelowCrystalForAg.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  30
+  SLOT_LABEL        "UpalcoUintaBonnUtes.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "UpalcoUintaBonnUtes<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "UpalcoUintaBonnUtes.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  31
+  SLOT_LABEL        "UsesBetGreendaleAndOuray.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "UsesBetGreendaleAndOuray<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "UsesBetGreendaleAndOuray.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  32
+  SLOT_LABEL        "UtahUsesAboveGreenRiverConfluence.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "UtahUsesAboveGreenRiverConfluence<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "UtahUsesAboveGreenRiverConfluence.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  33
+  SLOT_LABEL        "UtahAgUses.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "UtahAgUses<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "UtahAgUses.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  34
+  SLOT_LABEL        "WyUsesOnLittleSnakeR.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "WyUsesOnLittleSnakeR<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "WyUsesOnLittleSnakeR.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  35
+  SLOT_LABEL        "WhiteUTAgandMIUses.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "WhiteUTAgandMIUses<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "WhiteUTAgandMIUses.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_DIV  36
+  SLOT_LABEL        "LB Mass"
+
+SLOT_REF  37
+  SLOT_LABEL        "ColoradoRiverIndianReservation.Return Flow Salinity Pickup Mass"
+  SLOT_MULTILINE    "ColoradoRiverIndianReservation<br>.Return Flow Salinity Pickup Mass"
+  RW_SLOT_NAME      "ColoradoRiverIndianReservation.Return Flow Salinity Pickup Mass"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_SUM 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_DIV  38
+  SLOT_LABEL        "UB Conc"
+
+SLOT_REF  39
+  SLOT_LABEL        "ColoradoMiscUses.Return Flow Salinity Pickup Conc"
+  SLOT_MULTILINE    "ColoradoMiscUses<br>.Return Flow Salinity Pickup Conc"
+  RW_SLOT_NAME      "ColoradoMiscUses.Return Flow Salinity Pickup Conc"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  40
+  SLOT_LABEL        "DallasCreekProjectMiscUses.Return Flow Salinity Pickup Conc"
+  SLOT_MULTILINE    "DallasCreekProjectMiscUses<br>.Return Flow Salinity Pickup Conc"
+  RW_SLOT_NAME      "DallasCreekProjectMiscUses.Return Flow Salinity Pickup Conc"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  41
+  SLOT_LABEL        "DoloresProjectImportUses.Return Flow Salinity Pickup Conc"
+  SLOT_MULTILINE    "DoloresProjectImportUses<br>.Return Flow Salinity Pickup Conc"
+  RW_SLOT_NAME      "DoloresProjectImportUses.Return Flow Salinity Pickup Conc"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  42
+  SLOT_LABEL        "IntrabasinExportAndDoloresProject.Return Flow Salinity Pickup Conc"
+  SLOT_MULTILINE    "IntrabasinExportAndDoloresProject<br>.Return Flow Salinity Pickup Conc"
+  RW_SLOT_NAME      "IntrabasinExportAndDoloresProject.Return Flow Salinity Pickup Conc"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  43
+  SLOT_LABEL        "UtahAgAnticipatedDepletion.Return Flow Salinity Pickup Conc"
+  SLOT_MULTILINE    "UtahAgAnticipatedDepletion<br>.Return Flow Salinity Pickup Conc"
+  RW_SLOT_NAME      "UtahAgAnticipatedDepletion.Return Flow Salinity Pickup Conc"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  44
+  SLOT_LABEL        "UtahUsesAboveLeesFerry.Return Flow Salinity Pickup Conc"
+  SLOT_MULTILINE    "UtahUsesAboveLeesFerry<br>.Return Flow Salinity Pickup Conc"
+  RW_SLOT_NAME      "UtahUsesAboveLeesFerry.Return Flow Salinity Pickup Conc"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  45
+  SLOT_LABEL        "SanRafaelEnergyUses.Return Flow Salinity Pickup Conc"
+  SLOT_MULTILINE    "SanRafaelEnergyUses<br>.Return Flow Salinity Pickup Conc"
+  RW_SLOT_NAME      "SanRafaelEnergyUses.Return Flow Salinity Pickup Conc"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  46
+  SLOT_LABEL        "SanJuanRiverEnergyAndMIFarmToShip.Return Flow Salinity Pickup Conc"
+  SLOT_MULTILINE    "SanJuanRiverEnergyAndMIFarmToShip<br>.Return Flow Salinity Pickup Conc"
+  RW_SLOT_NAME      "SanJuanRiverEnergyAndMIFarmToShip.Return Flow Salinity Pickup Conc"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  47
+  SLOT_LABEL        "UtahSynfuels.Return Flow Salinity Pickup Conc"
+  SLOT_MULTILINE    "UtahSynfuels<br>.Return Flow Salinity Pickup Conc"
+  RW_SLOT_NAME      "UtahSynfuels.Return Flow Salinity Pickup Conc"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_DIV  48
+  SLOT_LABEL        "LB Conc"
+
+SLOT_REF  49
+  SLOT_LABEL        "PaloVerdeIrrigationDistrictWQIP.Return Flow Salinity Pickup Conc"
+  SLOT_MULTILINE    "PaloVerdeIrrigationDistrictWQIP<br>.Return Flow Salinity Pickup Conc"
+  RW_SLOT_NAME      "PaloVerdeIrrigationDistrictWQIP.Return Flow Salinity Pickup Conc"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+# SCT File End

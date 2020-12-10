@@ -1,0 +1,1252 @@
+# DCP
+# --------------------------
+
+## UB Drought Operations 
+
+ExtendedOperations.PowellForecastDeficit: file=$CRSS_DIR/results/UBDO.rdf
+ExtendedOperations.NavajoRecoveryFlag: file=$CRSS_DIR/results/UBDO.rdf
+ExtendedOperations.FGForecastDVRelease: file=$CRSS_DIR/results/UBDO.rdf
+ExtendedOperations.Apr_AnticipatedDepletions: file=$CRSS_DIR/results/UBDO.rdf
+ExtendedOperations.PowellReleaseThroughApril: file=$CRSS_DIR/results/UBDO.rdf
+ExtendedOperations.PowellForecastDeficitFlag: file=$CRSS_DIR/results/UBDO.rdf
+ExtendedOperations.Aug_AnticipatedDepletions: file=$CRSS_DIR/results/UBDO.rdf
+ExtendedOperations.AdditionalBlueMesaRelease: file=$CRSS_DIR/results/UBDO.rdf
+ExtendedOperations.FlamingGorgeNormalRelease: file=$CRSS_DIR/results/UBDO.rdf
+ExtendedOperations.FlamingGorgeReleaseDifference: file=$CRSS_DIR/results/UBDO.rdf
+ExtendedOperations.Navajo_AdditionalExtendedRelease: file=$CRSS_DIR/results/UBDO.rdf
+ExtendedOperations.Navajo_AdditionalPeakRelease: file=$CRSS_DIR/results/UBDO.rdf
+ExtendedOperations.Navajo_TotalAdditionalRelease: file=$CRSS_DIR/results/UBDO.rdf
+ExtendedOperations.AdditionalBlueMesaRelease: file=$CRSS_DIR/results/UBDO.rdf
+ExtendedOperations.PowellForecastDeficitFlag: file=$CRSS_DIR/results/UBDO.rdf
+
+## LB DCP
+
+DCP.SeriesSlot: file=$CRSS_DIR/results/LBDCP.rdf
+
+# Data for checks
+
+HydrologyParameters.SupplyScenario: file=$CRSS_DIR/results/CheckSupply.rdf
+HydrologyParameters.TraceNumber: file=$CRSS_DIR/results/CheckSupply.rdf
+
+PowellForecastData.Reg Inflow with Error: file=$CRSS_DIR/results/Check.rdf
+PowellForecastData.Unreg Inflow no Error: file=$CRSS_DIR/results/Check.rdf
+EqualizationData.ForecastEOCYSMead: file=$CRSS_DIR/results/Check.rdf
+EqualizationData.ForecastEOCYMeadElevation: file=$CRSS_DIR/results/Check.rdf
+
+SNWPSchedule.DepletionScheduleDelta: file=$CRSS_DIR/results/DivCheck.rdf
+
+EqualizationData.AvailableWater: file=$CRSS_DIR/results/Check.rdf
+EqualizationData.ForecastEOWYMeadElevation: file=$CRSS_DIR/results/Check.rdf
+EqualizationData.ForecastEOWYPowellElevation: file=$CRSS_DIR/results/Check.rdf
+EqualizationData.ForecastEOWYSMead: file=$CRSS_DIR/results/Check.rdf
+EqualizationData.ForecastEOWYSPowell: file=$CRSS_DIR/results/Check.rdf
+EqualizationData.value602a: file=$CRSS_DIR/results/Check.rdf
+MeadFloodControlData.hydrologyIncrement: file=$CRSS_DIR/results/Check.rdf
+MeadFloodControlData.PowellForecastError: file=$CRSS_DIR/results/Check.rdf
+PowellOperation.10 Year Compact Volume: file=$CRSS_DIR/results/Check.rdf
+PowellOperation.Compact Point Volume: file=$CRSS_DIR/results/Check.rdf
+PowellOperation.Powell10YearWYRelease: file=$CRSS_DIR/results/Check.rdf file=$CRSS_DIR/results/KeySlots.rdf
+Qsum.BlueMesa: file=$CRSS_DIR/results/Check.rdf
+Qsum.FlamingGorge: file=$CRSS_DIR/results/Check.rdf
+Qsum.Havasu: file=$CRSS_DIR/results/Check.rdf
+Qsum.Imperial: file=$CRSS_DIR/results/Check.rdf
+Qsum.Mead: file=$CRSS_DIR/results/Check.rdf
+Qsum.Mohave: file=$CRSS_DIR/results/Check.rdf
+Qsum.Navajo: file=$CRSS_DIR/results/Check.rdf
+Qsum.Powell: file=$CRSS_DIR/results/Check.rdf
+Surplus.SurplusRelease: file=$CRSS_DIR/results/Check.rdf
+TotVal.BlueMesa: file=$CRSS_DIR/results/Check.rdf
+TotVal.FlamingGorge: file=$CRSS_DIR/results/Check.rdf
+TotVal.Havasu: file=$CRSS_DIR/results/Check.rdf
+TotVal.Imperial: file=$CRSS_DIR/results/Check.rdf
+TotVal.Mead: file=$CRSS_DIR/results/Check.rdf 
+TotVal.BelowMead: file=$CRSS_DIR/results/Check.rdf 
+TotVal.Mohave: file=$CRSS_DIR/results/Check.rdf
+TotVal.Navajo: file=$CRSS_DIR/results/Check.rdf
+TotVal.Powell: file=$CRSS_DIR/results/Check.rdf file=$CRSS_DIR/results/KeySlots.rdf
+
+# Coordinated Operations 
+
+SummaryOutputData.SeriesSlot: file=$CRSS_DIR/results/SystemConditions.rdf
+
+## Flags
+
+Coordinated Operation.LowerLevelBalancingFlag: file=$CRSS_DIR/results/Flags.rdf 
+Coordinated Operation.ReducedReleaseFlag: file=$CRSS_DIR/results/Flags.rdf 
+Coordinated Operation.ReverseBalancingFlag: file=$CRSS_DIR/results/Flags.rdf
+Coordinated Operation.UpperLevelBalancingFlag: file=$CRSS_DIR/results/Flags.rdf 
+Coordinated Operation.EQTrumpUpperLevelBalancingFlag: file=$CRSS_DIR/results/Flags.rdf 
+Coordinated Operation.EQTrumpUpperLevelBalancing1105GovFlag: file=$CRSS_DIR/results/Flags.rdf
+EqualizationData.BypassCapFlag: file=$CRSS_DIR/results/Flags.rdf
+EqualizationData.EqualBasinStatesFlag: file=$CRSS_DIR/results/Flags.rdf 
+EqualizationData.EqualFlag: file=$CRSS_DIR/results/Flags.rdf
+EqualizationData.MinObjRelFlag: file=$CRSS_DIR/results/Flags.rdf
+MeadFloodControlData.MeadFloodControlFlag: file=$CRSS_DIR/results/Flags.rdf file=$CRSS_DIR/results/FCM.rdf
+Powell Spike Flow Data.Spike Flow Flag: file=$CRSS_DIR/results/Flags.rdf
+Shortage.80P1050 Shortage Flag: file=$CRSS_DIR/results/Flags.rdf
+Shortage.CritPeriodLevel 2 Shortage Flag: file=$CRSS_DIR/results/Flags.rdf
+Shortage.Monthly Level 2 Shortage Flag: file=$CRSS_DIR/results/Flags.rdf
+Shortage.ShortageFlag: file=$CRSS_DIR/results/Flags.rdf file=$CRSS_DIR/results/KeySlots.rdf
+Shortage.Step 1 Shortage Flag: file=$CRSS_DIR/results/Flags.rdf
+Shortage.Step 2 Shortage Flag: file=$CRSS_DIR/results/Flags.rdf
+Shortage.Step 3 Shortage Flag: file=$CRSS_DIR/results/Flags.rdf
+Surplus.Flood Control Surplus Flag: file=$CRSS_DIR/results/Flags.rdf file=$CRSS_DIR/results/KeySlots.rdf
+Surplus.Full Domestic Surplus Flag: file=$CRSS_DIR/results/Flags.rdf
+Surplus.Normal 70R Surplus Flag: file=$CRSS_DIR/results/Flags.rdf
+Surplus.Quantified Surplus Flag: file=$CRSS_DIR/results/Flags.rdf
+Surplus.SurplusFlag: file=$CRSS_DIR/results/Flags.rdf file=$CRSS_DIR/results/KeySlots.rdf
+
+# Reaches
+
+## UB
+
+PariaColorado.Inflow1: file=$CRSS_DIR/results/UBRch.rdf
+PariaRiver.Inflow: file=$CRSS_DIR/results/UBRch.rdf
+CoRivPariaToLittleCO.Inflow: file=$CRSS_DIR/results/UBRch.rdf
+DoloresRiver.Inflow: file=$CRSS_DIR/results/UBRch.rdf
+DuchesneAboveStarv.Inflow: file=$CRSS_DIR/results/UBRch.rdf
+GreenRAboveFlamingGorge:GainsAboveGreendale.Local Inflow: file=$CRSS_DIR/results/UBRch.rdf
+GreenRAboveGreenRiverWY:GainsAboveGRWY.Local Inflow: file=$CRSS_DIR/results/UBRch.rdf
+GreenRAboveFontenelle.Inflow: file=$CRSS_DIR/results/UBRch.rdf
+GreenRWhiteToSanRafael:GainsAboveGreenRiverUT.Local Inflow: file=$CRSS_DIR/results/UBRch.rdf
+GunnisonColorado.Outflow: file=$CRSS_DIR/results/UBRch.rdf
+GunnisonRiverAboveCrystal:GainsAboveCrystal.Local Inflow: file=$CRSS_DIR/results/UBRch.rdf
+GunnisonRiverAboveGrandJunction:GainsGunnisonRiverAbvGrandJunction.Local Inflow: file=$CRSS_DIR/results/UBRch.rdf
+SanJuanColorado.Inflow1: file=$CRSS_DIR/results/UBRch.rdf
+SanJuanColorado.Inflow2: file=$CRSS_DIR/results/UBRch.rdf
+SanJuanPowell:GainsAboveLeesFerry.Local Inflow: file=$CRSS_DIR/results/UBRch.rdf
+SanRafaelRiver.Inflow: file=$CRSS_DIR/results/UBRch.rdf
+SJAboveNavajo.Inflow: file=$CRSS_DIR/results/UBRch.rdf
+#SJBelowNavajo:GainsAboveBluff.Local Inflow: file=$CRSS_DIR/results/UBRch.rdf
+TaylorAboveBlueMesa:GainsAboveBlueMesa.Local Inflow: file=$CRSS_DIR/results/UBRch.rdf
+#UpperColoradoReach:GainsAboveCameo.Local Inflow: file=$CRSS_DIR/results/UBRch.rdf
+#UpperColoradoReach:GainsAboveCisco.Local Inflow: file=$CRSS_DIR/results/UBRch.rdf
+UpperColoradoReach.Inflow: file=$CRSS_DIR/results/UBRch.rdf
+WhiteRiverAboveWatson.Inflow: file=$CRSS_DIR/results/UBRch.rdf
+WhiteRiverBelowWatson.Inflow: file=$CRSS_DIR/results/UBRch.rdf
+YampaRiver.Inflow: file=$CRSS_DIR/results/UBRch.rdf
+LittleSnakeRiver.Inflow: file=$CRSS_DIR/results/UBRch.rdf
+
+## LB
+
+AboveImperialDamColoradoR:GainsOnColoRAboveImperialDam.Local Inflow: file=$CRSS_DIR/results/Rch.rdf
+AboveImperialDamColoradoR:GainsOnColoRAboveImperialDam.Outflow: file=$CRSS_DIR/results/Rch.rdf
+AboveImperialDamColoradoR.Inflow: file=$CRSS_DIR/results/Rch.rdf
+AboveImperialDamColoradoR.Outflow: file=$CRSS_DIR/results/Rch.rdf file=$CRSS_DIR/results/KeySlots.rdf
+AboveImperialDamColoradoR:RRColoradoRIndianReservation.Outflow: file=$CRSS_DIR/results/Rch.rdf
+AboveImperialDamColoradoR:RRLossDueToSenatorWashOperations.Outflow: file=$CRSS_DIR/results/Rch.rdf
+AboveImperialDamColoradoR:RRNativeVegetation.Outflow: file=$CRSS_DIR/results/Rch.rdf
+AboveImperialDamColoradoR:RRPaloVerdeIrrigationDistrict.Outflow: file=$CRSS_DIR/results/Rch.rdf
+AboveImperialDamColoradoR:RRPaloVerdeIrrigationDistrictWQIP.Outflow: file=$CRSS_DIR/results/Rch.rdf
+AboveImperialDamColoradoR:ParkerAndOtherUsersPriority1.Outflow: file=$CRSS_DIR/results/Rch.rdf
+AboveImperialDamColoradoR:ParkerAndOtherUsersPriority4.Outflow: file=$CRSS_DIR/results/Rch.rdf
+BelowImperialDamColoradoR.Inflow: file=$CRSS_DIR/results/Rch.rdf file=$CRSS_DIR/results/KeySlots.rdf
+BelowImperialDamColoradoR.Outflow: file=$CRSS_DIR/results/Rch.rdf file=$CRSS_DIR/results/OWDMon.rdf
+BelowImperialDamColoradoR:ReturnFlowsFromAllAmericanCanalYuma.Outflow: file=$CRSS_DIR/results/Rch.rdf
+BelowImperialDamColoradoR:ReturnFlowsFromGilaAndYumaUsersPriority1.Outflow: file=$CRSS_DIR/results/Rch.rdf
+BelowImperialDamColoradoR:ReturnFlowsFromGilaAndYumaUsersPriority2and3.Outflow: file=$CRSS_DIR/results/Rch.rdf
+BelowImperialDamColoradoR:ReturnFlowsFromGilaAndYumaUsersPriority4.Outflow: file=$CRSS_DIR/results/Rch.rdf
+BelowImperialDamColoradoR:ReturnFlowsFromGilaGravityMainCanalPriority1.Outflow: file=$CRSS_DIR/results/Rch.rdf
+BelowImperialDamColoradoR:ReturnFlowsFromGilaGravityMainCanalPriority2and3.Outflow: file=$CRSS_DIR/results/Rch.rdf
+BelowImperialDamColoradoR:ArizonaPumpersPriority1.Outflow: file=$CRSS_DIR/results/Rch.rdf
+BelowImperialDamColoradoR:ArizonaPumpersPriority4.Outflow: file=$CRSS_DIR/results/Rch.rdf
+BelowImperialDamColoradoR:RRCaliforniaPumpers.Outflow: file=$CRSS_DIR/results/Rch.rdf
+BelowImperialDamColoradoR:RRMexicanTreatyDelivery.Inflow: file=$CRSS_DIR/results/Rch.rdf
+BelowImperialDamColoradoR:RRMexicanTreatyDelivery.Outflow: file=$CRSS_DIR/results/Rch.rdf
+BelowImperialDamColoradoR:OverDeliveryToMexico.Outflow: file=$CRSS_DIR/results/Rch.rdf
+BelowImperialDamColoradoR:RROtherPumpersBelowNib.Outflow: file=$CRSS_DIR/results/Rch.rdf
+BelowImperialDamColoradoR:RRPhreatophytesImperialToNib.Outflow: file=$CRSS_DIR/results/Rch.rdf
+BelowImperialDamColoradoR:RRYumaDesaltingPlantWQIP.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMeadToMohave:GainsAboveDavis.Inflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMeadToMohave:GainsAboveDavis.Local Inflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMeadToMohave:GainsAboveDavis.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMeadToMohave.Inflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMeadToMohave:LakeMeadNRAPriority2and3.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMeadToMohave:LaughlinMAndI.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMeadToMohave.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMohaveToHavasu:BillWilliamsRiver.Local Inflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMohaveToHavasu:BillWilliamsRiver.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMohaveToHavasu:GainsAboveParker.Local Inflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMohaveToHavasu:GainsAboveParker.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMohaveToHavasu.Inflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMohaveToHavasu.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMohaveToHavasu:RRFtMohRes.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMohaveToHavasu:RRHavasuNWR.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMohaveToHavasu:RRChemehuevi.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMohaveToHavasu:RRMohStmPlnt.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMohaveToHavasu:MohaveValleyIDDPriority1.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMohaveToHavasu:MohaveValleyIDDPriority4.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMohaveToHavasu:RRNeedlesSBDCo.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMohaveToHavasu:RROthersAndMisc.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivMohaveToHavasu:RRPhreatophytes.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivLittleCOToVirgin:GainsAboveGC.Local Inflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivLittleCOToVirgin:GainsAboveGC.Outflow: file=$CRSS_DIR/results/Rch.rdf
+LittleColoradoRiver.Inflow: file=$CRSS_DIR/results/Rch.rdf
+LittleColoradoRiver.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivLittleCOToVirgin.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivVirginToMead:GainsAboveHoover.Local Inflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivVirginToMead:GainsAboveHoover.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivVirginToMead.Inflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivVirginToMead:MoapaValleyWQIP.Outflow: file=$CRSS_DIR/results/Rch.rdf
+CoRivVirginToMead.Outflow: file=$CRSS_DIR/results/Rch.rdf
+ImperialDamDiversionsColoradoR:AllAmericanCanalCoachella.Outflow: file=$CRSS_DIR/results/Rch.rdf
+ImperialDamDiversionsColoradoR:AllAmericanCanalImperial.Outflow: file=$CRSS_DIR/results/Rch.rdf
+ImperialDamDiversionsColoradoR:AllAmericanCanalYumaProject.Outflow: file=$CRSS_DIR/results/Rch.rdf
+ImperialDamDiversionsColoradoR:GilaAndYumaUsersPriority1.Outflow: file=$CRSS_DIR/results/Rch.rdf
+ImperialDamDiversionsColoradoR:GilaAndYumaUsersPriority2and3.Outflow: file=$CRSS_DIR/results/Rch.rdf
+ImperialDamDiversionsColoradoR:GilaAndYumaUsersPriority4.Outflow: file=$CRSS_DIR/results/Rch.rdf
+ImperialDamDiversionsColoradoR:GilaGravityMainCanalPriority1.Outflow: file=$CRSS_DIR/results/Rch.rdf
+ImperialDamDiversionsColoradoR:GilaGravityMainCanalPriority2and3.Outflow: file=$CRSS_DIR/results/Rch.rdf
+ImperialDamDiversionsColoradoR.Inflow: file=$CRSS_DIR/results/Rch.rdf
+ImperialDamDiversionsColoradoR.Outflow: file=$CRSS_DIR/results/Rch.rdf
+ImperialDamDiversionsColoradoR:SaltonSea.Outflow: file=$CRSS_DIR/results/Rch.rdf
+MWDAndCAPReach:CAPDiversion.Outflow: file=$CRSS_DIR/results/Rch.rdf
+MWDAndCAPReach:CAPMinDiversion.Outflow: file=$CRSS_DIR/results/Rch.rdf
+MWDAndCAPReach.Inflow: file=$CRSS_DIR/results/Rch.rdf
+MWDAndCAPReach:MWDDiversion.Outflow: file=$CRSS_DIR/results/Rch.rdf
+MWDAndCAPReach.Outflow: file=$CRSS_DIR/results/Rch.rdf
+NevadaTributaryConservation.Inflow: file=$CRSS_DIR/results/Rch.rdf
+NevadaGroundwater.Inflow: file=$CRSS_DIR/results/Rch.rdf
+VirginRiver.Inflow: file=$CRSS_DIR/results/Rch.rdf
+VirginRiver.Outflow: file=$CRSS_DIR/results/Rch.rdf
+VirginRiver:RRLowerVirginWQIP.Outflow: file=$CRSS_DIR/results/Rch.rdf
+VirginRiver:RRVegMgmt.Outflow: file=$CRSS_DIR/results/Rch.rdf
+VirginRiver:RRWarnerValley.Outflow: file=$CRSS_DIR/results/Rch.rdf
+
+## Stream Gages
+
+ColoradoNearCisco.Gage Outflow: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/StreamGages.rdf
+StreamGage.Gage Inflow: file=$CRSS_DIR/results/StreamGages.rdf
+StreamGage.Gage Outflow: file=$CRSS_DIR/results/StreamGages.rdf
+StreamGage.Salt Concentration: file=$CRSS_DIR/results/StreamGages.rdf
+
+GunnisonNearGrandJunction.Gage Inflow: file=$CRSS_DIR/results/FCM.rdf
+SanJuanNearArchuleta.Gage Inflow: file=$CRSS_DIR/results/FCM.rdf
+SanJuanSJTribs.Outflow: file=$CRSS_DIR/results/FCM.rdf
+ColoradoBelowHoover.Gage Inflow: file=$CRSS_DIR/results/FCM.rdf
+NavajoResults.VolumeReleasedForDamProtection: file=$CRSS_DIR/results/FCM.rdf
+
+ColoradoNearCameo.Gage Inflow: file=$CRSS_DIR/results/MonthlyFlowTargets.rdf
+GunnisonNearGrandJunction.Gage Outflow: file=$CRSS_DIR/results/MonthlyFlowTargets.rdf
+ColoradoNearCO_UTStateLine.Gage Outflow: file=$CRSS_DIR/results/MonthlyFlowTargets.rdf
+YampaNearMaybell.Gage Inflow: file=$CRSS_DIR/results/MonthlyFlowTargets.rdf
+GreenAtGreenRiverUT.Gage Outflow: file=$CRSS_DIR/results/MonthlyFlowTargets.rdf
+DuchesneNearRandlett.Gage Outflow: file=$CRSS_DIR/results/MonthlyFlowTargets.rdf
+SanJuanNearBluff.Gage Inflow: file=$CRSS_DIR/results/MonthlyFlowTargets.rdf
+
+ColoradoAtLeesFerry.Gage Inflow: file=$CRSS_DIR/results/MonthlyFlowTargets.rdf
+MonitorESAFlowReductions.Reach1Reductions: file=$CRSS_DIR/results/ESAFlowReductions.rdf
+MonitorESAFlowReductions.Reach2Reductions: file=$CRSS_DIR/results/ESAFlowReductions.rdf
+MonitorESAFlowReductions.Reach3Reductions: file=$CRSS_DIR/results/ESAFlowReductions.rdf
+TaylorBelowTaylorPark.Gage Inflow: file=$CRSS_DIR/results/MonthlyFlowTargets.rdf
+GunnisonAtCrystal.Gage Inflow: file=$CRSS_DIR/results/MonthlyFlowTargets.rdf
+LittleSnakeNearLily.Gage Outflow: file=$CRSS_DIR/results/MonthlyFlowTargets.rdf
+WhiteNearWatson.Gage Outflow: file=$CRSS_DIR/results/MonthlyFlowTargets.rdf
+GreenBelowFontenelle.Gage Outflow: file=$CRSS_DIR/results/MonthlyFlowTargets.rdf
+GreenAtGreenRiverWY.Gage Outflow: file=$CRSS_DIR/results/MonthlyFlowTargets.rdf
+GreenRAboveGreenRiverWY:GainsAboveGRWY.Outflow: file=$CRSS_DIR/results/MonthlyFlowTargets.rdf
+GreenRYampaToDuchesne.Outflow: file=$CRSS_DIR/results/MonthlyFlowTargets.rdf
+GreenRYampaToDuchesne.Inflow: file=$CRSS_DIR/results/MonthlyFlowTargets.rdf
+
+# Reservoirs
+
+Havasu.Outflow: file=$CRSS_DIR/results/Res.rdf file=$CRSS_DIR/results/LBEnergy.rdf file=$CRSS_DIR/results/KeySlots.rdf
+Havasu.Pool Elevation: file=$CRSS_DIR/results/Res.rdf file=$CRSS_DIR/results/LBEnergy.rdf
+Havasu.Storage: file=$CRSS_DIR/results/Res.rdf
+Mead.Inflow: file=$CRSS_DIR/results/Res.rdf file=$CRSS_DIR/results/Energy.rdf
+Mead.Outflow: file=$CRSS_DIR/results/Res.rdf file=$CRSS_DIR/results/Energy.rdf file=$CRSS_DIR/results/LBEnergy.rdf file=$CRSS_DIR/results/KeySlots.rdf
+Mead.Pool Elevation: file=$CRSS_DIR/results/MPPE.rdf file=$CRSS_DIR/results/Res.rdf file=$CRSS_DIR/results/KeySlots.rdf file=$CRSS_DIR/results/Energy.rdf file=$CRSS_DIR/results/OWDMon.rdf file=$CRSS_DIR/results/EPRMMon.rdf file=$CRSS_DIR/results/LBEnergy.rdf file=$CRSS_DIR/results/RM.rdf
+Mead.Storage: file=$CRSS_DIR/results/Res.rdf
+Mohave.Outflow: file=$CRSS_DIR/results/Res.rdf file=$CRSS_DIR/results/LBEnergy.rdf file=$CRSS_DIR/results/KeySlots.rdf
+Mohave.Pool Elevation: file=$CRSS_DIR/results/Res.rdf file=$CRSS_DIR/results/LBEnergy.rdf
+Mohave.Storage: file=$CRSS_DIR/results/Res.rdf
+Powell.Inflow: file=$CRSS_DIR/results/Res.rdf 
+PowellOperation.PowellWYRelease: file=$CRSS_DIR/results/Res.rdf file=$CRSS_DIR/results/KeySlots.rdf
+Powell.Outflow: file=$CRSS_DIR/results/Res.rdf file=$CRSS_DIR/results/CRSPPowerData.rdf file=$CRSS_DIR/results/KeySlots.rdf
+Powell.Pool Elevation: file=$CRSS_DIR/results/MPPE.rdf file=$CRSS_DIR/results/Res.rdf file=$CRSS_DIR/results/KeySlots.rdf file=$CRSS_DIR/results/RM.rdf file=$CRSS_DIR/results/CRSPPowerData.rdf
+Powell.Storage: file=$CRSS_DIR/results/Res.rdf
+
+BlueMesa.Energy: file=$CRSS_DIR/results/UBRes.rdf
+BlueMesa.Evaporation: file=$CRSS_DIR/results/UBRes.rdf
+BlueMesa.Inflow: file=$CRSS_DIR/results/UBRes.rdf
+BlueMesa.Operating Head: file=$CRSS_DIR/results/UBRes.rdf
+BlueMesa.Outflow: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/CRSPPowerData.rdf
+BlueMesa.Pool Elevation: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/RM.rdf file=$CRSS_DIR/results/CRSPPowerData.rdf
+BlueMesa.Power: file=$CRSS_DIR/results/UBRes.rdf
+BlueMesa.Regulated Spill: file=$CRSS_DIR/results/UBRes.rdf
+BlueMesa.Spill: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/FCM.rdf
+BlueMesa.Storage: file=$CRSS_DIR/results/UBRes.rdf
+BlueMesa.Surface Area: file=$CRSS_DIR/results/UBRes.rdf
+BlueMesa.Turbine Release: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/CRSPPowerData.rdf
+Crystal.Energy: file=$CRSS_DIR/results/UBRes.rdf
+Crystal.Evaporation: file=$CRSS_DIR/results/UBRes.rdf
+Crystal.Inflow: file=$CRSS_DIR/results/UBRes.rdf
+Crystal.Operating Head: file=$CRSS_DIR/results/UBRes.rdf
+Crystal.Outflow: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/CRSPPowerData.rdf
+Crystal.Pool Elevation: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/CRSPPowerData.rdf
+Crystal.Power: file=$CRSS_DIR/results/UBRes.rdf
+Crystal.Regulated Spill: file=$CRSS_DIR/results/UBRes.rdf
+Crystal.Spill: file=$CRSS_DIR/results/UBRes.rdf
+Crystal.Storage: file=$CRSS_DIR/results/UBRes.rdf
+Crystal.Surface Area: file=$CRSS_DIR/results/UBRes.rdf
+Crystal.Turbine Release: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/CRSPPowerData.rdf
+FlamingGorge.Change in Bank Storage: file=$CRSS_DIR/results/UBRes.rdf
+FlamingGorge.Bank Storage: file=$CRSS_DIR/results/UBRes.rdf
+FlamingGorge.Energy: file=$CRSS_DIR/results/UBRes.rdf
+FlamingGorge.Evaporation: file=$CRSS_DIR/results/UBRes.rdf
+FlamingGorge.Inflow: file=$CRSS_DIR/results/UBRes.rdf
+FlamingGorge.Operating Head: file=$CRSS_DIR/results/UBRes.rdf
+FlamingGorge.Outflow: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/CRSPPowerData.rdf
+FlamingGorge.Pool Elevation: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/RM.rdf file=$CRSS_DIR/results/CRSPPowerData.rdf
+FlamingGorge.Power: file=$CRSS_DIR/results/UBRes.rdf
+FlamingGorge.Regulated Spill: file=$CRSS_DIR/results/UBRes.rdf
+FlamingGorge.Spill: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/FCM.rdf
+FlamingGorge.Storage: file=$CRSS_DIR/results/UBRes.rdf
+FlamingGorge.Surface Area: file=$CRSS_DIR/results/UBRes.rdf
+FlamingGorge.Turbine Release: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/CRSPPowerData.rdf
+Fontenelle.Energy: file=$CRSS_DIR/results/UBRes.rdf
+Fontenelle.Evaporation: file=$CRSS_DIR/results/UBRes.rdf
+Fontenelle.Inflow: file=$CRSS_DIR/results/UBRes.rdf
+Fontenelle.Operating Head: file=$CRSS_DIR/results/UBRes.rdf
+Fontenelle.Outflow: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/CRSPPowerData.rdf
+Fontenelle.Pool Elevation: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/CRSPPowerData.rdf
+Fontenelle.Power: file=$CRSS_DIR/results/UBRes.rdf
+Fontenelle.Regulated Spill: file=$CRSS_DIR/results/UBRes.rdf
+Fontenelle.Spill: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/FCM.rdf
+Fontenelle.Storage: file=$CRSS_DIR/results/UBRes.rdf
+Fontenelle.Surface Area: file=$CRSS_DIR/results/UBRes.rdf
+Fontenelle.Turbine Release: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/CRSPPowerData.rdf
+MorrowPoint.Energy: file=$CRSS_DIR/results/UBRes.rdf
+MorrowPoint.Evaporation: file=$CRSS_DIR/results/UBRes.rdf
+MorrowPoint.Inflow: file=$CRSS_DIR/results/UBRes.rdf
+MorrowPoint.Operating Head: file=$CRSS_DIR/results/UBRes.rdf
+MorrowPoint.Outflow: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/CRSPPowerData.rdf
+MorrowPoint.Pool Elevation: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/CRSPPowerData.rdf
+MorrowPoint.Power: file=$CRSS_DIR/results/UBRes.rdf
+MorrowPoint.Regulated Spill: file=$CRSS_DIR/results/UBRes.rdf
+MorrowPoint.Spill: file=$CRSS_DIR/results/UBRes.rdf
+MorrowPoint.Storage: file=$CRSS_DIR/results/UBRes.rdf
+MorrowPoint.Surface Area: file=$CRSS_DIR/results/UBRes.rdf
+MorrowPoint.Turbine Release: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/CRSPPowerData.rdf
+Navajo.Evaporation: file=$CRSS_DIR/results/UBRes.rdf
+Navajo.Inflow: file=$CRSS_DIR/results/UBRes.rdf
+Navajo.Outflow: file=$CRSS_DIR/results/UBRes.rdf
+Navajo.Pool Elevation: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/OWDMon.rdf file=$CRSS_DIR/results/RM.rdf
+Navajo.Regulated Spill: file=$CRSS_DIR/results/UBRes.rdf
+Navajo.Spill: file=$CRSS_DIR/results/UBRes.rdf file=$CRSS_DIR/results/FCM.rdf
+Navajo.Storage: file=$CRSS_DIR/results/UBRes.rdf
+Navajo.Surface Area: file=$CRSS_DIR/results/UBRes.rdf
+Starvation.Inflow: file=$CRSS_DIR/results/UBRes.rdf
+Starvation.Outflow: file=$CRSS_DIR/results/UBRes.rdf
+Starvation.Pool Elevation: file=$CRSS_DIR/results/UBRes.rdf
+Starvation.Regulated Spill: file=$CRSS_DIR/results/UBRes.rdf
+Starvation.Spill: file=$CRSS_DIR/results/UBRes.rdf
+Starvation.Storage: file=$CRSS_DIR/results/UBRes.rdf
+TaylorPark.Inflow: file=$CRSS_DIR/results/UBRes.rdf
+TaylorPark.Outflow: file=$CRSS_DIR/results/UBRes.rdf
+TaylorPark.Pool Elevation: file=$CRSS_DIR/results/UBRes.rdf
+TaylorPark.Regulated Spill: file=$CRSS_DIR/results/UBRes.rdf
+TaylorPark.Spill: file=$CRSS_DIR/results/UBRes.rdf
+TaylorPark.Storage: file=$CRSS_DIR/results/UBRes.rdf
+
+Havasu.Change in Bank Storage: file=$CRSS_DIR/results/xtraRes.rdf
+Havasu.Energy: file=$CRSS_DIR/results/xtraRes.rdf file=$CRSS_DIR/results/LBEnergy.rdf
+Havasu.Evaporation: file=$CRSS_DIR/results/xtraRes.rdf
+Havasu.Inflow: file=$CRSS_DIR/results/xtraRes.rdf
+Havasu.Operating Head: file=$CRSS_DIR/results/xtraRes.rdf
+Havasu.Power: file=$CRSS_DIR/results/xtraRes.rdf
+Havasu.Regulated Spill: file=$CRSS_DIR/results/xtraRes.rdf
+Havasu.Spill: file=$CRSS_DIR/results/xtraRes.rdf
+Havasu.Surface Area: file=$CRSS_DIR/results/xtraRes.rdf
+Havasu.Turbine Release: file=$CRSS_DIR/results/xtraRes.rdf file=$CRSS_DIR/results/LBEnergy.rdf
+Havasu.Unregulated Spill: file=$CRSS_DIR/results/xtraRes.rdf
+Lower Basin Energy.Computed Parker Energy Using Input Eff: file=$CRSS_DIR/results/xtraRes.rdf file=$CRSS_DIR/results/AllRes.rdf
+Mead.Change in Bank Storage: file=$CRSS_DIR/results/xtraRes.rdf
+Mead.Bank Storage: file=$CRSS_DIR/results/xtraRes.rdf
+Mead.Energy: file=$CRSS_DIR/results/xtraRes.rdf file=$CRSS_DIR/results/Energy.rdf file=$CRSS_DIR/results/LBEnergy.rdf
+Mead.Evaporation: file=$CRSS_DIR/results/xtraRes.rdf
+Mead.Operating Head: file=$CRSS_DIR/results/xtraRes.rdf file=$CRSS_DIR/results/Energy.rdf
+Mead.Power: file=$CRSS_DIR/results/xtraRes.rdf file=$CRSS_DIR/results/Energy.rdf
+Mead.Power Capacity: file=$CRSS_DIR/results/xtraRes.rdf file=$CRSS_DIR/results/Energy.rdf
+Mead.Regulated Spill: file=$CRSS_DIR/results/xtraRes.rdf
+Mead.Spill: file=$CRSS_DIR/results/xtraRes.rdf file=$CRSS_DIR/results/FCM.rdf
+Mead.Surface Area: file=$CRSS_DIR/results/xtraRes.rdf
+Mead.Tailwater Elevation: file=$CRSS_DIR/results/xtraRes.rdf file=$CRSS_DIR/results/Energy.rdf
+Mead.Turbine Release: file=$CRSS_DIR/results/xtraRes.rdf file=$CRSS_DIR/results/Energy.rdf file=$CRSS_DIR/results/LBEnergy.rdf
+Mead.Unregulated Spill: file=$CRSS_DIR/results/xtraRes.rdf
+Mohave.Change in Bank Storage: file=$CRSS_DIR/results/xtraRes.rdf
+Mohave.Energy: file=$CRSS_DIR/results/xtraRes.rdf file=$CRSS_DIR/results/LBEnergy.rdf
+Mohave.Evaporation: file=$CRSS_DIR/results/xtraRes.rdf
+Mohave.Inflow: file=$CRSS_DIR/results/xtraRes.rdf
+Mohave.Operating Head: file=$CRSS_DIR/results/xtraRes.rdf
+Mohave.Power: file=$CRSS_DIR/results/xtraRes.rdf
+Mohave.Regulated Spill: file=$CRSS_DIR/results/xtraRes.rdf
+Mohave.Spill: file=$CRSS_DIR/results/xtraRes.rdf
+Mohave.Surface Area: file=$CRSS_DIR/results/xtraRes.rdf
+Mohave.Turbine Release: file=$CRSS_DIR/results/xtraRes.rdf file=$CRSS_DIR/results/LBEnergy.rdf
+Mohave.Unregulated Spill: file=$CRSS_DIR/results/xtraRes.rdf
+Powell.Bypass: file=$CRSS_DIR/results/xtraRes.rdf
+Powell.Change in Bank Storage: file=$CRSS_DIR/results/xtraRes.rdf
+Powell.Bank Storage: file=$CRSS_DIR/results/xtraRes.rdf
+Powell.Energy: file=$CRSS_DIR/results/xtraRes.rdf
+Powell.Evaporation: file=$CRSS_DIR/results/xtraRes.rdf
+Powell.Operating Head: file=$CRSS_DIR/results/xtraRes.rdf
+Powell.Power: file=$CRSS_DIR/results/xtraRes.rdf
+Powell.Regulated Spill: file=$CRSS_DIR/results/xtraRes.rdf
+Powell.Spill: file=$CRSS_DIR/results/xtraRes.rdf file=$CRSS_DIR/results/FCM.rdf
+Powell.Surface Area: file=$CRSS_DIR/results/xtraRes.rdf
+Powell.Turbine Release: file=$CRSS_DIR/results/xtraRes.rdf file=$CRSS_DIR/results/CRSPPowerData.rdf
+Powell.Unregulated Spill: file=$CRSS_DIR/results/xtraRes.rdf
+Powell.Hydro Capacity: file=$CRSS_DIR/results/xtraRes.rdf
+Powell.Power Coefficient: file=$CRSS_DIR/results/xtraRes.rdf
+
+## Catch all
+
+LevelPowerReservoir.Inflow: file=$CRSS_DIR/results/AllRes.rdf
+LevelPowerReservoir.Outflow: file=$CRSS_DIR/results/AllRes.rdf
+LevelPowerReservoir.Pool Elevation: file=$CRSS_DIR/results/AllRes.rdf
+LevelPowerReservoir.Spill: file=$CRSS_DIR/results/AllRes.rdf
+LevelPowerReservoir.Turbine Release: file=$CRSS_DIR/results/AllRes.rdf
+LevelPowerReservoir.Power: file=$CRSS_DIR/results/AllRes.rdf
+LevelPowerReservoir.Energy: file=$CRSS_DIR/results/AllRes.rdf
+LevelPowerReservoir.Evaporation: file=$CRSS_DIR/results/AllRes.rdf
+LevelPowerReservoir.Inflow Salt Concentration: file=$CRSS_DIR/results/AllRes.rdf
+LevelPowerReservoir.Outflow Salt Concentration: file=$CRSS_DIR/results/AllRes.rdf
+LevelPowerReservoir.Storage: file=$CRSS_DIR/results/AllRes.rdf
+LevelPowerReservoir.Operating Head: file=$CRSS_DIR/results/AllRes.rdf
+LevelPowerReservoir.Regulated Spill: file=$CRSS_DIR/results/AllRes.rdf
+LevelPowerReservoir.Surface Area: file=$CRSS_DIR/results/AllRes.rdf
+LevelPowerReservoir.Change in Bank Storage: file=$CRSS_DIR/results/AllRes.rdf
+LevelPowerReservoir.Bank Storage: file=$CRSS_DIR/results/AllRes.rdf
+StorageReservoir.Inflow: file=$CRSS_DIR/results/AllRes.rdf
+StorageReservoir.Outflow: file=$CRSS_DIR/results/AllRes.rdf
+StorageReservoir.Pool Elevation: file=$CRSS_DIR/results/AllRes.rdf
+StorageReservoir.Evaporation: file=$CRSS_DIR/results/AllRes.rdf
+StorageReservoir.Inflow Salt Concentration: file=$CRSS_DIR/results/AllRes.rdf
+StorageReservoir.Outflow Salt Concentration: file=$CRSS_DIR/results/AllRes.rdf
+StorageReservoir.Storage: file=$CRSS_DIR/results/AllRes.rdf
+StorageReservoir.Surface Area: file=$CRSS_DIR/results/AllRes.rdf
+#StorageReservoir.Change In Bank Storage: file=$CRSS_DIR/results/AllRes.rdf
+StorageReservoir.Bank Storage: file=$CRSS_DIR/results/AllRes.rdf
+
+## Blue Mesa Operations
+
+BlueMesaData.MeetBMPE_TestMonthly: file=$CRSS_DIR/results/AspinallOps.rdf
+BlueMesaData.GunnisonHClass: file=$CRSS_DIR/results/AspinallOps.rdf
+BlueMesaData.MeetWhitewaterVolumeGoal: file=$CRSS_DIR/results/AspinallOps.rdf
+BlueMesaData.MeetWWBaseFlow: file=$CRSS_DIR/results/AspinallOps.rdf
+BlueMesaData.ReleaseControl: file=$CRSS_DIR/results/AspinallOps.rdf
+
+## Flaming Gorge Operations
+
+FlamingGorgeData.BaseFlowHClass: file=$CRSS_DIR/results/Class.rdf file=$CRSS_DIR/results/Drought.rdf
+FlamingGorgeData.SpringHClass: file=$CRSS_DIR/results/Class.rdf file=$CRSS_DIR/results/Drought.rdf
+FlamingGorgeData.YampaHClass: file=$CRSS_DIR/results/Class.rdf file=$CRSS_DIR/results/Drought.rdf
+
+FlamingGorgeEIS.LTSPTriggerDate: file=$CRSS_DIR/results/LTSPTrigger.rdf
+
+## Daily flows
+
+DailyFlows.FlamingGorgeDaily: file=$CRSS_DIR/results/DailyFlows.rdf
+DailyFlows.JensenDaily: file=$CRSS_DIR/results/DailyFlows.rdf
+DailyFlows.YampaDailyNatural: file=$CRSS_DIR/results/DailyFlows.rdf
+DailyFlows.YampaDailyDeerlodgeDepleted: file=$CRSS_DIR/results/DailyFlows.rdf
+DailyFlows.JensenDaily: file=$CRSS_DIR/results/DailyFlows.rdf
+BlueMesaData.TargetDailyBlackCanyonFlows: file=$CRSS_DIR/results/DailyFlows.rdf
+BlueMesaData.TargetDailyOutflowFromBlueMesa_AllDays: file=$CRSS_DIR/results/DailyFlows.rdf
+BlueMesaData.TargetDailyWhitewaterFlows: file=$CRSS_DIR/results/DailyFlows.rdf
+
+NavajoEISChecks.CheckMaxInterval2500: file=$CRSS_DIR/results/Bluff.rdf
+NavajoEISChecks.CheckFrequency2500: file=$CRSS_DIR/results/Bluff.rdf
+NavajoEISChecks.CheckDaysAbove2500: file=$CRSS_DIR/results/Bluff.rdf
+NavajoEISChecks.CheckMaxInterval5000: file=$CRSS_DIR/results/Bluff.rdf
+NavajoEISChecks.CheckFrequency5000: file=$CRSS_DIR/results/Bluff.rdf
+NavajoEISChecks.CheckDaysAbove5000: file=$CRSS_DIR/results/Bluff.rdf
+NavajoEISChecks.CheckMaxInterval8000: file=$CRSS_DIR/results/Bluff.rdf
+NavajoEISChecks.CheckFrequency8000: file=$CRSS_DIR/results/Bluff.rdf
+NavajoEISChecks.CheckDaysAbove8000: file=$CRSS_DIR/results/Bluff.rdf
+NavajoEISChecks.CheckMaxInterval10000: file=$CRSS_DIR/results/Bluff.rdf
+NavajoEISChecks.CheckFrequency10000: file=$CRSS_DIR/results/Bluff.rdf
+NavajoEISChecks.CheckDaysAbove10000: file=$CRSS_DIR/results/Bluff.rdf
+
+# NIIP
+
+NIIPGroundwaterStorage.Inflow: file=$CRSS_DIR/results/NIIP.rdf
+NIIPGroundwaterStorage.Outflow: file=$CRSS_DIR/results/NIIP.rdf
+NIIPGroundwaterStorage.Storage: file=$CRSS_DIR/results/NIIP.rdf
+NavajoIndianIrrigationProjectNIIPandExports:NIIP.GW Return Flow: file=$CRSS_DIR/results/NIIP.rdf
+NavajoIndianIrrigationProjectNIIPandExports:NIIP.Surface Return Flow: file=$CRSS_DIR/results/NIIP.rdf
+
+# User Demands, Depletions, and Flags
+
+## Flags
+
+CAPSchedule.FCSurplusFlag: file=$CRSS_DIR/results/DivFlags.rdf
+CAPSchedule.ShortageScheduleFlag: file=$CRSS_DIR/results/DivFlags.rdf
+CAPSchedule.SurplusLevel1Flag: file=$CRSS_DIR/results/DivFlags.rdf
+CAPSchedule.SurplusLevel2Flag: file=$CRSS_DIR/results/DivFlags.rdf
+CAPSchedule.SurplusScheduleFlag: file=$CRSS_DIR/results/DivFlags.rdf
+CoachellaSchedule.FCSurplusFlag: file=$CRSS_DIR/results/DivFlags.rdf
+CoachellaSchedule.ShortageScheduleFlag: file=$CRSS_DIR/results/DivFlags.rdf
+CoachellaSchedule.SurplusLevel1Flag: file=$CRSS_DIR/results/DivFlags.rdf
+CoachellaSchedule.SurplusScheduleFlag: file=$CRSS_DIR/results/DivFlags.rdf
+IIDSchedule.FCSurplusFlag: file=$CRSS_DIR/results/DivFlags.rdf
+IIDSchedule.ShortageScheduleFlag: file=$CRSS_DIR/results/DivFlags.rdf
+IIDSchedule.SurplusLevel1Flag: file=$CRSS_DIR/results/DivFlags.rdf
+IIDSchedule.SurplusScheduleFlag: file=$CRSS_DIR/results/DivFlags.rdf
+MexicoSchedule.FCSurplusFlag: file=$CRSS_DIR/results/DivFlags.rdf
+MexicoSchedule.ShortageScheduleFlag: file=$CRSS_DIR/results/DivFlags.rdf
+MexicoSchedule.SurplusScheduleFlag: file=$CRSS_DIR/results/DivFlags.rdf
+MWDSchedule.FCSurplusFlag: file=$CRSS_DIR/results/DivFlags.rdf
+MWDSchedule.ShortageScheduleFlag: file=$CRSS_DIR/results/DivFlags.rdf
+MWDSchedule.SurplusLevel1Flag: file=$CRSS_DIR/results/DivFlags.rdf
+MWDSchedule.SurplusLevel2Flag: file=$CRSS_DIR/results/DivFlags.rdf
+MWDSchedule.SurplusScheduleFlag: file=$CRSS_DIR/results/DivFlags.rdf
+SNWPSchedule.FCSurplusFlag: file=$CRSS_DIR/results/DivFlags.rdf
+SNWPSchedule.ShortageScheduleFlag: file=$CRSS_DIR/results/DivFlags.rdf
+SNWPSchedule.SurplusLevel1Flag: file=$CRSS_DIR/results/DivFlags.rdf
+SNWPSchedule.SurplusLevel2Flag: file=$CRSS_DIR/results/DivFlags.rdf
+SNWPSchedule.SurplusScheduleFlag: file=$CRSS_DIR/results/DivFlags.rdf
+
+## Basin Wide
+LBDelivery.SeriesSlot: file=$CRSS_DIR/results/BasinDelivery.rdf
+UBDelivery.SeriesSlot: file=$CRSS_DIR/results/BasinDelivery.rdf
+LBClimateChangeDemands.AnnualRemainingDemand: file=$CRSS_DIR/results/BasinDelivery.rdf
+
+## Agg Diversion Sites
+ColoradoRiverIndianReservation.Total Depletion: file=$CRSS_DIR/results/Div.rdf
+ColoradoRiverIndianReservation.Total Diversion: file=$CRSS_DIR/results/Div.rdf
+ColoradoRiverIndianReservation.Total Diversion Requested: file=$CRSS_DIR/results/Div.rdf
+FtMohaveReservation.Total Depletion: file=$CRSS_DIR/results/Div.rdf
+FtMohaveReservation.Total Diversion: file=$CRSS_DIR/results/Div.rdf
+FtMohaveReservation.Total Diversion Requested: file=$CRSS_DIR/results/Div.rdf
+HavasuNWR.Total Depletion: file=$CRSS_DIR/results/Div.rdf
+HavasuNWR.Total Diversion: file=$CRSS_DIR/results/Div.rdf
+HavasuNWR.Total Diversion Requested: file=$CRSS_DIR/results/Div.rdf
+ChemehueviReservation.Total Depletion: file=$CRSS_DIR/results/Div.rdf
+ChemehueviReservation.Total Diversion: file=$CRSS_DIR/results/Div.rdf
+ChemehueviReservation.Total Diversion Requested: file=$CRSS_DIR/results/Div.rdf
+ParkerAndOtherUsersPriority1.Total Depletion: file=$CRSS_DIR/results/Div.rdf
+ParkerAndOtherUsersPriority1.Total Diversion: file=$CRSS_DIR/results/Div.rdf
+ParkerAndOtherUsersPriority1.Total Diversion Requested: file=$CRSS_DIR/results/Div.rdf
+ParkerAndOtherUsersPriority4.Total Depletion: file=$CRSS_DIR/results/Div.rdf
+ParkerAndOtherUsersPriority4.Total Diversion: file=$CRSS_DIR/results/Div.rdf
+ParkerAndOtherUsersPriority4.Total Diversion Requested: file=$CRSS_DIR/results/Div.rdf
+
+LossDueToSenatorWashOperations.Total Depletion: file=$CRSS_DIR/results/FedDiv.rdf
+LossDueToSenatorWashOperations.Total Diversion: file=$CRSS_DIR/results/FedDiv.rdf
+LossDueToSenatorWashOperations.Total Diversion Requested: file=$CRSS_DIR/results/FedDiv.rdf
+MoapaValleyWQIP.Total Depletion: file=$CRSS_DIR/results/FedDiv.rdf
+MoapaValleyWQIP.Total Diversion: file=$CRSS_DIR/results/FedDiv.rdf
+MoapaValleyWQIP.Total Diversion Requested: file=$CRSS_DIR/results/FedDiv.rdf
+NativeVegetation.Total Depletion: file=$CRSS_DIR/results/FedDiv.rdf
+NativeVegetation.Total Diversion: file=$CRSS_DIR/results/FedDiv.rdf
+NativeVegetation.Total Diversion Requested: file=$CRSS_DIR/results/FedDiv.rdf
+PhreatophytesImperialToNIB.Total Depletion: file=$CRSS_DIR/results/FedDiv.rdf
+PhreatophytesImperialToNIB.Total Diversion: file=$CRSS_DIR/results/FedDiv.rdf
+PhreatophytesImperialToNIB.Total Diversion Requested: file=$CRSS_DIR/results/FedDiv.rdf
+Phreatophytes.Total Depletion: file=$CRSS_DIR/results/FedDiv.rdf
+Phreatophytes.Total Diversion: file=$CRSS_DIR/results/FedDiv.rdf
+Phreatophytes.Total Diversion Requested: file=$CRSS_DIR/results/FedDiv.rdf
+YumaOperations:YumaDesaltingPlantWQIP.Depletion Requested: file=$CRSS_DIR/results/FedDiv.rdf
+YumaOperations:YumaDesaltingPlantWQIP.Depletion Shortage: file=$CRSS_DIR/results/FedDiv.rdf
+YumaOperations:YumaDesaltingPlantWQIP.Diversion Requested: file=$CRSS_DIR/results/FedDiv.rdf
+YumaOperations:WelltonMohawkBypassFlows.Diversion Requested: file=$CRSS_DIR/results/FedDiv.rdf
+YumaOperations:WelltonMohawkBypassFlows.Depletion Requested: file=$CRSS_DIR/results/FedDiv.rdf
+YumaOperations:WelltonMohawkBypassFlows.Depletion Shortage: file=$CRSS_DIR/results/FedDiv.rdf
+YumaOperations.Total Depletion: file=$CRSS_DIR/results/FedDiv.rdf
+YumaOperations.Total Diversion: file=$CRSS_DIR/results/FedDiv.rdf
+
+## State Use and Demand
+
+Computed State Depletions.Arizona Actual: file=$CRSS_DIR/results/CSD_mon.rdf
+Computed State Depletions.Arizona Annual Actual: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.Arizona Annual Normal: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.Arizona Normal: file=$CRSS_DIR/results/CSD_mon.rdf
+Computed State Depletions.California Actual: file=$CRSS_DIR/results/CSD_mon.rdf
+Computed State Depletions.California Annual Actual: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.California Annual Normal: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.California Normal: file=$CRSS_DIR/results/CSD_mon.rdf
+Computed State Depletions.Colorado Actual: file=$CRSS_DIR/results/CSD_mon.rdf
+Computed State Depletions.Colorado Annual Actual: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.Colorado Annual Normal: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.Colorado Normal: file=$CRSS_DIR/results/CSD_mon.rdf
+Computed State Depletions.Mexico Annual Actual: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.Mexico Annual Actual Delivery: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.Nevada Actual: file=$CRSS_DIR/results/CSD_mon.rdf
+Computed State Depletions.Nevada Annual Actual: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.Nevada Annual Normal: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.Nevada Normal: file=$CRSS_DIR/results/CSD_mon.rdf
+Computed State Depletions.New Mexico Actual: file=$CRSS_DIR/results/CSD_mon.rdf
+Computed State Depletions.New Mexico Annual Actual: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.New Mexico Annual Normal: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.New Mexico Normal: file=$CRSS_DIR/results/CSD_mon.rdf
+Computed State Depletions.NewMexicoAnnualNormalWithScheduledNavajoEvap: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.Utah Actual: file=$CRSS_DIR/results/CSD_mon.rdf
+Computed State Depletions.Utah Annual Actual: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.Utah Annual Normal: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.Utah Normal: file=$CRSS_DIR/results/CSD_mon.rdf
+Computed State Depletions.Wyoming Actual: file=$CRSS_DIR/results/CSD_mon.rdf
+Computed State Depletions.Wyoming Annual Actual: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.Wyoming Annual Normal: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.Wyoming Normal: file=$CRSS_DIR/results/CSD_mon.rdf
+Computed State Depletions.Arizona Upper Basin Annual Normal: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.Arizona Upper Basin Annual Actual: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.Arizona Annual Normal with Tributary: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.Misc Annual Normal: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.UB Annual Normal: file=$CRSS_DIR/results/CSD_ann.rdf
+Computed State Depletions.Unassigned Annual Actual: file=$CRSS_DIR/results/CSD_ann.rdf
+
+SNWPSchedule.AnnualAdditionalDemand: file=$CRSS_DIR/results/CSD_ann.rdf file=$CRSS_DIR/results/NVWU.rdf
+SNWPSchedule.AnnualRemainingDemand: file=$CRSS_DIR/results/CSD_ann.rdf file=$CRSS_DIR/results/NVWU.rdf
+CaliforniaUnmetDemandSchedules.CAAnnualScheduledUnmetDemand: file=$CRSS_DIR/results/CSD_ann.rdf file=$CRSS_DIR/results/CAWU.rdf
+CaliforniaUnmetDemandSchedules.MWDActualUnmetDemand: file=$CRSS_DIR/results/CSD_ann.rdf file=$CRSS_DIR/results/CAWU.rdf
+CaliforniaUnmetDemandSchedules.IIDActualUnmetDemand: file=$CRSS_DIR/results/CSD_ann.rdf file=$CRSS_DIR/results/CAWU.rdf
+ArizonaUnmetDemandSchedules.AZAnnualScheduledUnmetDemand: file=$CRSS_DIR/results/CSD_ann.rdf file=$CRSS_DIR/results/AZWU.rdf
+ArizonaUnmetDemandSchedules.CentralArizonaActualUnmetDemand: file=$CRSS_DIR/results/CSD_ann.rdf file=$CRSS_DIR/results/AZWU.rdf
+
+## State - Water users
+
+CO Water Users.Depletion Requested: file=$CRSS_DIR/results/COWU.rdf
+UT Water Users.Depletion Requested: file=$CRSS_DIR/results/UTWU.rdf
+NM Water Users.Depletion Requested: file=$CRSS_DIR/results/NMWU.rdf
+WY Water Users.Depletion Requested: file=$CRSS_DIR/results/WYWU.rdf
+CA Water Users.Depletion Requested: file=$CRSS_DIR/results/CAWU.rdf
+NV Water Users.Depletion Requested: file=$CRSS_DIR/results/NVWU.rdf
+AZ UB Water Users.Depletion Requested: file=$CRSS_DIR/results/AZWU.rdf
+AZ Water Users.Depletion Requested: file=$CRSS_DIR/results/AZWU.rdf
+
+CO Water Users.Depletion Schedule Cutback: file=$CRSS_DIR/results/COWU.rdf
+UT Water Users.Depletion Schedule Cutback: file=$CRSS_DIR/results/UTWU.rdf
+NM Water Users.Depletion Schedule Cutback: file=$CRSS_DIR/results/NMWU.rdf
+WY Water Users.Depletion Schedule Cutback: file=$CRSS_DIR/results/WYWU.rdf
+CA Water Users.Depletion Schedule Cutback: file=$CRSS_DIR/results/CAWU.rdf
+NV Water Users.Depletion Schedule Cutback: file=$CRSS_DIR/results/NVWU.rdf
+AZ UB Water Users.Depletion Schedule Cutback: file=$CRSS_DIR/results/AZWU.rdf
+AZ Water Users.Depletion Schedule Cutback: file=$CRSS_DIR/results/AZWU.rdf
+
+CO Water Users.Depletion Schedule Shortage: file=$CRSS_DIR/results/COWU.rdf
+UT Water Users.Depletion Schedule Shortage: file=$CRSS_DIR/results/UTWU.rdf
+NM Water Users.Depletion Schedule Shortage: file=$CRSS_DIR/results/NMWU.rdf
+WY Water Users.Depletion Schedule Shortage: file=$CRSS_DIR/results/WYWU.rdf
+CA Water Users.Depletion Schedule Shortage: file=$CRSS_DIR/results/CAWU.rdf
+NV Water Users.Depletion Schedule Shortage: file=$CRSS_DIR/results/NVWU.rdf
+AZ UB Water Users.Depletion Schedule Shortage: file=$CRSS_DIR/results/AZWU.rdf
+AZ Water Users.Depletion Schedule Shortage: file=$CRSS_DIR/results/AZWU.rdf
+
+PVIDDiversion.Total Depletion Requested: file=$CRSS_DIR/results/CAWU.rdf
+IIDDiversion.Total Depletion Requested: file=$CRSS_DIR/results/CAWU.rdf
+MWDDiversion.Total Depletion Requested: file=$CRSS_DIR/results/CAWU.rdf
+CoachellaDiversion.Total Depletion Requested: file=$CRSS_DIR/results/CAWU.rdf
+SNWPDiversion.Total Depletion Requested: file=$CRSS_DIR/results/NVWU.rdf
+CAPDiversion.Total Depletion Requested: file=$CRSS_DIR/results/AZWU.rdf
+CO Water Users.Diversion Requested: file=$CRSS_DIR/results/COWU.rdf
+UT Water Users.Diversion Requested: file=$CRSS_DIR/results/UTWU.rdf
+NM Water Users.Diversion Requested: file=$CRSS_DIR/results/NMWU.rdf
+WY Water Users.Diversion Requested: file=$CRSS_DIR/results/WYWU.rdf
+CA Water Users.Diversion Requested: file=$CRSS_DIR/results/CAWU.rdf
+NV Water Users.Diversion Requested: file=$CRSS_DIR/results/NVWU.rdf
+AZ UB Water Users.Diversion Requested: file=$CRSS_DIR/results/AZWU.rdf
+AZ Water Users.Diversion Requested: file=$CRSS_DIR/results/AZWU.rdf
+PVIDDiversion.Total Diversion Requested: file=$CRSS_DIR/results/CAWU.rdf
+IIDDiversion.Total Diversion Requested: file=$CRSS_DIR/results/CAWU.rdf
+MWDDiversion.Total Diversion Requested: file=$CRSS_DIR/results/CAWU.rdf
+CoachellaDiversion.Total Diversion Requested: file=$CRSS_DIR/results/CAWU.rdf
+SNWPDiversion.Total Diversion Requested: file=$CRSS_DIR/results/NVWU.rdf
+CAPDiversion.Total Diversion Requested: file=$CRSS_DIR/results/AZWU.rdf
+CO Water Users.Depletion Shortage: file=$CRSS_DIR/results/COWU.rdf
+UT Water Users.Depletion Shortage: file=$CRSS_DIR/results/UTWU.rdf
+NM Water Users.Depletion Shortage: file=$CRSS_DIR/results/NMWU.rdf
+WY Water Users.Depletion Shortage: file=$CRSS_DIR/results/WYWU.rdf
+CA Water Users.Depletion Shortage: file=$CRSS_DIR/results/CAWU.rdf
+NV Water Users.Depletion Shortage: file=$CRSS_DIR/results/NVWU.rdf
+AZ UB Water Users.Depletion Shortage: file=$CRSS_DIR/results/AZWU.rdf
+AZ Water Users.Depletion Shortage: file=$CRSS_DIR/results/AZWU.rdf
+NavajoLittleCO:NavajoLittleCOClaims.Depletion Requested: file=$CRSS_DIR/results/AZWU.rdf
+NavajoLittleCO:NavajoLittleCOClaims.Depletion Shortage: file=$CRSS_DIR/results/AZWU.rdf
+PVIDDiversion.Total Depletion Shortage: file=$CRSS_DIR/results/CAWU.rdf
+IIDDiversion.Total Depletion Shortage: file=$CRSS_DIR/results/CAWU.rdf
+MWDDiversion.Total Depletion Shortage: file=$CRSS_DIR/results/CAWU.rdf
+CoachellaDiversion.Total Depletion Shortage: file=$CRSS_DIR/results/CAWU.rdf
+SNWPDiversion.Total Depletion Shortage: file=$CRSS_DIR/results/NVWU.rdf
+CAPDiversion.Total Depletion Shortage: file=$CRSS_DIR/results/AZWU.rdf
+ArizonaPriority4Schedules.TotalActualUse: file=$CRSS_DIR/results/AZWU.rdf
+ArizonaPriority4Schedules.TotalScheduleUse: file=$CRSS_DIR/results/AZWU.rdf
+ArizonaPriority4Schedules.TotalOtherActualUse: file=$CRSS_DIR/results/AZWU.rdf
+ArizonaPriority4Schedules.TotalOtherScheduledUse: file=$CRSS_DIR/results/AZWU.rdf
+ArizonaPriority1Schedules.TotalActualUse: file=$CRSS_DIR/results/AZWU.rdf
+ArizonaPriority1Schedules.TotalScheduledUse: file=$CRSS_DIR/results/AZWU.rdf
+ArizonaPriority2and3Schedules.TotalActualUse: file=$CRSS_DIR/results/AZWU.rdf
+ArizonaPriority2and3Schedules.TotalScheduledUse: file=$CRSS_DIR/results/AZWU.rdf
+
+## Shortages
+
+LBShort.AnnualCAPShortageRatio: file=$CRSS_DIR/results/Short.rdf
+LBShort.AnnualCAPShort: file=$CRSS_DIR/results/Short.rdf
+LBShort.AnnualLBMexicoShort: file=$CRSS_DIR/results/Short.rdf file=$CRSS_DIR/results/KeySlots.rdf
+LBShort.AnnualMexicoShortageRatio: file=$CRSS_DIR/results/Short.rdf
+LBShort.AnnualMexicoShort: file=$CRSS_DIR/results/Short.rdf file=$CRSS_DIR/results/KeySlots.rdf
+LBShort.AnnualMWDShortageRatio: file=$CRSS_DIR/results/Short.rdf
+LBShort.AnnualMWDShort: file=$CRSS_DIR/results/Short.rdf
+LBShort.AnnualSNWPShortageRatio: file=$CRSS_DIR/results/Short.rdf
+LBShort.AnnualSNWPShort: file=$CRSS_DIR/results/Short.rdf
+LBShort.CAPShort: file=$CRSS_DIR/results/Short.rdf
+LBShort.ConsecutiveYearShortage: file=$CRSS_DIR/results/Short.rdf
+LBShort.CumulativeAnnualLBMexicoShort: file=$CRSS_DIR/results/Short.rdf
+LBShort.MexicoShort: file=$CRSS_DIR/results/Short.rdf
+LBShort.MonthlyLBMexicoShort: file=$CRSS_DIR/results/Short.rdf
+LBShort.MWDShort: file=$CRSS_DIR/results/Short.rdf
+LBShort.SNWPShort: file=$CRSS_DIR/results/Short.rdf
+LBShort.AnnualArizonaPriority4OtherShort: file=$CRSS_DIR/results/Short.rdf
+LBShort.ArizonaPriority4OtherShort: file=$CRSS_DIR/results/Short.rdf
+LBShort.AnnualArizonaPriority4OtherShortRatio: file=$CRSS_DIR/results/Short.rdf
+LBShort.AnnualArizonaPriority2and3Short: file=$CRSS_DIR/results/Short.rdf
+LBShort.ArizonaPriority2and3Short: file=$CRSS_DIR/results/Short.rdf
+LBShort.AnnualArizonaPriority2and3ShortRatio: file=$CRSS_DIR/results/Short.rdf
+LBShort.ArizonaShortageRatio: file=$CRSS_DIR/results/Short.rdf
+LBShort.SNWPShortageRatio: file=$CRSS_DIR/results/Short.rdf
+LBShort.MexicoShortageRatio: file=$CRSS_DIR/results/Short.rdf
+LBShort.MWDShortageRatio: file=$CRSS_DIR/results/Short.rdf
+LBShort.ArizonaShort: file=$CRSS_DIR/results/Short.rdf
+LBShort.AnnualArizonaShort: file=$CRSS_DIR/results/Short.rdf
+Shortage.Stage1Shortage: file=$CRSS_DIR/results/Short.rdf
+Shortage.Annual Level 1 Shortage: file=$CRSS_DIR/results/Short.rdf
+Shortage.Stage2Shortage: file=$CRSS_DIR/results/Short.rdf
+Shortage.Stage2ShortageCHECK: file=$CRSS_DIR/results/Short.rdf
+LBShort.MWDStage2ShortageRatio: file=$CRSS_DIR/results/Short.rdf
+LBShort.ArizonaStage2ShortageRatio: file=$CRSS_DIR/results/Short.rdf
+LBShort.AnnualArizonaShortageRatio: file=$CRSS_DIR/results/Short.rdf
+LBShort.ArizonaStage1ShortageRatio: file=$CRSS_DIR/results/Short.rdf
+UBShort.AnnualColoradoShort: file=$CRSS_DIR/results/Short.rdf
+UBShort.AnnualNewMexicoShort: file=$CRSS_DIR/results/Short.rdf
+UBShort.AnnualUBShort: file=$CRSS_DIR/results/Short.rdf
+UBShort.AnnualUtahShort: file=$CRSS_DIR/results/Short.rdf
+UBShort.AnnualWyomingShort: file=$CRSS_DIR/results/Short.rdf
+UBShort.ColoradoShort: file=$CRSS_DIR/results/Short.rdf
+UBShort.NewMexicoShort: file=$CRSS_DIR/results/Short.rdf
+UBShort.UtahShort: file=$CRSS_DIR/results/Short.rdf
+UBShort.WyomingShort: file=$CRSS_DIR/results/Short.rdf
+
+LBHydrologicShortage.AnnualTotalShortage: file=$CRSS_DIR/results/OWDAnn.rdf
+LBHydrologicShortage.AnnualPolicyShortage: file=$CRSS_DIR/results/OWDAnn.rdf
+LBHydrologicShortage.AnnualLBMXMiscHydrologicShortage: file=$CRSS_DIR/results/OWDAnn.rdf
+LeeFerryDeficit.WYDeficit: file=$CRSS_DIR/results/OWDAnn.rdf
+LeeFerryDeficitSupply.Inflow: file=$CRSS_DIR/results/OWDMon.rdf
+
+## ICS/ICMA
+
+### Mead Bank
+Mead Bank.Normal Year: file=$CRSS_DIR/results/Check.rdf
+Mead Bank.SeriesSlot: file=$CRSS_DIR/results/MeadBank.rdf
+
+### Mexico
+ICMA.Balance: file=$CRSS_DIR/results/ICMA.rdf
+ICMA.ActualAnnualPut: file=$CRSS_DIR/results/ICMA.rdf
+ICMA.ActualAnnualTake: file=$CRSS_DIR/results/ICMA.rdf
+ICMA.BWSCPBalance: file=$CRSS_DIR/results/ICMA.rdf
+ICMA.ConvertMWRToBWSCP: file=$CRSS_DIR/results/ICMA.rdf
+ICMA.BWSCPActualAnnualPut: file=$CRSS_DIR/results/ICMA.rdf
+ICMA.BWSCPActualAnnualTake: file=$CRSS_DIR/results/ICMA.rdf
+ICMA.BWSCPAdditionalAnnualContribution: file=$CRSS_DIR/results/ICMA.rdf
+
+### Nevada
+Nevada ICS.ECBalance: file=$CRSS_DIR/results/NVICS.rdf
+#Nevada ICS.ECAtualAnnualTake: file=$CRSS_DIR/results/NVICS.rdf
+#Nevada ICS.ECAtualAnnualPutFromUnused: file=$CRSS_DIR/results/NVICS.rdf
+#Nevada ICS.ECAtualAnnualPut: file=$CRSS_DIR/results/NVICS.rdf
+Nevada ICS.DCPBalance: file=$CRSS_DIR/results/NVICS.rdf
+Nevada ICS.DCPActualAnnualTake: file=$CRSS_DIR/results/NVICS.rdf
+Nevada ICS.DCPActualAnnualPut: file=$CRSS_DIR/results/NVICS.rdf
+Nevada ICS.DCPAdditionalAnnualContribution: file=$CRSS_DIR/results/NVICS.rdf
+Nevada ICS.ConvertECToDCP: file=$CRSS_DIR/results/NVICS.rdf
+Nevada ICS.GroundwaterActualAnnualPut: file=$CRSS_DIR/results/NVICS.rdf
+Nevada ICS.GroundwaterActualAnnualTake: file=$CRSS_DIR/results/NVICS.rdf
+Nevada ICS.GroundwaterAnnualPut: file=$CRSS_DIR/results/NVICS.rdf
+Nevada ICS.TributaryConsActualAnnualPut: file=$CRSS_DIR/results/NVICS.rdf
+Nevada ICS.TributaryConsActualAnnualTake: file=$CRSS_DIR/results/NVICS.rdf
+Nevada ICS.TributaryConsAnnualPut: file=$CRSS_DIR/results/NVICS.rdf
+Nevada ICS.BrockActualAnnualTake: file=$CRSS_DIR/results/NVICS.rdf
+Nevada ICS.BrockAvailableBalance: file=$CRSS_DIR/results/NVICS.rdf
+Nevada ICS.BICSAvailableBalance: file=$CRSS_DIR/results/NVICS.rdf
+Nevada ICS.SNGWBankBalance: file=$CRSS_DIR/results/NVICS.rdf
+Nevada ICS.NonSystemExchangesAnnualPut: file=$CRSS_DIR/results/NVICS.rdf
+Nevada ICS.NonSystemExchangesAnnualTake: file=$CRSS_DIR/results/NVICS.rdf
+Nevada ICS.SeriesSlot: file=$CRSS_DIR/results/NVICS_mon.rdf
+
+### California 
+
+#### MWD 
+MWD ICS.DesiredAnnualTake: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.SacWYType: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.InputECAnnualPut: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.InputECAnnualTake: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.ECActualAnnualTake: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.ECActualAnnualPut: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.ECActualAnnualReductionForPut: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.ECBalance: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.DCPActualAnnualTake: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.DCPActualAnnualPut: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.DCPBalance: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.DCPAdditionalAnnualContribution: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.ConvertECToDCP: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.TotalDCPBalance: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.CoachellaDCPActualAnnualPut: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.CoachellaDCPAdditionalAnnualContribution: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.CoachellaDCPBalance: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.CoachellaDCPActualAnnualReductionForPut: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.BrockActualAnnualTake: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.BrockAvailableBalance: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.InputBrockAnnualTake: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.YDPActualAnnualTake: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.YDPAvailableBalance: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.InputYDPAnnualTake: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.BICSActualAnnualTake: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.BICSAvailableBalance: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.InputBICSAnnualTake: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.PVID Fallow Amount: file=$CRSS_DIR/results/MWDICS.rdf
+MWD ICS.SeriesSlot: file=$CRSS_DIR/results/MWDICS_mon.rdf
+
+#### IID 
+IID ICS.BICSAvailableBalance: file=$CRSS_DIR/results/IIDICS.rdf
+IID ICS.InputBICSAnnualTake: file=$CRSS_DIR/results/IIDICS.rdf
+IID ICS.ECActualAnnualPut: file=$CRSS_DIR/results/IIDICS.rdf
+IID ICS.InputECAnnualPut: file=$CRSS_DIR/results/IIDICS.rdf
+IID ICS.SeriesSlot: file=$CRSS_DIR/results/IIDICS_mon.rdf
+
+### Arizona 
+
+Arizona ICS.AnnualRequestedPut: file=$CRSS_DIR/results/AZICS.rdf
+Arizona ICS.AnnualRequestedTake: file=$CRSS_DIR/results/AZICS.rdf
+Arizona ICS.BrockAvailableBalance: file=$CRSS_DIR/results/AZICS.rdf
+Arizona ICS.InputBrockAnnualTake: file=$CRSS_DIR/results/AZICS.rdf
+Arizona ICS.CRITAnnualRequestedTake: file=$CRSS_DIR/results/AZICS.rdf
+Arizona ICS.CRITAnnualRequestedPut: file=$CRSS_DIR/results/AZICS.rdf
+Arizona ICS.CRITSystemConservation: file=$CRSS_DIR/results/AZICS.rdf
+Arizona ICS.GRICAnnualRequestedPut: file=$CRSS_DIR/results/AZICS.rdf
+Arizona ICS.GRICAnnualRequestedTake: file=$CRSS_DIR/results/AZICS.rdf
+Arizona ICS.GRICAnnualRequestedTake: file=$CRSS_DIR/results/AZICS.rdf
+Arizona ICS.YDPAvailableBalance: file=$CRSS_DIR/results/AZICS.rdf
+Arizona ICS.BICSAvailableBalance: file=$CRSS_DIR/results/AZICS.rdf
+Arizona ICS.InputBICSAnnualTake: file=$CRSS_DIR/results/AZICS.rdf
+Arizona ICS.SeriesSlot: file=$CRSS_DIR/results/AZICS_mon.rdf
+
+## LB Surplus
+
+LBSurplus.SNWP: file=$CRSS_DIR/results/NVWU.rdf file=$CRSS_DIR/results/FCM.rdf
+LBSurplus.MWD: file=$CRSS_DIR/results/CAWU.rdf file=$CRSS_DIR/results/FCM.rdf
+LBSurplus.CAP: file=$CRSS_DIR/results/AZWU.rdf file=$CRSS_DIR/results/FCM.rdf
+LBSurplus.IID: file=$CRSS_DIR/results/CAWU.rdf file=$CRSS_DIR/results/FCM.rdf
+LBSurplus.Coachella: file=$CRSS_DIR/results/CAWU.rdf file=$CRSS_DIR/results/FCM.rdf
+LBSurplus.Mexico: file=$CRSS_DIR/results/MXWU.rdf file=$CRSS_DIR/results/FCM.rdf
+
+# MassBalance.rdf - Flow Mass Balance
+UB Flow Mass Balance.SeriesSlot: file=$CRSS_DIR/results/MassBalance.rdf
+UB Flow Mass Balance.Upper Basin Flow Mass_Upper Basin Balance: file=$CRSS_DIR/results/MassBalance.rdf
+UB Flow Mass Balance.Upper Basin Flow Mass_Upper Basin Balance.Inflow: file=$CRSS_DIR/results/MassBalance.rdf
+UB Flow Mass Balance.Upper Basin Flow Mass_Upper Basin Balance.Outflow: file=$CRSS_DIR/results/MassBalance.rdf
+UB Flow Mass Balance.Upper Basin Flow Mass_Upper Basin Balance.Other Losses: file=$CRSS_DIR/results/MassBalance.rdf
+UB Flow Mass Balance.Upper Basin Flow Mass_Upper Colorado Balance: file=$CRSS_DIR/results/MassBalance.rdf
+UB Flow Mass Balance.Upper Basin Flow Mass_Upper Colorado Balance.Inflow: file=$CRSS_DIR/results/MassBalance.rdf
+UB Flow Mass Balance.Upper Basin Flow Mass_Upper Colorado Balance.Outflow: file=$CRSS_DIR/results/MassBalance.rdf
+UB Flow Mass Balance.Upper Basin Flow Mass_Green Balance: file=$CRSS_DIR/results/MassBalance.rdf
+UB Flow Mass Balance.Upper Basin Flow Mass_Green Balance.Inflow: file=$CRSS_DIR/results/MassBalance.rdf
+UB Flow Mass Balance.Upper Basin Flow Mass_Green Balance.Outflow: file=$CRSS_DIR/results/MassBalance.rdf
+UB Flow Mass Balance.Upper Basin Flow Mass_Green Balance.Inflow: file=$CRSS_DIR/results/MassBalance.rdf
+UB Flow Mass Balance.Upper Basin Flow Mass_Green Balance.Outflow: file=$CRSS_DIR/results/MassBalance.rdf
+UB Flow Mass Balance.Upper Basin Flow Mass_San Juan Balance: file=$CRSS_DIR/results/MassBalance.rdf
+UB Flow Mass Balance.Upper Basin Flow Mass_San Juan Balance.Inflow: file=$CRSS_DIR/results/MassBalance.rdf
+UB Flow Mass Balance.Upper Basin Flow Mass_San Juan Balance.Outflow: file=$CRSS_DIR/results/MassBalance.rdf
+LB Flow Mass Balance.SeriesSlot: file=$CRSS_DIR/results/MassBalance.rdf
+LB Flow Mass Balance.Lower Basin Flow Mass_Lower Basin Balance: file=$CRSS_DIR/results/MassBalance.rdf
+
+# ################ Salinity Output ################
+
+AnnualSalinity.SeriesSlot: file=$CRSS_DIR/results/WQAnn.rdf
+
+# #SaltMassBalance.rdf
+#Upper Basin Salt Mass Balance
+UB Salt Mass Balance.UpperBasinSaltMass_Upper Basin Balance: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.UpperBasinSaltMass_Upper Basin Grn Balance: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.UpperBasinSaltMass_Upper Basin Upp Colo Balance: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.UpperBasinSaltMass_Upper Basin San Jn Balance: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.UpperBasinSaltMass_Subbasin Balance Abv Powell: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.UpperBasinSaltMass_Upper Basin Balance.Natural Inflow: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.UpperBasinSaltMass_Upper Basin Balance.Agricultural Inflow: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.UpperBasinSaltMass_Upper Basin Balance.Exports: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.UpperBasinSaltMass_Upper Basin Balance.WQIPS: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.ReservoirSaltMass: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.ReservoirSaltMassOnlyPowell: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.ChangeInReachSaltMass: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.UpperBasinSaltMass_Upper Basin Balance.OutflowSaltMass: file=$CRSS_DIR/results/SaltMassBalance.rdf
+#Add in Extra Ag items
+UB Salt Mass Balance.AgSaltLoading: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.AgSaltLoadingAbvPowell: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.AgSaltLoadingExtra: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.AgSaltLoadingExtraAbvPowell: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.AgSaltLoadingExtraColo: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.AgSaltLoadingExtraGrn: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.AgSaltLoadingExtraSanJuan: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.AgSaltLoadingGreen: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.AgSaltLoadingSanJn: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.AgSaltLoadingUppColo: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.ExportSaltMass: file=$CRSS_DIR/results/SaltMassBalance.rdf
+UB Salt Mass Balance.ExportSaltMassExtra: file=$CRSS_DIR/results/SaltMassBalance.rdf
+#Add in Extra Ag items
+LB Salt Mass Balance.AgSaltLoading: file=$CRSS_DIR/results/SaltMassBalance.rdf
+LB Salt Mass Balance.AgSaltLoadingExtra: file=$CRSS_DIR/results/SaltMassBalance.rdf
+LB Salt Mass Balance.ExportSaltMass: file=$CRSS_DIR/results/SaltMassBalance.rdf
+LB Salt Mass Balance.ExportSaltMassExtra: file=$CRSS_DIR/results/SaltMassBalance.rdf
+#Lower Basin Salt Mass Balance
+LB Salt Mass Balance.LowerBasinSaltMass_Lower Basin Balance: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/SaltMassBalance.rdf
+LB Salt Mass Balance.LowerBasinSaltMass_Lower Basin Balance.Natural Inflow: file=$CRSS_DIR/results/SaltMassBalance.rdf
+#Additional Files for LB.Natural Inflow Fix (used to subtract from LowerBasinSaltMass_Lower Basin Balance.Natural Inflow)
+CoRivPariaToLittleCO.Outflow Salt Mass: file=$CRSS_DIR/results/SaltMassBalance.rdf
+AboveImperialDamColoradoR:CibolaAndImperialNWR.Local Inflow Salt Mass: file=$CRSS_DIR/results/SaltMassBalance.rdf
+#Lower Basin Salt Mass Balance (cont.)
+LB Salt Mass Balance.LowerBasinSaltMass_Lower Basin Balance.Agricultural Inflow: file=$CRSS_DIR/results/SaltMassBalance.rdf
+LB Salt Mass Balance.LowerBasinSaltMass_Lower Basin Balance.Exports: file=$CRSS_DIR/results/SaltMassBalance.rdf
+LB Salt Mass Balance.LowerBasinSaltMass_Lower Basin Balance.WQIPS: file=$CRSS_DIR/results/SaltMassBalance.rdf
+LB Salt Mass Balance.LowerBasinSaltMass_Lower Basin Balance.OutflowSaltMass: file=$CRSS_DIR/results/SaltMassBalance.rdf
+LB Salt Mass Balance.ChangeInReachSaltMass: file=$CRSS_DIR/results/SaltMassBalance.rdf
+LB Salt Mass Balance.ReservoirSaltMass: file=$CRSS_DIR/results/SaltMassBalance.rdf
+
+
+
+# #WQAnn.rdf - Annual Salinity
+AnnualSalinity.SeriesSlot: file=$CRSS_DIR/results/WQAnn.rdf
+ColoradoBelowHoover.Gage Outflow: file=$CRSS_DIR/results/WQAnn.rdf
+ColoradoBelowParker.Gage Outflow: file=$CRSS_DIR/results/WQAnn.rdf
+ColoradoAtImperialDam.Gage Outflow: file=$CRSS_DIR/results/WQAnn.rdf
+ColoradoAtLeesFerry.Gage Outflow: file=$CRSS_DIR/results/WQAnn.rdf
+
+# # SaltOutput.rdf  - Gage Concentration, Reach Salt Storage, select Gage Outflow
+#Gage Salt Concentration
+ColoradoBelowHoover.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf
+ColoradoBelowParker.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf
+ColoradoAtImperialDam.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf
+ColoradoNearGlenwoodSprings.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf
+ColoradoNearCameo.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf
+GunnisonNearGrandJunction.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf file=$CRSS_DIR/results/UBMain.rdf
+DoloresNearCisco.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf
+ColoradoNearCisco.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf file=$CRSS_DIR/results/UBMain.rdf
+GreenAtGreenRiverWY.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf
+GreenNearGreendale.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf
+YampaNearMaybell.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf
+DuchesneNearRandlett.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf
+WhiteNearWatson.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf
+GreenAtGreenRiverUT.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf file=$CRSS_DIR/results/UBMain.rdf
+SanRafaelNearGreenRiverUT.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf file=$CRSS_DIR/results/UBMain.rdf
+SanJuanNearArchuleta.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf 
+SanJuanNearBluff.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf file=$CRSS_DIR/results/UBMain.rdf
+ColoradoAtLeesFerry.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf file=$CRSS_DIR/results/UBMain.rdf
+ColoradoNearGrandCanyon.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf
+VirginAtLittlefield.Salt Concentration: file=$CRSS_DIR/results/SaltOutput.rdf file=$CRSS_DIR/results/Gage.rdf
+#Salt Storage
+AboveImperialDamColoradoR:RRNativeVegetation.Salt Storage: file=$CRSS_DIR/results/SaltOutput.rdf
+VirginRiver:RRVegMgmt.Salt Storage: file=$CRSS_DIR/results/SaltOutput.rdf
+CoRivLittleCOToVirgin:GainsAboveGC.Salt Storage: file=$CRSS_DIR/results/SaltOutput.rdf
+LowerSanJuanRiver:UtahUses.Salt Storage: file=$CRSS_DIR/results/SaltOutput.rdf
+DoloresRiver:ParadoxValleyWQIP.Salt Storage: file=$CRSS_DIR/results/SaltOutput.rdf
+GunnisonRiverAboveGrandJunction:DallasCreekProject_MiscUses.Salt Storage: file=$CRSS_DIR/results/SaltOutput.rdf
+UpperColoradoReach:ExportsAboveGlenwoodSprings.Salt Storage: file=$CRSS_DIR/results/SaltOutput.rdf
+UpperColoradoAboveCameo:MiscUsersAbvCameo.Salt Storage: file=$CRSS_DIR/results/SaltOutput.rdf
+#SanRafaelWQIP.Salt Storage: file=$CRSS_DIR/results/SaltOutput.rdf
+GreenRWhiteToSanRafael:GreenRiverUTWQIP.Salt Storage: file=$CRSS_DIR/results/SaltOutput.rdf
+WhiteRiverAboveWatson:RRWhiteUTAgandMIUse.Salt Storage: file=$CRSS_DIR/results/SaltOutput.rdf
+DuchesneBelowStarv:RRMiscUsesAboveRandlette.Salt Storage: file=$CRSS_DIR/results/SaltOutput.rdf
+YampaRiver:RRHaydenAndCraigThermalAndMisc.Salt Storage: file=$CRSS_DIR/results/SaltOutput.rdf
+GreenRAboveGreenRiverWY:RRMiscUsesBelowFontenelle.Salt Storage: file=$CRSS_DIR/results/SaltOutput.rdf
+#Gage Outflow 
+ColoradoBelowHoover.Gage Outflow: file=$CRSS_DIR/results/SaltOutput.rdf
+ColoradoBelowParker.Gage Outflow: file=$CRSS_DIR/results/SaltOutput.rdf
+ColoradoAtImperialDam.Gage Outflow: file=$CRSS_DIR/results/SaltOutput.rdf
+ColoradoNearCameo.Gage Outflow: file=$CRSS_DIR/results/SaltOutput.rdf
+#ColoradoNearCisco.Gage Outflow: file=$CRSS_DIR/results/SaltOutput.rdf #handled above 
+GreenAtGreenRiverUT.Gage Outflow: file=$CRSS_DIR/results/SaltOutput.rdf
+ColoradoAtLeesFerry.Gage Outflow: file=$CRSS_DIR/results/SaltOutput.rdf
+
+# #Salt.rdf - Salt inputs Inflow Concentration & mass, outflow concentration and mass at criteria pts  
+#input Inflow Salt Concentration
+AboveImperialDamColoradoR:GainsOnColoRAboveImperialDam.Local Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+CoRivLittleCOToVirgin:GainsAboveGC.Local Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+CoRivMeadToMohave:GainsAboveDavis.Local Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+CoRivMohaveToHavasu:BillWilliamsRiver.Local Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+CoRivMohaveToHavasu:GainsAboveParker.Local Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+CoRivVirginToMead:GainsAboveHoover.Local Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+DoloresRiver.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+DuchesneAboveStarv.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+GreenRAboveFlamingGorge:GainsAboveGreendale.Local Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+GreenRAboveFontenelle.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+GreenRAboveGreenRiverWY:GainsAboveGRWY.Local Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+GreenRWhiteToSanRafael:GainsAboveGreenRiverUT.Local Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+GunnisonRiverAboveCrystal:GainsAboveCrystal.Local Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+GunnisonRiverAboveGrandJunction:GainsGunnisonRiverAbvGrandJunction.Local Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+LittleColoradoRiver.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+LittleSnakeRiver.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+PariaRiver.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+SanJuanPowell:GainsAboveLeesFerry.Local Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+SanJuanTributaries.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+SanRafaelRiver.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+SJAboveNavajo.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+TaylorAboveBlueMesa:GainsAboveBlueMesa.Local Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+TaylorPark.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+UpperColoradoAboveCameo:GainsAboveCameo.Local Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+UpperColoradoCameoToGunnison:GainsAboveCisco.Local Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+UpperColoradoReach.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+VirginRiver.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+WhiteRiverAboveWatson.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+YampaRiver.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+#input Inflow Salt Mass
+AboveImperialDamColoradoR:GainsOnColoRAboveImperialDam.Local Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+CoRivLittleCOToVirgin:GainsAboveGC.Local Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+CoRivMeadToMohave:GainsAboveDavis.Local Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+CoRivMohaveToHavasu:BillWilliamsRiver.Local Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+CoRivMohaveToHavasu:GainsAboveParker.Local Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+CoRivVirginToMead:GainsAboveHoover.Local Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+DoloresRiver.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+DuchesneAboveStarv.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+GreenRAboveFlamingGorge:GainsAboveGreendale.Local Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+GreenRAboveFontenelle.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+GreenRAboveGreenRiverWY:GainsAboveGRWY.Local Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+GreenRWhiteToSanRafael:GainsAboveGreenRiverUT.Local Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+GunnisonRiverAboveCrystal:GainsAboveCrystal.Local Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+GunnisonRiverAboveGrandJunction:GainsGunnisonRiverAbvGrandJunction.Local Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+LittleColoradoRiver.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+LittleSnakeRiver.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+PariaRiver.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+SanJuanPowell:GainsAboveLeesFerry.Local Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+SanJuanTributaries.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+SanRafaelRiver.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+SJAboveNavajo.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+TaylorAboveBlueMesa:GainsAboveBlueMesa.Local Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+TaylorPark.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+UpperColoradoAboveCameo:GainsAboveCameo.Local Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+UpperColoradoCameoToGunnison:GainsAboveCisco.Local Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+UpperColoradoReach.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+VirginRiver.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+WhiteRiverAboveWatson.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+YampaRiver.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+#outflow salt Concentration
+AboveImperialDamColoradoR.Outflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+BelowImperialDamColoradoR.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+#UB tribs
+GunnisonColorado.Outflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+SanRafaelGreen.Outflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+SanJuanBelowBluff.Outflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+#outflow salt Concentration
+AboveImperialDamColoradoR.Outflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+BelowImperialDamColoradoR.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+Havasu.Outflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+Mead.Outflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+Mohave.Outflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+Navajo.Outflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+Powell.Outflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf file=$CRSS_DIR/results/KeySlots.rdf
+#outflow salt mass
+AboveImperialDamColoradoR.Outflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+BelowImperialDamColoradoR.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+Havasu.Outflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+Mead.Outflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+Powell.Outflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+Mohave.Outflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+#Inflow Salt Concentration
+AboveImperialDamColoradoR.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+BelowImperialDamColoradoR.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+Havasu.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+Mead.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+Mohave.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+Navajo.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+Powell.Inflow Salt Concentration: file=$CRSS_DIR/results/Salt.rdf
+#Inflow Salt mass
+AboveImperialDamColoradoR.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+BelowImperialDamColoradoR.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+Havasu.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+Mead.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+Powell.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+Mohave.Inflow Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+#ReservoirSaltMass
+Havasu.Reservoir Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+Mead.Reservoir Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+Powell.Reservoir Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+Mohave.Reservoir Salt Mass: file=$CRSS_DIR/results/Salt.rdf
+
+# #WQIP.rdf - WQIP Salt Mass Removal, Removal Request, Salt Debt & Return Flow Salinity Pickup Mass
+#WQIP Salt Mass Removal
+AbvCameoWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+AbvShiprockWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+AddFutureWQIPs.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+BigSandyWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+BlacksForkWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+BLMrangelandWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+DirtyDevilWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+GrandValleyWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+GreenRiverUTWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+LowerGunnisonWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+LowerVirWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+ManilaHenrysForkWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+McElmoMancosWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+MeekerDomeWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+MoapaValleyWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+PaloVerdeIrrigationDistrictWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+ParadoxValleyWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+PariaWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+PriceRiverWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+SanRafaelWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+UintahBasinWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+USDATier2WQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+#BelowImperialDamColoradoR:RRYumaDesaltingPlantWQIP.Salt Mass Removal: file=$CRSS_DIR/results/WQIP.rdf
+#WQIP Salt Mass Removal Request
+AbvCameoWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+AbvShiprockWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+AddFutureWQIPs.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+BigSandyWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+BlacksForkWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+BLMrangelandWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+DirtyDevilWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+GrandValleyWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+GreenRiverUTWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+LowerGunnisonWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+LowerVirWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+ManilaHenrysForkWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+McElmoMancosWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+MeekerDomeWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+MoapaValleyWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+PaloVerdeIrrigationDistrictWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+ParadoxValleyWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+PariaWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+PriceRiverWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+SanRafaelWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+UintahBasinWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+USDATier2WQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+#YumaDesaltingPlantWQIP.Salt Mass Removal Request: file=$CRSS_DIR/results/WQIP.rdf
+#WQIP Salt Debt
+AbvCameoWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+AbvShiprockWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+AddFutureWQIPs.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+BigSandyWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+BlacksForkWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+BLMrangelandWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+DirtyDevilWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+GrandValleyWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+GreenRiverUTWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+LowerGunnisonWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+LowerVirWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+ManilaHenrysForkWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+McElmoMancosWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+MeekerDomeWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+MoapaValleyWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+PaloVerdeIrrigationDistrictWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+ParadoxValleyWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+PariaWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+PriceRiverWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+SanRafaelWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+UintahBasinWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+USDATier2WQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+#YumaDesaltingPlantWQIP.Salt Debt: file=$CRSS_DIR/results/WQIP.rdf
+#Return Flow Salinity Pickup Mass 
+BigSandyWQIP.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+DirtyDevilWQIP.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+GrandValleyWQIP.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+LowerGunnisonWQIP.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+LowerVirWQIP.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+McElmoMancosWQIP.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+MeekerDomeWQIP.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+MoapaValleyWQIP.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+PaloVerdeIrrigationDistrictWQIP.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+ParadoxValleyWQIP.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+PriceRiverWQIP.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+UintahBasinWQIP.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+#YumaDesaltingPlantWQIP.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+BLMrangelandWQIP.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+AddFutureWQIPs.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+PariaWQIP.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+ManilaHenrysForkWQIP.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+AbvShiprockWQIP.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+GreenRiverUTWQIP.Return Flow Salinity Pickup Mass: file=$CRSS_DIR/results/WQIP.rdf
+#Return Flow Salinity Pickup Concentration 
+SanRafaelWQIP.Return Flow Salinity Pickup Conc: file=$CRSS_DIR/results/WQIP.rdf
+
+## DivSalt.rdf - Diversion Salt Concentration and Diversion Salt Concentration Maximum only for RW7.3.2
+#Export Diversion Salt Concentration - Old Inputs 
+DoloresRiver:IntraBasinExportAndDoloresProject.Diversion Salt Concentration: file=$CRSS_DIR/results/DivSalt.rdf
+DuchesneAboveStarv:RRDuchesneRExports.Diversion Salt Concentration: file=$CRSS_DIR/results/DivSalt.rdf
+GreenRAboveFontenelle:RRExportAboveFontenelle.Diversion Salt Concentration: file=$CRSS_DIR/results/DivSalt.rdf
+GreenRWhiteToSanRafael:RRPriceRiverExport.Diversion Salt Concentration: file=$CRSS_DIR/results/DivSalt.rdf
+LittleSnakeRiver:RRLittleSnakeRExports.Diversion Salt Concentration: file=$CRSS_DIR/results/DivSalt.rdf
+SJAboveNavajo:ReachSJChamaExport.Diversion Salt Concentration: file=$CRSS_DIR/results/DivSalt.rdf
+UpperColoradoAboveCameo:ExportsFromRoaringForkRiver.Diversion Salt Concentration: file=$CRSS_DIR/results/DivSalt.rdf
+UpperColoradoReach:ExportsAboveGlenwoodSprings.Diversion Salt Concentration: file=$CRSS_DIR/results/DivSalt.rdf
+AboveImperialDamColoradoR:RRNativeVegetation.Diversion Salt Concentration: file=$CRSS_DIR/results/DivSalt.rdf 
+#Export Salt Storage  
+DoloresRiver:IntraBasinExportAndDoloresProject.Salt Storage: file=$CRSS_DIR/results/DivSalt.rdf
+DuchesneAboveStarv:RRDuchesneRExports.Salt Storage: file=$CRSS_DIR/results/DivSalt.rdf
+GreenRAboveFontenelle:RRExportAboveFontenelle.Salt Storage: file=$CRSS_DIR/results/DivSalt.rdf
+GreenRWhiteToSanRafael:RRPriceRiverExport.Salt Storage: file=$CRSS_DIR/results/DivSalt.rdf
+LittleSnakeRiver:RRLittleSnakeRExports.Salt Storage: file=$CRSS_DIR/results/DivSalt.rdf
+SJAboveNavajo:ReachSJChamaExport.Salt Storage: file=$CRSS_DIR/results/DivSalt.rdf
+UpperColoradoAboveCameo:ExportsFromRoaringForkRiver.Salt Storage: file=$CRSS_DIR/results/DivSalt.rdf
+UpperColoradoReach:ExportsAboveGlenwoodSprings.Salt Storage: file=$CRSS_DIR/results/DivSalt.rdf
+AboveImperialDamColoradoR:RRNativeVegetation.Salt Storage: file=$CRSS_DIR/results/DivSalt.rdf 
+#Export Diversion Salt Mass - Output  
+DoloresRiver:IntraBasinExportAndDoloresProject.Diversion Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+DuchesneAboveStarv:RRDuchesneRExports.Diversion Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+GreenRAboveFontenelle:RRExportAboveFontenelle.Diversion Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+GreenRWhiteToSanRafael:RRPriceRiverExport.Diversion Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+LittleSnakeRiver:RRLittleSnakeRExports.Diversion Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+SJAboveNavajo:ReachSJChamaExport.Diversion Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+UpperColoradoAboveCameo:ExportsFromRoaringForkRiver.Diversion Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+UpperColoradoReach:ExportsAboveGlenwoodSprings.Diversion Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+AboveImperialDamColoradoR:RRNativeVegetation.Diversion Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf 
+#Reach Outflow Salt Mass
+DoloresRiver:IntraBasinExportAndDoloresProject.Outflow Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+DuchesneAboveStarv:RRDuchesneRExports.Outflow Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+GreenRAboveFontenelle:RRExportAboveFontenelle.Outflow Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+GreenRWhiteToSanRafael:RRPriceRiverExport.Outflow Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+LittleSnakeRiver:RRLittleSnakeRExports.Outflow Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+SJAboveNavajo:ReachSJChamaExport.Outflow Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+UpperColoradoAboveCameo:ExportsFromRoaringForkRiver.Outflow Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+UpperColoradoReach:ExportsAboveGlenwoodSprings.Outflow Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+AboveImperialDamColoradoR:RRNativeVegetation.Outflow Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf 
+
+#Reach Outflow 
+DoloresRiver:IntraBasinExportAndDoloresProject.Outflow: file=$CRSS_DIR/results/DivSalt.rdf
+DuchesneAboveStarv:RRDuchesneRExports.Outflow: file=$CRSS_DIR/results/DivSalt.rdf
+GreenRAboveFontenelle:RRExportAboveFontenelle.Outflow: file=$CRSS_DIR/results/DivSalt.rdf
+GreenRWhiteToSanRafael:RRPriceRiverExport.Outflow: file=$CRSS_DIR/results/DivSalt.rdf
+LittleSnakeRiver:RRLittleSnakeRExports.Outflow: file=$CRSS_DIR/results/DivSalt.rdf
+SJAboveNavajo:ReachSJChamaExport.Outflow: file=$CRSS_DIR/results/DivSalt.rdf
+UpperColoradoAboveCameo:ExportsFromRoaringForkRiver.Outflow: file=$CRSS_DIR/results/DivSalt.rdf
+UpperColoradoReach:ExportsAboveGlenwoodSprings.Outflow: file=$CRSS_DIR/results/DivSalt.rdf
+AboveImperialDamColoradoR:RRNativeVegetation.Outflow: file=$CRSS_DIR/results/DivSalt.rdf 
+
+#Agg Reach Outflow Salt Mass
+DoloresRiver.Outflow Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+DuchesneAboveStarv.Outflow Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+GreenRAboveFontenelle.Outflow Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+GreenRWhiteToSanRafael.Outflow Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+LittleSnakeRiver.Outflow Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+SJAboveNavajo.Outflow Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+UpperColoradoAboveCameo.Outflow Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+UpperColoradoReach.Outflow Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf
+AboveImperialDamColoradoR.Outflow Salt Mass: file=$CRSS_DIR/results/DivSalt.rdf 
+#Reach Outflow
+DoloresRiver:IntraBasinExportAndDoloresProject.Outflow: file=$CRSS_DIR/results/DivSalt.rdf
+DuchesneAboveStarv:RRDuchesneRExports.Outflow: file=$CRSS_DIR/results/DivSalt.rdf
+GreenRAboveFontenelle:RRExportAboveFontenelle.Outflow: file=$CRSS_DIR/results/DivSalt.rdf
+GreenRWhiteToSanRafael:RRPriceRiverExport.Outflow: file=$CRSS_DIR/results/DivSalt.rdf
+LittleSnakeRiver:RRLittleSnakeRExports.Outflow: file=$CRSS_DIR/results/DivSalt.rdf
+SJAboveNavajo:ReachSJChamaExport.Outflow: file=$CRSS_DIR/results/DivSalt.rdf
+UpperColoradoAboveCameo:ExportsFromRoaringForkRiver.Outflow: file=$CRSS_DIR/results/DivSalt.rdf
+UpperColoradoReach:ExportsAboveGlenwoodSprings.Outflow: file=$CRSS_DIR/results/DivSalt.rdf
+AboveImperialDamColoradoR.Outflow: file=$CRSS_DIR/results/DivSalt.rdf 
+
+#NIIP Salt changes 
+SJBelowNavajo:NIIPReturns.Return Flow: file=$CRSS_DIR/results/NIIP.rdf
+SJBelowNavajo:NIIPReturns.Return Flow Salt Mass: file=$CRSS_DIR/results/NIIP.rdf
+SJBelowNavajo:NIIPGWReturns.Return Flow: file=$CRSS_DIR/results/NIIP.rdf
+NavajoIndianIrrigationProjectNIIPandExports.Diversion Salt Concentration: file=$CRSS_DIR/results/NIIP.rdf
+NavajoIndianIrrigationProjectNIIPandExports.Total Diversion: file=$CRSS_DIR/results/NIIP.rdf
+SJBelowNavajo.Inflow Salt Mass: file=$CRSS_DIR/results/NIIP.rdf
+SJBelowNavajo.Inflow: file=$CRSS_DIR/results/NIIP.rdf
+
+
+# ################ End Salinity Output ################
