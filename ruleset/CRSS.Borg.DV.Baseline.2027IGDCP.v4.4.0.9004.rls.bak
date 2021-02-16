@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 8.0.3
-# Created 13:16 February 9, 2021
+# Created 13:43 February 9, 2021
 # 
 RULESET
 NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004";
@@ -1160,9 +1160,9 @@ BEGIN
     END
     UUID "{db55d08a-556d-454c-9cfb-7b2362e1d75f}";;
 
-    RULE                 "Compute Arizona Available ICS Water ";
+    RULE                 "Compute Arizona Available ICS Water_OLD";
     DESCRIPTION          "EXECUTION CONSTRAINT: January of each year.<br><br>DESCRIPTION: Rule sets ICS values for each ICS type in a given year.  For Arizona, the puts/takes are made by CAWCD.  Before 2025, takes are made as mitigation water during tier 1 and 2 shortage (take from EC-ICS, then BICS, then Brock/YDP).  After 2025 CAWCD tries to drain EC-ICS, BICS, Brock, YDP balances in 10 years.  Will divide balance by 10 and do takes until balances of all accounts are depleted.  GRIC and CRIT puts/takes are determined by input values.  GRIC AZ and GRIC Fed takes are made after 2026 to meet firming obligations during tier 2 shortages from ICS water purchased from GRIC and stored in GRIC's ICS account.  Arizona will take 15 kaf and the Feds will take 10 kaf until supplies depleted.  If the puts exceeds Arizona's annual put limit all puts will be prorated according to the size of their desired put.  If takes exceed Arizona's annual take limit the AZ/Fed GRIC ICS for firming obligations will be taken first, and then the remaining takes prorated according to the size of their desired take.  If the AZ/FED GRIC take exceeds Arizona's annual take limit these takes will be prorated according to the size of their desired take.<br><br>SLOTS SET: On Arizona ICS data object - ActualMonthlyPut, GricActualMonthlyPut, CRITActualMonthlyPut, GRICAZActualMonthlyTake, GRICFedActualMonthlyTake, ActualMonthlyTake, BICSActualMonthlyTake, GRICActualMonthlyTake, CRITActualMonthlyTake, BrockActualMonthlyTake, YDPActualMonthlyTake";
-    ACTIVE               TRUE;
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year";
     NOTES                "2020-01-23 - Edited to use the `DetermineAZECPuts()` function for CAP, CRIT, and GRIC EC creation volumes<br><br>...<br><br>creation unknown";
     BEGIN
@@ -1201,6 +1201,49 @@ BEGIN
 
     END
     UUID "{81757b4c-110b-4d43-889d-226113ebbeff}";;
+
+    RULE                 "Compute Arizona Available ICS Water";
+    DESCRIPTION          "EXECUTION CONSTRAINT: January of each year.<br><br>DESCRIPTION: Rule sets ICS values for each ICS type in a given year.  For Arizona, the puts/takes are made by CAWCD.  Before 2025, takes are made as mitigation water during tier 1 and 2 shortage (take from EC-ICS, then BICS, then Brock/YDP).  After 2025 CAWCD tries to drain EC-ICS, BICS, Brock, YDP balances in 10 years.  Will divide balance by 10 and do takes until balances of all accounts are depleted.  GRIC and CRIT puts/takes are determined by input values.  GRIC AZ and GRIC Fed takes are made after 2026 to meet firming obligations during tier 2 shortages from ICS water purchased from GRIC and stored in GRIC's ICS account.  Arizona will take 15 kaf and the Feds will take 10 kaf until supplies depleted.  If the puts exceeds Arizona's annual put limit all puts will be prorated according to the size of their desired put.  If takes exceed Arizona's annual take limit the AZ/Fed GRIC ICS for firming obligations will be taken first, and then the remaining takes prorated according to the size of their desired take.  If the AZ/FED GRIC take exceeds Arizona's annual take limit these takes will be prorated according to the size of their desired take.<br><br>SLOTS SET: On Arizona ICS data object - ActualMonthlyPut, GricActualMonthlyPut, CRITActualMonthlyPut, GRICAZActualMonthlyTake, GRICFedActualMonthlyTake, ActualMonthlyTake, BICSActualMonthlyTake, GRICActualMonthlyTake, CRITActualMonthlyTake, BrockActualMonthlyTake, YDPActualMonthlyTake";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year";
+  NAMES_COLOR  "#0000ff";
+    NOTES                "2020-01-23 - Edited to use the `DetermineAZECPuts()` function for CAP, CRIT, and GRIC EC creation volumes<br><br>...<br><br>creation unknown";
+    BEGIN
+
+      WITH_STATEMENT (LIST ec_puts = "DetermineAZECPuts"(  )) DO
+            FOREACH (DATETIME date IN @"t" TO @"24:00:00 December 31, Current Year") DO
+            $ "Arizona ICS.DCPActualMonthlyPut" [date] := 0.00000000 "acre-ft" COMMENTED_BY "Put is from CAPDiversion:CAPDiversionMandI  <br>";
+
+            $ "Arizona ICS.ActualMonthlyPut" [date] := 0.00000000 "acre-ft" COMMENTED_BY "Put is from CAPDiversion:CAPDiversionMandI <br>";
+
+            $ "Arizona ICS.GRICActualMonthlyPut" [date] := 0.00000000 "acre-ft";
+
+            $ "Arizona ICS.CRITActualMonthlyPut" [date] := 0.00000000 "acre-ft";
+
+            $ "Arizona ICS.GRICAZActualMonthlyTake" [date] := 0.00000000 "acre-ft";
+
+            $ "Arizona ICS.GRICFedActualMonthlyTake" [date] := 0.00000000 "acre-ft";
+
+            $ "Arizona ICS.DCPActualMonthlyTake" [date] := 0.00000000 "acre-ft";
+
+            $ "Arizona ICS.ActualMonthlyTake" [date] := 0.00000000 "acre-ft" COMMENTED_BY "Take is by CAP <br>";
+
+            $ "Arizona ICS.BICSActualMonthlyTake" [date] := 0.00000000 "acre-ft";
+
+            $ "Arizona ICS.GRICActualMonthlyTake" [date] := 0.00000000 "acre-ft";
+
+            $ "Arizona ICS.CRITActualMonthlyTake" [date] := 0.00000000 "acre-ft";
+
+            $ "Arizona ICS.BrockActualMonthlyTake" [date] := 0.00000000 "acre-ft" COMMENTED_BY "System Efficiency ICS - No Drop 2 put. Put always occurs through capturing of over-deliveries to Mexico. Take is by MWD";
+
+            $ "Arizona ICS.YDPActualMonthlyTake" [date] := 0.00000000 "acre-ft";
+
+      ENDFOREACH;
+
+      END_WITH_STATEMENT;
+
+    END
+    UUID "{fa736ae1-676e-4abd-b743-b6baa7a707de}";;
 
     RULE                 "Adjust MWD for MWD ICS Put/Take";
     DESCRIPTION          "";
