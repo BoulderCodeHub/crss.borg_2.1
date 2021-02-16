@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.0.3
-# Created 14:47 February 16, 2021
+# Created 16:23 February 16, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -498,6 +498,36 @@ BEGIN
     DESCRIPTION          "";
     ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND "AreCADCPContributions"(  ) COMMENTED_BY "there are CA dcp savings this year";
+  NAMES_COLOR  "#5500ff";
+    NOTES                "2019-06-14 - RAB: Created";
+    BEGIN
+
+      FOREACH (DATETIME date IN "ListJanuaryToDecemberTimesteps"(  )) DO
+            $ "MWD ICS.ActualMonthlyTake" [date] := 0.00000000 "acre-ft";
+
+            $ "MWD ICS.DCPActualMonthlyTake" [date] := 0.00000000 "acre-ft";
+
+            $ "MWD ICS.BrockActualMonthlyTake" [date] := 0.00000000 "acre-ft";
+
+            $ "MWD ICS.YDPActualMonthlyTake" [date] := 0.00000000 "acre-ft";
+
+            $ "MWD ICS.BICSActualMonthlyTake" [date] := 0.00000000 "acre-ft";
+
+            $ "MWD ICS.ActualMonthlyPut" [date] := 0.00000000 "acre-ft";
+
+            $ "MWD ICS.DCPActualMonthlyPut" [date] := 0.00000000 "acre-ft";
+
+            $ "MWD ICS.DCPAdditionalMonthlyContribution" [date] := 0.00000000 "acre-ft";
+
+      ENDFOREACH;
+
+    END
+    UUID "{702737c0-6796-4c24-9a00-d339ef3a61d9}";;
+
+    RULE                 "MWD ICS Annual to Monthly During DCP_OLD";
+    DESCRIPTION          "";
+    ACTIVE               FALSE;
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND "AreCADCPContributions"(  ) COMMENTED_BY "there are CA dcp savings this year";
     NOTES                "2019-06-14 - RAB: Created";
     BEGIN
 
@@ -521,11 +551,43 @@ BEGIN
       ENDFOREACH;
 
     END
-    UUID "{702737c0-6796-4c24-9a00-d339ef3a61d9}";;
+    UUID "{ae6288d7-c49b-4170-b4fe-3dceb555965b}";;
 
     RULE                 "Compute California Available ICS During DCP";
     DESCRIPTION          "";
     ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND "AreCADCPContributions"(  ) COMMENTED_BY "there are CA dcp savings this year";
+  NAMES_COLOR  "#5500ff";
+    NOTES                "2019-06-14 - RAB: Updated to only set annaul slots and use new take determining algorithm.<br><br>~2016/2017 - RAB: created";
+    BEGIN
+
+    DESCRIPTION          "------------------------------------------<br>MWD<br>------------------------------------------  <br>";
+      $ "MWD ICS.DesiredAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+      $ "MWD ICS.ECActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+      WITH_STATEMENT (LIST mwd_takes = "ComputeMWDTakesInPriority"( "ConstrainMWDDesiredTakeDuringDCP"( "DetermineMWDAnnualTakeDuringDCP"(  ) ), "MWDICSDeliveryPriorities"(  ) )) DO
+            $ "MWD ICS.DCPActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+            $ "MWD ICS.ECActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+            $ "MWD ICS.BrockActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+            $ "MWD ICS.YDPActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+            $ "MWD ICS.BICSActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+      END_WITH_STATEMENT;
+
+    DESCRIPTION          "------------------------------------------<br>IID<br>------------------------------------------    <br>";
+      $ "IID ICS.ECActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+    END
+    UUID "{494f8643-0564-428c-9bd7-79c8c5ba5ca9}";;
+
+    RULE                 "Compute California Available ICS During DCP_OLD";
+    DESCRIPTION          "";
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND "AreCADCPContributions"(  ) COMMENTED_BY "there are CA dcp savings this year";
     NOTES                "2019-06-14 - RAB: Updated to only set annaul slots and use new take determining algorithm.<br><br>~2016/2017 - RAB: created";
     BEGIN
@@ -552,11 +614,30 @@ BEGIN
       $ "IID ICS.ECActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineIIDECICSPut"(  );
 
     END
-    UUID "{494f8643-0564-428c-9bd7-79c8c5ba5ca9}";;
+    UUID "{c0566b52-8ce5-4e31-9ec5-591fd7fd0a7d}";;
 
     RULE                 "Compute CA DCP Contributions";
     DESCRIPTION          "Computes the additional puts from IID and MWD necesary to make the entire DCP savings, if there is not enough EC-ICS to convert.";
     ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January Max DayOfMonth, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
+  NAMES_COLOR  "#5500ff";
+    NOTES                "";
+    BEGIN
+
+      $ "MWD ICS.DCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+      $ "MWD ICS.DCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+      $ "MWD ICS.CoachellaDCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+      $ "MWD ICS.CoachellaDCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+    END
+    UUID "{e604257a-9328-4f62-a7ba-eb703027b5ed}";;
+
+    RULE                 "Compute CA DCP Contributions_OLD";
+    DESCRIPTION          "Computes the additional puts from IID and MWD necesary to make the entire DCP savings, if there is not enough EC-ICS to convert.";
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January Max DayOfMonth, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
     NOTES                "";
     BEGIN
@@ -570,7 +651,7 @@ BEGIN
       $ "MWD ICS.CoachellaDCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineDCPAdditionalContribution"( "Coachella", "DetermineCoachellaDCPPut"(  ), 0.00000000 "acre-ft" );
 
     END
-    UUID "{e604257a-9328-4f62-a7ba-eb703027b5ed}";;
+    UUID "{ff1df859-2216-4c55-bc85-88e563181c35}";;
 
   END
   UUID "{592cebd8-d706-4a55-84bc-6d6e15d2c0a5}";;
@@ -1320,9 +1401,9 @@ BEGIN
     END
     UUID "{312e4f85-a850-4ff0-913c-20828161be53}";;
 
-    RULE                 "Compute California Available ICS Water";
+    RULE                 "Compute California Available ICS Water_OLD";
     DESCRIPTION          "EXECUTION CONSTRAINT: <br>Only once in January and when CA is not making DCP contributions<br><br>DESCRIPTION:<br>Computes the ICS creation and delivery volumes for MWD and IID.<br><br>SLOTS SET:<br>- `MWD ICS.DesiredAnnualTake[]`<br>- `MWD ICS.DCPActualAnnualTake[]`<br>- `MWD ICS.ECActualAnnualTake[]`<br>- `MWD ICS.BrockActualAnnualTake[]`<br>- `MWD ICS.YDPActualAnnualTake[]`<br>- `MWD ICS.BICSActualAnnualTake[]`<br>- `MWD ICS.ECActualAnnualPut[]`<br>- `IIC ICS.ActualAnnualPut[]`";
-    ACTIVE               TRUE;
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND NOT "AreCADCPContributions"(  );
     NOTES                "2019-06-14 - RAB: Updated to set annual slots. <br><br>Creation unkown.";
     BEGIN
@@ -1355,6 +1436,43 @@ BEGIN
 
     END
     UUID "{573173e1-b39e-4836-a1fe-f47f544d377a}";;
+
+    RULE                 "Compute California Available ICS Water";
+    DESCRIPTION          "EXECUTION CONSTRAINT: <br>Only once in January and when CA is not making DCP contributions<br><br>DESCRIPTION:<br>Computes the ICS creation and delivery volumes for MWD and IID.<br><br>SLOTS SET:<br>- `MWD ICS.DesiredAnnualTake[]`<br>- `MWD ICS.DCPActualAnnualTake[]`<br>- `MWD ICS.ECActualAnnualTake[]`<br>- `MWD ICS.BrockActualAnnualTake[]`<br>- `MWD ICS.YDPActualAnnualTake[]`<br>- `MWD ICS.BICSActualAnnualTake[]`<br>- `MWD ICS.ECActualAnnualPut[]`<br>- `IIC ICS.ActualAnnualPut[]`";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND NOT "AreCADCPContributions"(  );
+  NAMES_COLOR  "#5500ff";
+    NOTES                "2019-06-14 - RAB: Updated to set annual slots. <br><br>Creation unkown.";
+    BEGIN
+
+    DESCRIPTION          "------------------------------------------<br>MWD<br>------------------------------------------  <br>";
+      $ "MWD ICS.DesiredAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+      $ "MWD ICS.ECActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+      WITH_STATEMENT (LIST mwd_takes = "ComputeMWDTakesInPriority"( "ConstrainMWDDesiredTake"( "DetermineMWDDesiredTake"(  ) ), "MWDICSDeliveryPriorities"(  ) )) DO
+            $ "MWD ICS.DCPActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+            $ "MWD ICS.ECActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+            $ "MWD ICS.BrockActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+            $ "MWD ICS.YDPActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+            $ "MWD ICS.BICSActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+      END_WITH_STATEMENT;
+
+    DESCRIPTION          "Not making contributions, so these are 0. <br>";
+      $ "MWD ICS.DCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+      $ "MWD ICS.DCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+    DESCRIPTION          "------------------------------------------<br>IID<br>------------------------------------------   <br>";
+      $ "IID ICS.ECActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+    END
+    UUID "{6b063c09-b2f1-4473-a817-aead24974a67}";;
 
     RULE                 "Adjust SNWP for Nevada ICS Take and Other";
     DESCRIPTION          "";
