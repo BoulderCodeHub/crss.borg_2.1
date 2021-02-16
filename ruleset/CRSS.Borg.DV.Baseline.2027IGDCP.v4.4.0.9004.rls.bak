@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.0.3
-# Created 13:43 February 9, 2021
+# Created 14:04 February 16, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -1417,7 +1417,7 @@ BEGIN
     END
     UUID "{260cad83-eb1e-4355-b1c6-a0207e057c07}";;
 
-    RULE                 "Compute NV Brock Take";
+    RULE                 "Compute NV Brock Take_OLD";
     DESCRIPTION          "";
     ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
@@ -1429,7 +1429,20 @@ BEGIN
     END
     UUID "{da65d18d-91b5-44db-8bd2-32a720ca3a9a}";;
 
-    RULE                 "Compute Nevada EC Take";
+    RULE                 "Compute NV Brock Take";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
+  NAMES_COLOR  "#5500ff";
+    NOTES                "";
+    BEGIN
+
+      $ "Nevada ICS.BrockActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+    END
+    UUID "{28e670f7-2bff-43df-a17b-ec70e8e756cc}";;
+
+    RULE                 "Compute Nevada EC Take_OLD";
     DESCRIPTION          "";
     ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
@@ -1441,7 +1454,20 @@ BEGIN
     END
     UUID "{727c1642-684d-4fcf-b73e-b13897abe60c}";;
 
-    RULE                 "Compute Nevada Tributary and Imported ICS Puts/Takes";
+    RULE                 "Compute Nevada EC Take";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
+  NAMES_COLOR  "#5500ff";
+    NOTES                "";
+    BEGIN
+
+      $ "Nevada ICS.ECActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+    END
+    UUID "{fdd60978-ad79-45fd-8e0c-0f4864f9370e}";;
+
+    RULE                 "Compute Nevada Tributary and Imported ICS Puts/Takes_OLD";
     DESCRIPTION          "";
     ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
@@ -1459,7 +1485,26 @@ BEGIN
     END
     UUID "{a63b8eb7-0a99-4c14-91e2-7e684b5fc102}";;
 
-    RULE                 "Compute NV EC-ICS Creation";
+    RULE                 "Compute Nevada Tributary and Imported ICS Puts/Takes";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
+  NAMES_COLOR  "#5500ff";
+    NOTES                "";
+    BEGIN
+
+      $ "Nevada ICS.TributaryConsActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+      $ "Nevada ICS.TributaryConsActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+      $ "Nevada ICS.GroundwaterActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+      $ "Nevada ICS.GroundwaterActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+    END
+    UUID "{361184e3-1921-4195-8180-2f63aeed42f0}";;
+
+    RULE                 "Compute NV EC-ICS Creation_OLD";
     DESCRIPTION          "";
     ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
@@ -1472,7 +1517,21 @@ BEGIN
     END
     UUID "{5abf71ef-2570-4536-8e32-352159d8dbd7}";;
 
-    RULE                 "Compute NV DCP-ICS Put and Take";
+    RULE                 "Compute NV EC-ICS Creation";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
+  NAMES_COLOR  "#5500ff";
+    NOTES                "2019-06-18 - RAB: Changed slot names and set annual slot (in addition to monthly slot<br><br>~2017 - RAB: created";
+    BEGIN
+
+    DESCRIPTION          "Create EC ICS if NV has unused apportionment<br>";
+      $ "Nevada ICS.ECActualAnnualPutFromUnused" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+    END
+    UUID "{3f6bfdd1-c78e-4c9d-a4a3-d39b4519a0d2}";;
+
+    RULE                 "Compute NV DCP-ICS Put and Take_OLD";
     DESCRIPTION          "";
     ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
@@ -1488,6 +1547,24 @@ BEGIN
 
     END
     UUID "{2fb868c1-b9f8-4ea9-a9ab-e2111bd6df99}";;
+
+    RULE                 "Compute NV DCP-ICS Put and Take";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
+  NAMES_COLOR  "#5500ff";
+    NOTES                "";
+    BEGIN
+
+      $ "Nevada ICS.DCPActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+    DESCRIPTION          "If there is not enough EC credits for NV to covert to DCP, then there will need to be a reduction in <br>that year's delivery. That is modeled as the DCP-Put";
+      $ "Nevada ICS.DCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+      $ "Nevada ICS.DCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+    END
+    UUID "{c8985f5e-26da-467f-bb94-1d081504efab}";;
 
     RULE                 "Compute CA AZ and NV EC to DCP Conversion";
     DESCRIPTION          "Converts ICS to DCP for CA (IID and MWS) to meet DCP Savings volumes";
