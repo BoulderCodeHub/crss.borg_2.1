@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.0.3
-# Created 16:23 February 16, 2021
+# Created 11:32 February 25, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -415,6 +415,35 @@ BEGIN
     DESCRIPTION          "EXECUTION CONSTRAINT: <br>Only in January, and only once<br><br><br>DESCRIPTION:<br>Reduces MX's delivery by their required BWSCP Savings volume. For now, assume this is only made in the year it is required based on a reduction in delivery. Also assume this same volume (less the system assessment), is created as BWSCP Savings (analagous to US DCP-ICS). <br><br><br>SLOTS SET:<br>- `MexicoDiversion:MexicoDiversion.Depletion Requested[]`<br>- `MexicoDiversion:MexicoDiversion.Diversion Requested[]`<br>- `ICMA.DCPActualAnnualPut[]`";
     ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January Max DayOfMonth, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
+  NAMES_COLOR  "#5500ff";
+    NOTES                "2019-05-24 - RAB: updated to assign newly named BWSCP creation slot.<br><br>~ 2017 - RAB: Created";
+    BEGIN
+
+      IF_STATEMENT (NaNToZero ( $ "DCP.MXBWSCPSavingsVolume" [@"24:00:00 December Max DayOfMonth, Current Year"] ) > 0.00000000 "acre-ft") THEN
+            WITH_STATEMENT (NUMERIC monthlyReduction = $ "DCP.MXBWSCPSavingsVolume" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000) DO
+            FOREACH (DATETIME date IN @"24:00:00 January Max DayOfMonth, Current Year" TO @"24:00:00 December Max DayOfMonth, Current Year") DO
+            $ "MexicoDiversion:MexicoDiversion.Depletion Requested" [date] := $ "MexicoDiversion:MexicoDiversion.Depletion Requested" [date] - "VolumeToFlow"( monthlyReduction, date );
+
+            $ "MexicoDiversion:MexicoDiversion.Diversion Requested" [date] := $ "MexicoDiversion:MexicoDiversion.Diversion Requested" [date] - "VolumeToFlow"( monthlyReduction, date ) * ( $ "MexicoDiversion:MexicoDiversion.Diversion Requested" [date] / $ "MexicoDiversion:MexicoDiversion.Depletion Requested" [date] );
+
+      ENDFOREACH;
+
+      END_WITH_STATEMENT;
+
+          DESCRIPTION          "--------------------------------------------------------------<br>Create BWSCP Savings (analagous to US DCP-ICS)<br>-------------------------------------------------------------- <br>";
+      $ "ICMA.BWSCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+            $ "ICMA.BWSCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+
+      END_IF_STATEMENT;
+
+    END
+    UUID "{9b7df617-fbe0-4379-b4a3-7273bf7450ec}";;
+
+    RULE                 "Reduce Mexico by Computed BWSCP Savings and Create BWSCP Savings_OLD";
+    DESCRIPTION          "EXECUTION CONSTRAINT: <br>Only in January, and only once<br><br><br>DESCRIPTION:<br>Reduces MX's delivery by their required BWSCP Savings volume. For now, assume this is only made in the year it is required based on a reduction in delivery. Also assume this same volume (less the system assessment), is created as BWSCP Savings (analagous to US DCP-ICS). <br><br><br>SLOTS SET:<br>- `MexicoDiversion:MexicoDiversion.Depletion Requested[]`<br>- `MexicoDiversion:MexicoDiversion.Diversion Requested[]`<br>- `ICMA.DCPActualAnnualPut[]`";
+    ACTIVE               FALSE;
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January Max DayOfMonth, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
     NOTES                "2019-05-24 - RAB: updated to assign newly named BWSCP creation slot.<br><br>~ 2017 - RAB: Created";
     BEGIN
 
@@ -437,7 +466,7 @@ BEGIN
       END_IF_STATEMENT;
 
     END
-    UUID "{9b7df617-fbe0-4379-b4a3-7273bf7450ec}";;
+    UUID "{449143db-302e-40ab-ba59-088c74fe8ad2}";;
 
     RULE                 "Reduce AZ Demands by DCP Contribution System Water";
     DESCRIPTION          "Execution Constraint: January, rule has not successfully solvedl <br>  <br>Description: Rule adjust CAP delivery for DCP contribution volumes.  Currently all DCP contributions made by AZ are assumed to be system water (no EC-ICS converted to DCP-ICS).  Annual contribution volume is divided equally among all months.<br>  <br>Slots Set: CAPDiversion:CAPDiversionMandI.Depletion Requested, CAPDiversion:CAPDiversionMandI.Diversion Requested";
@@ -4898,7 +4927,7 @@ BEGIN
 
             $ "MexicoSchedule.Minute323Expires" [year] := "DateToNumber"( "RunEndDate"(  ) );
 
-            $ "DCP.EndDCP" [year] := "DateToNumber"( "RunEndDate"(  ) );
+            $ "DCP.EndDCP" [year] := 2010.00000000;
 
             $ "DCP.LastYearForRecovery" [year] := "DateToNumber"( end_plus_10 );
 

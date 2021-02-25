@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.0.3
-# Created 09:27 February 17, 2021
+# Created 11:46 February 25, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -4912,6 +4912,7 @@ BEGIN
     DESCRIPTION          "EXECUTION CONSTRAINT: <br>Only first timstep of run.<br><br>DESCRIPTION:<br>Sets all of the different years that mainly affect ICS creation and delivery logic. <br><br>SLOTS SET:<br>- `Mead Bank.LastYearForPuts[]`<br>- `Mead Bank.Last Year For Takes[]`<br>- `MWD ICS.MWDICSStep1PutEndDate[]`<br>- `MWD ICS.MWDICSStep1TakeEndDate[]`<br>- `MexicoSchedule.Minute323Expires[]`<br>- `DCP.EndDCP[]`";
     ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == "RunStartDate"(  );
+  NAMES_COLOR  "#5500ff";
     NOTES                "2019-01-14 - RAB: Replaced all assignments with calls to RunEndDate()<br>2019-05-24 - RAB - Added in assignment to `DCP.EndDCP[]`<br>~2012 - RAB - Created";
     BEGIN
 
@@ -4927,7 +4928,7 @@ BEGIN
 
             $ "MexicoSchedule.Minute323Expires" [year] := "DateToNumber"( "RunEndDate"(  ) );
 
-            $ "DCP.EndDCP" [year] := "DateToNumber"( "RunEndDate"(  ) );
+            $ "DCP.EndDCP" [year] := 2010.00000000;
 
             $ "DCP.LastYearForRecovery" [year] := "DateToNumber"( end_plus_10 );
 
