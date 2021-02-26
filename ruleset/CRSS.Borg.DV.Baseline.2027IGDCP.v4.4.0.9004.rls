@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.0.3
-# Created 11:03 February 26, 2021
+# Created 14:11 February 26, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -1866,9 +1866,9 @@ BEGIN
     END
     UUID "{ee41a082-c9d7-4569-a4ea-cf77d4de6d20}";;
 
-    RULE                 "Set Shortage Tier";
+    RULE                 "Set Shortage Tier_OLD";
     DESCRIPTION          "";
-    ACTIVE               TRUE;
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND NOT "IsInput"( $ "SystemConditions.LBShortageTier", @"24:00:00 December Max DayOfMonth, Current Year" );
     NOTES                "";
     BEGIN
@@ -1877,6 +1877,23 @@ BEGIN
 
     END
     UUID "{7d380e79-4580-440a-8d7b-85505a6d9b1f}";;
+
+    RULE                 "Set Shortage Tier";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND NOT "IsInput"( $ "SystemConditions.LBShortageTier", @"24:00:00 December Max DayOfMonth, Current Year" );
+    NOTES                "";
+    BEGIN
+
+      $ "SystemConditions.LBShortageTier" [@"24:00:00 December Max DayOfMonth, Current Year"] := IF ( $ "Mead.Pool Elevation" [@"24:00:00 December Max DayOfMonth, Previous Year"] <= $ "Mead Decision Variables.From BorgRW" [7.00000000, 0.00000000] )
+ THEN
+  "TableLookupDefaultTol"( $ "Mead Decision Variables.Full", 0.00000000, 1.00000000, $ "Mead.Pool Elevation" [@"24:00:00 December Max DayOfMonth, Previous Year"], @"24:00:00 January Max DayOfMonth, Current Year", FALSE )
+ ELSE
+  0.00000000
+ ENDIF;
+
+    END
+    UUID "{aa4df8ea-79d0-43d7-badb-fb75a8593928}";;
 
   END
   UUID "{da3547a9-88e5-488a-a958-5f74e1d10bcb}";;

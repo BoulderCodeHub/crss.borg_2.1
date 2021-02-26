@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.0.3
-# Created 10:44 February 26, 2021
+# Created 11:03 February 26, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -4938,7 +4938,7 @@ BEGIN
 
     DESCRIPTION          "end date here should be the same as the DCP.EndDCP[] date.  <br>";
       FOREACH (DATETIME month IN "GetDates"( "RunStartDate"(  ), "RunEndDate"(  ), "1 months" )) DO
-            $ "ExtendedOperations.ExtendedOperationsFlag" [month] := 1.00000000;
+            $ "ExtendedOperations.ExtendedOperationsFlag" [month] := 0.00000000;
 
       ENDFOREACH;
 
