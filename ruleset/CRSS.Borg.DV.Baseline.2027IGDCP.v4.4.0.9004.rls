@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.0.3
-# Created 13:38 March 4, 2021
+# Created 11:30 March 5, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -1867,7 +1867,7 @@ BEGIN
     END
     UUID "{ee41a082-c9d7-4569-a4ea-cf77d4de6d20}";;
 
-    RULE                 "Reduce Use for IG Shortage Conditions";
+    RULE                 "Reduce Use for IG Shortage Conditions_NEW";
     DESCRIPTION          "EXECUTION CONSTRAINT: Only executes in January of each year, and only if it is a shortage condition, which is determined by the &quot;Set Shortage Tier&quot; rule. Will also execute only one time.<br><br>DESCRIPTION: Reduces each user that takes shortages under the Interim Guidelines depletion and diversion. The users are each &quot;water user&quot; on CAP, SNWP, and Mexico's aggregate diversion object. Reductions also account for any DSS takes, or ICS creation that might occur in the shortage year.<br><br>SLOTS SET: Depletion Requested and Diversion Requested for all water users on the SNWP, CAP, and Mexico aggregate diversion objects. Various flag slots are also set. ";
     ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND $ "SystemConditions.LBShortageTier" [@"24:00:00 December Max DayOfMonth, Current Year"] != 0.00000000;
@@ -1952,6 +1952,50 @@ BEGIN
 
     END
     UUID "{b70750dc-7f1c-4836-808e-3df27a690f6d}";;
+
+    RULE                 "Reduce Use for IG Shortage Conditions";
+    DESCRIPTION          "EXECUTION CONSTRAINT: Only executes in January of each year, and only if it is a shortage condition, which is determined by the &quot;Set Shortage Tier&quot; rule. Will also execute only one time.<br><br>DESCRIPTION: Reduces each user that takes shortages under the Interim Guidelines depletion and diversion. The users are each &quot;water user&quot; on CAP, SNWP, and Mexico's aggregate diversion object. Reductions also account for any DSS takes, or ICS creation that might occur in the shortage year.<br><br>SLOTS SET: Depletion Requested and Diversion Requested for all water users on the SNWP, CAP, and Mexico aggregate diversion objects. Various flag slots are also set. ";
+    ACTIVE               FALSE;
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND $ "SystemConditions.LBShortageTier" [@"24:00:00 December Max DayOfMonth, Current Year"] != 0.00000000;
+  NAMES_COLOR  "#5500ff";
+    NOTES                "DEVELOPMENT NOTES<br>- 2019-07-23 - RAB: Re-wrote to only call each function once/loop. <br>- 20190620, JK: Removed the Arizona Priority 4 users from rule as per communication from Chuck which stated CAP will take all DCP Contributions/Shortage Reductions.  Associated fxns have been updated as well to no longer pro-rate CAP reductions as per priority 4 users.<br>- 20180109, RAB: Combined the three shortage rules (Step [1, 2, 3] Shortage for ICS) into this one rule. The only difference between the 3 rules was the number (1-3) passed to the `ComputeStepShortage[Diversion/Depletion]()` functions.<br>- ...<br>- ~2007, CSJ: Created rule.";
+    BEGIN
+
+    DESCRIPTION          "Loop over all 12 months <br>";
+      FOREACH (DATETIME date IN @"t" TO @"24:00:00 December 31, Current Year") DO
+          DESCRIPTION          "Loop through CAP, SNWP, and Mexico <br>";
+      FOREACH (STRING diversion IN { "CAP" , "SNWP" , "Mexico" , "IID" }) DO
+            WITH_STATEMENT (NUMERIC agg_site_depletion_shortage = "ComputeStepShortageDepletion"( diversion, $ "Mead.Pool Elevation" [@"24:00:00 December Max DayOfMonth, Previous Year"], date )) DO
+          DESCRIPTION          "CAP, SNWP, IID and Mexico might have multiple &quot;water user&quot; objects on them. If so, loop <br>through all them, and divy out the shortage volume proportionally  <br>";
+      FOREACH (STRING user IN "ListLBNormalWaterUsersByProvider"( diversion )) DO
+            WITH_STATEMENT (OBJECT water_user = "GetObject"( diversion CONCAT "Diversion:" CONCAT user )) DO
+            WITH_STATEMENT (NUMERIC water_user_shortage = agg_site_depletion_shortage * "LBUserToAggRatio"( diversion, user, "Depletion", date )) DO
+            water_user & "Depletion Requested" [date] := water_user_shortage;
+
+            water_user & "Diversion Requested" [date] := water_user_shortage * "CalcScheduleDepletionToDiversionRatio"( water_user, date );
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      ENDFOREACH;
+
+      END_WITH_STATEMENT;
+
+            diversion CONCAT "Schedule.ShortageScheduleFlag" [date] := 1.00000000;
+
+            diversion CONCAT "Schedule.SurplusScheduleFlag" [date] := 0.00000000;
+
+      ENDFOREACH;
+
+            $ "Surplus.SurplusFlag" [date] := 0.00000000;
+
+            $ "Shortage.ShortageFlag" [date] := 1.00000000;
+
+      ENDFOREACH;
+
+    END
+    UUID "{b589b2ab-99cb-49c6-ba79-92b3415085fb}";;
 
     RULE                 "Set Shortage Tier_OLD";
     DESCRIPTION          "";
