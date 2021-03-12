@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.0.3
-# Created 11:44 March 12, 2021
+# Created 14:28 March 12, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -1111,7 +1111,7 @@ BEGIN
 
     RULE                 "Adjust Gains for Nevada ICS Put and Other";
     DESCRIPTION          "";
-    ACTIVE               FALSE;
+    ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
     NOTES                "";
     BEGIN
@@ -1130,7 +1130,7 @@ BEGIN
 
     RULE                 "Adjust Arizona for ICS Put/Take";
     DESCRIPTION          "EXECUTION CONSTRAINT: Current month is January<br><br>DESCRIPTION: Adjusts CAP and CRIT uses for the monthly put/take volumes as determined by the rule Compute Arizona Available ICS Water. This rule only adjusts CAP in normal years, and adjusts CRIT in shortage and normal years.<br><br>SLOTS SET: <br>- CAPDiversion:CAPdiversionMandI.[Depletion/Divrsion] Requested<br>- ColoradoRiverIndianReservation:CRIR AZ.[Depletion/Diversion] Requested";
-    ACTIVE               FALSE;
+    ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
     NOTES                "2019-12-18, RAB: Edited so that CAP is only set in normal years by this rule. Also removed unnecesary `with` statements.<br>~ November 2010, JK: Fixed CAP portion so shortages correctly applied<br>Creation ?";
     BEGIN
@@ -1162,7 +1162,7 @@ BEGIN
 
     RULE                 "Compute Arizona Available ICS Water_OLD";
     DESCRIPTION          "EXECUTION CONSTRAINT: January of each year.<br><br>DESCRIPTION: Rule sets ICS values for each ICS type in a given year.  For Arizona, the puts/takes are made by CAWCD.  Before 2025, takes are made as mitigation water during tier 1 and 2 shortage (take from EC-ICS, then BICS, then Brock/YDP).  After 2025 CAWCD tries to drain EC-ICS, BICS, Brock, YDP balances in 10 years.  Will divide balance by 10 and do takes until balances of all accounts are depleted.  GRIC and CRIT puts/takes are determined by input values.  GRIC AZ and GRIC Fed takes are made after 2026 to meet firming obligations during tier 2 shortages from ICS water purchased from GRIC and stored in GRIC's ICS account.  Arizona will take 15 kaf and the Feds will take 10 kaf until supplies depleted.  If the puts exceeds Arizona's annual put limit all puts will be prorated according to the size of their desired put.  If takes exceed Arizona's annual take limit the AZ/Fed GRIC ICS for firming obligations will be taken first, and then the remaining takes prorated according to the size of their desired take.  If the AZ/FED GRIC take exceeds Arizona's annual take limit these takes will be prorated according to the size of their desired take.<br><br>SLOTS SET: On Arizona ICS data object - ActualMonthlyPut, GricActualMonthlyPut, CRITActualMonthlyPut, GRICAZActualMonthlyTake, GRICFedActualMonthlyTake, ActualMonthlyTake, BICSActualMonthlyTake, GRICActualMonthlyTake, CRITActualMonthlyTake, BrockActualMonthlyTake, YDPActualMonthlyTake";
-    ACTIVE               TRUE;
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year";
     NOTES                "2020-01-23 - Edited to use the `DetermineAZECPuts()` function for CAP, CRIT, and GRIC EC creation volumes<br><br>...<br><br>creation unknown";
     BEGIN
@@ -1200,13 +1200,13 @@ BEGIN
       END_WITH_STATEMENT;
 
     END
-    UUID "{be30d37e-8327-4bb3-9a21-d4ae763f8e13}";;
+    UUID "{81757b4c-110b-4d43-889d-226113ebbeff}";;
 
     RULE                 "Compute Arizona Available ICS Water";
     DESCRIPTION          "EXECUTION CONSTRAINT: January of each year.<br><br>DESCRIPTION: Rule sets ICS values for each ICS type in a given year.  For Arizona, the puts/takes are made by CAWCD.  Before 2025, takes are made as mitigation water during tier 1 and 2 shortage (take from EC-ICS, then BICS, then Brock/YDP).  After 2025 CAWCD tries to drain EC-ICS, BICS, Brock, YDP balances in 10 years.  Will divide balance by 10 and do takes until balances of all accounts are depleted.  GRIC and CRIT puts/takes are determined by input values.  GRIC AZ and GRIC Fed takes are made after 2026 to meet firming obligations during tier 2 shortages from ICS water purchased from GRIC and stored in GRIC's ICS account.  Arizona will take 15 kaf and the Feds will take 10 kaf until supplies depleted.  If the puts exceeds Arizona's annual put limit all puts will be prorated according to the size of their desired put.  If takes exceed Arizona's annual take limit the AZ/Fed GRIC ICS for firming obligations will be taken first, and then the remaining takes prorated according to the size of their desired take.  If the AZ/FED GRIC take exceeds Arizona's annual take limit these takes will be prorated according to the size of their desired take.<br><br>SLOTS SET: On Arizona ICS data object - ActualMonthlyPut, GricActualMonthlyPut, CRITActualMonthlyPut, GRICAZActualMonthlyTake, GRICFedActualMonthlyTake, ActualMonthlyTake, BICSActualMonthlyTake, GRICActualMonthlyTake, CRITActualMonthlyTake, BrockActualMonthlyTake, YDPActualMonthlyTake";
-    ACTIVE               FALSE;
+    ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year";
-  NAMES_COLOR  "#0000ff";
+  NAMES_COLOR  "#5500ff";
     NOTES                "2020-01-23 - Edited to use the `DetermineAZECPuts()` function for CAP, CRIT, and GRIC EC creation volumes<br><br>...<br><br>creation unknown";
     BEGIN
 
@@ -1243,7 +1243,7 @@ BEGIN
       END_WITH_STATEMENT;
 
     END
-    UUID "{abe73992-e432-44a7-b486-37a3e8dbcd8e}";;
+    UUID "{9fa8701f-aac5-48ba-9ad7-853944ec397d}";;
 
     RULE                 "Adjust MWD for MWD ICS Put/Take";
     DESCRIPTION          "";
@@ -1322,7 +1322,7 @@ BEGIN
 
     RULE                 "Compute California Available ICS Water_OLD";
     DESCRIPTION          "EXECUTION CONSTRAINT: <br>Only once in January and when CA is not making DCP contributions<br><br>DESCRIPTION:<br>Computes the ICS creation and delivery volumes for MWD and IID.<br><br>SLOTS SET:<br>- `MWD ICS.DesiredAnnualTake[]`<br>- `MWD ICS.DCPActualAnnualTake[]`<br>- `MWD ICS.ECActualAnnualTake[]`<br>- `MWD ICS.BrockActualAnnualTake[]`<br>- `MWD ICS.YDPActualAnnualTake[]`<br>- `MWD ICS.BICSActualAnnualTake[]`<br>- `MWD ICS.ECActualAnnualPut[]`<br>- `IIC ICS.ActualAnnualPut[]`";
-    ACTIVE               TRUE;
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND NOT "AreCADCPContributions"(  );
     NOTES                "2019-06-14 - RAB: Updated to set annual slots. <br><br>Creation unkown.";
     BEGIN
@@ -1358,7 +1358,7 @@ BEGIN
 
     RULE                 "Compute California Available ICS Water";
     DESCRIPTION          "EXECUTION CONSTRAINT: <br>Only once in January and when CA is not making DCP contributions<br><br>DESCRIPTION:<br>Computes the ICS creation and delivery volumes for MWD and IID.<br><br>SLOTS SET:<br>- `MWD ICS.DesiredAnnualTake[]`<br>- `MWD ICS.DCPActualAnnualTake[]`<br>- `MWD ICS.ECActualAnnualTake[]`<br>- `MWD ICS.BrockActualAnnualTake[]`<br>- `MWD ICS.YDPActualAnnualTake[]`<br>- `MWD ICS.BICSActualAnnualTake[]`<br>- `MWD ICS.ECActualAnnualPut[]`<br>- `IIC ICS.ActualAnnualPut[]`";
-    ACTIVE               FALSE;
+    ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND NOT "AreCADCPContributions"(  );
   NAMES_COLOR  "#5500ff";
     NOTES                "2019-06-14 - RAB: Updated to set annual slots. <br><br>Creation unkown.";
@@ -1391,7 +1391,7 @@ BEGIN
       $ "IID ICS.ECActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
 
     END
-    UUID "{6fff1e7d-f069-4395-8d20-60f39b1b45d8}";;
+    UUID "{005b1eaf-2679-4e80-b6fb-dd737fdaf179}";;
 
     RULE                 "Adjust SNWP for Nevada ICS Take and Other";
     DESCRIPTION          "";
@@ -1422,7 +1422,7 @@ BEGIN
 
     RULE                 "SNWP ICS - Annual to Monthly_OLD";
     DESCRIPTION          "";
-    ACTIVE               TRUE;
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
     NOTES                "";
     BEGIN
@@ -1456,7 +1456,7 @@ BEGIN
 
     RULE                 "SNWP ICS - Annual to Monthly";
     DESCRIPTION          "";
-    ACTIVE               FALSE;
+    ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
   NAMES_COLOR  "#5500ff";
     NOTES                "";
@@ -1486,7 +1486,7 @@ BEGIN
       ENDFOREACH;
 
     END
-    UUID "{76a8c560-c183-41dd-b780-b992cd63a204}";;
+    UUID "{4d2340d1-40e4-482c-b347-6ae9285cb4cf}";;
 
     RULE                 "Compute NV Brock Take_OLD";
     DESCRIPTION          "";
@@ -1502,7 +1502,7 @@ BEGIN
 
     RULE                 "Compute NV Brock Take";
     DESCRIPTION          "";
-    ACTIVE               FALSE;
+    ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
   NAMES_COLOR  "#5500ff";
     NOTES                "";
@@ -1511,11 +1511,11 @@ BEGIN
       $ "Nevada ICS.BrockActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
 
     END
-    UUID "{89fbd226-e841-430a-9784-2acc6136b810}";;
+    UUID "{56b77345-22f5-490c-b859-7c76a768f279}";;
 
     RULE                 "Compute Nevada EC Take_OLD";
     DESCRIPTION          "";
-    ACTIVE               TRUE;
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
     NOTES                "";
     BEGIN
@@ -1527,7 +1527,7 @@ BEGIN
 
     RULE                 "Compute Nevada EC Take";
     DESCRIPTION          "";
-    ACTIVE               FALSE;
+    ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
   NAMES_COLOR  "#5500ff";
     NOTES                "";
@@ -1536,11 +1536,11 @@ BEGIN
       $ "Nevada ICS.ECActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
 
     END
-    UUID "{2920b017-2a2d-412f-b763-56b0c7c611e5}";;
+    UUID "{740d5352-a306-4494-a808-ff867d25344c}";;
 
     RULE                 "Compute Nevada Tributary and Imported ICS Puts/Takes_OLD";
     DESCRIPTION          "";
-    ACTIVE               TRUE;
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
     NOTES                "";
     BEGIN
@@ -1558,7 +1558,7 @@ BEGIN
 
     RULE                 "Compute Nevada Tributary and Imported ICS Puts/Takes";
     DESCRIPTION          "";
-    ACTIVE               FALSE;
+    ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
   NAMES_COLOR  "#5500ff";
     NOTES                "";
@@ -1573,11 +1573,11 @@ BEGIN
       $ "Nevada ICS.GroundwaterActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
 
     END
-    UUID "{2ad96cb9-3053-4427-94d8-6bce66bd53b0}";;
+    UUID "{37e6da5b-d784-4c47-8eb7-6b256e7efcd6}";;
 
     RULE                 "Compute NV EC-ICS Creation_OLD";
     DESCRIPTION          "";
-    ACTIVE               TRUE;
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
     NOTES                "2019-06-18 - RAB: Changed slot names and set annual slot (in addition to monthly slot<br><br>~2017 - RAB: created";
     BEGIN
@@ -1590,7 +1590,7 @@ BEGIN
 
     RULE                 "Compute NV EC-ICS Creation";
     DESCRIPTION          "";
-    ACTIVE               FALSE;
+    ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
   NAMES_COLOR  "#5500ff";
     NOTES                "2019-06-18 - RAB: Changed slot names and set annual slot (in addition to monthly slot<br><br>~2017 - RAB: created";
@@ -1600,11 +1600,11 @@ BEGIN
       $ "Nevada ICS.ECActualAnnualPutFromUnused" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
 
     END
-    UUID "{481167de-36fb-4c4d-9daf-e47ee4305f27}";;
+    UUID "{d31dfab3-842a-46a6-b631-e5f550e0218d}";;
 
     RULE                 "Compute NV DCP-ICS Put and Take_OLD";
     DESCRIPTION          "";
-    ACTIVE               TRUE;
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
     NOTES                "";
     BEGIN
@@ -1621,7 +1621,7 @@ BEGIN
 
     RULE                 "Compute NV DCP-ICS Put and Take";
     DESCRIPTION          "";
-    ACTIVE               FALSE;
+    ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
   NAMES_COLOR  "#5500ff";
     NOTES                "";
@@ -1635,7 +1635,7 @@ BEGIN
       $ "Nevada ICS.DCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
 
     END
-    UUID "{2337d65d-33fc-467c-b13a-edb4a8b1219d}";;
+    UUID "{34c19e4a-0e82-4f67-abd1-33c06205392e}";;
 
     RULE                 "Compute CA AZ and NV EC to DCP Conversion";
     DESCRIPTION          "Converts ICS to DCP for CA (IID and MWS) to meet DCP Savings volumes";
