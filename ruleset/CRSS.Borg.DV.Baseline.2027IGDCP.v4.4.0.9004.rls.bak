@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 8.0.3
-# Created 14:17 March 19, 2021
+# Created 10:04 March 19, 2021
 # 
 RULESET
 NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
@@ -1454,7 +1454,7 @@ BEGIN
     RULE                 "Domestic 7 State Plan Level 2 Surplus";
     DESCRIPTION          "";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND ( $ "Mead.Pool Elevation" [@"t - 1"] >= $ "Surplus Triggers.7 State Plan Level 2" [@"t - 1"] AND $ "Surplus.SurplusRelease" [] <= 0.00000000 "acre-feet" ) AND $ "Surplus Triggers.7 State Plan Level 2" [@"t - 1"] != 1200.00000000 "ft";
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND ( $ "Mead.Pool Elevation" [@"t - 1"] >= $ "Surplus Triggers.7 State Plan Level 2" [@"t - 1"] AND $ "Surplus.SurplusRelease" [] <= 0.00000000 "acre-feet" );
     NOTES                "DEVELOPMENT NOTES:<br>- 20180108, RAB: edited the inner for loop to use the `GetICSDeliveryAdjustment()` function<br>- Unknown, Unkown: rule created";
     BEGIN
 
