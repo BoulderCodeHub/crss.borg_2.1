@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.0.3
-# Created 10:04 March 19, 2021
+# Created 15:56 March 19, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -1454,7 +1454,8 @@ BEGIN
     RULE                 "Domestic 7 State Plan Level 2 Surplus";
     DESCRIPTION          "";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND ( $ "Mead.Pool Elevation" [@"t - 1"] >= $ "Surplus Triggers.7 State Plan Level 2" [@"t - 1"] AND $ "Surplus.SurplusRelease" [] <= 0.00000000 "acre-feet" );
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND ( $ "Mead.Pool Elevation" [@"t - 1"] >= $ "Surplus Triggers.7 State Plan Level 2" [@"t - 1"] AND $ "Surplus.SurplusRelease" [] <= 0.00000000 "acre-feet" ) AND $ "Surplus Triggers.7 State Plan Level 2" [@"t - 1"] != 1200.00000000 "ft";
+  NAMES_COLOR  "#5500ff";
     NOTES                "DEVELOPMENT NOTES:<br>- 20180108, RAB: edited the inner for loop to use the `GetICSDeliveryAdjustment()` function<br>- Unknown, Unkown: rule created";
     BEGIN
 
@@ -1495,6 +1496,52 @@ BEGIN
 
     END
     UUID "{aa479e0d-268d-47a1-b020-da385d9ae5e8}";;
+
+    RULE                 "Partial Domestic 7 State Plan Level 3 Surplus";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND ( $ "Mead.Pool Elevation" [@"t - 1"] < $ "Surplus Triggers.7 State Plan Level 2" [@"t - 1"] AND $ "Mead.Pool Elevation" [@"t - 1"] >= $ "Surplus Triggers.7 State Plan Level 3" [@"t - 1"] AND $ "Surplus.SurplusRelease" [] <= 0.00000000 "acre-feet" );
+  NAMES_COLOR  "#5500ff";
+    NOTES                "DEVELOPMENT NOTES:<br>- 20180108, RAB: edited the inner for loop to use the `GetICSDeliveryAdjustment()` function<br>- Unknown, Unkown: rule created";
+    BEGIN
+
+      FOREACH (DATETIME date IN @"t" TO @"24:00:00 December 31, Current Year") DO
+            $ "Surplus.SurplusFlag" [date] := 1.00000000;
+
+            $ "Shortage.ShortageFlag" [date] := 0.00000000;
+
+            $ "Surplus.Partial Domestic Surplus Flag" [date] := 1.00000000;
+
+            FOREACH (STRING diversion IN { "MWD" , "SNWP" }) DO
+            WITH_STATEMENT (NUMERIC deliveryAdjustmentFor323 = "GetMonthlyUSReductionForMXIncrease"( diversion, date )) DO
+            FOREACH (STRING user IN "ListLBNormalWaterUsersByProvider"( diversion )) DO
+            "GetObject"( diversion CONCAT "Diversion:" CONCAT user ) & "Depletion Requested" [date] := ( "ComputeSurplusDepl7StatePlanLevel3"( diversion, date ) + "GetICSDeliveryAdjustment"( diversion, date, "Depletion" ) COMMENTED_BY "ICS creation/delivery <br>" - deliveryAdjustmentFor323 ) * "LBUserToAggRatio"( diversion, user, "Depletion", date );
+
+            "GetObject"( diversion CONCAT "Diversion:" CONCAT user ) & "Diversion Requested" [date] := ( "ComputeSurplusDepl7StatePlanLevel3"( diversion, date ) + "GetICSDeliveryAdjustment"( diversion, date, "Diversion" ) COMMENTED_BY "ICS creation/delivery <br>" - deliveryAdjustmentFor323 ) * "LBUserToAggRatio"( diversion, user, "Diversion", date );
+
+      ENDFOREACH;
+
+            diversion CONCAT "Schedule.ShortageScheduleFlag" [date] := 0.00000000;
+
+            diversion CONCAT "Schedule.SurplusScheduleFlag" [date] := 1.00000000;
+
+            diversion CONCAT "Schedule.SurplusLevel2Flag" [date] := 1.00000000;
+
+            % "LBSurplus" & diversion [date] := "ComputeSurplusDepl7StatePlanLevel3"( diversion, date ) - IF ( diversion == "CAP" )
+ THEN
+  diversion CONCAT "Schedule.Depletion Schedule" [date]
+ ELSE
+  diversion CONCAT "Diversion:" CONCAT diversion CONCAT "Diversion.Depletion Schedule" [date]
+ ENDIF - deliveryAdjustmentFor323;
+
+      END_WITH_STATEMENT;
+
+      ENDFOREACH;
+
+      ENDFOREACH;
+
+    END
+    UUID "{96d07540-4d14-4824-a2de-cfcc57668817}";;
 
     RULE                 "Increase MX Delivery from Minute 32x";
     DESCRIPTION          "";
