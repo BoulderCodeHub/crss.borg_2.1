@@ -2,15 +2,15 @@
 
 ## Objectives
 
-Objectives.Objective LB Max Cons Shortage Duration: file=$Borg_DIR/results/Mead_Objectives.rdf
-Objectives.Objective LB Shortage Frequency: file=$Borg_DIR/results/Mead_Objectives.rdf
-Objectives.Objective LB Shortage Volume: file=$Borg_DIR/results/Mead_Objectives.rdf
-Objective_Avg_Combo_Storage: file=$Borg_DIR/results/Mead_Objectives.rdf
-Objectives.Objective Lee Ferry Deficit: file=$Borg_DIR/results/Mead_Objectives.rdf
-Objectives.Objective Max Annual LB Shortage: file=$Borg_DIR/results/Mead_Objectives.rdf
-Objectives.Objective Mead 1000: file=$Borg_DIR/results/Mead_Objectives.rdf
-Objectives.Objective Powell 3490: file=$Borg_DIR/results/Mead_Objectives.rdf
-Objectives.Objective Powell WY Release: file=$Borg_DIR/results/Mead_Objectives.rdf
+Objectives.Objective_LB_Max_Cons_Shortage_Duration: file=$Borg_DIR/results/Mead_Objectives.rdf
+Objectives.Objective_LB_Shortage_Frequency: file=$Borg_DIR/results/Mead_Objectives.rdf
+Objectives.Objective_LB_Shortage_Volume: file=$Borg_DIR/results/Mead_Objectives.rdf
+Objectives.Objective_Avg_Combo_Storage: file=$Borg_DIR/results/Mead_Objectives.rdf
+Objectives.Objective_Lee_Ferry_Deficit: file=$Borg_DIR/results/Mead_Objectives.rdf
+Objectives.Objective_Max_Annual_LB_Shortage: file=$Borg_DIR/results/Mead_Objectives.rdf
+Objectives.Objective_Mead_1000: file=$Borg_DIR/results/Mead_Objectives.rdf
+Objectives.Objective_Powell_3490: file=$Borg_DIR/results/Mead_Objectives.rdf
+Objectives.Objective_Powell_WY_Release: file=$Borg_DIR/results/Mead_Objectives.rdf
 
 ## Sub-Objective Slots
 
