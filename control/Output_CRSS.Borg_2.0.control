@@ -1,3 +1,37 @@
+# CRSS Borg 2.0
+
+## Objectives
+
+Objectives.Objective LB Max Cons Shortage Duration: file=$Borg_DIR/results/Mead_Objectives.rdf
+Objectives.Objective LB Shortage Frequency: file=$Borg_DIR/results/Mead_Objectives.rdf
+Objectives.Objective LB Shortage Volume: file=$Borg_DIR/results/Mead_Objectives.rdf
+Objective_Avg_Combo_Storage: file=$Borg_DIR/results/Mead_Objectives.rdf
+Objectives.Objective Lee Ferry Deficit: file=$Borg_DIR/results/Mead_Objectives.rdf
+Objectives.Objective Max Annual LB Shortage: file=$Borg_DIR/results/Mead_Objectives.rdf
+Objectives.Objective Mead 1000: file=$Borg_DIR/results/Mead_Objectives.rdf
+Objectives.Objective Powell 3490: file=$Borg_DIR/results/Mead_Objectives.rdf
+Objectives.Objective Powell WY Release: file=$Borg_DIR/results/Mead_Objectives.rdf
+
+## Sub-Objective Slots
+
+Objectives.Consecutive Shortage Counter: file=$Borg_DIR/results/Mead_Sub_Objectives.rdf
+Objectives.LB Shortage indicator function: file=$Borg_DIR/results/Mead_Sub_Objectives.rdf
+Objectives.Lee Ferry Deficit indicator function: file=$Borg_DIR/results/Mead_Sub_Objectives.rdf
+Objectives.Mead 1000 indicator function: file=$Borg_DIR/results/Mead_Sub_Objectives.rdf
+Objectives.Powell 34900 indicator function: file=$Borg_DIR/results/Mead_Sub_Objectives.rdf
+Objectives.EOCY_Combo_Storage: file=$Borg_DIR/results/Mead_Sub_Objectives.rdf
+LBHydrologicShortage.AnnualTotalShortage: file=$Borg_DIR/results/Mead_Sub_Objectives.rdf
+LBHydrologicShortage.AnnualPolicyShortage: file=$Borg_DIR/results/Mead_Sub_Objectives.rdf
+PowellOperation.10 Year Compact Volume: file=$Borg_DIR/results/Mead_Sub_Objectives.rdf
+PowellOperation.PowellWYRelease: file=$Borg_DIR/results/Mead_Sub_Objectives.rdf
+
+## Lake Mead Decision Variables
+
+Mead Decision Variables.From BorgRW: file=$Borg_DIR/results/Mead_DVs.rdf
+Mead Decision Variables.Compressed: file=$Borg_DIR/results/Mead_DVs.rdf
+Mead Decision Variables.Full: file=$Borg_DIR/results/Mead_DVs.rdf
+Mead Decision Variables.Surplus d From Borg: file=$Borg_DIR/results/Mead_DVs.rdf
+
 # DCP
 # --------------------------
 
