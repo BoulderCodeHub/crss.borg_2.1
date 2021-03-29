@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.0.3
-# Created 15:56 March 19, 2021
+# Created 15:43 March 23, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1 (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -4735,6 +4735,7 @@ BEGIN
     DESCRIPTION          "";
     ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January Max DayOfMonth, Current Year";
+  NAMES_COLOR  "#5500ff";
     NOTES                "";
     BEGIN
 

@@ -7,3 +7,4 @@ Mead Decision Variables.From BorgRW.Elevation: file=$Borg_DIR/input/Mead_Shortag
 
 #Shortage Reduction Volumes
 Mead Decision Variables.From BorgRW.Shortage Reduction: file=$Borg_DIR/input/Mead_Shortage_V_DV.txt units=acre-ft scale=1.0 import=fixed precision=model
+Mead Decision Variables.From BorgRW_Flipped.Shortage Reduction: file=$Borg_DIR/input/Mead_Shortage_V_DV.txt units=acre-ft scale=1.0 import=fixed precision=model
