@@ -7,6 +7,7 @@ Scenario/
 *.bak.rsm
 # riverware 
 model/riverwareObjects/
+results/
 # ignore other backup files of zipped rules and models
 *.bak.gz
 *.bak
