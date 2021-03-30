@@ -720,6 +720,7 @@ ArizonaPriority2and3Schedules.TotalScheduledUse: file=$Borg_DIR/results/AZWU.rdf
 LBShort.CAPSpecifiedShortage: file=$Borg_DIR/results/Short_ann.rdf
 LBShort.MexicoSpecifiedShortage: file=$Borg_DIR/results/Short_ann.rdf
 LBShort.SNWPSpecifiedShortage: file=$Borg_DIR/results/Short_ann.rdf
+LBShort.IIDSpecifiedShortage: file=$Borg_DIR/results/Short_ann.rdf
 
 LBShort.AnnualCAPShortageRatio: file=$Borg_DIR/results/Short_ann.rdf
 LBShort.AnnualCAPShort: file=$Borg_DIR/results/Short_ann.rdf
