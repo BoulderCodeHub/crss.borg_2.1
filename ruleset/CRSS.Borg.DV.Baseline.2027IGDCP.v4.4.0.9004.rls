@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.0.3
-# Created 09:52 April 21, 2021
+# Created 16:43 April 29, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1 (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -656,11 +656,11 @@ BEGIN
 
       $ "MWD ICS.DCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
 
-      $ "MWD ICS.DCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+      $ "MWD ICS.DCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineDCPAdditionalContribution"( "MWD", "DetermineMWDDCPPut"(  ), $ "MWD ICS.ConvertECToDCP" [@"24:00:00 December Max DayOfMonth, Current Year"] );
 
       $ "MWD ICS.CoachellaDCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
 
-      $ "MWD ICS.CoachellaDCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+      $ "MWD ICS.CoachellaDCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineDCPAdditionalContribution"( "Coachella", "DetermineCoachellaDCPPut"(  ), 0.00000000 "acre-ft" );
 
     END
     UUID "{e604257a-9328-4f62-a7ba-eb703027b5ed}";;
@@ -5066,7 +5066,7 @@ BEGIN
 
             $ "MexicoSchedule.Minute323Expires" [year] := "DateToNumber"( "RunEndDate"(  ) );
 
-            $ "DCP.EndDCP" [year] := "DateToNumber"( @"24:00:00 December 31, 2010" );
+            $ "DCP.EndDCP" [year] := "DateToNumber"( @"24:00:00 January 1, 2010" );
 
             $ "DCP.LastYearForRecovery" [year] := "DateToNumber"( end_plus_10 );
 
