@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 8.0.3
-# Created 16:43 April 29, 2021
+# Created 08:58 May 6, 2021
 # 
 RULESET
 NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
@@ -391,9 +391,9 @@ BEGIN
   NOTES          "";
   BEGIN
 
-    RULE                 "Implement Fed DCP Water";
+    RULE                 "Implement Fed DCP Water_TURN ON FOR DCP COMPARISON RUN";
     DESCRIPTION          "This sets the reduction to WM bypass flows to the cienega. Annual reduction volume is determined by &quot;Determine Fed Water Vol&quot; and sets slot on &quot;DCP&quot; data object. This rule takes that volume and sets monthly values by taking the annual total (112 kaf) and multiplying by the monthly coefficients and then subtracting the Fed protection volume as multplied by the same coefficients. This should keep the distribution somewhat intact and avoid negative flows. Rule fires once a year at January.  ";
-    ACTIVE               TRUE;
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January Max DayOfMonth, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
   NAMES_COLOR  "#5500ff";
     NOTES                "2019-06-19 - RAB: copied from DCP model and updated to account for well field 242 injection";
