@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.0.3
-# Created 16:43 April 29, 2021
+# Created 14:55 May 13, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -391,9 +391,9 @@ BEGIN
   NOTES          "";
   BEGIN
 
-    RULE                 "Implement Fed DCP Water";
+    RULE                 "Implement Fed DCP Water_TURN ON FOR DCP COMPARISON RUN";
     DESCRIPTION          "This sets the reduction to WM bypass flows to the cienega. Annual reduction volume is determined by &quot;Determine Fed Water Vol&quot; and sets slot on &quot;DCP&quot; data object. This rule takes that volume and sets monthly values by taking the annual total (112 kaf) and multiplying by the monthly coefficients and then subtracting the Fed protection volume as multplied by the same coefficients. This should keep the distribution somewhat intact and avoid negative flows. Rule fires once a year at January.  ";
-    ACTIVE               TRUE;
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January Max DayOfMonth, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
   NAMES_COLOR  "#5500ff";
     NOTES                "2019-06-19 - RAB: copied from DCP model and updated to account for well field 242 injection";
@@ -981,6 +981,44 @@ BEGIN
 
     END
     UUID "{e437b20b-edeb-42fb-a8fc-781c60b1310d}";;
+
+    RULE                 "Generic Lake Powell Release Tier";
+    DESCRIPTION          "";
+    ACTIVE               FALSE;
+    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND IsNaN $ "Coordinated Operation.LowerLevelBalancingFlag" [] AND ( NOT IsNaN "Powell.Storage" [] AND NOT IsNaN $ "EqualizationData.MinObjRelFlag" [] ) AND NOT "SpikeMadeThisMonth"(  );
+    NOTES                "";
+    BEGIN
+
+      $ "Powell.Outflow" [] := IF ( $ "Powell Decision Variables.bal_Tier2" [] == 0.00000000 )
+ THEN
+  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth"( "748" ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
+ ENDIF
+ ELSEIF_COND ( $ "Powell Decision Variables.bal_Tier2" [] == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] >= $ "Powell Decision Variables.MeadRef_Tier2" [] )
+ ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth"( "748" ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
+ END_ELSEIF
+ ELSEIF_COND ( $ "Powell Decision Variables.bal_Tier2" [] == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] < $ "Powell Decision Variables.MeadRef_Tier2" [] )
+ ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) COMMENTED_BY "No additional check required because balancing releases made until dead pool", "823" COMMENTED_BY "min release", "823" COMMENTED_BY "max release" ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
+ END_ELSEIF COMMENTED_BY "Compare Powell and Mead previous EOCYS instead of forecasted EOWYS";
+
+    END
+    UUID "{278d4b5b-6fe5-40e8-a588-b45d5ed83ccb}";;
+
+    RULE                 "Set Lake Powell Release Tier";
+    DESCRIPTION          "";
+    ACTIVE               FALSE;
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
+    NOTES                "";
+    BEGIN
+
+      $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] := IF ( $ "Powell.Pool Elevation" [@"24:00:00 December Max DayOfMonth, Previous Year"] <= $ "Powell Decision Variables.From Borg Powell Tier Elevations" [0.00000000, 0.00000000] )
+ THEN
+  "TableLookupDefaultTol"( $ "Powell Decision Variables.Powell Full", 0.00000000, 1.00000000, $ "Powell.Pool Elevation" [@"24:00:00 December Max DayOfMonth, Previous Year"], @"24:00:00 January Max DayOfMonth, Current Year", FALSE )
+ ELSE
+  0.00000000
+ ENDIF;
+
+    END
+    UUID "{0f2bd1c0-60a4-468d-a07d-07255b58c548}";;
 
     RULE                 "Meet Powell Min Objective Release";
     DESCRIPTION          "";
