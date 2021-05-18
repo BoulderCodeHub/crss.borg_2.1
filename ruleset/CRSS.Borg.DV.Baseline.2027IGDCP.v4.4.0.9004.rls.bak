@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.0.3
-# Created 14:57 May 13, 2021
+# Created 16:48 May 14, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -985,7 +985,7 @@ BEGIN
     RULE                 "Generic Lake Powell Release Tier";
     DESCRIPTION          "";
     ACTIVE               FALSE;
-    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND IsNaN $ "Coordinated Operation.LowerLevelBalancingFlag" [] AND ( NOT IsNaN "Powell.Storage" [] AND NOT IsNaN $ "EqualizationData.MinObjRelFlag" [] ) AND NOT "SpikeMadeThisMonth"(  );
+    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND IsNaN $ "Coordinated Operation.LowerLevelBalancingFlag" [] AND ( NOT IsNaN "Powell.Storage" [] AND NOT IsNaN $ "EqualizationData.MinObjRelFlag" [] ) AND NOT "SpikeMadeThisMonth"(  ) AND $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] != 0.00000000;
     NOTES                "";
     BEGIN
 
