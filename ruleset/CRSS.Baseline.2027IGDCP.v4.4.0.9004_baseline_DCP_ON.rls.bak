@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 8.0.3
-# Created 16:30 May 5, 2021
+# Created 16:40 May 5, 2021
 # 
 RULESET
 NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
@@ -461,7 +461,7 @@ BEGIN
           DESCRIPTION          "--------------------------------------------------------------<br>Create BWSCP Savings (analagous to US DCP-ICS)<br>-------------------------------------------------------------- <br>";
       $ "ICMA.BWSCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
 
-            $ "ICMA.BWSCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+            $ "ICMA.BWSCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineBWSCPAdditionalContribution"( $ "ICMA.ConvertMWRToBWSCP" [@"24:00:00 December Max DayOfMonth, Current Year"], 0.00000000 "acre-ft" );
 
       END_IF_STATEMENT;
 
@@ -575,7 +575,7 @@ BEGIN
 
             $ "MWD ICS.DCPActualMonthlyPut" [date] := 0.00000000 "acre-ft";
 
-            $ "MWD ICS.DCPAdditionalMonthlyContribution" [date] := 0.00000000 "acre-ft";
+            $ "MWD ICS.DCPAdditionalMonthlyContribution" [date] := $ "MWD ICS.DCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
 
       ENDFOREACH;
 
@@ -673,11 +673,11 @@ BEGIN
 
       $ "MWD ICS.DCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
 
-      $ "MWD ICS.DCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+      $ "MWD ICS.DCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineDCPAdditionalContribution"( "MWD", 0.00000000 "acre-ft", $ "MWD ICS.ConvertECToDCP" [@"24:00:00 December Max DayOfMonth, Current Year"] );
 
       $ "MWD ICS.CoachellaDCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
 
-      $ "MWD ICS.CoachellaDCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := 0.00000000 "acre-ft";
+      $ "MWD ICS.CoachellaDCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineDCPAdditionalContribution"( "Coachella", 0.00000000 "acre-ft", 0.00000000 "acre-ft" );
 
     END
     UUID "{3d4db72d-9a6a-4435-8d63-dc9c6bd44151}";;
