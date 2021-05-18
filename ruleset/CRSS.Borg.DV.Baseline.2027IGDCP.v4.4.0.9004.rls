@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 11:39 May 18, 2021
+# Created 11:44 May 18, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -4213,7 +4213,7 @@ BEGIN
     RULE                 "Min Flow";
     DESCRIPTION          "CF, 20180620: Use higher minimum's in PeriodicMinFlow (from MTOM) representing operator preference. Provides better matching of historical releases based on my analysis <br>This rule ensurs that the minimum instream flow requirements are met. If a lower priority rule sets the flow lower than the min flow then this rule resets the flow. ";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT ( "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow" , "Set January-March Initial Baseflow" , "Set April or August Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } ) AND NOT "HasRuleFiredSuccessfully"( "Min Flow" ) ) COMMENTED_BY "This is necessary for 1,2,3 rule order to prevent trumping of lower priority rules. <br>Not necessary in 3,2,1 order but does not hurt anything. ";
+    RULE_EXEC_CONSTRAINT ( "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow" , "Set January-March Initial Baseflow" , "Set August Outflow" , "Set April Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } ) AND NOT "HasRuleFiredSuccessfully"( "Min Flow" ) ) COMMENTED_BY "This is necessary for 1,2,3 rule order to prevent trumping of lower priority rules. <br>Not necessary in 3,2,1 order but does not hurt anything. ";
     NOTES                "";
     BEGIN
 
@@ -4228,7 +4228,7 @@ BEGIN
     RULE                 "Max Elevation";
     DESCRIPTION          "This rule prevents overtopping. If a previous rule sets the outflow such that the elevation would overtop the dam, this rule will set the outflow to prevent this. The ";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-November Baseflow" , "Set December-March Baseflow" , "Set April or August Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } ) COMMENTED_BY "This is necessary for 1,2,3 rule order to prevent trumping of lower priority rules. <br>Not necessary in 3,2,1 order but does not hurt anything. ";
+    RULE_EXEC_CONSTRAINT "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow" , "Set January-March Initial Baseflow" , "Set August Outflow" , "Set April Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } ) COMMENTED_BY "This is necessary for 1,2,3 rule order to prevent trumping of lower priority rules. <br>Not necessary in 3,2,1 order but does not hurt anything. ";
     NOTES                "";
     BEGIN
 

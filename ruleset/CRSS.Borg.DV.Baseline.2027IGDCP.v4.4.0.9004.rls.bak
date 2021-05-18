@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 11:00 May 18, 2021
+# Created 11:39 May 18, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -4259,7 +4259,7 @@ BEGIN
     RULE                 "Safe Channel Capacity";
     DESCRIPTION          "Prevents outflow from exceeding safe channel capacity unless there is a chance of overtopping, in which case, the &quot;Max Elevation&quot; rule will take precedence. ";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-November Baseflow" , "Set December-March Baseflow" , "Set April or August Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } );
+    RULE_EXEC_CONSTRAINT "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow" , "Set January-March Initial Baseflow" , "Set August Outflow" , "Set April Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } );
     NOTES                "";
     BEGIN
 
