@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 15:18 May 18, 2021
+# Created 11:54 May 19, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -986,6 +986,7 @@ BEGIN
     DESCRIPTION          "";
     ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND IsNaN $ "Coordinated Operation.LowerLevelBalancingFlag" [] AND ( NOT IsNaN "Powell.Storage" [] AND NOT IsNaN $ "EqualizationData.MinObjRelFlag" [] ) AND NOT "SpikeMadeThisMonth"(  ) AND $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] != 0.00000000;
+  NAMES_COLOR  "#5500ff";
     NOTES                "";
     BEGIN
 
@@ -1007,6 +1008,7 @@ BEGIN
     DESCRIPTION          "";
     ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
+  NAMES_COLOR  "#5500ff";
     NOTES                "";
     BEGIN
 
