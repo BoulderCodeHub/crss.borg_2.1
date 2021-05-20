@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 13:39 May 19, 2021
+# Created 12:04 May 20, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -1012,11 +1012,11 @@ BEGIN
     NOTES                "";
     BEGIN
 
-      $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] := IF ( $ "Powell.Pool Elevation" [@"24:00:00 December Max DayOfMonth, Previous Year"] <= $ "Powell Decision Variables.From Borg Powell Tier Elevations" [0.00000000, 0.00000000] )
+      $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] := IF ( $ "Powell.Pool Elevation" [@"24:00:00 December Max DayOfMonth, Previous Year"] >= $ "Powell Decision Variables.Powell Equalization Line" [@"24:00:00 December Max DayOfMonth, Current Year"] )
  THEN
-  "TableLookupDefaultTol"( $ "Powell Decision Variables.Powell Full", 0.00000000, 1.00000000, $ "Powell.Pool Elevation" [@"24:00:00 December Max DayOfMonth, Previous Year"], @"24:00:00 January Max DayOfMonth, Current Year", FALSE )
- ELSE
   0.00000000
+ ELSE
+  "TableLookupDefaultTol"( $ "Powell Decision Variables.Powell Full_End", 0.00000000, 1.00000000, $ "Powell.Pool Elevation" [@"24:00:00 December Max DayOfMonth, Previous Year"], @"24:00:00 January Max DayOfMonth, Current Year", FALSE )
  ENDIF;
 
     END
