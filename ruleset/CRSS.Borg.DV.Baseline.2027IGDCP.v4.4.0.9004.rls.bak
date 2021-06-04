@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 15:45 May 25, 2021
+# Created 14:37 June 4, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -832,6 +832,46 @@ BEGIN
 
     END
     UUID "{ca913e22-1ee2-416c-8346-65d7b5e794de}";;
+
+    RULE                 "Equalization Tier_BORG";
+    DESCRIPTION          "This rule fires monthly January through September and computes the Equalization (EQ) release from Powell, given that the conditions for EQ are met. Note that Powell's previous EOCY storage is compared to the EQ Line. This has the effect of not allowing Powell to bounce in and out of EQ. The new EQ conditions in the Guidelines (release to keep Mead above 1105 so as Powell doesn't go more than 20' below the EQ Line) are performed in the function CheckEqualizationRelease_Mead1105. ";
+    ACTIVE               FALSE;
+    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND IsNaN $ "EqualizationData.EqualBasinStatesFlag" [] AND ( NOT IsNaN "Powell.Storage" [] AND NOT IsNaN $ "EqualizationData.MinObjRelFlag" [] ) AND NOT "SpikeMadeThisMonth"(  );
+  NAMES_COLOR  "#5500ff";
+    NOTES                "";
+    BEGIN
+
+      "Powell.Outflow" [] := IF ( "StartYearInEqualization_BORG"(  ) COMMENTED_BY "By comparing to Powell's actual storage at beginning of year, EQ is an annual decision" )
+ THEN
+  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
+ ENDIF;
+
+      $ "EqualizationData.EqualBasinStatesFlag" [] := IF ( "StartYearInEqualization"(  ) )
+ THEN
+  1.00000000
+ ELSE
+  0.00000000
+ ENDIF;
+
+    DESCRIPTION          "In September, if the monthly releases is less than the computed amount necessary to fully<br>equalize, then set the carryover equalization flag and volume so that the remaining EQ <br>release can be made in the subsequent month.";
+      IF_STATEMENT ("StartYearInEqualization_BORG"(  ) AND @"t" == @"24:00:00 September Max DayOfMonth, Current Year") THEN
+            WITH_STATEMENT (NUMERIC remainingWYRel = "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) + "ForecastPowellRelease"(  )) DO
+            WITH_STATEMENT (NUMERIC powellRel = "FlowToVolume"( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) ) ), $ "Powell.Storage" [@"t - 1"], @"t" ), @"t" )) DO
+            IF_STATEMENT ("Floor"( remainingWYRel - powellRel, 100.00000000 "acre-ft" ) COMMENTED_BY "Round the difference down to the nearest 100 acre-ft to keep from setting this when there are only minor differences between the two volume" > 0.00000000 "acre-ft") THEN
+            $ "EqualizationData.CarryoverEQFlag" [] := 1.00000000;
+
+            $ "EqualizationData.CarryoverEQVolume" [] := remainingWYRel - powellRel;
+
+      END_IF_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END
+    UUID "{2b461617-d1e1-4d10-a555-9f8cf476d069}";;
 
     RULE                 "Upper Elevation Balancing Tier Jan thru March";
     DESCRIPTION          "This rule fires in January through March and determines if Powell is in the Upper Elevation Balancing Tier (based on previous EOCY storage). If Powell is in this tier and Mead (again, previous EOCY storage) is below the minimum balancing elevation of 1075, Powell makes balancing releases within the min and max of 700 and 900 kaf. If Mead is above 1075, Powell releases 823 maf set in the rule Meet Powell Min Objective Release, which is lower priority and required to fire before this rule.";
