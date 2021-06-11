@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 14:54 June 4, 2021
+# Created 13:14 June 11, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -1008,19 +1008,19 @@ BEGIN
     NOTES                "";
     BEGIN
 
-      $ "Powell.Outflow" [] := IF ( "TableLookupDefaultTol"( $ "Powell Decision Variables.From Borg Powell Tier Table", 0.00000000, 2.00000000, $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"], @"24:00:00 January Max DayOfMonth, Current Year", FALSE ) == 0.00000000 )
+      $ "Powell.Outflow" [] := IF ( "GetPowellTierNum"(  ) == 0.00000000 )
  THEN
-  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG"( $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
+  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
  ENDIF
- ELSEIF_COND ( "TableLookupDefaultTol"( $ "Powell Decision Variables.From Borg Powell Tier Table", 0.00000000, 2.00000000, $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"], @"24:00:00 January Max DayOfMonth, Current Year", FALSE ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] >= "TableLookupDefaultTol"( $ "Powell Decision Variables.From Borg Powell Tier Table", 0.00000000, 4.00000000, $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"], @"24:00:00 January Max DayOfMonth, Current Year", FALSE ) )
- ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG"( $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
+ ELSEIF_COND ( "GetPowellTierNum"(  ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] >= "GetMeadRefElev"(  ) )
+ ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
  END_ELSEIF
- ELSEIF_COND ( "TableLookupDefaultTol"( $ "Powell Decision Variables.From Borg Powell Tier Table", 0.00000000, 2.00000000, $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"], @"24:00:00 January Max DayOfMonth, Current Year", FALSE ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] < "TableLookupDefaultTol"( $ "Powell Decision Variables.From Borg Powell Tier Table", 0.00000000, 4.00000000, $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"], @"24:00:00 January Max DayOfMonth, Current Year", FALSE ) )
+ ELSEIF_COND ( "GetPowellTierNum"(  ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] < "GetMeadRefElev"(  ) )
  ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_BORG"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
  END_ELSEIF COMMENTED_BY "Compare Powell and Mead previous EOCYS instead of forecasted EOWYS";
 
     END
-    UUID "{3dc1f75a-b5e0-4d2d-b88f-765b67b0bd32}";;
+    UUID "{73440598-7c35-4d6a-906e-bb70b46ae52d}";;
 
     RULE                 "Bottom Tier Lake Powell Release Volume";
     DESCRIPTION          "";
