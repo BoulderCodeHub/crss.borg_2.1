@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 13:14 June 11, 2021
+# Created 11:55 June 14, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -744,7 +744,7 @@ BEGIN
     RULE                 "Check Bypass Capacity";
     DESCRIPTION          "If the reservoir is below the power pool, check if the set outflow is greater than the capacity of the bypass tubes.<br>If it is, reset it to the bypass capacity.<br><br>If the reservoir is above the power pool, then the power plant capacity is in play. This is roughly 25,000 cfs, or the maximum ROD release anyway, and the limitations of the bypass tubes do not matter.";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT NOT IsNaN $ "EqualizationData.MinObjRelFlag" [] AND NOT "SpikeMadeThisMonth"(  );
+    RULE_EXEC_CONSTRAINT NOT "SpikeMadeThisMonth"(  );
     NOTES                "";
     BEGIN
 
@@ -797,7 +797,7 @@ BEGIN
     RULE                 "Equalization Tier";
     DESCRIPTION          "This rule fires monthly January through September and computes the Equalization (EQ) release from Powell, given that the conditions for EQ are met. Note that Powell's previous EOCY storage is compared to the EQ Line. This has the effect of not allowing Powell to bounce in and out of EQ. The new EQ conditions in the Guidelines (release to keep Mead above 1105 so as Powell doesn't go more than 20' below the EQ Line) are performed in the function CheckEqualizationRelease_Mead1105. ";
     ACTIVE               FALSE;
-    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND IsNaN $ "EqualizationData.EqualBasinStatesFlag" [] AND ( NOT IsNaN "Powell.Storage" [] AND NOT IsNaN $ "EqualizationData.MinObjRelFlag" [] ) AND NOT "SpikeMadeThisMonth"(  );
+    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND IsNaN $ "EqualizationData.EqualBasinStatesFlag" [] AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  );
     NOTES                "";
     BEGIN
 
@@ -836,7 +836,7 @@ BEGIN
     RULE                 "Equalization Tier_BORG";
     DESCRIPTION          "This rule fires monthly January through September and computes the Equalization (EQ) release from Powell, given that the conditions for EQ are met. Note that Powell's previous EOCY storage is compared to the EQ Line. This has the effect of not allowing Powell to bounce in and out of EQ. The new EQ conditions in the Guidelines (release to keep Mead above 1105 so as Powell doesn't go more than 20' below the EQ Line) are performed in the function CheckEqualizationRelease_Mead1105. ";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND IsNaN $ "EqualizationData.EqualBasinStatesFlag" [] AND ( NOT IsNaN "Powell.Storage" [] AND NOT IsNaN $ "EqualizationData.MinObjRelFlag" [] ) AND NOT "SpikeMadeThisMonth"(  );
+    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND IsNaN $ "EqualizationData.EqualBasinStatesFlag" [] AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  );
   NAMES_COLOR  "#5500ff";
     NOTES                "";
     BEGIN
@@ -876,7 +876,7 @@ BEGIN
     RULE                 "Upper Elevation Balancing Tier Jan thru March";
     DESCRIPTION          "This rule fires in January through March and determines if Powell is in the Upper Elevation Balancing Tier (based on previous EOCY storage). If Powell is in this tier and Mead (again, previous EOCY storage) is below the minimum balancing elevation of 1075, Powell makes balancing releases within the min and max of 700 and 900 kaf. If Mead is above 1075, Powell releases 823 maf set in the rule Meet Powell Min Objective Release, which is lower priority and required to fire before this rule.";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 March 31, Current Year" AND IsNaN $ "Coordinated Operation.UpperLevelBalancingFlag" [] AND ( NOT IsNaN "Powell.Storage" [] AND NOT IsNaN $ "EqualizationData.MinObjRelFlag" [] ) AND NOT "SpikeMadeThisMonth"(  );
+    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 March 31, Current Year" AND IsNaN $ "Coordinated Operation.UpperLevelBalancingFlag" [] AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  );
     NOTES                "";
     BEGIN
 
@@ -901,7 +901,7 @@ BEGIN
     RULE                 "Upper Elevation Balancing Tier April thru Sept";
     DESCRIPTION          "This rule fires in April through September and makes any required adjustments to Powell's release if Powell began the year in the Upper Elevation Balancing Tier. The decision to switch to the EQ Tier or to increase the release for balancing is based on the April EOWY forecasts. Meaning, the decision made in April stays for the rest of the water year.";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT ( @"t" <= @"24:00:00 September 30, Current Year" AND @"t" >= @"24:00:00 April 30, Current Year" ) AND IsNaN $ "Coordinated Operation.UpperLevelBalancingFlag" [] AND ( NOT IsNaN "Powell.Storage" [] AND NOT IsNaN $ "EqualizationData.MinObjRelFlag" [] ) AND NOT "SpikeMadeThisMonth"(  );
+    RULE_EXEC_CONSTRAINT ( @"t" <= @"24:00:00 September 30, Current Year" AND @"t" >= @"24:00:00 April 30, Current Year" ) AND IsNaN $ "Coordinated Operation.UpperLevelBalancingFlag" [] AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  );
     NOTES                "";
     BEGIN
 
@@ -963,7 +963,7 @@ BEGIN
     RULE                 "Mid Elevation Release Tier";
     DESCRIPTION          "";
     ACTIVE               FALSE;
-    RULE_EXEC_CONSTRAINT IsNaN $ "Coordinated Operation.ReducedReleaseFlag" [] AND ( NOT IsNaN "Powell.Storage" [] AND NOT IsNaN $ "EqualizationData.MinObjRelFlag" [] ) AND NOT "SpikeMadeThisMonth"(  );
+    RULE_EXEC_CONSTRAINT IsNaN $ "Coordinated Operation.ReducedReleaseFlag" [] AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  );
     NOTES                "";
     BEGIN
 
@@ -1003,19 +1003,19 @@ BEGIN
     RULE                 "Generic Lake Powell Release Volume";
     DESCRIPTION          "";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND ( NOT IsNaN "Powell.Storage" [] AND NOT IsNaN $ "EqualizationData.MinObjRelFlag" [] ) AND NOT "SpikeMadeThisMonth"(  ) AND $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] == 2.00000000;
+    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  ) AND $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] == 2.00000000;
   NAMES_COLOR  "#5500ff";
     NOTES                "";
     BEGIN
 
-      $ "Powell.Outflow" [] := IF ( "GetPowellTierNum"(  ) == 0.00000000 )
+      $ "Powell.Outflow" [] := IF ( "CheckPowellBalancing"(  ) == 0.00000000 )
  THEN
   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
  ENDIF
- ELSEIF_COND ( "GetPowellTierNum"(  ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] >= "GetMeadRefElev"(  ) )
+ ELSEIF_COND ( "CheckPowellBalancing"(  ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] >= "GetMeadRefElev"(  ) )
  ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
  END_ELSEIF
- ELSEIF_COND ( "GetPowellTierNum"(  ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] < "GetMeadRefElev"(  ) )
+ ELSEIF_COND ( "CheckPowellBalancing"(  ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] < "GetMeadRefElev"(  ) )
  ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_BORG"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
  END_ELSEIF COMMENTED_BY "Compare Powell and Mead previous EOCYS instead of forecasted EOWYS";
 
@@ -1025,7 +1025,7 @@ BEGIN
     RULE                 "Bottom Tier Lake Powell Release Volume";
     DESCRIPTION          "";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND ( NOT IsNaN "Powell.Storage" [] AND NOT IsNaN $ "EqualizationData.MinObjRelFlag" [] ) AND NOT "SpikeMadeThisMonth"(  ) AND $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] == 999.00000000;
+    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  ) AND $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] == 999.00000000;
   NAMES_COLOR  "#5500ff";
     NOTES                "";
     BEGIN
@@ -1038,7 +1038,7 @@ BEGIN
     RULE                 "Lower Elevation Balancing Tier";
     DESCRIPTION          "";
     ACTIVE               FALSE;
-    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND IsNaN $ "Coordinated Operation.LowerLevelBalancingFlag" [] AND ( NOT IsNaN "Powell.Storage" [] AND NOT IsNaN $ "EqualizationData.MinObjRelFlag" [] ) AND NOT "SpikeMadeThisMonth"(  );
+    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND IsNaN $ "Coordinated Operation.LowerLevelBalancingFlag" [] AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  );
     NOTES                "";
     BEGIN
 
@@ -1077,7 +1077,7 @@ BEGIN
 
     RULE                 "Meet Powell Min Objective Release";
     DESCRIPTION          "";
-    ACTIVE               TRUE;
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT IsNaN $ "EqualizationData.MinObjRelFlag" [] AND NOT IsNaN $ "Powell.Outflow" [] AND NOT "SpikeMadeThisMonth"(  );
     NOTES                "";
     BEGIN
@@ -1163,7 +1163,7 @@ BEGIN
 
     RULE                 "Powell Operations Rule";
     DESCRIPTION          "";
-    ACTIVE               TRUE;
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT TRUE;
     NOTES                "";
     BEGIN
@@ -1177,6 +1177,24 @@ BEGIN
 
     END
     UUID "{8ac50cfa-21fa-4539-ac7c-32f2168cd762}";;
+
+    RULE                 "Powell Operations Rule_BORG";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+  NAMES_COLOR  "#5500ff";
+    NOTES                "";
+    BEGIN
+
+      $ "Powell.Outflow" [] := IF ( @"t" <= @"24:00:00 July Max DayOfMonth, Current Year" AND @"t" >= @"24:00:00 January Max DayOfMonth, Current Year" )
+ THEN
+  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellRunoffSeasonStorage_BORG"(  ), $ "Powell.Storage" [@"t - 1"], @"t" )
+ ELSE
+  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellFallSeasonStorage_BORG"(  ), $ "Powell.Storage" [@"t - 1"], @"t" )
+ ENDIF;
+
+    END
+    UUID "{ac9f4efe-47d5-4fca-8825-34bf7586a88d}";;
 
     RULE                 "Estimate Upper Basin Storage";
     DESCRIPTION          "";
