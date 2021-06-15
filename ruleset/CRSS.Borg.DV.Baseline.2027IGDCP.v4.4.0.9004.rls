@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 11:55 June 14, 2021
+# Created 19:51 June 14, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -770,6 +770,7 @@ BEGIN
     DESCRIPTION          "As it is not always possible to completely Equalize in the water year due to maximum release constraints and errors in the forecast, this rule will add on additional releases to Powell in next water year to finish equalizing.  There carryover EQ volume will be released in 1 month if possible, up to the maximum release constraint.  If any remains, it will be released in the subsequent month, until no more carryover exists.";
     ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "ThisRule" );
+  NAMES_COLOR  "#ff00ff";
     NOTES                "";
     BEGIN
 
@@ -841,9 +842,9 @@ BEGIN
     NOTES                "";
     BEGIN
 
-      "Powell.Outflow" [] := IF ( "StartYearInEqualization_BORG"(  ) COMMENTED_BY "By comparing to Powell's actual storage at beginning of year, EQ is an annual decision" )
+      "Powell.Outflow" [] := IF ( "StartYearInEqualization"(  ) COMMENTED_BY "By comparing to Powell's actual storage at beginning of year, EQ is an annual decision" )
  THEN
-  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
+  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease"( "CheckEqualizationRelease_Mead1105"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
  ENDIF;
 
       $ "EqualizationData.EqualBasinStatesFlag" [] := IF ( "StartYearInEqualization"(  ) )
@@ -854,9 +855,9 @@ BEGIN
  ENDIF;
 
     DESCRIPTION          "In September, if the monthly releases is less than the computed amount necessary to fully<br>equalize, then set the carryover equalization flag and volume so that the remaining EQ <br>release can be made in the subsequent month.";
-      IF_STATEMENT ("StartYearInEqualization_BORG"(  ) AND @"t" == @"24:00:00 September Max DayOfMonth, Current Year") THEN
-            WITH_STATEMENT (NUMERIC remainingWYRel = "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) + "ForecastPowellRelease"(  )) DO
-            WITH_STATEMENT (NUMERIC powellRel = "FlowToVolume"( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) ) ), $ "Powell.Storage" [@"t - 1"], @"t" ), @"t" )) DO
+      IF_STATEMENT ("StartYearInEqualization"(  ) AND @"t" == @"24:00:00 September Max DayOfMonth, Current Year") THEN
+            WITH_STATEMENT (NUMERIC remainingWYRel = "CheckEqualizationRelease_Mead1105"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) + "ForecastPowellRelease"(  )) DO
+            WITH_STATEMENT (NUMERIC powellRel = "FlowToVolume"( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease"( "CheckEqualizationRelease_Mead1105"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) ) ), $ "Powell.Storage" [@"t - 1"], @"t" ), @"t" )) DO
             IF_STATEMENT ("Floor"( remainingWYRel - powellRel, 100.00000000 "acre-ft" ) COMMENTED_BY "Round the difference down to the nearest 100 acre-ft to keep from setting this when there are only minor differences between the two volume" > 0.00000000 "acre-ft") THEN
             $ "EqualizationData.CarryoverEQFlag" [] := 1.00000000;
 
@@ -884,7 +885,7 @@ BEGIN
  THEN
   IF ( $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] COMMENTED_BY "Use actual Jan 1 elevation" < "ElevationToStorage"( % "Mead", $ "Coordinated Operation.Hybrid_MeadMinBalancingElevation" [] ) )
   THEN
-   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), "700" COMMENTED_BY "min release", "900" COMMENTED_BY "max release" ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "Release for Upper Level Balancing if 1) Powell is in the correct elevation tier 2) EQ conditions are not met 3) EQ has not yet trumped 4) Mead is less than 1075 trigger"
+   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_OG"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), "700", "900" ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "Release for Upper Level Balancing if 1) Powell is in the correct elevation tier 2) EQ conditions are not met 3) EQ has not yet trumped 4) Mead is less than 1075 trigger"
   ENDIF
  ENDIF;
 
@@ -913,9 +914,9 @@ BEGIN
    THEN
     IF ( $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] COMMENTED_BY "Use actual Jan 1 elevation" < "ElevationToStorage"( % "Mead", $ "Coordinated Operation.Hybrid_MeadMinBalancingElevation" [] ) )
     THEN
-     "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), "700" COMMENTED_BY "min release", "900" COMMENTED_BY "max release" ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead began the year less than 1075, release with 700 kaf minimum"
+     "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_OG"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), "700", "900" ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead began the year less than 1075, release with 700 kaf minimum"
     ELSE
-     "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), "823" COMMENTED_BY "min release", "900" COMMENTED_BY "max release" ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead is above 1075 at beginning of year but below at April EOWY forecast, release with 823 kaf minimum."
+     "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_OG"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), "823", "900" ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead is above 1075 at beginning of year but below at April EOWY forecast, release with 823 kaf minimum."
     ENDIF COMMENTED_BY "Release for Balancing if 1) Powell is in the correct elevation tier 2) EQ conditions are not met 3) EQ has not yet trumped 4) Mead is less than 1075 trigger"
    ENDIF
   ELSE
@@ -1008,6 +1009,7 @@ BEGIN
     NOTES                "";
     BEGIN
 
+      BREAKPOINT BEFORE_EXEC TRUE;
       $ "Powell.Outflow" [] := IF ( "CheckPowellBalancing"(  ) == 0.00000000 )
  THEN
   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
@@ -1016,7 +1018,7 @@ BEGIN
  ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
  END_ELSEIF
  ELSEIF_COND ( "CheckPowellBalancing"(  ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] < "GetMeadRefElev"(  ) )
- ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_BORG"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
+ ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
  END_ELSEIF COMMENTED_BY "Compare Powell and Mead previous EOCYS instead of forecasted EOWYS";
 
     END
@@ -1030,7 +1032,7 @@ BEGIN
     NOTES                "";
     BEGIN
 
-      $ "Powell.Outflow" [] := "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_BORG"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "Compare Powell and Mead previous EOCYS instead of forecasted EOWYS";
+      $ "Powell.Outflow" [] := "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "Compare Powell and Mead previous EOCYS instead of forecasted EOWYS";
 
     END
     UUID "{681fcc20-6e9a-46e0-a249-84aa231d5d85}";;
@@ -1077,7 +1079,7 @@ BEGIN
 
     RULE                 "Meet Powell Min Objective Release";
     DESCRIPTION          "";
-    ACTIVE               FALSE;
+    ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT IsNaN $ "EqualizationData.MinObjRelFlag" [] AND NOT IsNaN $ "Powell.Outflow" [] AND NOT "SpikeMadeThisMonth"(  );
     NOTES                "";
     BEGIN
@@ -1188,13 +1190,13 @@ BEGIN
 
       $ "Powell.Outflow" [] := IF ( @"t" <= @"24:00:00 July Max DayOfMonth, Current Year" AND @"t" >= @"24:00:00 January Max DayOfMonth, Current Year" )
  THEN
-  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellRunoffSeasonStorage_BORG"(  ), $ "Powell.Storage" [@"t - 1"], @"t" )
+  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellRunoffSeasonStorage"(  ), $ "Powell.Storage" [@"t - 1"], @"t" )
  ELSE
   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellFallSeasonStorage_BORG"(  ), $ "Powell.Storage" [@"t - 1"], @"t" )
  ENDIF;
 
     END
-    UUID "{ac9f4efe-47d5-4fca-8825-34bf7586a88d}";;
+    UUID "{3ceeb3bd-40a3-496d-ba23-5b329d9ee3bf}";;
 
     RULE                 "Estimate Upper Basin Storage";
     DESCRIPTION          "";
