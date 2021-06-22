@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 19:43 June 14, 2021
+# Created 12:13 June 22, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -1010,14 +1010,14 @@ BEGIN
     BEGIN
 
       BREAKPOINT BEFORE_EXEC TRUE;
-      $ "Powell.Outflow" [] := IF ( "TableLookupDefaultTol"( $ "Powell Decision Variables.From Borg Powell Tier Table", 0.00000000, 2.00000000, $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"], @"24:00:00 January Max DayOfMonth, Current Year", FALSE ) == 0.00000000 )
+      $ "Powell.Outflow" [] := IF ( "CheckPowellBalancing"(  ) == 0.00000000 )
  THEN
   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
  ENDIF
- ELSEIF_COND ( "TableLookupDefaultTol"( $ "Powell Decision Variables.From Borg Powell Tier Table", 0.00000000, 2.00000000, $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"], @"24:00:00 January Max DayOfMonth, Current Year", FALSE ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] >= "GetMeadRefElev"(  ) )
+ ELSEIF_COND ( "CheckPowellBalancing"(  ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] >= "GetMeadRefElev"(  ) )
  ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
  END_ELSEIF
- ELSEIF_COND ( "TableLookupDefaultTol"( $ "Powell Decision Variables.From Borg Powell Tier Table", 0.00000000, 2.00000000, $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"], @"24:00:00 January Max DayOfMonth, Current Year", FALSE ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] < "GetMeadRefElev"(  ) )
+ ELSEIF_COND ( "CheckPowellBalancing"(  ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] < "GetMeadRefElev"(  ) )
  ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
  END_ELSEIF COMMENTED_BY "Compare Powell and Mead previous EOCYS instead of forecasted EOWYS";
 
@@ -1084,12 +1084,12 @@ BEGIN
     NOTES                "";
     BEGIN
 
-      "Powell.Outflow" [] := IF ( $ "Powell.Outflow" [] < "PowellMinObjRelforCurrentMonth"(  ) )
+      "Powell.Outflow" [] := IF ( $ "Powell.Outflow" [] < "PowellMinObjRelforCurrentMonth_BORG"(  ) )
  THEN
-  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellMinObjRelforCurrentMonth"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
+  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellMinObjRelforCurrentMonth_BORG"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
  ENDIF;
 
-      $ "EqualizationData.MinObjRelFlag" [] := IF ( $ "Powell.Outflow" [] < "PowellMinObjRelforCurrentMonth"(  ) )
+      $ "EqualizationData.MinObjRelFlag" [] := IF ( $ "Powell.Outflow" [] < "PowellMinObjRelforCurrentMonth_BORG"(  ) )
  THEN
   1.00000000
  ELSE
