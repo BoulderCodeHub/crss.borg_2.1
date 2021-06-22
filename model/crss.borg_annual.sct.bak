@@ -1,4 +1,4 @@
-# SCT File Created 6/22/2021 4:27 PM
+# SCT File Created 6/22/2021 4:24 PM
 #  as C:/crss.borg_2.0/model/crss.borg_annual.sct
 # Generated using RiverWare Version <RiverWare_Model 8.2.2 Patch>
 # Generated from Model File <CRSS.Borg_2.0.mdl>
@@ -108,7 +108,7 @@ SCT_PROPERTIES
   COLOR_FLAG          'B' 144 255   0
   COLOR_FLAG          'M'  85 192 240
   COLOR_FLAG          'D' 255 236 136
-  COLOR_FLAG          'R' 255 255 255
+  COLOR_FLAG          'R' 192 255 192
   COLOR_FLAG          'S' 255 192 208
   COLOR_FLAG          'G' 136 208 240
   COLOR_FLAG          'U' 200 200 255
@@ -133,7 +133,7 @@ SCT_PROPERTIES
   COLOR_STATUSBAR_FG        0   0   0
   COLOR_STATUSBAR_BG      255 255 240
   COLOR_POSTSIM_TSTEP_DIV 170   0   0
-  COLOR_TAB_DIV_BG        255 255 255
+  COLOR_TAB_DIV_BG        230 155 179
 
   FULL_PRECISION_EDITING  True
 

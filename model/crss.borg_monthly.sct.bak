@@ -1,12 +1,12 @@
-# SCT File Created 6/22/2021 4:27 PM
-#  as C:/crss.borg_2.0/model/crss.borg_annual.sct
+# SCT File Created 6/22/2021 4:24 PM
+#  as C:/crss.borg_2.0/model/crss.borg_monthly.sct
 # Generated using RiverWare Version <RiverWare_Model 8.2.2 Patch>
 # Generated from Model File <CRSS.Borg_2.0.mdl>
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 #
 SCT 0 0 Version: 20.4
 SCT_PROPERTIES
-  SLOT_ITEM_CNT           3
+  SLOT_ITEM_CNT           4
   PRESIM_TSTEP_CNT        1
   POSTSIM_TSTEP_CNT       0
   TSTEP_AXIS_HORZ         False
@@ -15,7 +15,6 @@ SCT_PROPERTIES
 
   SHOW_RUN_STATUS         True
 
-  STEP_SIZE_OVERRIDE      1 YEAR
   TSAGG_FIXED_METHOD      False
   TSAGG_FIXED_CNT         12
   TSAGG_INTERVAL          1 YEAR
@@ -80,7 +79,7 @@ SCT_PROPERTIES
   MARK_6HOUR_COLDIV       False
   MARK_DAY_ROWDIV         False
   MARK_DAY_COLDIV         False
-  MARK_YEAR_ROWDIV        False
+  MARK_YEAR_ROWDIV        True
   MARK_YEAR_COLDIV        False
   TEXT_IN_SLOT_ROWDIV     True
   DET_HDR_ALIGN_LEFT      True
@@ -108,7 +107,7 @@ SCT_PROPERTIES
   COLOR_FLAG          'B' 144 255   0
   COLOR_FLAG          'M'  85 192 240
   COLOR_FLAG          'D' 255 236 136
-  COLOR_FLAG          'R' 255 255 255
+  COLOR_FLAG          'R' 192 255 192
   COLOR_FLAG          'S' 255 192 208
   COLOR_FLAG          'G' 136 208 240
   COLOR_FLAG          'U' 200 200 255
@@ -133,7 +132,7 @@ SCT_PROPERTIES
   COLOR_STATUSBAR_FG        0   0   0
   COLOR_STATUSBAR_BG      255 255 240
   COLOR_POSTSIM_TSTEP_DIV 170   0   0
-  COLOR_TAB_DIV_BG        255 255 255
+  COLOR_TAB_DIV_BG        230 155 179
 
   FULL_PRECISION_EDITING  True
 
@@ -144,9 +143,9 @@ TAB_DIV   0
   SLOT_LABEL        "Series Slot Sheet"
 
 SLOT_REF  1
-  SLOT_LABEL        "PowellOperation.PowellWYRelease"
-  SLOT_MULTILINE    "PowellOperation<br>.PowellWYRelease"
-  RW_SLOT_NAME      "PowellOperation.PowellWYRelease"
+  SLOT_LABEL        "Powell.Pool Elevation"
+  SLOT_MULTILINE    "Powell<br>.Pool Elevation"
+  RW_SLOT_NAME      "Powell.Pool Elevation"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -154,11 +153,21 @@ SLOT_REF  1
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  2
-  SLOT_LABEL        "Powell Decision Variables.PowellReleaseTier"
-  SLOT_MULTILINE    "Powell Decision Variables<br>.PowellReleaseTier"
-  RW_SLOT_NAME      "Powell Decision Variables.PowellReleaseTier"
+  SLOT_LABEL        "Mead.Pool Elevation"
+  SLOT_MULTILINE    "Mead<br>.Pool Elevation"
+  RW_SLOT_NAME      "Mead.Pool Elevation"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  3
+  SLOT_LABEL        "Powell.Outflow"
+  SLOT_MULTILINE    "Powell<br>.Outflow"
+  RW_SLOT_NAME      "Powell.Outflow"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
