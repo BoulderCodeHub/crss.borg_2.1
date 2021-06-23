@@ -1,4 +1,4 @@
-# SCT File Created 6/22/2021 6:13 PM
+# SCT File Created 6/23/2021 12:13 PM
 #  as C:/crss.borg_2.0/model/crss.borg_monthly.sct
 # Generated using RiverWare Version <RiverWare_Model 8.2.2 Patch>
 # Generated from Model File <CRSS.Borg_2.0.mdl>
@@ -6,7 +6,7 @@
 #
 SCT 0 0 Version: 20.4
 SCT_PROPERTIES
-  SLOT_ITEM_CNT           4
+  SLOT_ITEM_CNT           5
   PRESIM_TSTEP_CNT        1
   POSTSIM_TSTEP_CNT       0
   TSTEP_AXIS_HORZ         False
@@ -24,8 +24,8 @@ SCT_PROPERTIES
   TSAGG_START_MDAY        1
   TSAGG_START_MONTH       0
 
-  WINDOW_WIDTH            658
-  WINDOW_HEIGHT           603
+  WINDOW_WIDTH            660
+  WINDOW_HEIGHT           615
   RIGHT_MARGIN            0
   DIAG_WINDOW_HEIGHT      0
 
@@ -172,10 +172,30 @@ SLOT_REF  3
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 123
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
+SLOT_REF  4
+  SLOT_LABEL        "Coordinated Operation.UpperLevelBalancingFlag"
+  SLOT_MULTILINE    "Coordinated Operation<br>.UpperLevelBalancingFlag"
+  RW_SLOT_NAME      "Coordinated Operation.UpperLevelBalancingFlag"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
 PANEL_SLOT "Powell Decision Variables.From Borg Powell Tier Table" -1
 PANEL_SLOT "Powell Decision Variables.Elev_Tiers" -1
 PANEL_SLOT "Powell Decision Variables.range table" -1
 PANEL_SLOT "Powell Decision Variables.Powell Full_End" -1
 PANEL_SLOT "Powell.MonthlyReleaseTable" -1
 PANEL_SLOT "Powell Decision Variables.Powell Full_Beginning" -1
+GRID_OBJ_TABLE <XML>
+<GridObjTable name="SCT Tab" cols="4" rows="5">
+ <GridObjCell col="0" objIcon="DataObjBlue" open="0" objName="Powell Decision Variables" row="0"/>
+ <GridObjCell col="0" objIcon="DataObj" open="0" objName="Objectives" row="1"/>
+ <GridObjCell col="0" objIcon="DataObjGreen" open="0" objName="Coordinated Operation" row="2"/>
+ <GridObjCell col="0" objIcon="LevelPowerReservoir" open="0" objName="Mead" row="3"/>
+ <GridObjCell col="0" objIcon="LevelPowerReservoir" open="0" objName="Powell" row="4"/>
+</GridObjTable>
+</XML>
+
 # SCT File End
