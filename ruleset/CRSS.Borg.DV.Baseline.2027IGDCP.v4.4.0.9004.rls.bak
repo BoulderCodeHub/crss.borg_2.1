@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 12:13 June 22, 2021
+# Created 14:16 June 22, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -1009,7 +1009,7 @@ BEGIN
     NOTES                "";
     BEGIN
 
-      BREAKPOINT BEFORE_EXEC TRUE;
+      BREAKPOINT BEFORE_EXEC FALSE;
       $ "Powell.Outflow" [] := IF ( "CheckPowellBalancing"(  ) == 0.00000000 )
  THEN
   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
@@ -1077,10 +1077,11 @@ BEGIN
     END
     UUID "{0f2bd1c0-60a4-468d-a07d-07255b58c548}";;
 
-    RULE                 "Meet Powell Min Objective Release";
+    RULE                 "Meet Powell Min Objective Release_BORG";
     DESCRIPTION          "";
     ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT IsNaN $ "EqualizationData.MinObjRelFlag" [] AND NOT IsNaN $ "Powell.Outflow" [] AND NOT "SpikeMadeThisMonth"(  );
+  NAMES_COLOR  "#5500ff";
     NOTES                "";
     BEGIN
 
@@ -1090,6 +1091,28 @@ BEGIN
  ENDIF;
 
       $ "EqualizationData.MinObjRelFlag" [] := IF ( $ "Powell.Outflow" [] < "PowellMinObjRelforCurrentMonth_BORG"(  ) )
+ THEN
+  1.00000000
+ ELSE
+  0.00000000
+ ENDIF;
+
+    END
+    UUID "{138d5a94-8b74-4268-87ef-0ec571a5c499}";;
+
+    RULE                 "Meet Powell Min Objective Release";
+    DESCRIPTION          "";
+    ACTIVE               FALSE;
+    RULE_EXEC_CONSTRAINT IsNaN $ "EqualizationData.MinObjRelFlag" [] AND NOT IsNaN $ "Powell.Outflow" [] AND NOT "SpikeMadeThisMonth"(  );
+    NOTES                "";
+    BEGIN
+
+      "Powell.Outflow" [] := IF ( $ "Powell.Outflow" [] < "PowellMinObjRelforCurrentMonth_BORG"(  ) )
+ THEN
+  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellMinObjRelforCurrentMonth_OG"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
+ ENDIF;
+
+      $ "EqualizationData.MinObjRelFlag" [] := IF ( $ "Powell.Outflow" [] < "PowellMinObjRelforCurrentMonth_OG"(  ) )
  THEN
   1.00000000
  ELSE

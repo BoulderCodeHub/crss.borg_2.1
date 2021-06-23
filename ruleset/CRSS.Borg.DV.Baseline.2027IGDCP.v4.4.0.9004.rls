@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 14:16 June 22, 2021
+# Created 17:59 June 22, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -1027,11 +1027,12 @@ BEGIN
     RULE                 "Bottom Tier Lake Powell Release Volume";
     DESCRIPTION          "";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  ) AND $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] == 999.00000000;
+    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  ) AND $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] == 13.00000000;
   NAMES_COLOR  "#5500ff";
     NOTES                "";
     BEGIN
 
+      BREAKPOINT BEFORE_EXEC TRUE;
       $ "Powell.Outflow" [] := "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "Compare Powell and Mead previous EOCYS instead of forecasted EOWYS";
 
     END
