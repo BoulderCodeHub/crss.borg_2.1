@@ -1,4 +1,4 @@
-# SCT File Created 6/23/2021 11:26 AM
+# SCT File Created 6/23/2021 2:59 PM
 #  as C:/crss.borg_2.0/model/crss.borg_annual.sct
 # Generated using RiverWare Version <RiverWare_Model 8.2.2 Patch>
 # Generated from Model File <CRSS.Borg_2.0.mdl>
@@ -6,7 +6,7 @@
 #
 SCT 0 0 Version: 20.4
 SCT_PROPERTIES
-  SLOT_ITEM_CNT           3
+  SLOT_ITEM_CNT           4
   PRESIM_TSTEP_CNT        1
   POSTSIM_TSTEP_CNT       0
   TSTEP_AXIS_HORZ         False
@@ -161,6 +161,16 @@ SLOT_REF  2
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
   N_SLOT_COL_WIDTH  COLFIT_METHOD_ALL 138
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  3
+  SLOT_LABEL        "Powell Decision Variables.Powell Equalization Line"
+  SLOT_MULTILINE    "Powell Decision Variables<br>.Powell Equalization Line"
+  RW_SLOT_NAME      "Powell Decision Variables.Powell Equalization Line"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 # SCT File End
