@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 15:55 July 5, 2021
+# Created 18:55 July 5, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -926,35 +926,6 @@ BEGIN
     END
     UUID "{828cc339-ad8a-4edb-a784-2cd96163bca1}";;
 
-    RULE                 "Upper Elevation Balancing Tier Jan thru March_BORG1";
-    DESCRIPTION          "This rule fires in January through March and determines if Powell is in the Upper Elevation Balancing Tier (based on previous EOCY storage). If Powell is in this tier and Mead (again, previous EOCY storage) is below the minimum balancing elevation of 1075, Powell makes balancing releases within the min and max of 700 and 900 kaf. If Mead is above 1075, Powell releases 823 maf set in the rule Meet Powell Min Objective Release, which is lower priority and required to fire before this rule.";
-    ACTIVE               FALSE;
-    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 March 31, Current Year" AND IsNaN $ "Coordinated Operation.UpperLevelBalancingFlag" [] AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  ) AND $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December 31, Current Year"] == 1.00000000;
-  NAMES_COLOR  "#5500ff";
-    NOTES                "";
-    BEGIN
-
-      $ "Powell.Outflow" [] := IF ( ( "CheckPowellBalancing"(  ) == 0.00000000 ) COMMENTED_BY "if in UEBT but balancing is turned off, release primary rel vol <br>" )
- THEN
-  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
- ENDIF
- ELSEIF_COND ( ( "CheckPowellBalancing"(  ) == 1.00000000 AND $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] COMMENTED_BY "Use actual Jan 1 elevation" >= "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) ) COMMENTED_BY "if in UEBT and balancing is turned on but mead is above mead ref elev, release primary rel vol (the <br>original UEBT rules key off of storage, so keeping that convention even though referencing elevations <br>would be more concise) <br>" )
- ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
- END_ELSEIF
- ELSEIF_COND ( ( "CheckPowellBalancing"(  ) == 1.00000000 AND $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] COMMENTED_BY "Use actual Jan 1 elevation" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) ) COMMENTED_BY "if in UEBT, balancing is on, and mead is below mead ref elev, switch to balancing <br>" )
- ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_BORG"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
- END_ELSEIF;
-
-      $ "Coordinated Operation.UpperLevelBalancingFlag" [] := IF ( $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] COMMENTED_BY "Used actual Jan 1 elevation" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) )
- THEN
-  1.00000000
- ELSE
-  0.00000000
- ENDIF;
-
-    END
-    UUID "{6b2de95c-c28b-4226-93cc-e6ab38fa2f37}";;
-
     RULE                 "Upper Elevation Balancing Tier April thru Sept";
     DESCRIPTION          "This rule fires in April through September and makes any required adjustments to Powell's release if Powell began the year in the Upper Elevation Balancing Tier. The decision to switch to the EQ Tier or to increase the release for balancing is based on the April EOWY forecasts. Meaning, the decision made in April stays for the rest of the water year.";
     ACTIVE               FALSE;
@@ -1025,7 +996,7 @@ BEGIN
     NOTES                "";
     BEGIN
 
-      BREAKPOINT BEFORE_EXEC FALSE;
+      BREAKPOINT BEFORE_EXEC TRUE;
       $ "Powell.Outflow" [] := IF ( $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December 31, Current Year"] == 1.00000000 AND "CheckPowellBalancing"(  ) == 1.00000000 )
  THEN
   IF ( ( NOT "EqualizationConditionsMet_BORG"(  ) AND IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] ) COMMENTED_BY "If EQ Trumps in April, release for EQ for the rest of the water year - go to ELSE" )
@@ -1082,258 +1053,6 @@ BEGIN
     END
     UUID "{af0350a2-a8e1-4e07-be20-ac8ab7140aed}";;
 
-    RULE                 "Set UEBT Primary Release";
-    DESCRIPTION          "";
-    ACTIVE               FALSE;
-    RULE_EXEC_CONSTRAINT TRUE;
-  NAMES_COLOR  "#00aa00";
-    NOTES                "";
-    BEGIN
-
-    END
-    UUID "{ce34860f-4a27-41ae-9e91-5c50105ca653}";;
-
-    RULE                 "Upper Elevation Balancing Tier April thru Sept_BORG1";
-    DESCRIPTION          "This rule fires in April through September and makes any required adjustments to Powell's release if Powell began the year in the Upper Elevation Balancing Tier. The decision to switch to the EQ Tier or to increase the release for balancing is based on the April EOWY forecasts. Meaning, the decision made in April stays for the rest of the water year.";
-    ACTIVE               FALSE;
-    RULE_EXEC_CONSTRAINT ( @"t" <= @"24:00:00 September 30, Current Year" AND @"t" >= @"24:00:00 April 30, Current Year" ) AND IsNaN $ "Coordinated Operation.UpperLevelBalancingFlag" [] AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  ) AND $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December 31, Current Year"] == 1.00000000;
-  NAMES_COLOR  "#5500ff";
-    NOTES                "";
-    BEGIN
-
-      $ "Powell.Outflow" [] := IF ( "CheckPowellBalancing"(  ) == 1.00000000 )
- THEN
-  IF ( ( NOT "EqualizationConditionsMet_BORG"(  ) AND IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] ) COMMENTED_BY "If EQ Trumps in April, release for EQ for the rest of the water year - go to ELSE" )
-  THEN
-   IF ( $ "EqualizationData.ForecastEOWYSMead" [@"24:00:00 April 30, Current Year"] COMMENTED_BY "If EQ doesn't trump, check April EOWY forecasts for Mead & Powell to see if switch from primary rel <br>vol to Balancing <br>" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) AND $ "EqualizationData.ForecastEOWYSPowell" [@"24:00:00 April 30, Current Year"] > "ElevationToStorage"( % "Powell", $ "Powell Decision Variables.PowellUpperTierElevation" [] ) OR $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] COMMENTED_BY "Use actual Jan 1 elevation" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) )
-   THEN
-    IF ( $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] COMMENTED_BY "Use actual Jan 1 elevation" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) )
-    THEN
-     "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_BORG"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead began the year less than mead ref elev, release with min vol from bal range <br>"
-    ELSE
-     "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_BORG_UEBTAprilSwitch"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead is above ref elev at beginning of year but below at April EOWY forecast, release with primary <br>rel vol minimum. <br>"
-    ENDIF COMMENTED_BY "Release for Balancing if 1) Powell is in the correct elevation tier 2) EQ conditions are not met 3) EQ has <br>not yet trumped 4) Mead is less than mead ref elev trigger <br>"
-   ENDIF
-  ELSE
-   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) COMMENTED_BY "Constrain EQ Release to bring Mead to 1105 or Powell 20 ft below the EQ Line." ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead below 1105 then EQ release must 1) bring Mead to 1105 2) take Powell 20 ft below the EQ Line or 3) equalize. Whatever occurs first. " COMMENTED_BY "EQ trumps Upper Elevation Balancing if EQ conditions are met OR EQ trumped last month <br>"
-  ENDIF
- ENDIF;
-
-      $ "Coordinated Operation.UpperLevelBalancingFlag" [] := IF ( NOT "EqualizationConditionsMet_BORG"(  ) AND IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] AND ( $ "EqualizationData.ForecastEOWYSMead" [@"24:00:00 April 30, Current Year"] COMMENTED_BY "Use April EOWY forecast for Mead & Powell" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) AND $ "EqualizationData.ForecastEOWYSPowell" [@"24:00:00 April 30, Current Year"] > "ElevationToStorage"( % "Powell", $ "Powell Decision Variables.PowellUpperTierElevation" [] ) OR $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] COMMENTED_BY "Use actual Jan 1 elevation" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) ) )
- THEN
-  1.00000000
- ELSE
-  0.00000000
- ENDIF;
-
-      $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [] := IF ( ( "EqualizationConditionsMet_BORG"(  ) OR NOT IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] ) )
- THEN
-  1.00000000
- ENDIF;
-
-      $ "Coordinated Operation.EQTrumpUpperLevelBalancing1105GovFlag" [] := IF ( ( "EqualizationConditionsMet_BORG"(  ) OR NOT IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] ) AND $ "EqualizationData.ForecastEOWYSMead" [@"t"] COMMENTED_BY "Use moving EOWY forecast here for Mead" < "ElevationToStorage"( % "Mead", $ "Coordinated Operation.MeadProtectionElevation" [] ) )
- THEN
-  1.00000000
- ENDIF;
-
-    DESCRIPTION          "If in September, and it's a year that switched to EQ in April, then see if we were able to fully <br>equalize.  If not, then set the carryover equalization flag and volume.";
-      IF_STATEMENT (@"t" == @"24:00:00 September Max DayOfMonth, Current Year" AND NOT ( NOT "EqualizationConditionsMet_BORG"(  ) AND IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] )) THEN
-            WITH_STATEMENT (NUMERIC remainingWYRel = "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) + "ForecastPowellRelease"(  )) DO
-            WITH_STATEMENT (NUMERIC powellRel = "FlowToVolume"( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) ) ), $ "Powell.Storage" [@"t - 1"], @"t" ), @"t" )) DO
-            IF_STATEMENT (( "Floor"( remainingWYRel - powellRel, 100.00000000 "acre-ft" ) > 0.00000000 "acre-ft" ) COMMENTED_BY "Round the difference down to the nearest 100 acre-ft to keep from setting this when there are only minor differences between the two volume") THEN
-            $ "EqualizationData.CarryoverEQFlag" [] := 1.00000000;
-
-            $ "EqualizationData.CarryoverEQVolume" [] := remainingWYRel - powellRel;
-
-      END_IF_STATEMENT;
-
-      END_WITH_STATEMENT;
-
-      END_WITH_STATEMENT;
-
-      END_IF_STATEMENT;
-
-    END
-    UUID "{1200872a-7c12-47e6-88b1-160472ca2c30}";;
-
-    RULE                 "Upper Elevation Balancing Tier April thru Sept_BORG11";
-    DESCRIPTION          "This rule fires in April through September and makes any required adjustments to Powell's release if Powell began the year in the Upper Elevation Balancing Tier. The decision to switch to the EQ Tier or to increase the release for balancing is based on the April EOWY forecasts. Meaning, the decision made in April stays for the rest of the water year.";
-    ACTIVE               FALSE;
-    RULE_EXEC_CONSTRAINT ( @"t" <= @"24:00:00 September 30, Current Year" AND @"t" >= @"24:00:00 April 30, Current Year" ) AND IsNaN $ "Coordinated Operation.UpperLevelBalancingFlag" [] AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  ) AND $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December 31, Current Year"] == 1.00000000;
-  NAMES_COLOR  "#5500ff";
-    NOTES                "";
-    BEGIN
-
-      $ "Powell.Outflow" [] := IF ( ( "CheckPowellBalancing"(  ) == 1.00000000 AND "EqualizationConditionsMet_BORG"(  ) AND IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] ) COMMENTED_BY "EQ trumps Upper Elevation Balancing if EQ conditions are met OR EQ trumped last month <br>" )
- THEN
-  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) COMMENTED_BY "Constrain EQ Release to bring Mead to 1105 or Powell 20 ft below the EQ Line." ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead below 1105 then EQ release must 1) bring Mead to 1105 2) take Powell 20 ft below the EQ Line <br>or 3) equalize. Whatever occurs first.  <br>"
- ELSE
-  ?
- ENDIF;
-
-      $ "Coordinated Operation.UpperLevelBalancingFlag" [] := IF ( NOT "EqualizationConditionsMet_BORG"(  ) AND IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] AND ( $ "EqualizationData.ForecastEOWYSMead" [@"24:00:00 April 30, Current Year"] COMMENTED_BY "Use April EOWY forecast for Mead & Powell" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) AND $ "EqualizationData.ForecastEOWYSPowell" [@"24:00:00 April 30, Current Year"] > "ElevationToStorage"( % "Powell", $ "Powell Decision Variables.PowellUpperTierElevation" [] ) OR $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] COMMENTED_BY "Use actual Jan 1 elevation" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) ) )
- THEN
-  1.00000000
- ELSE
-  0.00000000
- ENDIF;
-
-      $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [] := IF ( ( "EqualizationConditionsMet_BORG"(  ) OR NOT IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] ) )
- THEN
-  1.00000000
- ENDIF;
-
-      $ "Coordinated Operation.EQTrumpUpperLevelBalancing1105GovFlag" [] := IF ( ( "EqualizationConditionsMet_BORG"(  ) OR NOT IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] ) AND $ "EqualizationData.ForecastEOWYSMead" [@"t"] COMMENTED_BY "Use moving EOWY forecast here for Mead" < "ElevationToStorage"( % "Mead", $ "Coordinated Operation.MeadProtectionElevation" [] ) )
- THEN
-  1.00000000
- ENDIF;
-
-    DESCRIPTION          "If in September, and it's a year that switched to EQ in April, then see if we were able to fully <br>equalize.  If not, then set the carryover equalization flag and volume.";
-      IF_STATEMENT (@"t" == @"24:00:00 September Max DayOfMonth, Current Year" AND NOT ( NOT "EqualizationConditionsMet_BORG"(  ) AND IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] )) THEN
-            WITH_STATEMENT (NUMERIC remainingWYRel = "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) + "ForecastPowellRelease"(  )) DO
-            WITH_STATEMENT (NUMERIC powellRel = "FlowToVolume"( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) ) ), $ "Powell.Storage" [@"t - 1"], @"t" ), @"t" )) DO
-            IF_STATEMENT (( "Floor"( remainingWYRel - powellRel, 100.00000000 "acre-ft" ) > 0.00000000 "acre-ft" ) COMMENTED_BY "Round the difference down to the nearest 100 acre-ft to keep from setting this when there are only minor differences between the two volume") THEN
-            $ "EqualizationData.CarryoverEQFlag" [] := 1.00000000;
-
-            $ "EqualizationData.CarryoverEQVolume" [] := remainingWYRel - powellRel;
-
-      END_IF_STATEMENT;
-
-      END_WITH_STATEMENT;
-
-      END_WITH_STATEMENT;
-
-      END_IF_STATEMENT;
-
-    END
-    UUID "{5012563d-54f3-4094-864f-539c1fa501f2}";;
-
-    RULE                 "Upper Elevation Balancing Tier April thru Sept NOT EQ_BORG";
-    DESCRIPTION          "This rule fires in April through September and makes any required adjustments to Powell's release if Powell began the year in the Upper Elevation Balancing Tier. The decision to switch to the EQ Tier or to increase the release for balancing is based on the April EOWY forecasts. Meaning, the decision made in April stays for the rest of the water year.";
-    ACTIVE               FALSE;
-    RULE_EXEC_CONSTRAINT ( @"t" <= @"24:00:00 September 30, Current Year" AND @"t" >= @"24:00:00 May 31, Current Year" ) AND IsNaN $ "Coordinated Operation.UpperLevelBalancingFlag" [] AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  ) AND $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December 31, Current Year"] == 1.00000000;
-  NAMES_COLOR  "#5500ff";
-    NOTES                "";
-    BEGIN
-
-      $ "Powell.Outflow" [] := IF ( "CheckPowellBalancing"(  ) == 1.00000000 )
- THEN
-  IF ( ( NOT "EqualizationConditionsMet_BORG"(  ) AND IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] ) COMMENTED_BY "If EQ Trumps in April, release for EQ for the rest of the water year - go to ELSE" )
-  THEN
-   IF ( $ "EqualizationData.ForecastEOWYSMead" [@"24:00:00 April 30, Current Year"] COMMENTED_BY "If EQ doesn't trump, check April EOWY forecasts for Mead & Powell to see if switch from primary rel <br>vol to Balancing <br>" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) AND $ "EqualizationData.ForecastEOWYSPowell" [@"24:00:00 April 30, Current Year"] > "ElevationToStorage"( % "Powell", $ "Powell Decision Variables.PowellUpperTierElevation" [] ) OR $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] COMMENTED_BY "Use actual Jan 1 elevation" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) )
-   THEN
-    IF ( $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] COMMENTED_BY "Use actual Jan 1 elevation" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) )
-    THEN
-     "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_BORG"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead began the year less than mead ref elev, release with min vol from bal range <br>"
-    ELSE
-     "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_BORG_UEBTAprilSwitch"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead is above ref elev at beginning of year but below at April EOWY forecast, release with primary <br>rel vol minimum. <br>"
-    ENDIF COMMENTED_BY "Release for Balancing if 1) Powell is in the correct elevation tier 2) EQ conditions are not met 3) EQ has <br>not yet trumped 4) Mead is less than mead ref elev trigger <br>"
-   ENDIF
-  ELSE
-   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) COMMENTED_BY "Constrain EQ Release to bring Mead to 1105 or Powell 20 ft below the EQ Line." ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead below 1105 then EQ release must 1) bring Mead to 1105 2) take Powell 20 ft below the EQ Line or 3) equalize. Whatever occurs first. " COMMENTED_BY "EQ trumps Upper Elevation Balancing if EQ conditions are met OR EQ trumped last month"
-  ENDIF
- ENDIF;
-
-      $ "Coordinated Operation.UpperLevelBalancingFlag" [] := IF ( NOT "EqualizationConditionsMet_BORG"(  ) AND IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] AND ( $ "EqualizationData.ForecastEOWYSMead" [@"24:00:00 April 30, Current Year"] COMMENTED_BY "Use April EOWY forecast for Mead & Powell" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) AND $ "EqualizationData.ForecastEOWYSPowell" [@"24:00:00 April 30, Current Year"] > "ElevationToStorage"( % "Powell", $ "Powell Decision Variables.PowellUpperTierElevation" [] ) OR $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] COMMENTED_BY "Use actual Jan 1 elevation" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) ) )
- THEN
-  1.00000000
- ELSE
-  0.00000000
- ENDIF;
-
-      $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [] := IF ( ( "EqualizationConditionsMet_BORG"(  ) OR NOT IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] ) )
- THEN
-  1.00000000
- ENDIF;
-
-      $ "Coordinated Operation.EQTrumpUpperLevelBalancing1105GovFlag" [] := IF ( ( "EqualizationConditionsMet_BORG"(  ) OR NOT IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] ) AND $ "EqualizationData.ForecastEOWYSMead" [@"t"] COMMENTED_BY "Use moving EOWY forecast here for Mead" < "ElevationToStorage"( % "Mead", $ "Coordinated Operation.MeadProtectionElevation" [] ) )
- THEN
-  1.00000000
- ENDIF;
-
-    DESCRIPTION          "If in September, and it's a year that switched to EQ in April, then see if we were able to fully <br>equalize.  If not, then set the carryover equalization flag and volume.";
-      IF_STATEMENT (@"t" == @"24:00:00 September Max DayOfMonth, Current Year" AND NOT ( NOT "EqualizationConditionsMet_BORG"(  ) AND IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] )) THEN
-            WITH_STATEMENT (NUMERIC remainingWYRel = "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) + "ForecastPowellRelease"(  )) DO
-            WITH_STATEMENT (NUMERIC powellRel = "FlowToVolume"( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) ) ), $ "Powell.Storage" [@"t - 1"], @"t" ), @"t" )) DO
-            IF_STATEMENT (( "Floor"( remainingWYRel - powellRel, 100.00000000 "acre-ft" ) > 0.00000000 "acre-ft" ) COMMENTED_BY "Round the difference down to the nearest 100 acre-ft to keep from setting this when there are only minor differences between the two volume") THEN
-            $ "EqualizationData.CarryoverEQFlag" [] := 1.00000000;
-
-            $ "EqualizationData.CarryoverEQVolume" [] := remainingWYRel - powellRel;
-
-      END_IF_STATEMENT;
-
-      END_WITH_STATEMENT;
-
-      END_WITH_STATEMENT;
-
-      END_IF_STATEMENT;
-
-    END
-    UUID "{26a47007-7f2f-4688-9eec-19e564eafde0}";;
-
-    RULE                 "Upper Elevation Balancing Tier April thru Sept EQ_BORG";
-    DESCRIPTION          "This rule fires in April through September and makes any required adjustments to Powell's release if Powell began the year in the Upper Elevation Balancing Tier. The decision to switch to the EQ Tier or to increase the release for balancing is based on the April EOWY forecasts. Meaning, the decision made in April stays for the rest of the water year.";
-    ACTIVE               FALSE;
-    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 April 30, Current Year" AND IsNaN $ "Coordinated Operation.UpperLevelBalancingFlag" [] AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  ) AND $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December 31, Current Year"] == 1.00000000;
-  NAMES_COLOR  "#5500ff";
-    NOTES                "";
-    BEGIN
-
-      $ "Powell.Outflow" [] := IF ( "CheckPowellBalancing"(  ) == 1.00000000 )
- THEN
-  IF ( ( NOT "EqualizationConditionsMet_BORG"(  ) AND IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] ) COMMENTED_BY "If EQ Trumps in April, release for EQ for the rest of the water year - go to ELSE" )
-  THEN
-   IF ( $ "EqualizationData.ForecastEOWYSMead" [@"24:00:00 April 30, Current Year"] COMMENTED_BY "If EQ doesn't trump, check April EOWY forecasts for Mead & Powell to see if switch from primary rel <br>vol to Balancing <br>" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) AND $ "EqualizationData.ForecastEOWYSPowell" [@"24:00:00 April 30, Current Year"] > "ElevationToStorage"( % "Powell", $ "Powell Decision Variables.PowellUpperTierElevation" [] ) OR $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] COMMENTED_BY "Use actual Jan 1 elevation" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) )
-   THEN
-    IF ( $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] COMMENTED_BY "Use actual Jan 1 elevation" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) )
-    THEN
-     "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_BORG"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead began the year less than mead ref elev, release with min vol from bal range <br>"
-    ELSE
-     "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_BORG_UEBTAprilSwitch"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead is above ref elev at beginning of year but below at April EOWY forecast, release with primary <br>rel vol minimum. <br>"
-    ENDIF COMMENTED_BY "Release for Balancing if 1) Powell is in the correct elevation tier 2) EQ conditions are not met 3) EQ has <br>not yet trumped 4) Mead is less than mead ref elev trigger <br>"
-   ENDIF
-  ELSE
-   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) COMMENTED_BY "Constrain EQ Release to bring Mead to 1105 or Powell 20 ft below the EQ Line." ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead below 1105 then EQ release must 1) bring Mead to 1105 2) take Powell 20 ft below the EQ Line or 3) equalize. Whatever occurs first. " COMMENTED_BY "EQ trumps Upper Elevation Balancing if EQ conditions are met OR EQ trumped last month"
-  ENDIF
- ENDIF;
-
-      $ "Coordinated Operation.UpperLevelBalancingFlag" [] := IF ( NOT "EqualizationConditionsMet_BORG"(  ) AND IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] AND ( $ "EqualizationData.ForecastEOWYSMead" [@"24:00:00 April 30, Current Year"] COMMENTED_BY "Use April EOWY forecast for Mead & Powell" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) AND $ "EqualizationData.ForecastEOWYSPowell" [@"24:00:00 April 30, Current Year"] > "ElevationToStorage"( % "Powell", $ "Powell Decision Variables.PowellUpperTierElevation" [] ) OR $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] COMMENTED_BY "Use actual Jan 1 elevation" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) ) )
- THEN
-  1.00000000
- ELSE
-  0.00000000
- ENDIF;
-
-      $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [] := IF ( ( "EqualizationConditionsMet_BORG"(  ) OR NOT IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] ) )
- THEN
-  1.00000000
- ENDIF;
-
-      $ "Coordinated Operation.EQTrumpUpperLevelBalancing1105GovFlag" [] := IF ( ( "EqualizationConditionsMet_BORG"(  ) OR NOT IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] ) AND $ "EqualizationData.ForecastEOWYSMead" [@"t"] COMMENTED_BY "Use moving EOWY forecast here for Mead" < "ElevationToStorage"( % "Mead", $ "Coordinated Operation.MeadProtectionElevation" [] ) )
- THEN
-  1.00000000
- ENDIF;
-
-    DESCRIPTION          "If in September, and it's a year that switched to EQ in April, then see if we were able to fully <br>equalize.  If not, then set the carryover equalization flag and volume.";
-      IF_STATEMENT (@"t" == @"24:00:00 September Max DayOfMonth, Current Year" AND NOT ( NOT "EqualizationConditionsMet_BORG"(  ) AND IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] )) THEN
-            WITH_STATEMENT (NUMERIC remainingWYRel = "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) + "ForecastPowellRelease"(  )) DO
-            WITH_STATEMENT (NUMERIC powellRel = "FlowToVolume"( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) ) ), $ "Powell.Storage" [@"t - 1"], @"t" ), @"t" )) DO
-            IF_STATEMENT (( "Floor"( remainingWYRel - powellRel, 100.00000000 "acre-ft" ) > 0.00000000 "acre-ft" ) COMMENTED_BY "Round the difference down to the nearest 100 acre-ft to keep from setting this when there are only minor differences between the two volume") THEN
-            $ "EqualizationData.CarryoverEQFlag" [] := 1.00000000;
-
-            $ "EqualizationData.CarryoverEQVolume" [] := remainingWYRel - powellRel;
-
-      END_IF_STATEMENT;
-
-      END_WITH_STATEMENT;
-
-      END_WITH_STATEMENT;
-
-      END_IF_STATEMENT;
-
-    END
-    UUID "{59daca64-bb53-4709-ad28-2516e33d4272}";;
-
     RULE                 "Mid Elevation Release Tier";
     DESCRIPTION          "";
     ACTIVE               FALSE;
@@ -1382,7 +1101,7 @@ BEGIN
     NOTES                "";
     BEGIN
 
-      BREAKPOINT BEFORE_EXEC TRUE;
+      BREAKPOINT BEFORE_EXEC FALSE;
       $ "Powell.Outflow" [] := IF ( "CheckPowellBalancing"(  ) == 0.00000000 )
  THEN
   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
