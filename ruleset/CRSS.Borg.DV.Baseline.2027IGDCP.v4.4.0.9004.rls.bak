@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 18:55 July 5, 2021
+# Created 10:27 July 8, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -412,6 +412,34 @@ BEGIN
     END
     UUID "{ac492e3f-75c5-4526-926a-b4df3e6abe24}";;
 
+    RULE                 "Reduce Mexico by Computed BWSCP Savings and Create BWSCP Savings_OLD";
+    DESCRIPTION          "EXECUTION CONSTRAINT: <br>Only in January, and only once<br><br><br>DESCRIPTION:<br>Reduces MX's delivery by their required BWSCP Savings volume. For now, assume this is only made in the year it is required based on a reduction in delivery. Also assume this same volume (less the system assessment), is created as BWSCP Savings (analagous to US DCP-ICS). <br><br><br>SLOTS SET:<br>- `MexicoDiversion:MexicoDiversion.Depletion Requested[]`<br>- `MexicoDiversion:MexicoDiversion.Diversion Requested[]`<br>- `ICMA.DCPActualAnnualPut[]`";
+    ACTIVE               FALSE;
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January Max DayOfMonth, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
+    NOTES                "2019-05-24 - RAB: updated to assign newly named BWSCP creation slot.<br><br>~ 2017 - RAB: Created";
+    BEGIN
+
+      IF_STATEMENT (NaNToZero ( $ "DCP.MXBWSCPSavingsVolume" [@"24:00:00 December Max DayOfMonth, Current Year"] ) > 0.00000000 "acre-ft") THEN
+            WITH_STATEMENT (NUMERIC monthlyReduction = $ "DCP.MXBWSCPSavingsVolume" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000) DO
+            FOREACH (DATETIME date IN @"24:00:00 January Max DayOfMonth, Current Year" TO @"24:00:00 December Max DayOfMonth, Current Year") DO
+            $ "MexicoDiversion:MexicoDiversion.Depletion Requested" [date] := $ "MexicoDiversion:MexicoDiversion.Depletion Requested" [date] - "VolumeToFlow"( monthlyReduction, date );
+
+            $ "MexicoDiversion:MexicoDiversion.Diversion Requested" [date] := $ "MexicoDiversion:MexicoDiversion.Diversion Requested" [date] - "VolumeToFlow"( monthlyReduction, date ) * ( $ "MexicoDiversion:MexicoDiversion.Diversion Requested" [date] / $ "MexicoDiversion:MexicoDiversion.Depletion Requested" [date] );
+
+      ENDFOREACH;
+
+      END_WITH_STATEMENT;
+
+          DESCRIPTION          "--------------------------------------------------------------<br>Create BWSCP Savings (analagous to US DCP-ICS)<br>-------------------------------------------------------------- <br>";
+      $ "ICMA.BWSCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineMXAnnualBWSCPPut"(  );
+
+            $ "ICMA.BWSCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineBWSCPAdditionalContribution"( $ "ICMA.ConvertMWRToBWSCP" [@"24:00:00 December Max DayOfMonth, Current Year"], "DetermineMXAnnualBWSCPPut"(  ) );
+
+      END_IF_STATEMENT;
+
+    END
+    UUID "{449143db-302e-40ab-ba59-088c74fe8ad2}";;
+
     RULE                 "Reduce Mexico by Computed BWSCP Savings and Create BWSCP Savings";
     DESCRIPTION          "EXECUTION CONSTRAINT: <br>Only in January, and only once<br><br><br>DESCRIPTION:<br>Reduces MX's delivery by their required BWSCP Savings volume. For now, assume this is only made in the year it is required based on a reduction in delivery. Also assume this same volume (less the system assessment), is created as BWSCP Savings (analagous to US DCP-ICS). <br><br><br>SLOTS SET:<br>- `MexicoDiversion:MexicoDiversion.Depletion Requested[]`<br>- `MexicoDiversion:MexicoDiversion.Diversion Requested[]`<br>- `ICMA.DCPActualAnnualPut[]`";
     ACTIVE               TRUE;
@@ -440,34 +468,6 @@ BEGIN
 
     END
     UUID "{9b7df617-fbe0-4379-b4a3-7273bf7450ec}";;
-
-    RULE                 "Reduce Mexico by Computed BWSCP Savings and Create BWSCP Savings_OLD";
-    DESCRIPTION          "EXECUTION CONSTRAINT: <br>Only in January, and only once<br><br><br>DESCRIPTION:<br>Reduces MX's delivery by their required BWSCP Savings volume. For now, assume this is only made in the year it is required based on a reduction in delivery. Also assume this same volume (less the system assessment), is created as BWSCP Savings (analagous to US DCP-ICS). <br><br><br>SLOTS SET:<br>- `MexicoDiversion:MexicoDiversion.Depletion Requested[]`<br>- `MexicoDiversion:MexicoDiversion.Diversion Requested[]`<br>- `ICMA.DCPActualAnnualPut[]`";
-    ACTIVE               FALSE;
-    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January Max DayOfMonth, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
-    NOTES                "2019-05-24 - RAB: updated to assign newly named BWSCP creation slot.<br><br>~ 2017 - RAB: Created";
-    BEGIN
-
-      IF_STATEMENT (NaNToZero ( $ "DCP.MXBWSCPSavingsVolume" [@"24:00:00 December Max DayOfMonth, Current Year"] ) > 0.00000000 "acre-ft") THEN
-            WITH_STATEMENT (NUMERIC monthlyReduction = $ "DCP.MXBWSCPSavingsVolume" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000) DO
-            FOREACH (DATETIME date IN @"24:00:00 January Max DayOfMonth, Current Year" TO @"24:00:00 December Max DayOfMonth, Current Year") DO
-            $ "MexicoDiversion:MexicoDiversion.Depletion Requested" [date] := $ "MexicoDiversion:MexicoDiversion.Depletion Requested" [date] - "VolumeToFlow"( monthlyReduction, date );
-
-            $ "MexicoDiversion:MexicoDiversion.Diversion Requested" [date] := $ "MexicoDiversion:MexicoDiversion.Diversion Requested" [date] - "VolumeToFlow"( monthlyReduction, date ) * ( $ "MexicoDiversion:MexicoDiversion.Diversion Requested" [date] / $ "MexicoDiversion:MexicoDiversion.Depletion Requested" [date] );
-
-      ENDFOREACH;
-
-      END_WITH_STATEMENT;
-
-          DESCRIPTION          "--------------------------------------------------------------<br>Create BWSCP Savings (analagous to US DCP-ICS)<br>-------------------------------------------------------------- <br>";
-      $ "ICMA.BWSCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineMXAnnualBWSCPPut"(  );
-
-            $ "ICMA.BWSCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineBWSCPAdditionalContribution"( $ "ICMA.ConvertMWRToBWSCP" [@"24:00:00 December Max DayOfMonth, Current Year"], "DetermineMXAnnualBWSCPPut"(  ) );
-
-      END_IF_STATEMENT;
-
-    END
-    UUID "{449143db-302e-40ab-ba59-088c74fe8ad2}";;
 
     RULE                 "Reduce AZ Demands by DCP Contribution System Water";
     DESCRIPTION          "Execution Constraint: January, rule has not successfully solvedl <br>  <br>Description: Rule adjust CAP delivery for DCP contribution volumes.  Currently all DCP contributions made by AZ are assumed to be system water (no EC-ICS converted to DCP-ICS).  Annual contribution volume is divided equally among all months.<br>  <br>Slots Set: CAPDiversion:CAPDiversionMandI.Depletion Requested, CAPDiversion:CAPDiversionMandI.Diversion Requested";
@@ -524,6 +524,35 @@ BEGIN
     END
     UUID "{979c5fae-231b-42ae-ab17-f6f5010d7dbf}";;
 
+    RULE                 "MWD ICS Annual to Monthly During DCP_OLD";
+    DESCRIPTION          "";
+    ACTIVE               FALSE;
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND "AreCADCPContributions"(  ) COMMENTED_BY "there are CA dcp savings this year";
+    NOTES                "2019-06-14 - RAB: Created";
+    BEGIN
+
+      FOREACH (DATETIME date IN "ListJanuaryToDecemberTimesteps"(  )) DO
+            $ "MWD ICS.ActualMonthlyTake" [date] := $ "MWD ICS.ECActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
+
+            $ "MWD ICS.DCPActualMonthlyTake" [date] := $ "MWD ICS.DCPActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
+
+            $ "MWD ICS.BrockActualMonthlyTake" [date] := $ "MWD ICS.BrockActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
+
+            $ "MWD ICS.YDPActualMonthlyTake" [date] := $ "MWD ICS.YDPActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
+
+            $ "MWD ICS.BICSActualMonthlyTake" [date] := $ "MWD ICS.BICSActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
+
+            $ "MWD ICS.ActualMonthlyPut" [date] := $ "MWD ICS.ECActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
+
+            $ "MWD ICS.DCPActualMonthlyPut" [date] := $ "MWD ICS.DCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
+
+            $ "MWD ICS.DCPAdditionalMonthlyContribution" [date] := $ "MWD ICS.DCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
+
+      ENDFOREACH;
+
+    END
+    UUID "{ae6288d7-c49b-4170-b4fe-3dceb555965b}";;
+
     RULE                 "MWD ICS Annual to Monthly During DCP";
     DESCRIPTION          "";
     ACTIVE               TRUE;
@@ -554,34 +583,36 @@ BEGIN
     END
     UUID "{702737c0-6796-4c24-9a00-d339ef3a61d9}";;
 
-    RULE                 "MWD ICS Annual to Monthly During DCP_OLD";
+    RULE                 "Compute California Available ICS During DCP_OLD";
     DESCRIPTION          "";
     ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND "AreCADCPContributions"(  ) COMMENTED_BY "there are CA dcp savings this year";
-    NOTES                "2019-06-14 - RAB: Created";
+    NOTES                "2019-06-14 - RAB: Updated to only set annaul slots and use new take determining algorithm.<br><br>~2016/2017 - RAB: created";
     BEGIN
 
-      FOREACH (DATETIME date IN "ListJanuaryToDecemberTimesteps"(  )) DO
-            $ "MWD ICS.ActualMonthlyTake" [date] := $ "MWD ICS.ECActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
+    DESCRIPTION          "------------------------------------------<br>MWD<br>------------------------------------------  <br>";
+      $ "MWD ICS.DesiredAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineMWDAnnualTakeDuringDCP"(  );
 
-            $ "MWD ICS.DCPActualMonthlyTake" [date] := $ "MWD ICS.DCPActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
+      $ "MWD ICS.ECActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineMWDAnnualPutDuringDCP"(  );
 
-            $ "MWD ICS.BrockActualMonthlyTake" [date] := $ "MWD ICS.BrockActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
+      WITH_STATEMENT (LIST mwd_takes = "ComputeMWDTakesInPriority"( "ConstrainMWDDesiredTakeDuringDCP"( "DetermineMWDAnnualTakeDuringDCP"(  ) ), "MWDICSDeliveryPriorities"(  ) )) DO
+            $ "MWD ICS.DCPActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := GET @INDEX "GetMWDICSPriorityIndex"( "DCP" ) FROM mwd_takes;
 
-            $ "MWD ICS.YDPActualMonthlyTake" [date] := $ "MWD ICS.YDPActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
+            $ "MWD ICS.ECActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := GET @INDEX "GetMWDICSPriorityIndex"( "EC" ) FROM mwd_takes;
 
-            $ "MWD ICS.BICSActualMonthlyTake" [date] := $ "MWD ICS.BICSActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
+            $ "MWD ICS.BrockActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := GET @INDEX "GetMWDICSPriorityIndex"( "Brock" ) FROM mwd_takes;
 
-            $ "MWD ICS.ActualMonthlyPut" [date] := $ "MWD ICS.ECActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
+            $ "MWD ICS.YDPActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := GET @INDEX "GetMWDICSPriorityIndex"( "YDP" ) FROM mwd_takes;
 
-            $ "MWD ICS.DCPActualMonthlyPut" [date] := $ "MWD ICS.DCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
+            $ "MWD ICS.BICSActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := GET @INDEX "GetMWDICSPriorityIndex"( "BICS" ) FROM mwd_takes;
 
-            $ "MWD ICS.DCPAdditionalMonthlyContribution" [date] := $ "MWD ICS.DCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
+      END_WITH_STATEMENT;
 
-      ENDFOREACH;
+    DESCRIPTION          "------------------------------------------<br>IID<br>------------------------------------------    <br>";
+      $ "IID ICS.ECActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineIIDECICSPut"(  );
 
     END
-    UUID "{ae6288d7-c49b-4170-b4fe-3dceb555965b}";;
+    UUID "{c0566b52-8ce5-4e31-9ec5-591fd7fd0a7d}";;
 
     RULE                 "Compute California Available ICS During DCP";
     DESCRIPTION          "";
@@ -615,36 +646,23 @@ BEGIN
     END
     UUID "{494f8643-0564-428c-9bd7-79c8c5ba5ca9}";;
 
-    RULE                 "Compute California Available ICS During DCP_OLD";
-    DESCRIPTION          "";
+    RULE                 "Compute CA DCP Contributions_OLD";
+    DESCRIPTION          "Computes the additional puts from IID and MWD necesary to make the entire DCP savings, if there is not enough EC-ICS to convert.";
     ACTIVE               FALSE;
-    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND "AreCADCPContributions"(  ) COMMENTED_BY "there are CA dcp savings this year";
-    NOTES                "2019-06-14 - RAB: Updated to only set annaul slots and use new take determining algorithm.<br><br>~2016/2017 - RAB: created";
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January Max DayOfMonth, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
+    NOTES                "";
     BEGIN
 
-    DESCRIPTION          "------------------------------------------<br>MWD<br>------------------------------------------  <br>";
-      $ "MWD ICS.DesiredAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineMWDAnnualTakeDuringDCP"(  );
+      $ "MWD ICS.DCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineMWDDCPPut"(  );
 
-      $ "MWD ICS.ECActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineMWDAnnualPutDuringDCP"(  );
+      $ "MWD ICS.DCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineDCPAdditionalContribution"( "MWD", "DetermineMWDDCPPut"(  ), $ "MWD ICS.ConvertECToDCP" [@"24:00:00 December Max DayOfMonth, Current Year"] );
 
-      WITH_STATEMENT (LIST mwd_takes = "ComputeMWDTakesInPriority"( "ConstrainMWDDesiredTakeDuringDCP"( "DetermineMWDAnnualTakeDuringDCP"(  ) ), "MWDICSDeliveryPriorities"(  ) )) DO
-            $ "MWD ICS.DCPActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := GET @INDEX "GetMWDICSPriorityIndex"( "DCP" ) FROM mwd_takes;
+      $ "MWD ICS.CoachellaDCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineCoachellaDCPPut"(  );
 
-            $ "MWD ICS.ECActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := GET @INDEX "GetMWDICSPriorityIndex"( "EC" ) FROM mwd_takes;
-
-            $ "MWD ICS.BrockActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := GET @INDEX "GetMWDICSPriorityIndex"( "Brock" ) FROM mwd_takes;
-
-            $ "MWD ICS.YDPActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := GET @INDEX "GetMWDICSPriorityIndex"( "YDP" ) FROM mwd_takes;
-
-            $ "MWD ICS.BICSActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] := GET @INDEX "GetMWDICSPriorityIndex"( "BICS" ) FROM mwd_takes;
-
-      END_WITH_STATEMENT;
-
-    DESCRIPTION          "------------------------------------------<br>IID<br>------------------------------------------    <br>";
-      $ "IID ICS.ECActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineIIDECICSPut"(  );
+      $ "MWD ICS.CoachellaDCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineDCPAdditionalContribution"( "Coachella", "DetermineCoachellaDCPPut"(  ), 0.00000000 "acre-ft" );
 
     END
-    UUID "{c0566b52-8ce5-4e31-9ec5-591fd7fd0a7d}";;
+    UUID "{ff1df859-2216-4c55-bc85-88e563181c35}";;
 
     RULE                 "Compute CA DCP Contributions";
     DESCRIPTION          "Computes the additional puts from IID and MWD necesary to make the entire DCP savings, if there is not enough EC-ICS to convert.";
@@ -664,24 +682,6 @@ BEGIN
 
     END
     UUID "{e604257a-9328-4f62-a7ba-eb703027b5ed}";;
-
-    RULE                 "Compute CA DCP Contributions_OLD";
-    DESCRIPTION          "Computes the additional puts from IID and MWD necesary to make the entire DCP savings, if there is not enough EC-ICS to convert.";
-    ACTIVE               FALSE;
-    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January Max DayOfMonth, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
-    NOTES                "";
-    BEGIN
-
-      $ "MWD ICS.DCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineMWDDCPPut"(  );
-
-      $ "MWD ICS.DCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineDCPAdditionalContribution"( "MWD", "DetermineMWDDCPPut"(  ), $ "MWD ICS.ConvertECToDCP" [@"24:00:00 December Max DayOfMonth, Current Year"] );
-
-      $ "MWD ICS.CoachellaDCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineCoachellaDCPPut"(  );
-
-      $ "MWD ICS.CoachellaDCPAdditionalAnnualContribution" [@"24:00:00 December Max DayOfMonth, Current Year"] := "DetermineDCPAdditionalContribution"( "Coachella", "DetermineCoachellaDCPPut"(  ), 0.00000000 "acre-ft" );
-
-    END
-    UUID "{ff1df859-2216-4c55-bc85-88e563181c35}";;
 
   END
   UUID "{592cebd8-d706-4a55-84bc-6d6e15d2c0a5}";;
@@ -1005,7 +1005,7 @@ BEGIN
    THEN
     IF ( $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] COMMENTED_BY "Use actual Jan 1 elevation" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) )
     THEN
-     "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_BORG"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead began the year less than mead ref elev, release with min vol from bal range <br>"
+     "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_BORG"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead began the year less than mead ref elev, balance w/in range associated <br>w/ range number <br>"
     ELSE
      "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_BORG_UEBTAprilSwitch"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead is above ref elev at beginning of year but below at April EOWY forecast, release with primary <br>rel vol minimum. <br>"
     ENDIF COMMENTED_BY "Release for Balancing if 1) Powell is in the correct elevation tier 2) EQ conditions are not met 3) EQ has <br>not yet trumped 4) Mead is less than mead ref elev trigger <br>"
@@ -1104,10 +1104,10 @@ BEGIN
       BREAKPOINT BEFORE_EXEC FALSE;
       $ "Powell.Outflow" [] := IF ( "CheckPowellBalancing"(  ) == 0.00000000 )
  THEN
-  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
+  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG_PrimaryRel"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
  ENDIF
  ELSEIF_COND ( "CheckPowellBalancing"(  ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] >= "GetMeadRefElev"(  ) )
- ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
+ ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG_PrimaryRel"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
  END_ELSEIF
  ELSEIF_COND ( "CheckPowellBalancing"(  ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] < "GetMeadRefElev"(  ) )
  ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_BORG"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )

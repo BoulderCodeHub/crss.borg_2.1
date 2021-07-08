@@ -1,10 +1,10 @@
 #Mead Surplus Decsion Variable Input
-Mead Decision Variables.Surplus d From Borg: file=$Borg_DIR/input/Mead_Surplus_DV.txt units=ft scale=1.0 import=fixed precision=model
+Mead Decision Variables.Surplus d From Borg: file=$Borg_DIR/input/Mead_Surplus_DV_DCP.txt units=ft scale=1.0 import=fixed precision=model
 
 #Mead Shortage Decsion Variable Input
 #Tiers Distances from Dead Pool Elevation
-Mead Decision Variables.From BorgRW.Elevation: file=$Borg_DIR/input/Mead_Shortage_e_DV.txt units=ft scale=1.0 import=fixed precision=model
+Mead Decision Variables.From BorgRW.Elevation: file=$Borg_DIR/input/Mead_Shortage_e_DV_DCP.txt units=ft scale=1.0 import=fixed precision=model
 
 #Shortage Reduction Volumes
-Mead Decision Variables.From BorgRW.Shortage Reduction: file=$Borg_DIR/input/Mead_Shortage_V_DV.txt units=acre-ft scale=1.0 import=fixed precision=model
-Mead Decision Variables.From BorgRW_Flipped.Shortage Reduction: file=$Borg_DIR/input/Mead_Shortage_V_DV.txt units=acre-ft scale=1.0 import=fixed precision=model
+Mead Decision Variables.From BorgRW.Shortage Reduction: file=$Borg_DIR/input/Mead_Shortage_V_DV_DCP.txt units=acre-ft scale=1.0 import=fixed precision=model
+Mead Decision Variables.From BorgRW_Flipped.Shortage Reduction: file=$Borg_DIR/input/Mead_Shortage_V_DV_DCP.txt units=acre-ft scale=1.0 import=fixed precision=model
