@@ -1,4 +1,4 @@
-# SCT File Created 7/8/2021 10:50 AM
+# SCT File Created 7/9/2021 1:34 PM
 #  as C:/crss.borg_2.0/model/crss.borg_monthly.sct
 # Generated using RiverWare Version <RiverWare_Model 8.2.2 Patch>
 # Generated from Model File <CRSS.Borg_2.0.mdl>
@@ -24,8 +24,8 @@ SCT_PROPERTIES
   TSAGG_START_MDAY        1
   TSAGG_START_MONTH       0
 
-  WINDOW_WIDTH            1424
-  WINDOW_HEIGHT           623
+  WINDOW_WIDTH            1138
+  WINDOW_HEIGHT           729
   RIGHT_MARGIN            0
   DIAG_WINDOW_HEIGHT      0
 
@@ -169,7 +169,7 @@ SLOT_REF  3
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 91
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 102
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  4
@@ -219,7 +219,7 @@ SLOT_REF  8
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 105
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 108
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  9
@@ -269,15 +269,16 @@ PANEL_SLOT "Powell Decision Variables.Powell Full_End" -1
 PANEL_SLOT "Powell.MonthlyReleaseTable" -1
 PANEL_SLOT "Powell Decision Variables.Powell Full_Beginning" -1
 GRID_OBJ_TABLE <XML>
-<GridObjTable cols="4" rows="8" name="SCT Tab">
- <GridObjCell objName="Powell Decision Variables" row="0" open="0" objIcon="DataObjBlue" col="0"/>
- <GridObjCell objName="Mead Decision Variables" row="1" open="0" objIcon="DataObjRed" col="0"/>
- <GridObjCell objName="Objectives" row="2" open="1" objIcon="DataObj" col="0"/>
- <GridObjCell objName="Coordinated Operation" row="3" open="1" objIcon="DataObjGreen" col="0"/>
- <GridObjCell objName="Powell" row="4" open="1" objIcon="LevelPowerReservoir" col="0"/>
- <GridObjCell objName="Mead" row="5" open="1" objIcon="LevelPowerReservoir" col="0"/>
- <GridObjCell objName="SystemConditions" row="6" open="0" objIcon="DataObjWhite" col="0"/>
- <GridObjCell objName="EqualizationData" row="7" open="0" objIcon="DataObjGreen" col="0"/>
+<GridObjTable name="SCT Tab" rows="9" cols="4">
+ <GridObjCell objIcon="DataObjBlue" col="0" open="0" row="0" objName="Powell Decision Variables"/>
+ <GridObjCell objIcon="DataObjRed" col="0" open="0" row="1" objName="Mead Decision Variables"/>
+ <GridObjCell objIcon="DataObj" col="0" open="1" row="2" objName="Objectives"/>
+ <GridObjCell objIcon="DataObjGreen" col="0" open="1" row="3" objName="Coordinated Operation"/>
+ <GridObjCell objIcon="LevelPowerReservoir" col="0" open="1" row="4" objName="Powell"/>
+ <GridObjCell objIcon="LevelPowerReservoir" col="0" open="1" row="5" objName="Mead"/>
+ <GridObjCell objIcon="DataObjWhite" col="0" open="0" row="6" objName="SystemConditions"/>
+ <GridObjCell objIcon="DataObjGreen" col="0" open="0" row="7" objName="EqualizationData"/>
+ <GridObjCell objIcon="DataObj" col="0" open="0" row="8" objName="LBDelivery"/>
 </GridObjTable>
 </XML>
 

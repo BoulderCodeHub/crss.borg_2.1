@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 10:27 July 8, 2021
+# Created 13:13 July 9, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -1093,10 +1093,61 @@ BEGIN
     END
     UUID "{e8371525-a3d8-4c89-af01-5d91ff2ed75b}";;
 
+    RULE                 "Powell Limit Outflow Rule1";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT @"t" >= @"24:00:00 July Max DayOfMonth, Current Year" AND NOT "SpikeMadeThisMonth"(  );
+    NOTES                "";
+    BEGIN
+
+      $ "Powell.Outflow" [] := IF ( "PowellComputeStorageAtGivenOutflow"( 25000.00000000 "cfs" ) < 23822000.00000000 "acre-feet" AND $ "Powell.Outflow" [] > 25000.00000000 "cfs" )
+ THEN
+  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( 25000.00000000 "cfs" ), $ "Powell.Storage" [@"t - 1"], @"t" )
+ ENDIF;
+
+    END
+    UUID "{d9dc7598-fb19-4620-b4ce-efd2e3efe3db}";;
+
+    RULE                 "UEBT Lake Powell Release Volume";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  ) AND $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] == 1.00000000 AND IsNaN $ "PowellOperation.SmoothJulyOps" [];
+  NAMES_COLOR  "#5500ff";
+    NOTES                "";
+    BEGIN
+
+      $ "Powell.Outflow" [] := IF ( @"t" <= @"24:00:00 July Max DayOfMonth, Current Year" AND @"t" >= @"24:00:00 January Max DayOfMonth, Current Year" )
+ THEN
+  "Max"( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellRunoffSeasonStorage"(  ), $ "Powell.Storage" [@"t - 1"], @"t" ), IF ( "CheckPowellBalancing"(  ) == 0.00000000 )
+  THEN
+   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG_PrimaryRel"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
+  ENDIF
+  ELSEIF_COND ( "CheckPowellBalancing"(  ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] >= "GetMeadRefElev"(  ) )
+  ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG_PrimaryRel"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
+  END_ELSEIF
+  ELSEIF_COND ( "CheckPowellBalancing"(  ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] < "GetMeadRefElev"(  ) )
+  ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_BORG"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
+  END_ELSEIF )
+ ELSE
+  "Max"( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellFallSeasonStorage_BORG"(  ), $ "Powell.Storage" [@"t - 1"], @"t" ), IF ( "CheckPowellBalancing"(  ) == 0.00000000 )
+  THEN
+   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG_PrimaryRel"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
+  ENDIF
+  ELSEIF_COND ( "CheckPowellBalancing"(  ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] >= "GetMeadRefElev"(  ) )
+  ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG_PrimaryRel"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
+  END_ELSEIF
+  ELSEIF_COND ( "CheckPowellBalancing"(  ) == 1.00000000 AND $ "Mead.Pool Elevation" [@"24:00:00 December 31, Previous Year"] < "GetMeadRefElev"(  ) )
+  ELSEIF_CLAUSE ( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_BORG"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) )
+  END_ELSEIF )
+ ENDIF COMMENTED_BY "Compare Powell and Mead previous EOCYS instead of forecasted EOWYS";
+
+    END
+    UUID "{3c29235b-7872-4ff6-9e13-bcd1c94f6b8f}";;
+
     RULE                 "Generic Lake Powell Release Volume";
     DESCRIPTION          "";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  ) AND ( $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] == 2.00000000 OR $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] == 1.00000000 );
+    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  ) AND ( $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] == 2.00000000 OR $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] == 1.00000000 ) AND IsNaN $ "PowellOperation.SmoothJulyOps" [];
   NAMES_COLOR  "#5500ff";
     NOTES                "";
     BEGIN
@@ -1151,24 +1202,6 @@ BEGIN
 
     END
     UUID "{e437b20b-edeb-42fb-a8fc-781c60b1310d}";;
-
-    RULE                 "Set Lake Powell Release Tier";
-    DESCRIPTION          "";
-    ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
-  NAMES_COLOR  "#5500ff";
-    NOTES                "";
-    BEGIN
-
-      $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] := IF ( $ "Powell.Pool Elevation" [@"24:00:00 December Max DayOfMonth, Previous Year"] >= $ "Powell Decision Variables.Powell Equalization Line" [@"24:00:00 December Max DayOfMonth, Current Year"] )
- THEN
-  0.00000000
- ELSE
-  "TableLookupDefaultTol"( $ "Powell Decision Variables.Powell Full_End", 0.00000000, 1.00000000, $ "Powell.Pool Elevation" [@"24:00:00 December Max DayOfMonth, Previous Year"], @"24:00:00 January Max DayOfMonth, Current Year", FALSE )
- ENDIF;
-
-    END
-    UUID "{0f2bd1c0-60a4-468d-a07d-07255b58c548}";;
 
     RULE                 "Meet Powell Min Objective Release_BORG";
     DESCRIPTION          "";
@@ -1333,6 +1366,7 @@ BEGIN
     NOTES                "";
     BEGIN
 
+      BREAKPOINT BEFORE_EXEC FALSE;
       $ "EqualizationData.ForecastEOWYSPowell" [] := IF ( @"t" >= @"October" )
  THEN
   0.00000000 "acre-ft"
@@ -1340,6 +1374,7 @@ BEGIN
   "EOWYStorage"( % "Powell", "ForecastPowellRelease"(  ), "ForecastMeadRelease"(  ) )
  ENDIF;
 
+      BREAKPOINT BEFORE_EXEC FALSE;
       $ "EqualizationData.ForecastEOWYSMead" [] := IF ( @"t" >= @"October" )
  THEN
   0.00000000 "acre-ft"
@@ -1405,6 +1440,24 @@ BEGIN
 
     END
     UUID "{89af83a5-ed98-40c3-a234-2f4a380301ca}";;
+
+    RULE                 "Set Lake Powell Release Tier";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January 31, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
+  NAMES_COLOR  "#5500ff";
+    NOTES                "";
+    BEGIN
+
+      $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] := IF ( $ "Powell.Pool Elevation" [@"24:00:00 December Max DayOfMonth, Previous Year"] >= $ "Powell Decision Variables.Powell Equalization Line" [@"24:00:00 December Max DayOfMonth, Current Year"] )
+ THEN
+  0.00000000
+ ELSE
+  "TableLookupDefaultTol"( $ "Powell Decision Variables.Powell Full_End", 0.00000000, 1.00000000, $ "Powell.Pool Elevation" [@"24:00:00 December Max DayOfMonth, Previous Year"], @"24:00:00 January Max DayOfMonth, Current Year", FALSE )
+ ENDIF;
+
+    END
+    UUID "{0f2bd1c0-60a4-468d-a07d-07255b58c548}";;
 
   END
   UUID "{a038968a-5fea-40e7-9c63-a83694aea9f8}";;
