@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 10:56 July 20, 2021
+# Created 15:47 July 20, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) 1 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -393,7 +393,7 @@ BEGIN
 
     RULE                 "Implement Fed DCP Water_TURN ON FOR DCP COMPARISON RUN";
     DESCRIPTION          "This sets the reduction to WM bypass flows to the cienega. Annual reduction volume is determined by &quot;Determine Fed Water Vol&quot; and sets slot on &quot;DCP&quot; data object. This rule takes that volume and sets monthly values by taking the annual total (112 kaf) and multiplying by the monthly coefficients and then subtracting the Fed protection volume as multplied by the same coefficients. This should keep the distribution somewhat intact and avoid negative flows. Rule fires once a year at January.  ";
-    ACTIVE               FALSE;
+    ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT @"t" == @"24:00:00 January Max DayOfMonth, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" );
   NAMES_COLOR  "#5500ff";
     NOTES                "2019-06-19 - RAB: copied from DCP model and updated to account for well field 242 injection";
@@ -922,7 +922,7 @@ BEGIN
 
     RULE                 "Mid Elevation Release Tier";
     DESCRIPTION          "";
-    ACTIVE               TRUE;
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT IsNaN $ "Coordinated Operation.ReducedReleaseFlag" [] AND ( NOT IsNaN "Powell.Storage" [] AND NOT IsNaN $ "EqualizationData.MinObjRelFlag" [] ) AND NOT "SpikeMadeThisMonth"(  );
     NOTES                "";
     BEGIN
@@ -959,6 +959,46 @@ BEGIN
 
     END
     UUID "{e8371525-a3d8-4c89-af01-5d91ff2ed75b}";;
+
+    RULE                 "Mid Elevation Release Tier BorgDebug";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT IsNaN $ "Coordinated Operation.ReducedReleaseFlag" [] AND ( NOT IsNaN "Powell.Storage" [] AND NOT IsNaN $ "EqualizationData.MinObjRelFlag" [] ) AND NOT "SpikeMadeThisMonth"(  );
+    NOTES                "";
+    BEGIN
+
+      $ "Powell.Outflow" [] := IF ( @"t" <= @"September" )
+ THEN
+  IF ( "InMidElevationReleaseTier"(  ) AND $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] >= "ElevationToStorage"( % "Mead", $ "Coordinated Operation.Hybrid_Mead823Trigger" [] ) )
+  THEN
+   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth"( "823" ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
+  ENDIF COMMENTED_BY "Compare Powell and Mead previous EOCYS instead of forecasted EOWYS"
+ ELSE
+  IF ( $ "Powell.Pool Elevation" [@"24:00:00 September 30, Current Year"] < $ "Coordinated Operation.Hybrid_PowellUpperTierElevation" [] AND $ "Powell.Pool Elevation" [@"24:00:00 September 30, Current Year"] >= $ "Coordinated Operation.Hybrid_PowellLowerTierElevation" [] AND $ "Mead.Pool Elevation" [@"24:00:00 September 30, Current Year"] >= $ "Coordinated Operation.Hybrid_Mead823Trigger" [] )
+  THEN
+   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth"( "748" ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
+  ENDIF
+ ENDIF;
+
+      $ "Coordinated Operation.ReducedReleaseFlag" [] := IF ( @"t" <= @"September" )
+ THEN
+  IF ( "InMidElevationReleaseTier"(  ) AND $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] >= "ElevationToStorage"( % "Mead", $ "Coordinated Operation.Hybrid_Mead823Trigger" [] ) )
+  THEN
+   1.00000000
+  ELSE
+   0.00000000
+  ENDIF
+ ELSE
+  IF ( $ "Powell.Pool Elevation" [@"24:00:00 September 30, Current Year"] < $ "Coordinated Operation.Hybrid_PowellUpperTierElevation" [] AND $ "Powell.Pool Elevation" [@"24:00:00 September 30, Current Year"] >= $ "Coordinated Operation.Hybrid_PowellLowerTierElevation" [] AND $ "Mead.Pool Elevation" [@"24:00:00 September 30, Current Year"] >= $ "Coordinated Operation.Hybrid_Mead823Trigger" [] )
+  THEN
+   1.00000000
+  ELSE
+   0.00000000
+  ENDIF
+ ENDIF;
+
+    END
+    UUID "{636d7e76-48c6-4829-ba11-af2d95af10cc}";;
 
     RULE                 "Lower Elevation Balancing Tier";
     DESCRIPTION          "";
