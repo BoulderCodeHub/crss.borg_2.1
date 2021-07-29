@@ -1,5 +1,5 @@
-# RiverWare_Ruleset 8.2.2 Patch
-# Created 13:08 July 29, 2021
+# RiverWare_Ruleset 8.0.3
+# Created 16:40 May 5, 2021
 # 
 RULESET
 NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
@@ -958,47 +958,6 @@ BEGIN
 
     END
     UUID "{e8371525-a3d8-4c89-af01-5d91ff2ed75b}";;
-
-    RULE                 "Mid Elevation Release Tier BorgDebug";
-    DESCRIPTION          "";
-    ACTIVE               FALSE;
-    RULE_EXEC_CONSTRAINT IsNaN $ "Coordinated Operation.ReducedReleaseFlag" [] AND ( NOT IsNaN "Powell.Storage" [] AND NOT IsNaN $ "EqualizationData.MinObjRelFlag" [] ) AND NOT "SpikeMadeThisMonth"(  );
-  NAMES_COLOR  "#5500ff";
-    NOTES                "";
-    BEGIN
-
-      $ "Powell.Outflow" [] := IF ( @"t" <= @"September" )
- THEN
-  IF ( "InMidElevationReleaseTier"(  ) AND $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] >= "ElevationToStorage"( % "Mead", $ "Coordinated Operation.Hybrid_Mead823Trigger" [] ) )
-  THEN
-   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth"( "748" ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
-  ENDIF COMMENTED_BY "Compare Powell and Mead previous EOCYS instead of forecasted EOWYS"
- ELSE
-  IF ( $ "Powell.Pool Elevation" [@"24:00:00 September 30, Current Year"] < $ "Coordinated Operation.Hybrid_PowellUpperTierElevation" [] AND $ "Powell.Pool Elevation" [@"24:00:00 September 30, Current Year"] >= $ "Coordinated Operation.Hybrid_PowellLowerTierElevation" [] AND $ "Mead.Pool Elevation" [@"24:00:00 September 30, Current Year"] >= $ "Coordinated Operation.Hybrid_Mead823Trigger" [] )
-  THEN
-   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth"( "823" ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
-  ENDIF
- ENDIF;
-
-      $ "Coordinated Operation.ReducedReleaseFlag" [] := IF ( @"t" <= @"September" )
- THEN
-  IF ( "InMidElevationReleaseTier"(  ) AND $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] >= "ElevationToStorage"( % "Mead", $ "Coordinated Operation.Hybrid_Mead823Trigger" [] ) )
-  THEN
-   1.00000000
-  ELSE
-   0.00000000
-  ENDIF
- ELSE
-  IF ( $ "Powell.Pool Elevation" [@"24:00:00 September 30, Current Year"] < $ "Coordinated Operation.Hybrid_PowellUpperTierElevation" [] AND $ "Powell.Pool Elevation" [@"24:00:00 September 30, Current Year"] >= $ "Coordinated Operation.Hybrid_PowellLowerTierElevation" [] AND $ "Mead.Pool Elevation" [@"24:00:00 September 30, Current Year"] >= $ "Coordinated Operation.Hybrid_Mead823Trigger" [] )
-  THEN
-   1.00000000
-  ELSE
-   0.00000000
-  ENDIF
- ENDIF;
-
-    END
-    UUID "{a460d987-f321-457f-b70d-59b193edf8f1}";;
 
     RULE                 "Lower Elevation Balancing Tier";
     DESCRIPTION          "";
@@ -4097,7 +4056,7 @@ BEGIN
     RULE                 "Min Flow";
     DESCRIPTION          "CF, 20180620: Use higher minimum's in PeriodicMinFlow (from MTOM) representing operator preference. Provides better matching of historical releases based on my analysis <br>This rule ensurs that the minimum instream flow requirements are met. If a lower priority rule sets the flow lower than the min flow then this rule resets the flow. ";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT ( "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow" , "Set January-March Initial Baseflow" , "Set August Outflow" , "Set April Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } ) AND NOT "HasRuleFiredSuccessfully"( "Min Flow" ) ) COMMENTED_BY "This is necessary for 1,2,3 rule order to prevent trumping of lower priority rules. <br>Not necessary in 3,2,1 order but does not hurt anything. ";
+    RULE_EXEC_CONSTRAINT ( "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow" , "Set January-March Initial Baseflow" , "Set April or August Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } ) AND NOT "HasRuleFiredSuccessfully"( "Min Flow" ) ) COMMENTED_BY "This is necessary for 1,2,3 rule order to prevent trumping of lower priority rules. <br>Not necessary in 3,2,1 order but does not hurt anything. ";
     NOTES                "";
     BEGIN
 
@@ -4112,7 +4071,7 @@ BEGIN
     RULE                 "Max Elevation";
     DESCRIPTION          "This rule prevents overtopping. If a previous rule sets the outflow such that the elevation would overtop the dam, this rule will set the outflow to prevent this. The ";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow" , "Set January-March Initial Baseflow" , "Set August Outflow" , "Set April Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } ) COMMENTED_BY "This is necessary for 1,2,3 rule order to prevent trumping of lower priority rules. <br>Not necessary in 3,2,1 order but does not hurt anything. ";
+    RULE_EXEC_CONSTRAINT "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-November Baseflow" , "Set December-March Baseflow" , "Set April or August Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } ) COMMENTED_BY "This is necessary for 1,2,3 rule order to prevent trumping of lower priority rules. <br>Not necessary in 3,2,1 order but does not hurt anything. ";
     NOTES                "";
     BEGIN
 
@@ -4143,7 +4102,7 @@ BEGIN
     RULE                 "Safe Channel Capacity";
     DESCRIPTION          "Prevents outflow from exceeding safe channel capacity unless there is a chance of overtopping, in which case, the &quot;Max Elevation&quot; rule will take precedence. ";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow" , "Set January-March Initial Baseflow" , "Set August Outflow" , "Set April Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } );
+    RULE_EXEC_CONSTRAINT "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-November Baseflow" , "Set December-March Baseflow" , "Set April or August Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } );
     NOTES                "";
     BEGIN
 
