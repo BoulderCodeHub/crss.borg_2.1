@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 12:17 July 29, 2021
+# Created 13:08 July 29, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -864,7 +864,6 @@ BEGIN
     NOTES                "";
     BEGIN
 
-      BREAKPOINT BEFORE_EXEC TRUE;
       $ "Powell.Outflow" [] := IF ( "InUpperElevationBalancingTier"(  ) )
  THEN
   IF ( ( NOT "EqualizationConditionsMet"(  ) AND IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] ) COMMENTED_BY "If EQ Trumps in April, release for EQ for the rest of the water year - go to ELSE" )
@@ -999,7 +998,7 @@ BEGIN
  ENDIF;
 
     END
-    UUID "{0bd95768-3438-4ce7-9d12-400ac58a46ca}";;
+    UUID "{a460d987-f321-457f-b70d-59b193edf8f1}";;
 
     RULE                 "Lower Elevation Balancing Tier";
     DESCRIPTION          "";
