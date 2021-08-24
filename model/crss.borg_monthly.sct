@@ -1,4 +1,4 @@
-# SCT File Created 7/9/2021 1:34 PM
+# SCT File Created 8/23/2021 5:03 PM
 #  as C:/crss.borg_2.0/model/crss.borg_monthly.sct
 # Generated using RiverWare Version <RiverWare_Model 8.2.2 Patch>
 # Generated from Model File <CRSS.Borg_2.0.mdl>
@@ -6,7 +6,7 @@
 #
 SCT 0 0 Version: 20.4
 SCT_PROPERTIES
-  SLOT_ITEM_CNT           13
+  SLOT_ITEM_CNT           14
   PRESIM_TSTEP_CNT        1
   POSTSIM_TSTEP_CNT       0
   TSTEP_AXIS_HORZ         False
@@ -173,6 +173,16 @@ SLOT_REF  3
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  4
+  SLOT_LABEL        "PowellOperation.Fall Release Volume"
+  SLOT_MULTILINE    "PowellOperation<br>.Fall Release Volume"
+  RW_SLOT_NAME      "PowellOperation.Fall Release Volume"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  5
   SLOT_LABEL        "Coordinated Operation.UpperLevelBalancingFlag"
   SLOT_MULTILINE    "Coordinated Operation<br>.UpperLevelBalancingFlag"
   RW_SLOT_NAME      "Coordinated Operation.UpperLevelBalancingFlag"
@@ -182,7 +192,7 @@ SLOT_REF  4
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 82
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  5
+SLOT_REF  6
   SLOT_LABEL        "Coordinated Operation.EQTrumpUpperLevelBalancingFlag"
   SLOT_MULTILINE    "Coordinated Operation<br>.EQTrumpUpperLevelBalancingFlag"
   RW_SLOT_NAME      "Coordinated Operation.EQTrumpUpperLevelBalancingFlag"
@@ -192,7 +202,7 @@ SLOT_REF  5
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 78
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  6
+SLOT_REF  7
   SLOT_LABEL        "Coordinated Operation.EQTrumpUpperLevelBalancing1105GovFlag"
   SLOT_MULTILINE    "Coordinated Operation<br>.EQTrumpUpperLevelBalancing1105GovFlag"
   RW_SLOT_NAME      "Coordinated Operation.EQTrumpUpperLevelBalancing1105GovFlag"
@@ -202,7 +212,7 @@ SLOT_REF  6
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 80
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  7
+SLOT_REF  8
   SLOT_LABEL        "EqualizationData.ForecastEOWYSPowell"
   SLOT_MULTILINE    "EqualizationData<br>.ForecastEOWYSPowell"
   RW_SLOT_NAME      "EqualizationData.ForecastEOWYSPowell"
@@ -212,7 +222,7 @@ SLOT_REF  7
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 108
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  8
+SLOT_REF  9
   SLOT_LABEL        "EqualizationData.ForecastEOWYSMead"
   SLOT_MULTILINE    "EqualizationData<br>.ForecastEOWYSMead"
   RW_SLOT_NAME      "EqualizationData.ForecastEOWYSMead"
@@ -222,7 +232,7 @@ SLOT_REF  8
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 108
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  9
+SLOT_REF  10
   SLOT_LABEL        "EqualizationData.ForecastEOWYPowellElevation"
   SLOT_MULTILINE    "EqualizationData<br>.ForecastEOWYPowellElevation"
   RW_SLOT_NAME      "EqualizationData.ForecastEOWYPowellElevation"
@@ -232,7 +242,7 @@ SLOT_REF  9
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 101
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  10
+SLOT_REF  11
   SLOT_LABEL        "EqualizationData.ForecastEOWYMeadElevation"
   SLOT_MULTILINE    "EqualizationData<br>.ForecastEOWYMeadElevation"
   RW_SLOT_NAME      "EqualizationData.ForecastEOWYMeadElevation"
@@ -242,7 +252,7 @@ SLOT_REF  10
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 97
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  11
+SLOT_REF  12
   SLOT_LABEL        "Powell.Storage"
   SLOT_MULTILINE    "Powell<br>.Storage"
   RW_SLOT_NAME      "Powell.Storage"
@@ -252,7 +262,7 @@ SLOT_REF  11
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 116
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  12
+SLOT_REF  13
   SLOT_LABEL        "Mead.Storage"
   SLOT_MULTILINE    "Mead<br>.Storage"
   RW_SLOT_NAME      "Mead.Storage"
@@ -269,16 +279,16 @@ PANEL_SLOT "Powell Decision Variables.Powell Full_End" -1
 PANEL_SLOT "Powell.MonthlyReleaseTable" -1
 PANEL_SLOT "Powell Decision Variables.Powell Full_Beginning" -1
 GRID_OBJ_TABLE <XML>
-<GridObjTable name="SCT Tab" rows="9" cols="4">
- <GridObjCell objIcon="DataObjBlue" col="0" open="0" row="0" objName="Powell Decision Variables"/>
- <GridObjCell objIcon="DataObjRed" col="0" open="0" row="1" objName="Mead Decision Variables"/>
- <GridObjCell objIcon="DataObj" col="0" open="1" row="2" objName="Objectives"/>
- <GridObjCell objIcon="DataObjGreen" col="0" open="1" row="3" objName="Coordinated Operation"/>
- <GridObjCell objIcon="LevelPowerReservoir" col="0" open="1" row="4" objName="Powell"/>
- <GridObjCell objIcon="LevelPowerReservoir" col="0" open="1" row="5" objName="Mead"/>
- <GridObjCell objIcon="DataObjWhite" col="0" open="0" row="6" objName="SystemConditions"/>
- <GridObjCell objIcon="DataObjGreen" col="0" open="0" row="7" objName="EqualizationData"/>
- <GridObjCell objIcon="DataObj" col="0" open="0" row="8" objName="LBDelivery"/>
+<GridObjTable cols="4" name="SCT Tab" rows="9">
+ <GridObjCell objName="Powell Decision Variables" col="0" open="0" row="0" objIcon="DataObjBlue"/>
+ <GridObjCell objName="Mead Decision Variables" col="0" open="0" row="1" objIcon="DataObjRed"/>
+ <GridObjCell objName="Objectives" col="0" open="1" row="2" objIcon="DataObj"/>
+ <GridObjCell objName="Coordinated Operation" col="0" open="1" row="3" objIcon="DataObjGreen"/>
+ <GridObjCell objName="Powell" col="0" open="1" row="4" objIcon="LevelPowerReservoir"/>
+ <GridObjCell objName="Mead" col="0" open="1" row="5" objIcon="LevelPowerReservoir"/>
+ <GridObjCell objName="SystemConditions" col="0" open="0" row="6" objIcon="DataObjWhite"/>
+ <GridObjCell objName="EqualizationData" col="0" open="0" row="7" objIcon="DataObjGreen"/>
+ <GridObjCell objName="LBDelivery" col="0" open="0" row="8" objIcon="DataObj"/>
 </GridObjTable>
 </XML>
 

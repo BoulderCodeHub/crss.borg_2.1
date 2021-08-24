@@ -2,50 +2,50 @@
 <!--
 CADSWES, University of Colorado, http://cadswes.colorado.edu/
 RiverSMART 8.2.2
-Document created on Tue Jul 27 11:35:12 2021
+Document created on Mon Aug 23 18:15:58 2021
 Document created by rebeccasmith
 -->
 <Study mode="fullstudy" uuid="{9308aec8-bc66-42d6-9cec-3805afc9945b}">
-<version patch="2" major="8" minor="2"><type>RiverSMART</type>
+<version minor="2" major="8" patch="2"><type>RiverSMART</type>
 </version>
-<pluginList><plugin patch="0" major="1" minor="0"><type>CSV Combiner</type>
+<pluginList><plugin minor="0" major="1" patch="0"><type>CSV Combiner</type>
 </plugin>
-<plugin patch="0" major="1" minor="1"><type>GPAT Graphs</type>
+<plugin minor="1" major="1" patch="0"><type>GPAT Graphs</type>
 </plugin>
-<plugin patch="0" major="1" minor="1"><type>Hydrology Simulator</type>
+<plugin minor="1" major="1" patch="0"><type>Hydrology Simulator</type>
 </plugin>
-<plugin patch="0" major="1" minor="1"><type>R Plugin</type>
+<plugin minor="1" major="1" patch="0"><type>R Plugin</type>
 </plugin>
-<plugin patch="0" major="1" minor="0"><type>RDF Annualizer</type>
+<plugin minor="0" major="1" patch="0"><type>RDF Annualizer</type>
 </plugin>
-<plugin patch="0" major="1" minor="0"><type>RDF To Excel</type>
+<plugin minor="0" major="1" patch="0"><type>RDF To Excel</type>
 </plugin>
-<plugin patch="0" major="1" minor="1"><type>RiverWare</type>
+<plugin minor="1" major="1" patch="0"><type>RiverWare</type>
 </plugin>
-<plugin patch="0" major="1" minor="1"><type>RiverWare DMI</type>
+<plugin minor="1" major="1" patch="0"><type>RiverWare DMI</type>
 </plugin>
-<plugin patch="0" major="1" minor="0"><type>RiverWare DMI Sequence</type>
+<plugin minor="0" major="1" patch="0"><type>RiverWare DMI Sequence</type>
 </plugin>
-<plugin patch="0" major="1" minor="2"><type>RiverWare MRM</type>
+<plugin minor="2" major="1" patch="0"><type>RiverWare MRM</type>
 </plugin>
-<plugin patch="0" major="1" minor="1"><type>RiverWare Model</type>
+<plugin minor="1" major="1" patch="0"><type>RiverWare Model</type>
 </plugin>
-<plugin patch="0" major="1" minor="0"><type>RiverWare Policy</type>
+<plugin minor="0" major="1" patch="0"><type>RiverWare Policy</type>
 </plugin>
-<plugin patch="0" major="1" minor="0"><type>RiverWare Run Range</type>
+<plugin minor="0" major="1" patch="0"><type>RiverWare Run Range</type>
 </plugin>
-<plugin patch="0" major="1" minor="1"><type>Spatial Disagg</type>
+<plugin minor="1" major="1" patch="0"><type>Spatial Disagg</type>
 </plugin>
-<plugin patch="0" major="1" minor="1"><type>Temporal Disagg</type>
+<plugin minor="1" major="1" patch="0"><type>Temporal Disagg</type>
 </plugin>
 </pluginList>
-<fileInfo><createdOn>Tue Jul 27 11:35:12 2021</createdOn>
+<fileInfo><createdOn>Mon Aug 23 18:15:58 2021</createdOn>
 <createdBy>rebeccasmith</createdBy>
 </fileInfo>
 <name>CRSS Quarterly Studies</name>
 <studyDirPath>$Borg_DIR</studyDirPath>
 <diagEnabled>1</diagEnabled>
-<archive arch="0" remErr="0" time="sim" remArch="0"></archive>
+<archive remArch="0" arch="0" time="sim" remErr="0"></archive>
 <notify stop="0"><afterEach flag="0"></afterEach>
 <afterOk flag="0"></afterOk>
 <afterErr flag="0"></afterErr>
@@ -54,7 +54,13 @@ Document created by rebeccasmith
 <scene><fontSize>10</fontSize>
 <fontColor>#ff0000</fontColor>
 </scene>
-<graph textCnt="12" numNode="65" fileCnt="24" eventCnt="29"><eventNode nodeNum="0" type="RiverWare DMI"><scenePos x="1984.5" y="2295.5"></scenePos>
+<graph eventCnt="29" textCnt="12" fileCnt="24" numNode="65"><fileNode type="Excel Workbook" nodeNum="0"><scenePos y="2402" x="3070"></scenePos>
+<fileConfig><uuid>{bb65d5ba-a6aa-4562-831b-7ef1dafa547f}</uuid>
+<name>OWDAnn.xlsx</name>
+<fileName>OWDAnn.xlsx</fileName>
+</fileConfig>
+</fileNode>
+<eventNode type="RiverWare DMI" nodeNum="1"><scenePos y="2295.5" x="1984.5"></scenePos>
 <eventConfig><uuid>{516fe9d9-d84f-4a0f-9460-0b7b79ddfa4d}</uuid>
 <name>CT</name>
 <placeholder>0</placeholder>
@@ -63,57 +69,35 @@ Document created by rebeccasmith
 <UserCategory>Demand</UserCategory>
 <ExecTime>Init</ExecTime>
 <TraceCount>1</TraceCount>
-<ExcelDataSet sheet="Baseline Monthly Data" name="Basin Study DIT"/>
+<ExcelDataSet name="Basin Study DIT" sheet="Baseline Monthly Data"/>
 <Executable path=""><Arg></Arg>
 </Executable>
-<TracesDmi TracesDir="" TemplateCtlFile=""></TracesDmi>
+<TracesDmi TemplateCtlFile="" TracesDir=""></TracesDmi>
 </DmiConfig>
 </ParamDat>
 </config>
 </eventConfig>
 </eventNode>
-<fileNode nodeNum="1" type="Excel Workbook"><scenePos x="3070" y="2402"></scenePos>
-<fileConfig><uuid>{bb65d5ba-a6aa-4562-831b-7ef1dafa547f}</uuid>
-<name>OWDAnn.xlsx</name>
-<fileName>OWDAnn.xlsx</fileName>
-</fileConfig>
-</fileNode>
-<eventNode nodeNum="2" type="RDF To Excel"><scenePos x="2951.5" y="2676.5"></scenePos>
-<eventConfig><uuid>{dfb9df1a-6dea-4539-92ba-211d9959fb66}</uuid>
-<name>xtraRes RDF To Excel</name>
+<eventNode type="RiverWare DMI" nodeNum="2"><scenePos y="2288.5" x="2077.5"></scenePos>
+<eventConfig><uuid>{59f2e25b-1215-4b9d-950f-9bc428a7c333}</uuid>
+<name>2016Dems</name>
 <placeholder>0</placeholder>
-<scope>scenario</scope>
-<config><orient>t,r,s</orient>
-<slotname>short</slotname>
+<scope>event</scope>
+<config><ParamDat><DmiConfig type="DirectConnect"><Name>2016 UB and LB Demands</Name>
+<UserCategory>Demand</UserCategory>
+<ExecTime>Init</ExecTime>
+<TraceCount>0</TraceCount>
+<ExcelDataSet name="2016UCRC Demand Schedule" workbook="$Borg_DIR/dmi/DIT_CRSS_LBshortageEIS_2016UCRC_v1.5.xlsm" sheet="Baseline Monthly Data"/>
+<ExcelDataSet name="OtherExistingProjections" workbook="$Borg_DIR/dmi/AZForebearedReturnFlow.xlsx" sheet="Projected"/>
+<Executable path=""><Arg></Arg>
+</Executable>
+<TracesDmi TemplateCtlFile="" TracesDir=""></TracesDmi>
+</DmiConfig>
+</ParamDat>
 </config>
 </eventConfig>
 </eventNode>
-<eventNode nodeNum="3" type="CSV Combiner"><scenePos x="2953.5" y="2155.5"></scenePos>
-<eventConfig><uuid>{2aaf631a-af4b-4d16-a67a-2addfc63a8d6}</uuid>
-<name>CSV Combiner SysCond</name>
-<placeholder>0</placeholder>
-<scope>scenarioSet</scope>
-<config><selSetId>{37c8ea13-edc0-4953-8334-c5937df04ce8}</selSetId>
-</config>
-</eventConfig>
-</eventNode>
-<fileNode nodeNum="4" type="Excel Workbook"><scenePos x="3068.5" y="2493.5"></scenePos>
-<fileConfig><uuid>{b3d8d13c-556f-4080-9329-116f95a8f977}</uuid>
-<name>Res.xlsx</name>
-<fileName>Res.xlsx</fileName>
-</fileConfig>
-</fileNode>
-<eventNode nodeNum="5" type="RDF To Excel"><scenePos x="2965.5" y="3111.5"></scenePos>
-<eventConfig><uuid>{7caf4ef6-18ac-4fe5-bd1a-457a83e616d3}</uuid>
-<name>UBDO RDF To Excel</name>
-<placeholder>0</placeholder>
-<scope>scenario</scope>
-<config><orient>t,r,s</orient>
-<slotname>short</slotname>
-</config>
-</eventConfig>
-</eventNode>
-<eventNode nodeNum="6" type="RiverWare MRM"><scenePos x="2211.5" y="2599.5"></scenePos>
+<eventNode type="RiverWare MRM" nodeNum="3"><scenePos y="2599.5" x="2211.5"></scenePos>
 <eventConfig><uuid>{11414eea-6d17-4f1f-9fe1-48dfc7bc3d24}</uuid>
 <name>VIC</name>
 <placeholder>0</placeholder>
@@ -123,51 +107,7 @@ Document created by rebeccasmith
 </config>
 </eventConfig>
 </eventNode>
-<eventNode nodeNum="7" type="RiverWare DMI"><scenePos x="2395.5" y="2911.5"></scenePos>
-<eventConfig><uuid>{89d45ee6-64b1-4512-bd77-7663bc83f13c}</uuid>
-<name>Min</name>
-<placeholder>0</placeholder>
-<scope>event</scope>
-<config><ParamDat><DmiConfig type="DirectConnect"><Name>Import Initial Conditions From MTOM</Name>
-<UserCategory>IC</UserCategory>
-<ExecTime>Init</ExecTime>
-<TraceCount>0</TraceCount>
-<ExcelDataSet sheet="Min" name="MTOM2CRSS_Annual"/>
-<ExcelDataSet sheet="Min" name="MTOM2CRSS_Monthly"/>
-<Executable path=""><Arg></Arg>
-</Executable>
-<TracesDmi TracesDir="" TemplateCtlFile=""></TracesDmi>
-</DmiConfig>
-</ParamDat>
-</config>
-</eventConfig>
-</eventNode>
-<eventNode nodeNum="8" type="RiverWare DMI"><scenePos x="2077.5" y="2288.5"></scenePos>
-<eventConfig><uuid>{59f2e25b-1215-4b9d-950f-9bc428a7c333}</uuid>
-<name>2016Dems</name>
-<placeholder>0</placeholder>
-<scope>event</scope>
-<config><ParamDat><DmiConfig type="DirectConnect"><Name>2016 UB and LB Demands</Name>
-<UserCategory>Demand</UserCategory>
-<ExecTime>Init</ExecTime>
-<TraceCount>0</TraceCount>
-<ExcelDataSet workbook="$Borg_DIR/dmi/DIT_CRSS_LBshortageEIS_2016UCRC_v1.5.xlsm" sheet="Baseline Monthly Data" name="2016UCRC Demand Schedule"/>
-<ExcelDataSet workbook="$Borg_DIR/dmi/AZForebearedReturnFlow.xlsx" sheet="Projected" name="OtherExistingProjections"/>
-<Executable path=""><Arg></Arg>
-</Executable>
-<TracesDmi TracesDir="" TemplateCtlFile=""></TracesDmi>
-</DmiConfig>
-</ParamDat>
-</config>
-</eventConfig>
-</eventNode>
-<fileNode nodeNum="9" type="RDF"><scenePos x="2825" y="2769"></scenePos>
-<fileConfig><uuid>{05708091-2999-40a1-8922-6fb4f0a54117}</uuid>
-<name>CRSPPowerData.rdf</name>
-<fileName>CRSPPowerData.rdf</fileName>
-</fileConfig>
-</fileNode>
-<eventNode nodeNum="10" type="CSV Combiner"><scenePos x="2956" y="2237"></scenePos>
+<eventNode type="CSV Combiner" nodeNum="4"><scenePos y="2237" x="2956"></scenePos>
 <eventConfig><uuid>{3c8c661b-821c-40b3-b295-0c385317d6b4}</uuid>
 <name>CSV Combiner KeySlots</name>
 <placeholder>0</placeholder>
@@ -176,13 +116,91 @@ Document created by rebeccasmith
 </config>
 </eventConfig>
 </eventNode>
-<fileNode nodeNum="11" type="Excel Workbook"><scenePos x="3065.5" y="2586.5"></scenePos>
-<fileConfig><uuid>{83de84bf-99e4-4ce0-80e2-fb78d7ff8087}</uuid>
-<name>SystemConditions.xlsx</name>
-<fileName>SystemConditions.xlsx</fileName>
+<fileNode type="RDF" nodeNum="5"><scenePos y="2769" x="2825"></scenePos>
+<fileConfig><uuid>{05708091-2999-40a1-8922-6fb4f0a54117}</uuid>
+<name>CRSPPowerData.rdf</name>
+<fileName>CRSPPowerData.rdf</fileName>
 </fileConfig>
 </fileNode>
-<eventNode nodeNum="12" type="RDF To Excel"><scenePos x="2957.5" y="2777.5"></scenePos>
+<eventNode type="RDF To Excel" nodeNum="6"><scenePos y="2676.5" x="2951.5"></scenePos>
+<eventConfig><uuid>{dfb9df1a-6dea-4539-92ba-211d9959fb66}</uuid>
+<name>xtraRes RDF To Excel</name>
+<placeholder>0</placeholder>
+<scope>scenario</scope>
+<config><orient>t,r,s</orient>
+<slotname>short</slotname>
+</config>
+</eventConfig>
+</eventNode>
+<fileNode type="Excel Workbook" nodeNum="7"><scenePos y="2493.5" x="3068.5"></scenePos>
+<fileConfig><uuid>{b3d8d13c-556f-4080-9329-116f95a8f977}</uuid>
+<name>Res.xlsx</name>
+<fileName>Res.xlsx</fileName>
+</fileConfig>
+</fileNode>
+<eventNode type="RiverWare DMI" nodeNum="8"><scenePos y="2911.5" x="2395.5"></scenePos>
+<eventConfig><uuid>{89d45ee6-64b1-4512-bd77-7663bc83f13c}</uuid>
+<name>Min</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><ParamDat><DmiConfig type="DirectConnect"><Name>Import Initial Conditions From MTOM</Name>
+<UserCategory>IC</UserCategory>
+<ExecTime>Init</ExecTime>
+<TraceCount>0</TraceCount>
+<ExcelDataSet name="MTOM2CRSS_Annual" sheet="Min"/>
+<ExcelDataSet name="MTOM2CRSS_Monthly" sheet="Min"/>
+<Executable path=""><Arg></Arg>
+</Executable>
+<TracesDmi TemplateCtlFile="" TracesDir=""></TracesDmi>
+</DmiConfig>
+</ParamDat>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="CSV Combiner" nodeNum="9"><scenePos y="2155.5" x="2953.5"></scenePos>
+<eventConfig><uuid>{2aaf631a-af4b-4d16-a67a-2addfc63a8d6}</uuid>
+<name>CSV Combiner SysCond</name>
+<placeholder>0</placeholder>
+<scope>scenarioSet</scope>
+<config><selSetId>{37c8ea13-edc0-4953-8334-c5937df04ce8}</selSetId>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RDF To Excel" nodeNum="10"><scenePos y="3111.5" x="2965.5"></scenePos>
+<eventConfig><uuid>{7caf4ef6-18ac-4fe5-bd1a-457a83e616d3}</uuid>
+<name>UBDO RDF To Excel</name>
+<placeholder>0</placeholder>
+<scope>scenario</scope>
+<config><orient>t,r,s</orient>
+<slotname>short</slotname>
+</config>
+</eventConfig>
+</eventNode>
+<fileNode type="CSV" nodeNum="11"><scenePos y="2165.5" x="2823.5"></scenePos>
+<fileConfig><uuid>{dbdfc47e-7321-4a53-926c-9ca5f4913cf9}</uuid>
+<name>SystemConditions.csv</name>
+<fileName>SystemConditions.csv</fileName>
+</fileConfig>
+</fileNode>
+<fileNode type="Excel Workbook" nodeNum="12"><scenePos y="2860" x="3063"></scenePos>
+<fileConfig><uuid>{06e9bc8f-1759-40f9-b6bf-47452c430656}</uuid>
+<name>Flags.xlsx</name>
+<fileName>Flags.xlsx</fileName>
+</fileConfig>
+</fileNode>
+<fileNode type="RDF" nodeNum="13"><scenePos y="2585" x="2828"></scenePos>
+<fileConfig><uuid>{1bb088e8-0b09-4808-b6f8-cacef2df4710}</uuid>
+<name>SystemConditions.rdf</name>
+<fileName>SystemConditions.rdf</fileName>
+</fileConfig>
+</fileNode>
+<fileNode type="CSV" nodeNum="14"><scenePos y="2237" x="3072"></scenePos>
+<fileConfig><uuid>{d47d321b-eac7-40e5-977d-e70f7510292b}</uuid>
+<name>C_KeySlots.csv</name>
+<fileName>C_KeySlots.csv</fileName>
+</fileConfig>
+</fileNode>
+<eventNode type="RDF To Excel" nodeNum="15"><scenePos y="2777.5" x="2957.5"></scenePos>
 <eventConfig><uuid>{b676e76c-9e8b-4ce3-add8-70cd4742873e}</uuid>
 <name>CRSPPowerData RDF To Excel</name>
 <placeholder>0</placeholder>
@@ -192,114 +210,74 @@ Document created by rebeccasmith
 </config>
 </eventConfig>
 </eventNode>
-<fileNode nodeNum="13" type="Excel Workbook"><scenePos x="3051.5" y="3029.5"></scenePos>
-<fileConfig><uuid>{8233195a-c410-47f3-8400-8083a689d0c2}</uuid>
-<name>LBDCP.xlsx</name>
-<fileName>LBDCP.xlsx</fileName>
-</fileConfig>
-</fileNode>
-<fileNode nodeNum="14" type="Excel Workbook"><scenePos x="3063" y="2860"></scenePos>
-<fileConfig><uuid>{06e9bc8f-1759-40f9-b6bf-47452c430656}</uuid>
-<name>Flags.xlsx</name>
-<fileName>Flags.xlsx</fileName>
-</fileConfig>
-</fileNode>
-<fileNode nodeNum="15" type="RDF"><scenePos x="2827.5" y="2945.5"></scenePos>
-<fileConfig><uuid>{b98704fa-57e7-4ce5-b248-791b8b73dda9}</uuid>
-<name>LBEnergy.rdf</name>
-<fileName>LBEnergy.rdf</fileName>
-</fileConfig>
-</fileNode>
-<fileNode nodeNum="16" type="RDF"><scenePos x="2828" y="2331"></scenePos>
-<fileConfig><uuid>{1b7a74a1-3e7e-4660-919a-128d47b0c104}</uuid>
-<name>KeySlots.rdf</name>
-<fileName>KeySlots.rdf</fileName>
-</fileConfig>
-</fileNode>
-<fileNode nodeNum="17" type="RDF"><scenePos x="2828" y="2585"></scenePos>
-<fileConfig><uuid>{1bb088e8-0b09-4808-b6f8-cacef2df4710}</uuid>
-<name>SystemConditions.rdf</name>
-<fileName>SystemConditions.rdf</fileName>
-</fileConfig>
-</fileNode>
-<fileNode nodeNum="18" type="RDF"><scenePos x="2829" y="2403"></scenePos>
+<fileNode type="RDF" nodeNum="16"><scenePos y="2403" x="2829"></scenePos>
 <fileConfig><uuid>{1cc6fa7c-fe1a-444f-a0cf-9afb146975d5}</uuid>
 <name>OWDAnn.rdf</name>
 <fileName>OWDAnn.rdf</fileName>
 </fileConfig>
 </fileNode>
-<fileNode nodeNum="19" type="CSV"><scenePos x="2823.5" y="2165.5"></scenePos>
-<fileConfig><uuid>{dbdfc47e-7321-4a53-926c-9ca5f4913cf9}</uuid>
-<name>SystemConditions.csv</name>
-<fileName>SystemConditions.csv</fileName>
+<fileNode type="Excel Workbook" nodeNum="17"><scenePos y="3029.5" x="3051.5"></scenePos>
+<fileConfig><uuid>{8233195a-c410-47f3-8400-8083a689d0c2}</uuid>
+<name>LBDCP.xlsx</name>
+<fileName>LBDCP.xlsx</fileName>
 </fileConfig>
 </fileNode>
-<fileNode nodeNum="20" type="CSV"><scenePos x="3072" y="2237"></scenePos>
-<fileConfig><uuid>{d47d321b-eac7-40e5-977d-e70f7510292b}</uuid>
-<name>C_KeySlots.csv</name>
-<fileName>C_KeySlots.csv</fileName>
+<fileNode type="Excel Workbook" nodeNum="18"><scenePos y="2586.5" x="3065.5"></scenePos>
+<fileConfig><uuid>{83de84bf-99e4-4ce0-80e2-fb78d7ff8087}</uuid>
+<name>SystemConditions.xlsx</name>
+<fileName>SystemConditions.xlsx</fileName>
 </fileConfig>
 </fileNode>
-<fileNode nodeNum="21" type="Excel Workbook"><scenePos x="3052.5" y="2947.5"></scenePos>
-<fileConfig><uuid>{2cb32e42-b9dd-4d7e-a45e-6008232e2481}</uuid>
-<name>LBEnergy.xlsx</name>
-<fileName>LBEnergy.xlsx</fileName>
+<fileNode type="RDF" nodeNum="19"><scenePos y="2945.5" x="2827.5"></scenePos>
+<fileConfig><uuid>{b98704fa-57e7-4ce5-b248-791b8b73dda9}</uuid>
+<name>LBEnergy.rdf</name>
+<fileName>LBEnergy.rdf</fileName>
 </fileConfig>
 </fileNode>
-<eventNode nodeNum="22" type="RiverWare"><scenePos x="2484" y="2421"></scenePos>
+<fileNode type="RDF" nodeNum="20"><scenePos y="2331" x="2828"></scenePos>
+<fileConfig><uuid>{1b7a74a1-3e7e-4660-919a-128d47b0c104}</uuid>
+<name>KeySlots.rdf</name>
+<fileName>KeySlots.rdf</fileName>
+</fileConfig>
+</fileNode>
+<eventNode type="RiverWare" nodeNum="21"><scenePos y="2421" x="2484"></scenePos>
 <eventConfig><uuid>{73d90dfe-bfa1-47b1-a84c-18220f651c66}</uuid>
 <name>RW8.2.2</name>
 <placeholder>0</placeholder>
 <scope>event</scope>
 <config><rwProc><rwExec showUi="1">C:/Program Files/CADSWES/RiverWare 8.2.2/riverware.exe</rwExec>
-<userCmd cmdFlag="0" cmdLoc="modelload"><cmdText></cmdText>
+<userCmd cmdLoc="modelload" cmdFlag="0"><cmdText></cmdText>
 </userCmd>
 </rwProc>
 </config>
 </eventConfig>
 </eventNode>
-<eventNode nodeNum="23" type="RiverWare DMI"><scenePos x="2594.5" y="2914.5"></scenePos>
-<eventConfig><uuid>{44ecc40f-e2db-4acc-9835-8da40cd5f4e6}</uuid>
-<name>MTOM_Most</name>
+<eventNode type="RiverWare DMI" nodeNum="22"><scenePos y="2911.5" x="2276.5"></scenePos>
+<eventConfig><uuid>{fff9df47-1e55-48f0-b793-da24a699612e}</uuid>
+<name>Max</name>
 <placeholder>0</placeholder>
 <scope>event</scope>
-<config><ParamDat><DmiConfig type="DirectConnect"><Name>Import Initial Conditions From MTOM and 24MS</Name>
+<config><ParamDat><DmiConfig type="DirectConnect"><Name>Import Initial Conditions From MTOM</Name>
 <UserCategory>IC</UserCategory>
 <ExecTime>Init</ExecTime>
-<TraceCount>1</TraceCount>
-<ExcelDataSet sheet="Trace3" name="MTOM24MSToCRSS_Monthly"/>
-<ExcelDataSet sheet="Trace3" name="MTOM24MSToCRSS_Annual"/>
+<TraceCount>0</TraceCount>
+<ExcelDataSet name="MTOM2CRSS_Annual" sheet="Max"/>
+<ExcelDataSet name="MTOM2CRSS_Monthly" sheet="Max"/>
 <Executable path=""><Arg></Arg>
 </Executable>
-<TracesDmi TracesDir="" TemplateCtlFile=""></TracesDmi>
+<TracesDmi TemplateCtlFile="" TracesDir=""></TracesDmi>
 </DmiConfig>
 </ParamDat>
 </config>
 </eventConfig>
 </eventNode>
-<eventNode nodeNum="24" type="RDF To Excel"><scenePos x="2950.5" y="2946.5"></scenePos>
-<eventConfig><uuid>{7e38e03d-1de3-4600-8907-35a5312521c2}</uuid>
-<name>LBEnergy RDF To Excel</name>
-<placeholder>0</placeholder>
-<scope>scenario</scope>
-<config><orient>t,r,s</orient>
-<slotname>short</slotname>
-</config>
-</eventConfig>
-</eventNode>
-<fileNode nodeNum="25" type="CSV"><scenePos x="3067.5" y="2150.5"></scenePos>
-<fileConfig><uuid>{3f1858db-6a12-443d-8cae-16db251188a5}</uuid>
-<name>C_SystemConditions.csv</name>
-<fileName>C_SystemConditions.csv</fileName>
-</fileConfig>
-</fileNode>
-<fileNode nodeNum="26" type="Excel Workbook"><scenePos x="3075" y="2318"></scenePos>
+<fileNode type="Excel Workbook" nodeNum="23"><scenePos y="2318" x="3075"></scenePos>
 <fileConfig><uuid>{889696d7-606c-4768-ade1-52a72357e49c}</uuid>
 <name>KeySlots.xlsx</name>
 <fileName>KeySlots.xlsx</fileName>
 </fileConfig>
 </fileNode>
-<eventNode nodeNum="27" type="RDF To Excel"><scenePos x="2951.5" y="2585.5"></scenePos>
+<eventNode type="RDF To Excel" nodeNum="24"><scenePos y="2585.5" x="2951.5"></scenePos>
 <eventConfig><uuid>{80583ea8-c5ae-4d6f-a09a-693ebba03cb6}</uuid>
 <name>SystemConditions RDF To Excel</name>
 <placeholder>0</placeholder>
@@ -309,50 +287,72 @@ Document created by rebeccasmith
 </config>
 </eventConfig>
 </eventNode>
-<eventNode nodeNum="28" type="RiverWare DMI"><scenePos x="2276.5" y="2911.5"></scenePos>
-<eventConfig><uuid>{fff9df47-1e55-48f0-b793-da24a699612e}</uuid>
-<name>Max</name>
-<placeholder>0</placeholder>
-<scope>event</scope>
-<config><ParamDat><DmiConfig type="DirectConnect"><Name>Import Initial Conditions From MTOM</Name>
-<UserCategory>IC</UserCategory>
-<ExecTime>Init</ExecTime>
-<TraceCount>0</TraceCount>
-<ExcelDataSet sheet="Max" name="MTOM2CRSS_Annual"/>
-<ExcelDataSet sheet="Max" name="MTOM2CRSS_Monthly"/>
-<Executable path=""><Arg></Arg>
-</Executable>
-<TracesDmi TracesDir="" TemplateCtlFile=""></TracesDmi>
-</DmiConfig>
-</ParamDat>
-</config>
-</eventConfig>
-</eventNode>
-<fileNode nodeNum="29" type="RDF"><scenePos x="2826.5" y="3027.5"></scenePos>
+<fileNode type="RDF" nodeNum="25"><scenePos y="3027.5" x="2826.5"></scenePos>
 <fileConfig><uuid>{5258990c-ae49-49e0-a794-dd55cac5bd95}</uuid>
 <name>LBDCP.rdf</name>
 <fileName>LBDCP.rdf</fileName>
 </fileConfig>
 </fileNode>
-<fileNode nodeNum="30" type="Excel Workbook"><scenePos x="3069.5" y="2768.5"></scenePos>
-<fileConfig><uuid>{94abad30-8085-430b-a0c3-fe278a2c1a27}</uuid>
-<name>CRSPPowerData.xlsx</name>
-<fileName>CRSPPowerData.xlsx</fileName>
+<eventNode type="RDF To Excel" nodeNum="26"><scenePos y="2946.5" x="2950.5"></scenePos>
+<eventConfig><uuid>{7e38e03d-1de3-4600-8907-35a5312521c2}</uuid>
+<name>LBEnergy RDF To Excel</name>
+<placeholder>0</placeholder>
+<scope>scenario</scope>
+<config><orient>t,r,s</orient>
+<slotname>short</slotname>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare DMI" nodeNum="27"><scenePos y="2914.5" x="2594.5"></scenePos>
+<eventConfig><uuid>{44ecc40f-e2db-4acc-9835-8da40cd5f4e6}</uuid>
+<name>MTOM_Most</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><ParamDat><DmiConfig type="DirectConnect"><Name>Import Initial Conditions From MTOM and 24MS</Name>
+<UserCategory>IC</UserCategory>
+<ExecTime>Init</ExecTime>
+<TraceCount>1</TraceCount>
+<ExcelDataSet name="MTOM24MSToCRSS_Monthly" sheet="Trace3"/>
+<ExcelDataSet name="MTOM24MSToCRSS_Annual" sheet="Trace3"/>
+<Executable path=""><Arg></Arg>
+</Executable>
+<TracesDmi TemplateCtlFile="" TracesDir=""></TracesDmi>
+</DmiConfig>
+</ParamDat>
+</config>
+</eventConfig>
+</eventNode>
+<fileNode type="CSV" nodeNum="28"><scenePos y="2150.5" x="3067.5"></scenePos>
+<fileConfig><uuid>{3f1858db-6a12-443d-8cae-16db251188a5}</uuid>
+<name>C_SystemConditions.csv</name>
+<fileName>C_SystemConditions.csv</fileName>
 </fileConfig>
 </fileNode>
-<fileNode nodeNum="31" type="RDF"><scenePos x="2828" y="2495"></scenePos>
-<fileConfig><uuid>{1fe0f25e-9239-4b27-8407-634e5f2cca0d}</uuid>
-<name>Res.rdf</name>
-<fileName>Res.rdf</fileName>
+<fileNode type="Excel Workbook" nodeNum="29"><scenePos y="2947.5" x="3052.5"></scenePos>
+<fileConfig><uuid>{2cb32e42-b9dd-4d7e-a45e-6008232e2481}</uuid>
+<name>LBEnergy.xlsx</name>
+<fileName>LBEnergy.xlsx</fileName>
 </fileConfig>
 </fileNode>
-<fileNode nodeNum="32" type="Excel Workbook"><scenePos x="3066.5" y="3107.5"></scenePos>
+<fileNode type="Excel Workbook" nodeNum="30"><scenePos y="3107.5" x="3066.5"></scenePos>
 <fileConfig><uuid>{323f5351-e15a-4702-99df-dfcdf96a7ab6}</uuid>
 <name>UBDO.xlsx</name>
 <fileName>UBDO.xlsx</fileName>
 </fileConfig>
 </fileNode>
-<eventNode nodeNum="33" type="RiverWare DMI"><scenePos x="2338.5" y="2911.5"></scenePos>
+<fileNode type="Excel Workbook" nodeNum="31"><scenePos y="2768.5" x="3069.5"></scenePos>
+<fileConfig><uuid>{94abad30-8085-430b-a0c3-fe278a2c1a27}</uuid>
+<name>CRSPPowerData.xlsx</name>
+<fileName>CRSPPowerData.xlsx</fileName>
+</fileConfig>
+</fileNode>
+<fileNode type="RDF" nodeNum="32"><scenePos y="2495" x="2828"></scenePos>
+<fileConfig><uuid>{1fe0f25e-9239-4b27-8407-634e5f2cca0d}</uuid>
+<name>Res.rdf</name>
+<fileName>Res.rdf</fileName>
+</fileConfig>
+</fileNode>
+<eventNode type="RiverWare DMI" nodeNum="33"><scenePos y="2911.5" x="2338.5"></scenePos>
 <eventConfig><uuid>{31f2dc6a-df14-4805-be26-8ef7bf0b0c7e}</uuid>
 <name>Most</name>
 <placeholder>0</placeholder>
@@ -361,43 +361,17 @@ Document created by rebeccasmith
 <UserCategory>IC</UserCategory>
 <ExecTime>Init</ExecTime>
 <TraceCount>1</TraceCount>
-<ExcelDataSet sheet="Trace3" name="MTOM24MSToCRSS_Monthly"/>
-<ExcelDataSet sheet="Trace3" name="MTOM24MSToCRSS_Annual"/>
+<ExcelDataSet name="MTOM24MSToCRSS_Monthly" sheet="Trace3"/>
+<ExcelDataSet name="MTOM24MSToCRSS_Annual" sheet="Trace3"/>
 <Executable path=""><Arg></Arg>
 </Executable>
-<TracesDmi TracesDir="" TemplateCtlFile=""></TracesDmi>
+<TracesDmi TemplateCtlFile="" TracesDir=""></TracesDmi>
 </DmiConfig>
 </ParamDat>
 </config>
 </eventConfig>
 </eventNode>
-<eventNode nodeNum="34" type="RiverWare Policy"><scenePos x="2645" y="2110"></scenePos>
-<eventConfig><uuid>{39e1a663-6459-4cce-a76f-9dce20a8b528}</uuid>
-<name>PrePowellBorgRules</name>
-<placeholder>0</placeholder>
-<modified intMod="1"></modified>
-<scope>event</scope>
-<config><ParamDat><RplPolicy><RplSetFile>C:/crss.borg_2.0/ruleset/CRSS.Borg.DV.Pre-Powell.Baseline.2027IGDCP.v4.4.0.9004.rls</RplSetFile>
-</RplPolicy>
-</ParamDat>
-</config>
-</eventConfig>
-</eventNode>
-<eventNode nodeNum="35" type="RiverWare Model"><scenePos x="2280" y="2246"></scenePos>
-<eventConfig><uuid>{4be585a3-f870-42ca-bfba-9176f8b710db}</uuid>
-<name>PrePowell</name>
-<placeholder>0</placeholder>
-<modified intMod="1"></modified>
-<scope>event</scope>
-<config><ParamDat>
-<ModelParams>
-<ModelFile>C:/crss.borg_2.0/model/CRSS.Borg_2.0.Pre-Powell.mdl</ModelFile>
-</ModelParams>
-</ParamDat>
-</config>
-</eventConfig>
-</eventNode>
-<eventNode nodeNum="36" type="RiverWare MRM"><scenePos x="2218" y="2705"></scenePos>
+<eventNode type="RiverWare MRM" nodeNum="34"><scenePos y="2705" x="2218"></scenePos>
 <eventConfig><uuid>{ea6b3486-b80e-4c45-b52a-d7d7ad0d67bd}</uuid>
 <name>Baseline DNF with DCP</name>
 <placeholder>0</placeholder>
@@ -408,76 +382,23 @@ Document created by rebeccasmith
 </config>
 </eventConfig>
 </eventNode>
-<textNode nodeNum="37"><scenePos x="2291" y="2883"></scenePos>
-<text>From the 24-MS Results</text>
-<fontSize>10</fontSize>
-<fontColor>#008000</fontColor>
-</textNode>
-<textNode nodeNum="38"><scenePos x="2439" y="2030"></scenePos>
-<text>Policy</text>
-<fontSize>16</fontSize>
-<fontColor>#0000ff</fontColor>
-</textNode>
-<textNode nodeNum="39"><scenePos x="2381" y="2823"></scenePos>
-<text>Initial Conditions</text>
-<fontSize>16</fontSize>
-<fontColor>#0000ff</fontColor>
-</textNode>
-<textNode nodeNum="40"><scenePos x="1820" y="2522"></scenePos>
-<text>Climate change hydrology
-w/demand scenario A</text>
-<fontSize>10</fontSize>
-<fontColor>#008000</fontColor>
-</textNode>
-<textNode nodeNum="41"><scenePos x="2122" y="2677"></scenePos>
-<text>Stress Test</text>
-<fontSize>10</fontSize>
-<fontColor>#008000</fontColor>
-</textNode>
-<textNode nodeNum="42"><scenePos x="2186" y="2461"></scenePos>
-<text>Supply</text>
-<fontSize>16</fontSize>
-<fontColor>#0000ff</fontColor>
-</textNode>
-<textNode nodeNum="43"><scenePos x="2107" y="2531"></scenePos>
-<text>Full Hydrology</text>
-<fontSize>10</fontSize>
-<fontColor>#008000</fontColor>
-</textNode>
-<textNode nodeNum="44"><scenePos x="2268" y="2983"></scenePos>
-<text>MTOM_[Min/Most/Max] represent the
-min/most/max probable inflow scenarios
-run through MTOM, while [Max/Most/Min]
-are the 24-Month Study min/most/max 
-probable runs. 
-
-MTOM event connects to the 35 different 
-initial conditions from the MTOM workbook
-and creates one scenario for each input.</text>
-<fontSize>10</fontSize>
-<fontColor>#ff00ff</fontColor>
-</textNode>
-<textNode nodeNum="45"><scenePos x="2035" y="2246"></scenePos>
-<text>Demand</text>
-<fontSize>16</fontSize>
-<fontColor>#0000ff</fontColor>
-</textNode>
-<textNode nodeNum="46"><scenePos x="2184" y="2088"></scenePos>
-<text>Model</text>
-<fontSize>16</fontSize>
-<fontColor>#0000ff</fontColor>
-</textNode>
-<textNode nodeNum="47"><scenePos x="2545" y="2882"></scenePos>
-<text>From MTOM</text>
-<fontSize>10</fontSize>
-<fontColor>#008000</fontColor>
-</textNode>
-<textNode nodeNum="48"><scenePos x="2099" y="2171"></scenePos>
-<text></text>
-<fontSize>10</fontSize>
-<fontColor>#008000</fontColor>
-</textNode>
-<eventNode nodeNum="49" type="RDF To Excel"><scenePos x="2957.5" y="3027.5"></scenePos>
+<eventNode type="RiverWare MRM" nodeNum="35"><scenePos y="2521.5" x="1986.5"></scenePos>
+<eventConfig><uuid>{91c605b1-8dbb-42ae-9c81-e3460f2c7555}</uuid>
+<name>VIC_A</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><mrmConfigName>VIC Demand Scenario A</mrmConfigName>
+<mrmSaveModel flag="0" policy="afterall"></mrmSaveModel>
+</config>
+</eventConfig>
+</eventNode>
+<fileNode type="CSV" nodeNum="36"><scenePos y="2243" x="2829"></scenePos>
+<fileConfig><uuid>{247f188f-437f-432e-9f15-1b7e5000f96b}</uuid>
+<name>KeySlots.csv</name>
+<fileName>KeySlots.csv</fileName>
+</fileConfig>
+</fileNode>
+<eventNode type="RDF To Excel" nodeNum="37"><scenePos y="3027.5" x="2957.5"></scenePos>
 <eventConfig><uuid>{8e57c857-bbb2-4181-ab56-f55c98c69c73}</uuid>
 <name>LBDCP RDF To Excel</name>
 <placeholder>0</placeholder>
@@ -487,7 +408,7 @@ and creates one scenario for each input.</text>
 </config>
 </eventConfig>
 </eventNode>
-<eventNode nodeNum="50" type="RDF To Excel"><scenePos x="2956" y="2403"></scenePos>
+<eventNode type="RDF To Excel" nodeNum="38"><scenePos y="2403" x="2956"></scenePos>
 <eventConfig><uuid>{97ef6f43-393a-4e11-8187-ee3eb6f7d374}</uuid>
 <name>OWDAnn RDF To Excel</name>
 <placeholder>0</placeholder>
@@ -497,13 +418,7 @@ and creates one scenario for each input.</text>
 </config>
 </eventConfig>
 </eventNode>
-<fileNode nodeNum="51" type="CSV"><scenePos x="2829" y="2243"></scenePos>
-<fileConfig><uuid>{247f188f-437f-432e-9f15-1b7e5000f96b}</uuid>
-<name>KeySlots.csv</name>
-<fileName>KeySlots.csv</fileName>
-</fileConfig>
-</fileNode>
-<eventNode nodeNum="52" type="RiverWare Model"><scenePos x="2191.5" y="2146.5"></scenePos>
+<eventNode type="RiverWare Model" nodeNum="39"><scenePos y="2146.5" x="2191.5"></scenePos>
 <eventConfig><uuid>{0f1f82f7-bf67-448d-99f4-88859fc6bbfc}</uuid>
 <name>crss.borg_2.0</name>
 <placeholder>0</placeholder>
@@ -516,34 +431,29 @@ and creates one scenario for each input.</text>
 </config>
 </eventConfig>
 </eventNode>
-<eventNode nodeNum="53" type="RiverWare MRM"><scenePos x="1986.5" y="2521.5"></scenePos>
-<eventConfig><uuid>{91c605b1-8dbb-42ae-9c81-e3460f2c7555}</uuid>
-<name>VIC_A</name>
+<eventNode type="RDF To Excel" nodeNum="40"><scenePos y="2494.5" x="2953.5"></scenePos>
+<eventConfig><uuid>{aa6d1df6-c290-4eda-ac69-0892f17c9732}</uuid>
+<name>Res RDF To Excel</name>
 <placeholder>0</placeholder>
-<scope>event</scope>
-<config><mrmConfigName>VIC Demand Scenario A</mrmConfigName>
-<mrmSaveModel flag="0" policy="afterall"></mrmSaveModel>
+<scope>scenario</scope>
+<config><orient>t,r,s</orient>
+<slotname>short</slotname>
 </config>
 </eventConfig>
 </eventNode>
-<fileNode nodeNum="54" type="RDF"><scenePos x="2826" y="2676"></scenePos>
-<fileConfig><uuid>{1cdb2242-e602-406c-9b3f-0ee9344a8686}</uuid>
-<name>xtraRes.rdf</name>
-<fileName>xtraRes.rdf</fileName>
+<fileNode type="RDF" nodeNum="41"><scenePos y="2862" x="2827"></scenePos>
+<fileConfig><uuid>{e44a513a-35a1-4dba-94a6-023c45266532}</uuid>
+<name>Flags.rdf</name>
+<fileName>Flags.rdf</fileName>
 </fileConfig>
 </fileNode>
-<eventNode nodeNum="55" type="RiverWare Policy"><scenePos x="2442.5" y="2087.5"></scenePos>
-<eventConfig><uuid>{d2103a13-3d48-46df-a117-1134925846e1}</uuid>
-<name>IG_LBDCP_Borg</name>
-<placeholder>0</placeholder>
-<scope>event</scope>
-<config><ParamDat><RplPolicy><RplSetFile>$Borg_DIR/ruleset/CRSS.Borg.DV.Baseline.2027IGDCP.v4.4.0.9004.rls</RplSetFile>
-</RplPolicy>
-</ParamDat>
-</config>
-</eventConfig>
-</eventNode>
-<eventNode nodeNum="56" type="RiverWare Policy"><scenePos x="2536" y="2077"></scenePos>
+<fileNode type="RDF" nodeNum="42"><scenePos y="3106.5" x="2826.5"></scenePos>
+<fileConfig><uuid>{891b18b7-402d-45f0-b008-dd7683351b72}</uuid>
+<name>UBDO.rdf</name>
+<fileName>UBDO.rdf</fileName>
+</fileConfig>
+</fileNode>
+<eventNode type="RiverWare Policy" nodeNum="43"><scenePos y="2060" x="2582"></scenePos>
 <eventConfig><uuid>{b211c22b-d869-44ca-9684-7947ed3124a7}</uuid>
 <name>baseline_LBDCP_ON</name>
 <placeholder>0</placeholder>
@@ -554,23 +464,17 @@ and creates one scenario for each input.</text>
 </config>
 </eventConfig>
 </eventNode>
-<fileNode nodeNum="57" type="RDF"><scenePos x="2827" y="2862"></scenePos>
-<fileConfig><uuid>{e44a513a-35a1-4dba-94a6-023c45266532}</uuid>
-<name>Flags.rdf</name>
-<fileName>Flags.rdf</fileName>
-</fileConfig>
-</fileNode>
-<eventNode nodeNum="58" type="RDF To Excel"><scenePos x="2953.5" y="2494.5"></scenePos>
-<eventConfig><uuid>{aa6d1df6-c290-4eda-ac69-0892f17c9732}</uuid>
-<name>Res RDF To Excel</name>
+<eventNode type="RiverWare MRM" nodeNum="44"><scenePos y="2522" x="2207"></scenePos>
+<eventConfig><uuid>{7f7fd6c1-f640-4208-80be-56ddcd218985}</uuid>
+<name>DNF</name>
 <placeholder>0</placeholder>
-<scope>scenario</scope>
-<config><orient>t,r,s</orient>
-<slotname>short</slotname>
+<scope>event</scope>
+<config><mrmConfigName>DNF</mrmConfigName>
+<mrmSaveModel flag="0" policy="afterall"></mrmSaveModel>
 </config>
 </eventConfig>
 </eventNode>
-<eventNode nodeNum="59" type="RDF To Excel"><scenePos x="2958" y="2318"></scenePos>
+<eventNode type="RDF To Excel" nodeNum="45"><scenePos y="2318" x="2958"></scenePos>
 <eventConfig><uuid>{30bbdb67-6757-43d7-ac24-b02a8eeb5ebe}</uuid>
 <name>KeySlots RDF To Excel</name>
 <placeholder>0</placeholder>
@@ -580,13 +484,18 @@ and creates one scenario for each input.</text>
 </config>
 </eventConfig>
 </eventNode>
-<fileNode nodeNum="60" type="RDF"><scenePos x="2826.5" y="3106.5"></scenePos>
-<fileConfig><uuid>{891b18b7-402d-45f0-b008-dd7683351b72}</uuid>
-<name>UBDO.rdf</name>
-<fileName>UBDO.rdf</fileName>
-</fileConfig>
-</fileNode>
-<eventNode nodeNum="61" type="RiverWare Model"><scenePos x="2312" y="2144"></scenePos>
+<eventNode type="RiverWare Policy" nodeNum="46"><scenePos y="2087.5" x="2442.5"></scenePos>
+<eventConfig><uuid>{d2103a13-3d48-46df-a117-1134925846e1}</uuid>
+<name>IG_LBDCP_Borg</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><ParamDat><RplPolicy><RplSetFile>$Borg_DIR/ruleset/CRSS.Borg.DV.Baseline.2027IGDCP.v4.4.0.9004.rls</RplSetFile>
+</RplPolicy>
+</ParamDat>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare Model" nodeNum="47"><scenePos y="2144" x="2312"></scenePos>
 <eventConfig><uuid>{9f52ae71-b8c9-4fa4-9b26-27ef6bdc6859}</uuid>
 <name>crss.borg_2.0_baseline</name>
 <placeholder>0</placeholder>
@@ -599,23 +508,19 @@ and creates one scenario for each input.</text>
 </config>
 </eventConfig>
 </eventNode>
-<eventNode nodeNum="62" type="RiverWare MRM"><scenePos x="2207" y="2522"></scenePos>
-<eventConfig><uuid>{7f7fd6c1-f640-4208-80be-56ddcd218985}</uuid>
-<name>DNF</name>
-<placeholder>0</placeholder>
-<scope>event</scope>
-<config><mrmConfigName>DNF</mrmConfigName>
-<mrmSaveModel flag="0" policy="afterall"></mrmSaveModel>
-</config>
-</eventConfig>
-</eventNode>
-<fileNode nodeNum="63" type="Excel Workbook"><scenePos x="3064.5" y="2677.5"></scenePos>
+<fileNode type="Excel Workbook" nodeNum="48"><scenePos y="2677.5" x="3064.5"></scenePos>
 <fileConfig><uuid>{bfe6f175-2af0-4490-a803-720f1c66598f}</uuid>
 <name>xtraRes.xlsx</name>
 <fileName>xtraRes.xlsx</fileName>
 </fileConfig>
 </fileNode>
-<eventNode nodeNum="64" type="RDF To Excel"><scenePos x="2945" y="2859"></scenePos>
+<fileNode type="RDF" nodeNum="49"><scenePos y="2676" x="2826"></scenePos>
+<fileConfig><uuid>{1cdb2242-e602-406c-9b3f-0ee9344a8686}</uuid>
+<name>xtraRes.rdf</name>
+<fileName>xtraRes.rdf</fileName>
+</fileConfig>
+</fileNode>
+<eventNode type="RDF To Excel" nodeNum="50"><scenePos y="2859" x="2945"></scenePos>
 <eventConfig><uuid>{bf3d373b-7514-47d3-b4fb-9061da357b92}</uuid>
 <name>Flags RDF To Excel</name>
 <placeholder>0</placeholder>
@@ -625,64 +530,165 @@ and creates one scenario for each input.</text>
 </config>
 </eventConfig>
 </eventNode>
-<nodeLink to="63" from="2"></nodeLink>
-<nodeLink to="25" from="3"></nodeLink>
-<nodeLink to="32" from="5"></nodeLink>
-<nodeLink to="22" from="8"><file type="RW DMI Configuration"><uuid>{c9c2f1d9-bea1-468a-92e7-d32eab25b4af}</uuid>
+<textNode nodeNum="51"><scenePos y="2882" x="2545"></scenePos>
+<text>From MTOM</text>
+<fontSize>10</fontSize>
+<fontColor>#008000</fontColor>
+</textNode>
+<textNode nodeNum="52"><scenePos y="2823" x="2381"></scenePos>
+<text>Initial Conditions</text>
+<fontSize>16</fontSize>
+<fontColor>#0000ff</fontColor>
+</textNode>
+<textNode nodeNum="53"><scenePos y="2522" x="1820"></scenePos>
+<text>Climate change hydrology
+w/demand scenario A</text>
+<fontSize>10</fontSize>
+<fontColor>#008000</fontColor>
+</textNode>
+<textNode nodeNum="54"><scenePos y="2983" x="2268"></scenePos>
+<text>MTOM_[Min/Most/Max] represent the
+min/most/max probable inflow scenarios
+run through MTOM, while [Max/Most/Min]
+are the 24-Month Study min/most/max 
+probable runs. 
+
+MTOM event connects to the 35 different 
+initial conditions from the MTOM workbook
+and creates one scenario for each input.</text>
+<fontSize>10</fontSize>
+<fontColor>#ff00ff</fontColor>
+</textNode>
+<textNode nodeNum="55"><scenePos y="2461" x="2186"></scenePos>
+<text>Supply</text>
+<fontSize>16</fontSize>
+<fontColor>#0000ff</fontColor>
+</textNode>
+<textNode nodeNum="56"><scenePos y="2246" x="2035"></scenePos>
+<text>Demand</text>
+<fontSize>16</fontSize>
+<fontColor>#0000ff</fontColor>
+</textNode>
+<textNode nodeNum="57"><scenePos y="2171" x="2099"></scenePos>
+<text></text>
+<fontSize>10</fontSize>
+<fontColor>#008000</fontColor>
+</textNode>
+<textNode nodeNum="58"><scenePos y="2088" x="2184"></scenePos>
+<text>Model</text>
+<fontSize>16</fontSize>
+<fontColor>#0000ff</fontColor>
+</textNode>
+<textNode nodeNum="59"><scenePos y="2531" x="2107"></scenePos>
+<text>Full Hydrology</text>
+<fontSize>10</fontSize>
+<fontColor>#008000</fontColor>
+</textNode>
+<textNode nodeNum="60"><scenePos y="2677" x="2122"></scenePos>
+<text>Stress Test</text>
+<fontSize>10</fontSize>
+<fontColor>#008000</fontColor>
+</textNode>
+<textNode nodeNum="61"><scenePos y="2883" x="2291"></scenePos>
+<text>From the 24-MS Results</text>
+<fontSize>10</fontSize>
+<fontColor>#008000</fontColor>
+</textNode>
+<textNode nodeNum="62"><scenePos y="2030" x="2439"></scenePos>
+<text>Policy</text>
+<fontSize>16</fontSize>
+<fontColor>#0000ff</fontColor>
+</textNode>
+<eventNode type="RiverWare Policy" nodeNum="63"><scenePos y="2180" x="2526"></scenePos>
+<eventConfig><uuid>{f3cbd999-0921-4998-bf73-8e01e17c4067}</uuid>
+<name>Mead_Only_MERTadj</name>
+<placeholder>0</placeholder>
+<modified intMod="1"></modified>
+<scope>event</scope>
+<config><ParamDat><RplPolicy><RplSetFile>$Borg_DIR/ruleset/CRSS.Borg.DV.Baseline.2027IGDCP.v4.4.0.9004_MeadOnly_MERTadj.rls</RplSetFile>
+</RplPolicy>
+</ParamDat>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare Model" nodeNum="64"><scenePos y="2256" x="2284"></scenePos>
+<eventConfig><uuid>{8fa80217-20fe-450a-b3a3-91357630ac2f}</uuid>
+<name>Mead Only</name>
+<placeholder>0</placeholder>
+<modified intMod="1"></modified>
+<scope>event</scope>
+<config><ParamDat>
+<ModelParams>
+<ModelFile>$Borg_DIR/model/CRSS.Borg_2.0_MeadOnly.mdl</ModelFile>
+</ModelParams>
+</ParamDat>
+</config>
+</eventConfig>
+</eventNode>
+<nodeLink from="2" to="21"><file type="RW DMI Configuration"><uuid>{c9c2f1d9-bea1-468a-92e7-d32eab25b4af}</uuid>
 <fileName>_StudyEventOutput_.xml</fileName>
 </file>
 </nodeLink>
-<nodeLink to="12" from="9"></nodeLink>
-<nodeLink to="20" from="10"></nodeLink>
-<nodeLink to="30" from="12"></nodeLink>
-<nodeLink to="24" from="15"></nodeLink>
-<nodeLink to="59" from="16"></nodeLink>
-<nodeLink to="27" from="17"></nodeLink>
-<nodeLink to="50" from="18"></nodeLink>
-<nodeLink to="3" from="19"></nodeLink>
-<nodeLink to="16" from="22"></nodeLink>
-<nodeLink to="18" from="22"></nodeLink>
-<nodeLink to="31" from="22"></nodeLink>
-<nodeLink to="17" from="22"></nodeLink>
-<nodeLink to="54" from="22"></nodeLink>
-<nodeLink to="57" from="22"></nodeLink>
-<nodeLink to="51" from="22"></nodeLink>
-<nodeLink to="19" from="22"></nodeLink>
-<nodeLink to="9" from="22"></nodeLink>
-<nodeLink to="29" from="22"></nodeLink>
-<nodeLink to="15" from="22"></nodeLink>
-<nodeLink to="60" from="22"></nodeLink>
-<nodeLink to="22" from="23"><file type="RW DMI Configuration"><uuid>{aa944678-0a24-4b11-938a-613cb70a8324}</uuid>
+<nodeLink from="4" to="14"></nodeLink>
+<nodeLink from="5" to="15"></nodeLink>
+<nodeLink from="6" to="48"></nodeLink>
+<nodeLink from="9" to="28"></nodeLink>
+<nodeLink from="10" to="30"></nodeLink>
+<nodeLink from="11" to="9"></nodeLink>
+<nodeLink from="13" to="24"></nodeLink>
+<nodeLink from="15" to="31"></nodeLink>
+<nodeLink from="16" to="38"></nodeLink>
+<nodeLink from="19" to="26"></nodeLink>
+<nodeLink from="20" to="45"></nodeLink>
+<nodeLink from="21" to="20"></nodeLink>
+<nodeLink from="21" to="16"></nodeLink>
+<nodeLink from="21" to="32"></nodeLink>
+<nodeLink from="21" to="13"></nodeLink>
+<nodeLink from="21" to="49"></nodeLink>
+<nodeLink from="21" to="41"></nodeLink>
+<nodeLink from="21" to="36"></nodeLink>
+<nodeLink from="21" to="11"></nodeLink>
+<nodeLink from="21" to="5"></nodeLink>
+<nodeLink from="21" to="25"></nodeLink>
+<nodeLink from="21" to="19"></nodeLink>
+<nodeLink from="21" to="42"></nodeLink>
+<nodeLink from="24" to="18"></nodeLink>
+<nodeLink from="25" to="37"></nodeLink>
+<nodeLink from="26" to="29"></nodeLink>
+<nodeLink from="27" to="21"><file type="RW DMI Configuration"><uuid>{aa944678-0a24-4b11-938a-613cb70a8324}</uuid>
 <fileName>_StudyEventOutput_.xml</fileName>
 </file>
 </nodeLink>
-<nodeLink to="21" from="24"></nodeLink>
-<nodeLink to="11" from="27"></nodeLink>
-<nodeLink to="49" from="29"></nodeLink>
-<nodeLink to="58" from="31"></nodeLink>
-<nodeLink to="22" from="36"><file type="RW MRM Configuration"><uuid>{7047b120-fec3-4be7-9fbc-06503c7e49aa}</uuid>
+<nodeLink from="32" to="40"></nodeLink>
+<nodeLink from="34" to="21"><file type="RW MRM Configuration"><uuid>{7047b120-fec3-4be7-9fbc-06503c7e49aa}</uuid>
 </file>
 </nodeLink>
-<nodeLink to="13" from="49"></nodeLink>
-<nodeLink to="1" from="50"></nodeLink>
-<nodeLink to="10" from="51"></nodeLink>
-<nodeLink to="2" from="54"></nodeLink>
-<nodeLink to="22" from="56"><file type="RW Policy Configuration"><uuid>{895f64be-e9b1-4d79-acc1-7d68d938ea82}</uuid>
+<nodeLink from="36" to="4"></nodeLink>
+<nodeLink from="37" to="17"></nodeLink>
+<nodeLink from="38" to="0"></nodeLink>
+<nodeLink from="39" to="21"><file type="RW Model Configuration"><uuid>{b65580f6-adf4-4ac4-8bb4-370c5b6dfccb}</uuid>
 </file>
 </nodeLink>
-<nodeLink to="64" from="57"></nodeLink>
-<nodeLink to="4" from="58"></nodeLink>
-<nodeLink to="26" from="59"></nodeLink>
-<nodeLink to="5" from="60"></nodeLink>
-<nodeLink to="22" from="61"><file type="RW Model Configuration"><uuid>{fb7aaba3-c3fd-4170-bda9-9e47e8a1bb6e}</uuid>
+<nodeLink from="40" to="7"></nodeLink>
+<nodeLink from="41" to="50"></nodeLink>
+<nodeLink from="42" to="10"></nodeLink>
+<nodeLink from="45" to="23"></nodeLink>
+<nodeLink from="46" to="21"><file type="RW Policy Configuration"><uuid>{ea8f73dd-cf62-4915-8d17-5de0755410ee}</uuid>
 </file>
 </nodeLink>
-<nodeLink to="14" from="64"></nodeLink>
+<nodeLink from="49" to="6"></nodeLink>
+<nodeLink from="50" to="12"></nodeLink>
+<nodeLink from="63" to="21"><file type="RW Policy Configuration"><uuid>{ab98b91c-a777-405c-a4a3-d3e5d1ade9a9}</uuid>
+</file>
+</nodeLink>
+<nodeLink from="64" to="21"><file type="RW Model Configuration"><uuid>{1ea619ca-1c2f-48ca-ad25-2311541e5505}</uuid>
+</file>
+</nodeLink>
 </graph>
 <eventPlaceMod></eventPlaceMod>
-<eventIntMod><uuid>{4be585a3-f870-42ca-bfba-9176f8b710db}</uuid>
-<uuid>{39e1a663-6459-4cce-a76f-9dce20a8b528}</uuid>
-<uuid>{ea6b3486-b80e-4c45-b52a-d7d7ad0d67bd}</uuid>
+<eventIntMod><uuid>{ea6b3486-b80e-4c45-b52a-d7d7ad0d67bd}</uuid>
+<uuid>{f3cbd999-0921-4998-bf73-8e01e17c4067}</uuid>
+<uuid>{8fa80217-20fe-450a-b3a3-91357630ac2f}</uuid>
 </eventIntMod>
 <eventExtMod></eventExtMod>
 <scenarioMgr><scenarioList timestamp="1625861050"><nameList sepChar=","><type>Model</type>
@@ -730,39 +736,39 @@ and creates one scenario for each input.</text>
 <scenario><uuid>{d1e2ee0a-2317-4f18-8fd0-8e1972d5a7be}</uuid>
 <name>crss.borg_2.0_baseline,DNF,2016Dems,baseline_LBDCP_ON,MTOM_Most</name>
 <config>
-<input name="crss.borg_2.0_baseline" type="Model" uuid="{9f52ae71-b8c9-4fa4-9b26-27ef6bdc6859}">
+<input type="Model" name="crss.borg_2.0_baseline" uuid="{9f52ae71-b8c9-4fa4-9b26-27ef6bdc6859}">
 <modelPath>$Borg_DIR/model/CRSS.Borg_2.0_Baseline.mdl</modelPath>
 </input>
-<input name="DNF" type="MRM Config" uuid="{7f7fd6c1-f640-4208-80be-56ddcd218985}">
+<input type="MRM Config" name="DNF" uuid="{7f7fd6c1-f640-4208-80be-56ddcd218985}">
 <configName>DNF</configName>
 <saveModel flag="0" policy="afterall"/>
 </input>
-<input name="baseline_LBDCP_ON" type="Policy" uuid="{b211c22b-d869-44ca-9684-7947ed3124a7}">
+<input type="Policy" name="baseline_LBDCP_ON" uuid="{b211c22b-d869-44ca-9684-7947ed3124a7}">
 <rulesetPath>C:/crss.borg_2.0/ruleset/CRSS.Baseline.2027IGDCP.v4.4.0.9004_baseline_DCP_ON.rls</rulesetPath>
 </input>
-<input metaType="DMI" name="MTOM_Most" type="IC" uuid="{44ecc40f-e2db-4acc-9835-8da40cd5f4e6}">
+<input type="IC" name="MTOM_Most" metaType="DMI" uuid="{44ecc40f-e2db-4acc-9835-8da40cd5f4e6}">
 <dmiName>Import Initial Conditions From MTOM and 24MS</dmiName>
 <execTime>preRun</execTime>
 <dmiType isDmiEvent="1">directConnect</dmiType>
 <datasetList>
-<dataset name="MTOM24MSToCRSS_Monthly" type="Excel">
+<dataset type="Excel" name="MTOM24MSToCRSS_Monthly">
 <sheet>Trace3</sheet>
 </dataset>
-<dataset name="MTOM24MSToCRSS_Annual" type="Excel">
+<dataset type="Excel" name="MTOM24MSToCRSS_Annual">
 <sheet>Trace3</sheet>
 </dataset>
 </datasetList>
 </input>
-<input metaType="DMI" name="2016Dems" type="Demand" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}">
+<input type="Demand" name="2016Dems" metaType="DMI" uuid="{59f2e25b-1215-4b9d-950f-9bc428a7c333}">
 <dmiName>2016 UB and LB Demands</dmiName>
 <execTime>preRun</execTime>
 <dmiType isDmiEvent="1">directConnect</dmiType>
 <datasetList>
-<dataset name="2016UCRC Demand Schedule" type="Excel">
+<dataset type="Excel" name="2016UCRC Demand Schedule">
 <workbook>$Borg_DIR/dmi/DIT_CRSS_LBshortageEIS_2016UCRC_v1.5.xlsm</workbook>
 <sheet>Baseline Monthly Data</sheet>
 </dataset>
-<dataset name="OtherExistingProjections" type="Excel">
+<dataset type="Excel" name="OtherExistingProjections">
 <workbook>$Borg_DIR/dmi/AZForebearedReturnFlow.xlsx</workbook>
 <sheet>Projected</sheet>
 </dataset>
@@ -896,8 +902,8 @@ and creates one scenario for each input.</text>
 </scenario>
 </scenarioList>
 </scenarioMgr>
-<scenarioSetMgr><scenarioSet name="HydrologyCompare" uniqueId="{21e4b525-8079-41f9-b5c1-6b7df4bd52ee}"></scenarioSet>
-<scenarioSet name="TestCompare" uniqueId="{37c8ea13-edc0-4953-8334-c5937df04ce8}"></scenarioSet>
-<scenarioSet name="NatFlowCompare" uniqueId="{c8b77ffd-94c2-4948-9cf8-b7ef2bec3fd6}"></scenarioSet>
+<scenarioSetMgr><scenarioSet uniqueId="{21e4b525-8079-41f9-b5c1-6b7df4bd52ee}" name="HydrologyCompare"></scenarioSet>
+<scenarioSet uniqueId="{37c8ea13-edc0-4953-8334-c5937df04ce8}" name="TestCompare"></scenarioSet>
+<scenarioSet uniqueId="{c8b77ffd-94c2-4948-9cf8-b7ef2bec3fd6}" name="NatFlowCompare"></scenarioSet>
 </scenarioSetMgr>
 </Study>
