@@ -19,16 +19,16 @@ Mead Decision Variables.From BorgRW_Flipped.Shortage Reduction: file=$Borg_DIR/i
 ########################
 
 #Powell Tier Elevation Decision Variable Input
-Powell Decision Variables.From Borg Powell Tier Table.Powell Tier Elevation: file=$Borg_DIR/input/Powell_Tier_Elevation_DV_IG.txt units=ft scale=1.0 import=fixed precision=model
+Powell Decision Variables.From Borg Powell Tier Table.Powell Tier Elevation: file=$Borg_DIR/input/Powell_Tier_Elevation_DV.txt units=ft scale=1.0 import=fixed precision=model
 
 #Powell Mead Reference Elevation Decision Variable Input
-Powell Decision Variables.From Borg Powell Tier Table.Mead Reference Elevation: file=$Borg_DIR/input/Powell_Mead_Reference_Elevation_DV_IG.txt units=ft scale=1.0 import=fixed precision=model
+Powell Decision Variables.From Borg Powell Tier Table.Mead Reference Elevation: file=$Borg_DIR/input/Powell_Mead_Reference_Elevation_DV.txt units=ft scale=1.0 import=fixed precision=model
 
 #Powell Range Number Decision Variable Input
-Powell Decision Variables.From Borg Powell Tier Table.Range Number: file=$Borg_DIR/input/Powell_Range_Number_DV_IG.txt units=ft scale=1.0 import=fixed precision=model
+Powell Decision Variables.From Borg Powell Tier Table.Range Number: file=$Borg_DIR/input/Powell_Range_Number_DV.txt units=ft scale=1.0 import=fixed precision=model
 
 #Powell Balance Tier Variable Decision Variable Input
-Powell Decision Variables.From Borg Powell Tier Table.Balance Tier Variable: file=$Borg_DIR/input/Powell_Balance_Tier_Variable_DV_IG.txt units=ft scale=1.0 import=fixed precision=model
+Powell Decision Variables.From Borg Powell Tier Table.Balance Tier Variable: file=$Borg_DIR/input/Powell_Balance_Tier_Variable_DV.txt units=ft scale=1.0 import=fixed precision=model
 
 #Powell Primary Release Volume Decision Variable Input
-Powell Decision Variables.From Borg Powell Tier Table.Primary Release Volume: file=$Borg_DIR/input/Powell_Primary_Release_Volume_DV_IG.txt units=ft scale=1.0 import=fixed precision=model
+Powell Decision Variables.From Borg Powell Tier Table.Primary Release Volume: file=$Borg_DIR/input/Powell_Primary_Release_Volume_DV.txt units=ft scale=1.0 import=fixed precision=model
