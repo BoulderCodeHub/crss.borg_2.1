@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 13:53 August 23, 2021
+# Created 11:58 September 9, 2021
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -770,7 +770,7 @@ BEGIN
     DESCRIPTION          "As it is not always possible to completely Equalize in the water year due to maximum release constraints and errors in the forecast, this rule will add on additional releases to Powell in next water year to finish equalizing.  There carryover EQ volume will be released in 1 month if possible, up to the maximum release constraint.  If any remains, it will be released in the subsequent month, until no more carryover exists.";
     ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "ThisRule" );
-  NAMES_COLOR  "#ff00ff";
+  NAMES_COLOR  "#000000";
     NOTES                "";
     BEGIN
 
@@ -1147,12 +1147,12 @@ BEGIN
     RULE                 "Generic Lake Powell Release Volume";
     DESCRIPTION          "";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  ) AND ( $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] == 2.00000000 OR $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] == 1.00000000 ) AND IsNaN $ "PowellOperation.SmoothJulyOps" [];
+    RULE_EXEC_CONSTRAINT @"t" <= @"24:00:00 September 30, Current Year" AND NOT "HasRuleFiredSuccessfully"( "ThisRule" ) AND NOT IsNaN "Powell.Storage" [] AND NOT "SpikeMadeThisMonth"(  ) AND $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] > 0.00000000 AND $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] < 13.00000000 AND IsNaN $ "PowellOperation.SmoothJulyOps" [];
   NAMES_COLOR  "#5500ff";
     NOTES                "";
     BEGIN
 
-      BREAKPOINT BEFORE_EXEC FALSE;
+      BREAKPOINT BEFORE_EXEC TRUE;
       $ "Powell.Outflow" [] := IF ( "CheckPowellBalancing"(  ) == 0.00000000 )
  THEN
   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG_PrimaryRel"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
