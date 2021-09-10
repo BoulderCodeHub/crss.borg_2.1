@@ -1,0 +1,7 @@
+SetTrace 1
+
+OpenWorkspace {$Borg_DIR/CRSS.Borg_2.0.mdl}
+
+StartController !MRM {DNF CRSS_Borg} distribMode=1
+
+CloseWorkspace

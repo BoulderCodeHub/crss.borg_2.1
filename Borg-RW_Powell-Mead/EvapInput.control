@@ -1,0 +1,13 @@
+Evap.BlueMesaCoef: file=$Borg_Dir/Random_Evap_8/%tempdir/%o.%s  units=NONE scale=1.0 import=resize
+Evap.CrystalCoef: file=$Borg_Dir/Random_Evap_8/%tempdir/%o.%s  units=NONE scale=1.0 import=resize
+Evap.FlamingGorgeCoef: file=$Borg_Dir/Random_Evap_8/%tempdir/%o.%s  units=NONE scale=1.0 import=resize
+Evap.FontenelleCoef: file=$Borg_Dir/Random_Evap_8/%tempdir/%o.%s  units=NONE scale=1.0 import=resize
+Evap.HavasuCoef: file=$Borg_Dir/Random_Evap_8/%tempdir/%o.%s  units=NONE scale=1.0 import=resize
+Evap.MeadCoef: file=$Borg_Dir/Random_Evap_8/%tempdir/%o.%s  units=NONE scale=1.0 import=resize
+Evap.MohaveCoef: file=$Borg_Dir/Random_Evap_8/%tempdir/%o.%s  units=NONE scale=1.0 import=resize
+Evap.MorrowPointCoef: file=$Borg_Dir/Random_Evap_8/%tempdir/%o.%s  units=NONE scale=1.0 import=resize
+Evap.NavajoCoef: file=$Borg_Dir/Random_Evap_8/%tempdir/%o.%s  units=NONE scale=1.0 import=resize
+Powell.Average Air Temperature: file=$Borg_Dir/Random_Evap_8/%tempdir/%o.%s  units=F scale=1.0 import=resize
+Powell.Average Precipitation: file=$Borg_Dir/Random_Evap_8/%tempdir/%o.%s  units=in/month scale=1.0 import=resize
+Powell.Gross Evaporation Coefficient: file=$Borg_Dir/Random_Evap_8/%tempdir/%o.%s  units=in/month scale=1.0 import=resize
+Powell.River Evaporation Coefficient: file=$Borg_Dir/Random_Evap_8/%tempdir/%o.%s  units=in/month scale=1.0 import=resize
