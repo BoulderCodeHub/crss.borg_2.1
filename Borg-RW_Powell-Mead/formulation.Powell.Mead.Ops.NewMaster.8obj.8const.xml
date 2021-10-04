@@ -194,7 +194,7 @@
             <numRow>5</numRow>
             <limits lower="5000000" upper="15000000"/> 
             <rows first="NaN" last="NaN"/>
-            <delta>999</delta>
+            <delta>1</delta>
             <nanRows>0</nanRows>
 			<roundingIncrement>10000.0</roundingIncrement>
         </column>
