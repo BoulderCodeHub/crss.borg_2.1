@@ -1,0 +1,151 @@
+# Powell
+Powell.Inflow: file=$Robust_DIR/results/%o.%s.rdf
+Powell.Outflow: file=$Robust_DIR/results/%o.%s.rdf
+Powell.Pool Elevation: file=$Robust_DIR/results/%o.%s.rdf
+Mead and Powell initial conditions.Powell Initial Pool Elevation: file=$Robust_DIR/results/%o.%s.rdf
+
+# Mead
+Mead.Outflow: file=$Robust_DIR/results/%o.%s.rdf
+Mead.Pool Elevation: file=$Robust_DIR/%o.%s.rdf
+Mead and Powell initial conditions.Mead Initial Pool Elevation: file=$Robust_DIR/%o.%s.rdf
+Evap.MeadCoef: file=$Robust_DIR/results/%o.%s.rdf
+
+# Important flow points
+
+CumulativeNaturalFlow.AboveLeesFerry: file=$Robust_DIR/results/%o.%s.rdf
+CumulativeNaturalFlow.AboveGlenwoodSprings: file=$Robust_DIR/results/%o.%s.rdf
+CumulativeNaturalFlow.AboveBluff: file=$Robust_DIR/results/%o.%s.rdf
+CumulativeNaturalFlow.AboveCameo: file=$Robust_DIR/results/%o.%s.rdf
+CumulativeNaturalFlow.AboveGrandJunction: file=$Robust_DIR/results/%o.%s.rdf
+CumulativeNaturalFlow.AboveCiscoColorado: file=$Robust_DIR/results/%o.%s.rdf
+CumulativeNaturalFlow.AboveGreenRiverUTGreen: file=$Robust_DIR/results/%o.%s.rdf
+CumulativeNaturalFlow.AboveGreenRiverUTSanRafael: file=$Robust_DIR/results/%o.%s.rdf
+CumulativeNaturalFlow.AboveWatson: file=$Robust_DIR/results/%o.%s.rdf
+CumulativeNaturalFlow.AboveRandlett: file=$Robust_DIR/results/%o.%s.rdf
+CumulativeNaturalFlow.AboveDeerlodge: file=$Robust_DIR/results/%o.%s.rdf
+CumulativeNaturalFlow.AboveGreendale: file=$Robust_DIR/results/%o.%s.rdf
+LeeFerryCompactPoint.Gage Outflow: file=$Robust_DIR/results/%o.%s.rdf
+SanJuanNearBluff.Gage Outflow: file=$Robust_DIR/results/%o.%s.rdf
+ColoradoNearCisco.Gage Outflow: file=$Robust_DIR/results/%o.%s.rdf
+GreenAtGreenRiverUT.Gage Outflow: file=$Robust_DIR/results/%o.%s.rdf
+LittleColoradoRiver.Inflow: file=$Robust_DIR/results/%o.%s.rdf
+
+#Mead Flood Control Check
+Surplus.Flood Control Surplus Flag: file=$Robust_DIR/results/%o.%s.rdf
+Surplus.Full Domestic Surplus Flag: file=$Robust_DIR/results/%o.%s.rdf
+Surplus.Partial Domestic Surplus Flag: file=$Robust_DIR/results/%o.%s.rdf
+SystemConditions.LBShortageTier: file=$Robust_DIR/results/%o.%s.rdf
+
+#Mead Decision Variable Tables
+Mead Decision Variables.From BorgRW: file=$Robust_DIR/results/%o.%s.rdf
+Mead Decision Variables.Compressed: file=$Robust_DIR/results/%o.%s.rdf
+Mead Decision Variables.Full: file=$Robust_DIR/results/%o.%s.rdf
+Mead Decision Variables.Surplus d From Borg: file=$Robust_DIR/results/%o.%s.rdf
+
+#SOW checks
+UB demand scenario scaling.total UB demand less AZ: file=$Robust_DIR/results/%o.%s.rdf
+UB demand scenario scaling.demand scaling coefficient: file=$Robust_DIR/results/%o.%s.rdf
+EqualizationData.Equalization Line: file=$Robust_DIR/results/%o.%s.rdf
+# check Powell and Mead pool elevation in start time step
+
+
+#Objectives
+Objectives.Objective LB Max Cons Shortage Duration: file=$Robust_DIR/results/Objectives.Objective_LB_Max_Cons_Shortage_Duration.rdf
+Objectives.Objective LB Shortage Frequency: file=$Robust_DIR/results/Objectives.Objective_LB_Shortage_Frequency.rdf
+Objectives.Objective LB Shortage Volume: file=$Robust_DIR/results/Objectives.Objective_LB_Shortage_Volume.rdf
+Objectives.Objective LB Shortage Volume_Policy: file=$Robust_DIR/results/Objectives.Objective_LB_Shortage_Volume_Policy.rdf
+Objectives.Objective Lee Ferry Deficit: file=$Robust_DIR/results/Objectives.Objective_Lee_Ferry_Deficit.rdf
+Objectives.Objective Max Annual LB Shortage: file=$Robust_DIR/results/Objectives.Objective_Max_Annual_LB_Shortage.rdf
+Objectives.Objective Mead 1000: file=$Robust_DIR/results/Objectives.Objective_Mead_1000.rdf
+Objectives.Objective Powell 3490: file=$Robust_DIR/results/Objectives.Objective_Powell_3490.rdf
+Objectives.Objective Powell WY Release: file=$Robust_DIR/results/Objectives.Objective_Powell_WY_Release.rdf
+
+#Sub-Objective Slots
+Objectives.Consecutive Shortage Counter: file=$Robust_DIR/results/Objectives.Consecutive_Shortage_Counter.rdf
+Objectives.LB Shortage indicator function: file=$Robust_DIR/results/Objectives.LB_Shortage_indicator_function.rdf
+Objectives.Lee Ferry Deficit indicator function: file=$Robust_DIR/results/Objectives.Lee_Ferry_Deficit_indicator_function.rdf
+Objectives.Mead 1000 indicator function: file=$Robust_DIR/results/Objectives.Mead_1000_indicator_function.rdf
+Objectives.Powell 34900 indicator function: file=$Robust_DIR/results/Objectives.Powell_34900_indicator_function.rdf
+LBHydrologicShortage.AnnualTotalShortage: file=$Robust_DIR/results/LBHydrologicShortage.AnnualTotalShortage.rdf
+LBHydrologicShortage.AnnualPolicyShortage: file=$Robust_DIR/results/LBHydrologicShortage.AnnualPolicyShortage.rdf
+PowellOperation.10 Year Compact Volume: file=$Robust_DIR/results/PowellOperation.10_Year_Compact_Volume.rdf
+PowellOperation.PowellWYRelease: file=$Robust_DIR/results/PowellOperation.PowellWYRelease.rdf
+
+#Demand Checks (Upper Basin and Lower Basin)
+LBDelivery.AnnualStateDemand: file=$Robust_DIR/results/LBDelivery.AnnualStateDemand.rdf
+UBDelivery.AnnualNormal: file=$Robust_DIR/results/UBDelivery.AnnualNormal.rdf
+
+# Annual actual depletions per state
+
+Computed State Depletions.Arizona Annual Actual: file=$Robust_DIR/results/%o.%s.rdf
+Computed State Depletions.California Annual Actual: file=$Robust_DIR/results/%o.%s.rdf
+Computed State Depletions.Colorado Annual Actual: file=$Robust_DIR/results/%o.%s.rdf
+Computed State Depletions.Mexico Annual Actual: file=$Robust_DIR/results/%o.%s.rdf
+Computed State Depletions.Nevada Annual Actual: file=$Robust_DIR/results/%o.%s.rdf
+Computed State Depletions.New Mexico Annual Actual: file=$Robust_DIR/results/%o.%s.rdf
+Computed State Depletions.Utah Annual Actual: file=$Robust_DIR/results/%o.%s.rdf
+Computed State Depletions.Wyoming Annual Actual: file=$Robust_DIR/results/%o.%s.rdf
+Computed State Depletions.UB Annual Actual: file=$Robust_DIR/results/%o.%s.rdf
+Computed State Depletions.LB MX Annual Actual: file=$Robust_DIR/results/%o.%s.rdf
+
+# Annual normal depletions per state
+
+Computed State Depletions.Arizona Annual Normal: file=$Robust_DIR/results/%o.%s.rdf
+Computed State Depletions.California Annual Normal: file=$Robust_DIR/results/%o.%s.rdf
+Computed State Depletions.Colorado Annual Normal: file=$Robust_DIR/results/%o.%s.rdf
+Computed State Depletions.Nevada Annual Normal: file=$Robust_DIR/results/%o.%s.rdf
+Computed State Depletions.New Mexico Annual Normal: file=$Robust_DIR/results/%o.%s.rdf
+Computed State Depletions.Utah Annual Normal: file=$Robust_DIR/results/%o.%s.rdf
+Computed State Depletions.Wyoming Annual Normal: file=$Robust_DIR/results/%o.%s.rdf
+
+
+# Annual shortages per state (actual - normal depletions ---> positive is surplus, negative is shortage)
+
+# UBShort
+UBShort.AnnualColoradoShort: file=$Robust_DIR/results/%o.%s.rdf
+UBShort.AnnualNewMexicoShort: file=$Robust_DIR/results/%o.%s.rdf
+UBShort.AnnualUtahShort: file=$Robust_DIR/results/%o.%s.rdf
+UBShort.AnnualWyomingShort: file=$Robust_DIR/results/%o.%s.rdf
+UBShort.AnnualArizonaShort: file=$Robust_DIR/results/%o.%s.rdf
+UBShort.AnnualUBShort: file=$Robust_DIR/results/%o.%s.rdf
+
+# LBShort
+LBShort.AnnualLBMexicoShort: file=$Robust_DIR/results/%o.%s.rdf
+# AnnualLBMexShortForCumShort excludes IID, AnnualLBMexicoShort includes IID
+LBShort.AnnualLBMexShortForCumShort: file=$Robust_DIR/results/%o.%s.rdf
+LBShort.AnnualArizonaShort: file=$Robust_DIR/results/%o.%s.rdf
+LBShort.AnnualCAPShort: file=$Robust_DIR/results/%o.%s.rdf
+LBShort.AnnualIIDShort: file=$Robust_DIR/results/%o.%s.rdf
+LBShort.AnnualMexicoShort: file=$Robust_DIR/results/%o.%s.rdf
+LBShort.AnnualMWDShort: file=$Robust_DIR/results/%o.%s.rdf
+LBShort.AnnualSNWPShort: file=$Robust_DIR/results/%o.%s.rdf
+LBShort.AnnualArizonaPriority2and3Short: file=$Robust_DIR/results/%o.%s.rdf
+LBShort.AnnualArizonaPriority4OtherShort: file=$Robust_DIR/results/%o.%s.rdf
+LBShort.ConsecutiveYearShortage: file=$Robust_DIR/results/%o.%s.rdf
+
+## 10 tribes partnership depletion shortages (we decided these aren't represented accurately in model)
+
+# Upper Basin (Ute Mountain Ute, Southern Ute, Ute, Jicarilla Apache, Navajo)
+#AgAboveRandlette:AgUteCurr.Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf
+#AgUsesAboveGreenRUt:UteIndianCompactGreen.Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf
+#AnimasRiverMI:NavajoALP.Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf
+#AnimasRiverMI:NavajoOther.Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf
+#ColoradoNewMexAgAbvArch:COSoUte.Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf 
+#ColoradoNewMexAgAbvArch:NMJicarillaAg.Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf
+#ColoradoNewMexAgAbvArch:NMNavajo.Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf
+#ColoradoUsesBelowShiprockNM:CoAgUteMtnUte.Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf
+#NavajoIndianIrrigationProjectNIIPandExports:NIIP.Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf
+#UTSJbelowBluff:UTNavajoClaims.Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf
+
+
+# Lower Basin (Fort Mojave, Colorado River, Chemehuevi, Quechan (Fort Yuma), Cocopah) 
+#ChemehueviReservation.Total Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf
+#FtMohaveReservation.Total Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf
+#ColoradoRiverIndianReservation.Total Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf
+#FtYumaReservationPriority1.Total Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf 
+#GilaAndYumaUsersPriority1:CocopahIndRes.Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf
+#GilaAndYumaUsersPriority4:CocopahIndRes.Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf
+#ArizonaMiscUses:GallupMunWSNavTem.Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf
+
+
+

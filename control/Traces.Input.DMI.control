@@ -1,0 +1,96 @@
+
+#################################
+####### EvapInput.control #######
+#################################
+
+# Based on 1/13/21 meeting with Reclamation, decided to set all evap coeff to 0, save model, then NOT load new coefficients
+# To load, uncomment
+
+#Evap.BlueMesaCoef: scale=1.0 import=resize
+#Evap.CrystalCoef: scale=1.0 import=resize
+#Evap.FlamingGorgeCoef: scale=1.0 import=resize
+#Evap.FontenelleCoef: scale=1.0 import=resize
+#Evap.HavasuCoef: scale=1.0 import=resize
+#Evap.MeadCoef: scale=1.0 import=resize
+#Evap.MohaveCoef: scale=1.0 import=resize
+#Evap.MorrowPointCoef: scale=1.0 import=resize
+#Evap.NavajoCoef: scale=1.0 import=resize
+#Powell.Average Air Temperature: scale=1.0 import=resize
+#Powell.Average Precipitation: scale=1.0 import=resize
+#Powell.Gross Evaporation Coefficient: scale=1.0 import=resize
+#Powell.River Evaporation Coefficient: scale=1.0 import=resize
+
+#################################
+######## NatFlow.control ########
+#################################
+
+DoloresRiver.Inflow: scale=1.0 import=resize
+#DoloresRiver.Inflow Salt Concentration:  scale=1.0 import=resize
+DuchesneAboveStarv.Inflow: scale=1.0 import=resize
+#DuchesneAboveStarv.Inflow Salt Concentration:  scale=1.0 import=resize
+GreenRAboveFontenelle.Inflow: scale=1.0 import=resize
+#GreenRAboveFontenelle.Inflow Salt Concentration: scale=1.0 import=resize
+SanRafaelRiver.Inflow: scale=1.0 import=resize
+#SanRafaelRiver.Inflow Salt Concentration: scale=1.0 import=resize
+SJAboveNavajo.Inflow: scale=1.0 import=resize
+#SJAboveNavajo.Inflow Salt Concentration:  scale=1.0 import=resize
+UpperColoradoReach.Inflow: scale=1.0 import=resize
+#UpperColoradoReach.Inflow Salt Concentration: scale=1.0 import=resize
+VirginRiver.Inflow:  scale=1.0 import=resize
+#VirginRiver.Inflow Salt Concentration: scale=1.0 import=resize
+WhiteRiverAboveWatson.Inflow:  scale=1.0 import=resize
+#WhiteRiverAboveWatson.Inflow Salt Concentration:  scale=1.0 import=resize
+YampaRiver.Inflow: scale=1.0 import=resize
+#YampaRiver.Inflow Salt Concentration: scale=1.0 import=resize
+AboveImperialDamColoradoR:GainsOnColoRAboveImperialDam.Local Inflow: scale=1.0 import=resize  
+#AboveImperialDamColoradoR:GainsOnColoRAboveImperialDam.Local Inflow Salt Concentration: scale=1.0 import=resize
+CoRivMeadToMohave:GainsAboveDavis.Local Inflow: scale=1.0 import=resize
+#CoRivMeadToMohave:GainsAboveDavis.Local Inflow Salt Concentration:  scale=1.0 import=resize
+CoRivMohaveToHavasu:BillWilliamsRiver.Local Inflow: scale=1.0 import=resize
+#CoRivMohaveToHavasu:BillWilliamsRiver.Local Inflow Salt Concentration:  scale=1.0 import=resize
+CoRivMohaveToHavasu:GainsAboveParker.Local Inflow:  scale=1.0 import=resize
+#CoRivMohaveToHavasu:GainsAboveParker.Local Inflow Salt Concentration: scale=1.0 import=resize
+CoRivLittleCOToVirgin:GainsAboveGC.Local Inflow: scale=1.0 import=resize
+#CoRivLittleCOToVirgin:GainsAboveGC.Local Inflow Salt Concentration:  scale=1.0 import=resize
+LittleColoradoRiver.Inflow:  scale=1.0 import=resize
+#LittleColoradoRiver.Inflow Salt Concentration: scale=1.0 import=resize
+PariaRiver.Inflow: scale=1.0 import=resize
+#PariaRiver.Inflow Salt Concentration:  scale=1.0 import=resize
+CoRivVirginToMead:GainsAboveHoover.Local Inflow:  scale=1.0 import=resize
+#CoRivVirginToMead:GainsAboveHoover.Local Inflow Salt Concentration: scale=1.0 import=resize
+GreenRAboveFlamingGorge:GainsAboveGreendale.Local Inflow: scale=1.0 import=resize
+#GreenRAboveFlamingGorge:GainsAboveGreendale.Local Inflow Salt Concentration: scale=1.0 import=resize
+GreenRAboveGreenRiverWY:GainsAboveGRWY.Local Inflow: scale=1.0 import=resize
+#GreenRAboveGreenRiverWY:GainsAboveGRWY.Local Inflow Salt Concentration: scale=1.0 import=resize 
+GreenRWhiteToSanRafael:GainsAboveGreenRiverUT.Local Inflow: scale=1.0 import=resize
+#GreenRWhiteToSanRafael:GainsAboveGreenRiverUT.Local Inflow Salt Concentration: scale=1.0 import=resize 
+GunnisonRiverAboveCrystal:GainsAboveCrystal.Local Inflow: scale=1.0 import=resize
+#GunnisonRiverAboveCrystal:GainsAboveCrystal.Local Inflow Salt Concentration: scale=1.0 import=resize
+GunnisonRiverAboveGrandJunction:GainsGunnisonRiverAbvGrandJunction.Local Inflow: scale=1.0 import=resize
+#GunnisonRiverAboveGrandJunction:GainsGunnisonRiverAbvGrandJunction.Local Inflow Salt Concentration: scale=1.0 import=resize
+SanJuanPowell:GainsAboveLeesFerry.Local Inflow: scale=1.0 import=resize
+#SanJuanPowell:GainsAboveLeesFerry.Local Inflow Salt Concentration: scale=1.0 import=resize
+SanJuanTributaries.Inflow: scale=1.0 import=resize
+#SanJuanTributaries.Inflow Salt Concentration: scale=1.0 import=resize
+TaylorAboveBlueMesa:GainsAboveBlueMesa.Local Inflow: scale=1.0 import=resize
+#TaylorAboveBlueMesa:GainsAboveBlueMesa.Local Inflow Salt Concentration: scale=1.0 import=resize
+UpperColoradoAboveCameo:GainsAboveCameo.Local Inflow: scale=1.0 import=resize
+#UpperColoradoAboveCameo:GainsAboveCameo.Local Inflow Salt Concentration: scale=1.0 import=resize
+UpperColoradoCameoToGunnison:GainsAboveCisco.Local Inflow: scale=1.0 import=resize
+#UpperColoradoCameoToGunnison:GainsAboveCisco.Local Inflow Salt Concentration: scale=1.0 import=resize
+LittleSnakeRiver.Inflow: scale=1.0 import=resize
+#LittleSnakeRiver.Inflow Salt Concentration: scale=1.0 import=resize
+TaylorPark.Inflow: scale=1.0 import=resize
+#TaylorPark.Inflow Salt Concentration: scale=1.0 import=resize
+
+##############################################################
+############### Added for PCNF and DPNF scenarios ############
+# Only MeadFloodControlData.hydrologyIncrement is in model? ##
+# see email from Alan 11/10/20
+
+#HydrologyParameters.SupplyScenario: scale=1.0 import=resize
+#HydrologyParamaters.TraceNumber: scale=1.0 import=resize
+#MeadFloodControlData.hydrologyIncrement: scale=1.0 import=resize
+#MWD ICS.SacWYType: scale=1.0 import=resize
+
+
