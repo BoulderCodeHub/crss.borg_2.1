@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CADSWES, University of Colorado, http://cadswes.colorado.edu/
+RiverSMART 8.2.2
+Document created on Thu Nov 18 13:46:38 2021
+Document created by ealexander
+-->
+<Study uuid="{8093e33f-f5bd-407f-912a-5d52b0b41c19}" mode="fullstudy">
+<version patch="2" major="8" minor="2"><type>RiverSMART</type>
+</version>
+<pluginList><plugin patch="0" major="1" minor="0"><type>CSV Combiner</type>
+</plugin>
+<plugin patch="0" major="1" minor="1"><type>GPAT Graphs</type>
+</plugin>
+<plugin patch="0" major="1" minor="1"><type>Hydrology Simulator</type>
+</plugin>
+<plugin patch="0" major="1" minor="1"><type>R Plugin</type>
+</plugin>
+<plugin patch="0" major="1" minor="0"><type>RDF Annualizer</type>
+</plugin>
+<plugin patch="0" major="1" minor="0"><type>RDF To Excel</type>
+</plugin>
+<plugin patch="0" major="1" minor="1"><type>RiverWare</type>
+</plugin>
+<plugin patch="0" major="1" minor="1"><type>RiverWare DMI</type>
+</plugin>
+<plugin patch="0" major="1" minor="0"><type>RiverWare DMI Sequence</type>
+</plugin>
+<plugin patch="0" major="1" minor="2"><type>RiverWare MRM</type>
+</plugin>
+<plugin patch="0" major="1" minor="1"><type>RiverWare Model</type>
+</plugin>
+<plugin patch="0" major="1" minor="0"><type>RiverWare Policy</type>
+</plugin>
+<plugin patch="0" major="1" minor="0"><type>RiverWare Run Range</type>
+</plugin>
+<plugin patch="0" major="1" minor="1"><type>Spatial Disagg</type>
+</plugin>
+<plugin patch="0" major="1" minor="1"><type>Temporal Disagg</type>
+</plugin>
+</pluginList>
+<fileInfo><createdOn>Thu Nov 18 13:46:38 2021</createdOn>
+<createdBy>ealexander</createdBy>
+</fileInfo>
+<name></name>
+<studyDirPath>$Robust_DIR</studyDirPath>
+<diagEnabled>1</diagEnabled>
+<archive time="sim" remErr="0" arch="0" remArch="0"></archive>
+<notify stop="0"><afterEach flag="0"></afterEach>
+<afterOk flag="0"></afterOk>
+<afterErr flag="0"></afterErr>
+<afterAll flag="0"></afterAll>
+</notify>
+<scene><fontSize>12</fontSize>
+<fontColor>#000000</fontColor>
+</scene>
+<graph fileCnt="1" numNode="6" eventCnt="5" textCnt="0"><fileNode type="RDF" nodeNum="0"><scenePos x="2412" y="2472"></scenePos>
+<fileConfig><uuid>{15774f96-c673-4f5f-9975-fb0aefd066ff}</uuid>
+<name>Dummy</name>
+</fileConfig>
+</fileNode>
+<eventNode type="RiverWare Model" nodeNum="1"><scenePos x="2019" y="2330"></scenePos>
+<eventConfig><uuid>{175748ea-eecc-4fd7-a41b-77f156128864}</uuid>
+<name>CRSS.Borg_2.0</name>
+<placeholder>0</placeholder>
+<modified intMod="1"></modified>
+<scope>event</scope>
+<config><ParamDat>
+<ModelParams>
+<ModelFile>$Robust_DIR/model/CRSS.Borg_2.0.mdl</ModelFile>
+</ModelParams>
+</ParamDat>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare MRM" nodeNum="2"><scenePos x="1983" y="2532"></scenePos>
+<eventConfig><uuid>{0bb67964-bf1e-4a19-89c5-703c774a0583}</uuid>
+<name>Future States of The World</name>
+<placeholder>0</placeholder>
+<modified intMod="1"></modified>
+<scope>event</scope>
+<config><mrmConfigName>Robustness SOW</mrmConfigName>
+<mrmSaveModel policy="afterall" flag="0"></mrmSaveModel>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare Policy" nodeNum="3"><scenePos x="2197" y="2285"></scenePos>
+<eventConfig><uuid>{d21def27-a958-42f1-a711-d94193d96651}</uuid>
+<name>CRSS.Borg_2.0_Ruleset</name>
+<placeholder>0</placeholder>
+<modified intMod="1"></modified>
+<scope>event</scope>
+<config><ParamDat><RplPolicy><RplSetFile>$Robust_DIR/ruleset/CRSS.Borg.DV.Baseline.2027IGDCP.v4.4.0.9004.rls</RplSetFile>
+</RplPolicy>
+</ParamDat>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare" nodeNum="4"><scenePos x="2184" y="2467"></scenePos>
+<eventConfig><uuid>{42c00560-3996-46b9-bb2c-ea0082aefc10}</uuid>
+<name>RiverWare</name>
+<placeholder>0</placeholder>
+<scope>event</scope>
+<config><rwProc><rwExec showUi="1">C:/Users/ealexander/AppData/Local/Programs/CADSWES/RiverWare 8.2.2/riverware.exe</rwExec>
+<userCmd cmdLoc="modelload" cmdFlag="0"><cmdText></cmdText>
+</userCmd>
+</rwProc>
+</config>
+</eventConfig>
+</eventNode>
+<eventNode type="RiverWare DMI Sequence" nodeNum="5"><scenePos x="2199" y="2653"></scenePos>
+<eventConfig><uuid>{bbb5340f-228f-494b-9d22-1dfd1e9d7fd5}</uuid>
+<name>Lake Powell and Mead MOEA Policies</name>
+<placeholder>0</placeholder>
+<modified intMod="1"></modified>
+<scope>event</scope>
+<config><ParamDat><DmiConfig type="CtrlFileExec"><Name>Borg DV Input Sequence</Name>
+<UserCategory>Policies</UserCategory>
+<ExecTime>Init</ExecTime>
+<TraceCount>1</TraceCount>
+<ListDmi first="1" digits="3" last="1"></ListDmi>
+<ListDir name="policy"></ListDir>
+<ExcelDataSet name="2016UCRC Demand Schedule" sheet="Baseline Monthly Data" workbook="$Robust_DIR/dmi/DIT_CRSS_LBshortageEIS_2016UCRC_v1.5_2021_Repeat.xlsm"/>
+<ExcelDataSet name="OtherExistingProjections" sheet="Projected" workbook="$Robust_DIR/dmi/AZForebearedReturnFlow.xlsx"/>
+<Executable path=""><Arg></Arg>
+</Executable>
+<TracesDmi TracesDir="C:/Users/ealexander/Documents/Git/crss.borg_2.0/dmi/Mead_and_Powell_Policies" TemplateCtlFile="$Robust_DIR/control/DecisionVars.Input.DMI.Robustness.control"></TracesDmi>
+</DmiConfig>
+</ParamDat>
+</config>
+</eventConfig>
+</eventNode>
+<nodeLink to="4" from="1"><file type="RW Model Configuration"><uuid>{676ee3cc-f30e-4fd0-a761-39c5713fbcf6}</uuid>
+</file>
+</nodeLink>
+<nodeLink to="4" from="2"><file type="RW MRM Configuration"><uuid>{be2100cb-035d-44a6-8be0-6430218f0b86}</uuid>
+</file>
+</nodeLink>
+<nodeLink to="4" from="3"><file type="RW Policy Configuration"><uuid>{4fb1b87d-76f5-4520-95fe-2b0c69cbb0d5}</uuid>
+</file>
+</nodeLink>
+<nodeLink to="0" from="4"></nodeLink>
+<nodeLink to="4" from="5"><file type="RW DMI Configuration"><uuid>{b15a130f-ab59-4438-b1f0-c8656db4e5c7}</uuid>
+</file>
+</nodeLink>
+</graph>
+<eventPlaceMod></eventPlaceMod>
+<eventIntMod><uuid>{175748ea-eecc-4fd7-a41b-77f156128864}</uuid>
+<uuid>{d21def27-a958-42f1-a711-d94193d96651}</uuid>
+<uuid>{0bb67964-bf1e-4a19-89c5-703c774a0583}</uuid>
+<uuid>{bbb5340f-228f-494b-9d22-1dfd1e9d7fd5}</uuid>
+</eventIntMod>
+<eventExtMod></eventExtMod>
+<scenarioMgr><scenarioList timestamp="0"><nameList sepChar=","></nameList>
+<inactiveList></inactiveList>
+<view>ascending</view>
+<customView><typeList></typeList>
+<sortKeyList></sortKeyList>
+</customView>
+<generateView><typeList></typeList>
+</generateView>
+<simulateView><typeList></typeList>
+<hiddenList></hiddenList>
+</simulateView>
+<postProcView><typeList></typeList>
+<hiddenList></hiddenList>
+</postProcView>
+<postProcFileList></postProcFileList>
+<scenarioSetView><typeList></typeList>
+</scenarioSetView>
+</scenarioList>
+</scenarioMgr>
+<scenarioSetMgr></scenarioSetMgr>
+</Study>
