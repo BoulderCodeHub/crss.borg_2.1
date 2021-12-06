@@ -50,15 +50,15 @@ EqualizationData.Equalization Line: file=$Robust_DIR/results/%o.%s.rdf
 
 
 #Objectives
-Objectives.Objective LB Max Cons Shortage Duration: file=$Robust_DIR/results/Objectives.Objective_LB_Max_Cons_Shortage_Duration.rdf
-Objectives.Objective LB Shortage Frequency: file=$Robust_DIR/results/Objectives.Objective_LB_Shortage_Frequency.rdf
-Objectives.Objective LB Shortage Volume: file=$Robust_DIR/results/Objectives.Objective_LB_Shortage_Volume.rdf
-Objectives.Objective LB Shortage Volume_Policy: file=$Robust_DIR/results/Objectives.Objective_LB_Shortage_Volume_Policy.rdf
-Objectives.Objective Lee Ferry Deficit: file=$Robust_DIR/results/Objectives.Objective_Lee_Ferry_Deficit.rdf
-Objectives.Objective Max Annual LB Shortage: file=$Robust_DIR/results/Objectives.Objective_Max_Annual_LB_Shortage.rdf
-Objectives.Objective Mead 1000: file=$Robust_DIR/results/Objectives.Objective_Mead_1000.rdf
-Objectives.Objective Powell 3490: file=$Robust_DIR/results/Objectives.Objective_Powell_3490.rdf
-Objectives.Objective Powell WY Release: file=$Robust_DIR/results/Objectives.Objective_Powell_WY_Release.rdf
+Objectives.Objective_LB_Max_Cons_Shortage_Duration: file=$Robust_DIR/results/Mead_Objectives.rdf
+Objectives.Objective_LB_Shortage_Frequency: file=$Robust_DIR/results/Mead_Objectives.rdf
+Objectives.Objective_LB_Shortage_Volume: file=$Robust_DIR/results/Mead_Objectives.rdf
+Objectives.Objective_Avg_Combo_Storage: file=$Robust_DIR/results/Mead_Objectives.rdf
+Objectives.Objective_Lee_Ferry_Deficit: file=$Robust_DIR/results/Mead_Objectives.rdf
+Objectives.Objective_Max_Annual_LB_Shortage: file=$Robust_DIR/results/Mead_Objectives.rdf
+Objectives.Objective_Mead_1000: file=$Robust_DIR/results/Mead_Objectives.rdf
+Objectives.Objective_Powell_3490: file=$Robust_DIR/results/Mead_Objectives.rdf
+Objectives.Objective_Powell_WY_Release: file=$Robust_DIR/results/Mead_Objectives.rdf
 
 #Sub-Objective Slots
 Objectives.Consecutive Shortage Counter: file=$Robust_DIR/results/Objectives.Consecutive_Shortage_Counter.rdf
@@ -85,8 +85,8 @@ Computed State Depletions.Nevada Annual Actual: file=$Robust_DIR/results/%o.%s.r
 Computed State Depletions.New Mexico Annual Actual: file=$Robust_DIR/results/%o.%s.rdf
 Computed State Depletions.Utah Annual Actual: file=$Robust_DIR/results/%o.%s.rdf
 Computed State Depletions.Wyoming Annual Actual: file=$Robust_DIR/results/%o.%s.rdf
-Computed State Depletions.UB Annual Actual: file=$Robust_DIR/results/%o.%s.rdf
-Computed State Depletions.LB MX Annual Actual: file=$Robust_DIR/results/%o.%s.rdf
+UBDelivery.AnnualActual: file=$Robust_DIR/results/%o.%s.rdf
+LBDelivery.AnnualActualDelivery: file=$Robust_DIR/results/%o.%s.rdf
 
 # Annual normal depletions per state
 
