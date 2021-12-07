@@ -6,8 +6,8 @@ Mead and Powell initial conditions.Powell Initial Pool Elevation: file=$Robust_D
 
 # Mead
 Mead.Outflow: file=$Robust_DIR/results/%o.%s.rdf
-Mead.Pool Elevation: file=$Robust_DIR/%o.%s.rdf
-Mead and Powell initial conditions.Mead Initial Pool Elevation: file=$Robust_DIR/%o.%s.rdf
+Mead.Pool Elevation: file=$Robust_DIR/results/%o.%s.rdf
+Mead and Powell initial conditions.Mead Initial Pool Elevation: file=$Robust_DIR/results/%o.%s.rdf
 Evap.MeadCoef: file=$Robust_DIR/results/%o.%s.rdf
 
 # Important flow points
@@ -36,11 +36,6 @@ Surplus.Full Domestic Surplus Flag: file=$Robust_DIR/results/%o.%s.rdf
 Surplus.Partial Domestic Surplus Flag: file=$Robust_DIR/results/%o.%s.rdf
 SystemConditions.LBShortageTier: file=$Robust_DIR/results/%o.%s.rdf
 
-#Mead Decision Variable Tables
-Mead Decision Variables.From BorgRW: file=$Robust_DIR/results/%o.%s.rdf
-Mead Decision Variables.Compressed: file=$Robust_DIR/results/%o.%s.rdf
-Mead Decision Variables.Full: file=$Robust_DIR/results/%o.%s.rdf
-Mead Decision Variables.Surplus d From Borg: file=$Robust_DIR/results/%o.%s.rdf
 
 #SOW checks
 UB demand scenario scaling.total UB demand less AZ: file=$Robust_DIR/results/%o.%s.rdf
@@ -98,7 +93,6 @@ Computed State Depletions.New Mexico Annual Normal: file=$Robust_DIR/results/%o.
 Computed State Depletions.Utah Annual Normal: file=$Robust_DIR/results/%o.%s.rdf
 Computed State Depletions.Wyoming Annual Normal: file=$Robust_DIR/results/%o.%s.rdf
 
-
 # Annual shortages per state (actual - normal depletions ---> positive is surplus, negative is shortage)
 
 # UBShort
@@ -147,5 +141,19 @@ LBShort.ConsecutiveYearShortage: file=$Robust_DIR/results/%o.%s.rdf
 #GilaAndYumaUsersPriority4:CocopahIndRes.Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf
 #ArizonaMiscUses:GallupMunWSNavTem.Depletion Shortage: file=$Robust_DIR/results/%o.%s.rdf
 
+#########################################
+#####  Lake Mead Policy Variables ######
+#######################################
 
+Mead Decision Variables.From BorgRW: file=$Robust_DIR/results/MeadDVs.From_BorgRW.rdf
+Mead Decision Variables.Compressed: file=$Robust_DIR/results/MeadDVs.Compressed.rdf
+Mead Decision Variables.Full: file=$Robust_DIR/results/MeadDVs.Full.rdf
+Mead Decision Variables.Surplus d From Borg: file=$Robust_DIR/results/MeadDVs.Surplus_DVs.rdf
+
+###########################################
+#####  Lake Powell Policy Variables ######
+#########################################
+
+Powell Decision Variables.From Borg Powell Tier Table: file=$Robust_DIR/results/PowellDVs.From_Borg_Powell_Tier_Table.rdf
+Powell Decision Variables.Increment_EQ: file=$Robust_DIR/results/PowellDVs.Increment_EQ.rdf
 
