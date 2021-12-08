@@ -2,7 +2,7 @@
 <!--
 CADSWES, University of Colorado, http://cadswes.colorado.edu/
 RiverSMART 8.2.2
-Document created on Tue Dec 7 15:56:00 2021
+Document created on Wed Dec 8 08:42:07 2021
 Document created by ealexander
 -->
 <Study uuid="{8093e33f-f5bd-407f-912a-5d52b0b41c19}" mode="fullstudy">
@@ -39,7 +39,7 @@ Document created by ealexander
 <plugin major="1" minor="1" patch="0"><type>Temporal Disagg</type>
 </plugin>
 </pluginList>
-<fileInfo><createdOn>Tue Dec 7 15:56:00 2021</createdOn>
+<fileInfo><createdOn>Wed Dec 8 08:42:07 2021</createdOn>
 <createdBy>ealexander</createdBy>
 </fileInfo>
 <name></name>
@@ -98,12 +98,13 @@ Document created by ealexander
 <eventConfig><uuid>{bbb5340f-228f-494b-9d22-1dfd1e9d7fd5}</uuid>
 <name>Lake Powell and Mead MOEA Policies</name>
 <placeholder>0</placeholder>
+<modified intMod="1"></modified>
 <scope>event</scope>
 <config><ParamDat><DmiConfig type="CtrlFileExec"><Name>Borg DV Input Sequence</Name>
 <UserCategory>Policies</UserCategory>
 <ExecTime>Init</ExecTime>
 <TraceCount>1</TraceCount>
-<ListDmi digits="1" last="2" first="1"></ListDmi>
+<ListDmi digits="3" last="605" first="1"></ListDmi>
 <ListDir name="policy"></ListDir>
 <ExcelDataSet workbook="$Robust_DIR/dmi/DIT_CRSS_LBshortageEIS_2016UCRC_v1.5_2021_Repeat.xlsm" name="2016UCRC Demand Schedule" sheet="Baseline Monthly Data"/>
 <ExcelDataSet workbook="$Robust_DIR/dmi/AZForebearedReturnFlow.xlsx" name="OtherExistingProjections" sheet="Projected"/>
@@ -146,7 +147,8 @@ Document created by ealexander
 <nodeLink from="5" to="0"></nodeLink>
 </graph>
 <eventPlaceMod></eventPlaceMod>
-<eventIntMod></eventIntMod>
+<eventIntMod><uuid>{bbb5340f-228f-494b-9d22-1dfd1e9d7fd5}</uuid>
+</eventIntMod>
 <eventExtMod></eventExtMod>
 <scenarioMgr><scenarioList timestamp="1638908311"><nameList sepChar=","><type>MRM Config</type>
 <type>Model</type>

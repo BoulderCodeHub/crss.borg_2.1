@@ -45,15 +45,15 @@ EqualizationData.Equalization Line: file=$Robust_DIR/results/%o.%s.rdf
 
 
 #Objectives
-Objectives.Objective_LB_Max_Cons_Shortage_Duration: file=$Robust_DIR/results/Mead_Objectives.rdf
-Objectives.Objective_LB_Shortage_Frequency: file=$Robust_DIR/results/Mead_Objectives.rdf
-Objectives.Objective_LB_Shortage_Volume: file=$Robust_DIR/results/Mead_Objectives.rdf
-Objectives.Objective_Avg_Combo_Storage: file=$Robust_DIR/results/Mead_Objectives.rdf
-Objectives.Objective_Lee_Ferry_Deficit: file=$Robust_DIR/results/Mead_Objectives.rdf
-Objectives.Objective_Max_Annual_LB_Shortage: file=$Robust_DIR/results/Mead_Objectives.rdf
-Objectives.Objective_Mead_1000: file=$Robust_DIR/results/Mead_Objectives.rdf
-Objectives.Objective_Powell_3490: file=$Robust_DIR/results/Mead_Objectives.rdf
-Objectives.Objective_Powell_WY_Release: file=$Robust_DIR/results/Mead_Objectives.rdf
+Objectives.Objective_LB_Max_Cons_Shortage_Duration: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_LB_Shortage_Frequency: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_LB_Shortage_Volume: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Avg_Combo_Storage: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Lee_Ferry_Deficit: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Max_Annual_LB_Shortage: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Mead_1000: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Powell_3490: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Powell_WY_Release: file=$Robust_DIR/results/Objectives.rdf
 
 #Sub-Objective Slots
 Objectives.Consecutive Shortage Counter: file=$Robust_DIR/results/Objectives.Consecutive_Shortage_Counter.rdf
