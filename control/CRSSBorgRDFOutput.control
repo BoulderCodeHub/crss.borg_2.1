@@ -83,6 +83,7 @@ Computed State Depletions.New Mexico Annual Actual: file=$Robust_DIR/results/%o.
 Computed State Depletions.Utah Annual Actual: file=$Robust_DIR/results/%o.%s.rdf
 Computed State Depletions.Wyoming Annual Actual: file=$Robust_DIR/results/%o.%s.rdf
 UBDelivery.AnnualActual: file=$Robust_DIR/results/%o.%s.rdf
+UBDelivery.AnnualNormal_without_UBAZ: file=$Robust_DIR/results/%o.%s.rdf
 LBDelivery.AnnualActualDelivery: file=$Robust_DIR/results/%o.%s.rdf
 
 # Annual normal depletions per state
