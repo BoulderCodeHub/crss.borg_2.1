@@ -41,6 +41,8 @@ SystemConditions.LBShortageTier: file=$Robust_DIR/results/%o.%s.rdf
 UB demand scenario scaling.total UB demand less AZ: file=$Robust_DIR/results/%o.%s.rdf
 UB demand scenario scaling.demand scaling coefficient: file=$Robust_DIR/results/%o.%s.rdf
 EqualizationData.Equalization Line: file=$Robust_DIR/results/%o.%s.rdf
+MiscUsesAbvGlenwoodSprings:Agriculture.Diversion Requested: file=$Robust_DIR/results/%o.%s.rdf
+MiscUsesAbvGlenwoodSprings:Agriculture.Depletion Requested: file=$Robust_DIR/results/%o.%s.rdf
 # check Powell and Mead pool elevation in start time step
 
 
