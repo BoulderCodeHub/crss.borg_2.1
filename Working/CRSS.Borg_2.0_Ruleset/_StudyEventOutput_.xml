@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CADSWES, University of Colorado, http://cadswes.colorado.edu/
+
+Document created on Mon Jan 10 17:09:03 2022
+Document created by ealexander
+-->
+<RwPolicyEvent>
+<inputList type="Policy"><input type="Policy" name="CRSS.Borg_2.0_Ruleset" uuid="{d21def27-a958-42f1-a711-d94193d96651}"><rulesetPath>$Robust_DIR/ruleset/CRSS.Borg.DV.Baseline.2027IGDCP.v4.4.0.9004.rls</rulesetPath>
+</input>
+</inputList>
+</RwPolicyEvent>
