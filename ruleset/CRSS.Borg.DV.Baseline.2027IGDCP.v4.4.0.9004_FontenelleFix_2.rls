@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 15:49 January 11, 2022
+# Created 10:58 January 12, 2022
 # 
 RULESET
 NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run)";
@@ -4517,7 +4517,7 @@ BEGIN
 
     RULE                 "Set September-March Baseflow";
     DESCRIPTION          "Execution Constraint: September<br><br>Description: Compute the steady flow over September to March necsessary to meet Apr 1 target. Change in storage plus forecasted volume divided by 7 months.  The next months will look back at this value.<br>  <br>Slots Set: Fontenelle.Outflow<br>  <br><br><br>";
-    ACTIVE               TRUE;
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT "GetMonthAsString"( @"t" ) IN { "September" };
     NOTES                "CF, 20180620: Flowrate calculation was rewritten so that RiverWare calculates the correct number of days  ";
     BEGIN
@@ -4531,7 +4531,7 @@ BEGIN
 
     RULE                 "Set September-March Baseflow_BORG_AWIS";
     DESCRIPTION          "Execution Constraint: September<br><br>Description: Compute the steady flow over September to March necsessary to meet Apr 1 target. Change in storage plus forecasted volume divided by 7 months.  The next months will look back at this value.<br>  <br>Slots Set: Fontenelle.Outflow<br>  <br><br><br>";
-    ACTIVE               FALSE;
+    ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT "GetMonthAsString"( @"t" ) IN { "September" };
     NOTES                "CF, 20180620: Flowrate calculation was rewritten so that RiverWare calculates the correct number of days  ";
     BEGIN
