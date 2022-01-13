@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 10:58 January 12, 2022
+# Created 15:38 January 13, 2022
 # 
 RULESET
 NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run)";
@@ -376,7 +376,6 @@ BEGIN
     NOTES                "";
     BEGIN
 
-      BREAKPOINT BEFORE_EXEC FALSE;
       $ "Mead.Outflow" [] := "ComputeOutflowAtGivenStorage"( % "Mead", "ComputeStorageAtGivenOutflow"( % "Mead", "CurrentDemandBelowMead"(  ) ) );
 
     END
@@ -748,11 +747,13 @@ BEGIN
     NOTES                "";
     BEGIN
 
+      BREAKPOINT BEFORE_EXEC TRUE;
       $ "Powell.Outflow" [] := IF ( $ "Powell.Storage" [] < "InactiveCapacity"( % "Powell" ) AND $ "Powell.Outflow" [] > "BypassCapacity"( $ "Powell.Pool Elevation" [] ) )
  THEN
   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "IterateBypassCapacity"( $ "Powell.Pool Elevation" [] ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
  ENDIF;
 
+      BREAKPOINT BEFORE_EXEC TRUE;
       $ "EqualizationData.BypassCapFlag" [] := IF ( IsNaN $ "EqualizationData.BypassCapFlag" [] )
  THEN
   IF ( $ "Powell.Storage" [] < "InactiveCapacity"( % "Powell" ) AND $ "Powell.Outflow" [] > "BypassCapacity"( $ "Powell.Pool Elevation" [] ) )
@@ -768,12 +769,14 @@ BEGIN
 
     RULE                 "Add Carryover Equalization Release";
     DESCRIPTION          "As it is not always possible to completely Equalize in the water year due to maximum release constraints and errors in the forecast, this rule will add on additional releases to Powell in next water year to finish equalizing.  There carryover EQ volume will be released in 1 month if possible, up to the maximum release constraint.  If any remains, it will be released in the subsequent month, until no more carryover exists.";
-    ACTIVE               TRUE;
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "ThisRule" );
   NAMES_COLOR  "#000000";
     NOTES                "";
     BEGIN
 
+      BREAKPOINT BEFORE_EXEC TRUE;
+    BREAKPOINT AFTER_EXEC TRUE;
       IF_STATEMENT (NaNToZero ( $ "EqualizationData.CarryoverEQFlag" [@"t - 1"] ) == 1.00000000) THEN
             WITH_STATEMENT (NUMERIC addRelease = "Min"( ( "GetMaxReleaseGivenInflow"( % "Powell", $ "Powell.Inflow" [], @"t" ) - $ "Powell.Outflow" [] ) COMMENTED_BY "Amount the current month's release can be increased", "VolumeToFlow"( $ "EqualizationData.CarryoverEQVolume" [@"t - 1"], @"t" ) COMMENTED_BY "Remaining EQ carryover volume" )) DO
             $ "Powell.Outflow" [] := $ "Powell.Outflow" [] + addRelease;
@@ -794,6 +797,44 @@ BEGIN
 
     END
     UUID "{0793497b-97e0-4931-8bcd-be4aa1640daf}";;
+
+    RULE                 "Add Carryover Equalization Release_BORG";
+    DESCRIPTION          "As it is not always possible to completely Equalize in the water year due to maximum release constraints and errors in the forecast, this rule will add on additional releases to Powell in next water year to finish equalizing.  There carryover EQ volume will be released in 1 month if possible, up to the maximum release constraint.  If any remains, it will be released in the subsequent month, until no more carryover exists.";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "ThisRule" );
+  NAMES_COLOR  "#5500ff";
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT (NaNToZero ( $ "EqualizationData.CarryoverEQFlag" [@"t - 1"] ) == 1.00000000) THEN
+            WITH_STATEMENT (NUMERIC addRelease = "Min"( ( "GetMaxReleaseGivenInflow"( % "Powell", $ "Powell.Inflow" [], @"t" ) - $ "Powell.Outflow" [] ) COMMENTED_BY "Amount the current month's release can be increased", "VolumeToFlow"( $ "EqualizationData.CarryoverEQVolume" [@"t - 1"], @"t" ) COMMENTED_BY "Remaining EQ carryover volume" )) DO
+            IF_STATEMENT (( addRelease > 0.00000000 "acre-ft/month" ) COMMENTED_BY "RMS: when powell is near or below 3490, &quot;GetMaxReleaseGivenInflow&quot; function <br>can return a value less than previously set Powell.Outflow (or can return 0). Don't <br>want to reduce Powell.Outflow, so checking to make sure addRelease is positive <br>before revising outflow. Also need this check for the statements below that <br>calculate remaining carryover equalization release volumes  <br>") THEN
+            $ "Powell.Outflow" [] := $ "Powell.Outflow" [] + addRelease;
+
+            $ "EqualizationData.CarryoverEQReleaseMade" [] := addRelease;
+
+      END_IF_STATEMENT;
+
+          DESCRIPTION          "If not able to release all the carryover volume in the current month, update the EQ <br>volume and Flag so this rule will execute again next month.";
+      IF_STATEMENT ("FlowToVolume"( addRelease, @"t" ) < $ "EqualizationData.CarryoverEQVolume" [@"t - 1"]) THEN
+            $ "EqualizationData.CarryoverEQFlag" [] := 1.00000000;
+
+            IF_STATEMENT (addRelease > 0.00000000 "acre-ft/month") THEN
+            $ "EqualizationData.CarryoverEQVolume" [] := $ "EqualizationData.CarryoverEQVolume" [@"t - 1"] - "FlowToVolume"( addRelease, @"t" );
+
+      ELSE
+            $ "EqualizationData.CarryoverEQVolume" [] := $ "EqualizationData.CarryoverEQVolume" [@"t - 1"];
+
+      END_IF_STATEMENT;
+
+      END_IF_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END
+    UUID "{6f940c1c-869d-4dd2-97fa-17d68c458424}";;
 
     RULE                 "Equalization Tier";
     DESCRIPTION          "This rule fires monthly January through September and computes the Equalization (EQ) release from Powell, given that the conditions for EQ are met. Note that Powell's previous EOCY storage is compared to the EQ Line. This has the effect of not allowing Powell to bounce in and out of EQ. The new EQ conditions in the Guidelines (release to keep Mead above 1105 so as Powell doesn't go more than 20' below the EQ Line) are performed in the function CheckEqualizationRelease_Mead1105. ";
@@ -889,7 +930,6 @@ BEGIN
   ENDIF
  ENDIF;
 
-      BREAKPOINT BEFORE_EXEC FALSE;
       $ "Coordinated Operation.UpperLevelBalancingFlag" [] := IF ( "InUpperElevationBalancingTier_BORG"(  ) AND $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] COMMENTED_BY "Used actual Jan 1 elevation" < "ElevationToStorage"( % "Mead", $ "Coordinated Operation.Hybrid_MeadMinBalancingElevation" [] ) )
  THEN
   1.00000000
@@ -996,7 +1036,6 @@ BEGIN
     NOTES                "";
     BEGIN
 
-      BREAKPOINT BEFORE_EXEC TRUE;
       $ "Powell.Outflow" [] := IF ( $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December 31, Current Year"] == 1.00000000 AND "CheckPowellBalancing"(  ) == 1.00000000 )
  THEN
   IF ( ( NOT "EqualizationConditionsMet_BORG"(  ) AND IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] ) COMMENTED_BY "If EQ Trumps in April, release for EQ for the rest of the water year - go to ELSE" )
@@ -1015,7 +1054,6 @@ BEGIN
   ENDIF
  ENDIF;
 
-      BREAKPOINT BEFORE_EXEC FALSE;
       $ "Coordinated Operation.UpperLevelBalancingFlag" [] := IF ( $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December 31, Current Year"] == 1.00000000 AND NOT "EqualizationConditionsMet_BORG"(  ) AND IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] AND ( $ "EqualizationData.ForecastEOWYSMead" [@"24:00:00 April 30, Current Year"] COMMENTED_BY "Use April EOWY forecast for Mead & Powell" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) AND $ "EqualizationData.ForecastEOWYSPowell" [@"24:00:00 April 30, Current Year"] > "ElevationToStorage"( % "Powell", $ "Powell Decision Variables.PowellUpperTierElevation" [] ) OR $ "Mead.Storage" [@"24:00:00 December 31, Previous Year"] COMMENTED_BY "Use actual Jan 1 elevation" < "ElevationToStorage"( % "Mead", "GetMeadRefElev"(  ) ) ) )
  THEN
   1.00000000
@@ -1152,7 +1190,6 @@ BEGIN
     NOTES                "";
     BEGIN
 
-      BREAKPOINT BEFORE_EXEC TRUE;
       $ "Powell.Outflow" [] := IF ( "CheckPowellBalancing"(  ) == 0.00000000 )
  THEN
   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "PowellReducedRelforCurrentMonth_BORG_PrimaryRel"(  ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
@@ -1175,7 +1212,6 @@ BEGIN
     NOTES                "";
     BEGIN
 
-      BREAKPOINT BEFORE_EXEC FALSE;
       $ "Powell.Outflow" [] := "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellReleaseBalancing_BORG"( "ConvertPowellReleaseBalancing"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ), $ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December Max DayOfMonth, Current Year"] ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "Compare Powell and Mead previous EOCYS instead of forecasted EOWYS";
 
     END
@@ -1287,11 +1323,13 @@ BEGIN
     NOTES                "";
     BEGIN
 
+      BREAKPOINT BEFORE_EXEC TRUE;
       $ "Powell.Bypass" [] := IF ( "CheckSpikeFlowCriteria"(  ) )
  THEN
   "VolumeToFlow"( $ "Powell Spike Flow Data.Additional Bypass Volume" [0.00000000, 0.00000000], @"t" )
  ENDIF;
 
+      BREAKPOINT BEFORE_EXEC TRUE;
       $ "Powell.Outflow" [] := IF ( "CheckSpikeFlowCriteria"(  ) )
  THEN
   IF ( $ "Powell.Spill" [] > 0.00000000 "acre-feet/month" )
@@ -1302,6 +1340,7 @@ BEGIN
   ENDIF
  ENDIF;
 
+    BREAKPOINT AFTER_EXEC TRUE;
       $ "Powell Spike Flow Data.Spike Flow Flag" [] := IF ( "CheckSpikeFlowCriteria"(  ) )
  THEN
   1.00000000
@@ -1366,7 +1405,6 @@ BEGIN
     NOTES                "";
     BEGIN
 
-      BREAKPOINT BEFORE_EXEC FALSE;
       $ "EqualizationData.ForecastEOWYSPowell" [] := IF ( @"t" >= @"October" )
  THEN
   0.00000000 "acre-ft"
@@ -1374,7 +1412,6 @@ BEGIN
   "EOWYStorage"( % "Powell", "ForecastPowellRelease"(  ), "ForecastMeadRelease"(  ) )
  ENDIF;
 
-      BREAKPOINT BEFORE_EXEC FALSE;
       $ "EqualizationData.ForecastEOWYSMead" [] := IF ( @"t" >= @"October" )
  THEN
   0.00000000 "acre-ft"
@@ -1534,11 +1571,9 @@ BEGIN
     NOTES                "DEVELOPMENT NOTES<br>- 2019-07-23 - RAB: Re-wrote to only call each function once/loop. <br>- 20190620, JK: Removed the Arizona Priority 4 users from rule as per communication from Chuck which stated CAP will take all DCP Contributions/Shortage Reductions.  Associated fxns have been updated as well to no longer pro-rate CAP reductions as per priority 4 users.<br>- 20180109, RAB: Combined the three shortage rules (Step [1, 2, 3] Shortage for ICS) into this one rule. The only difference between the 3 rules was the number (1-3) passed to the `ComputeStepShortage[Diversion/Depletion]()` functions.<br>- ...<br>- ~2007, CSJ: Created rule.";
     BEGIN
 
-      BREAKPOINT BEFORE_EXEC FALSE;
     DESCRIPTION          "Loop over all 12 months <br>";
       FOREACH (DATETIME date IN @"t" TO @"24:00:00 December 31, Current Year") DO
-            BREAKPOINT BEFORE_EXEC FALSE;
-    DESCRIPTION          "Loop through CAP, SNWP, and Mexico <br>";
+          DESCRIPTION          "Loop through CAP, SNWP, and Mexico <br>";
       FOREACH (STRING diversion IN { "CAP" , "SNWP" , "Mexico" , "IID" }) DO
             WITH_STATEMENT (NUMERIC agg_site_depletion_shortage = "ComputeStepShortageDepletion"( diversion, $ "Mead.Pool Elevation" [@"24:00:00 December Max DayOfMonth, Previous Year"], date )) DO
           DESCRIPTION          "CAP, SNWP, IID and Mexico might have multiple &quot;water user&quot; objects on them. If so, loop <br>through all them, and divy out the shortage volume proportionally  <br>";
@@ -1561,8 +1596,7 @@ BEGIN
 
             diversion CONCAT "Schedule.SurplusScheduleFlag" [date] := 0.00000000;
 
-            BREAKPOINT BEFORE_EXEC FALSE;
-      IF_STATEMENT (date == @"24:00:00 December Max DayOfMonth, Current Year") THEN
+            IF_STATEMENT (date == @"24:00:00 December Max DayOfMonth, Current Year") THEN
             % "LBShort" & diversion CONCAT "SpecifiedShortage" [date] := "GetIGShortageVolume_BORG"( diversion, $ "Mead.Pool Elevation" [@"24:00:00 December Max DayOfMonth, Previous Year"], date );
 
       END_IF_STATEMENT;
@@ -2227,8 +2261,7 @@ BEGIN
     BEGIN
 
       FOREACH (DATETIME date IN "ListJanuaryToDecemberTimesteps"(  )) DO
-            BREAKPOINT BEFORE_EXEC FALSE;
-      $ "Nevada ICS.DCPActualMonthlyTake" [date] := $ "Nevada ICS.DCPActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
+            $ "Nevada ICS.DCPActualMonthlyTake" [date] := $ "Nevada ICS.DCPActualAnnualTake" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
 
             $ "Nevada ICS.DCPActualMonthlyPut" [date] := $ "Nevada ICS.DCPActualAnnualPut" [@"24:00:00 December Max DayOfMonth, Current Year"] / 12.00000000;
 
@@ -4457,7 +4490,7 @@ BEGIN
     RULE                 "Min Flow";
     DESCRIPTION          "CF, 20180620: Use higher minimum's in PeriodicMinFlow (from MTOM) representing operator preference. Provides better matching of historical releases based on my analysis <br>This rule ensurs that the minimum instream flow requirements are met. If a lower priority rule sets the flow lower than the min flow then this rule resets the flow. ";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT ( "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow" , "Set January-March Initial Baseflow" , "Set August Outflow" , "Set April Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } ) AND NOT "HasRuleFiredSuccessfully"( "Min Flow" ) ) COMMENTED_BY "This is necessary for 1,2,3 rule order to prevent trumping of lower priority rules. <br>Not necessary in 3,2,1 order but does not hurt anything. ";
+    RULE_EXEC_CONSTRAINT ( "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow_BORG_AWIS" , "Set January-March Initial Baseflow" , "Set August Outflow" , "Set April Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } ) AND NOT "HasRuleFiredSuccessfully"( "Min Flow" ) ) COMMENTED_BY "This is necessary for 1,2,3 rule order to prevent trumping of lower priority rules. <br>Not necessary in 3,2,1 order but does not hurt anything. ";
     NOTES                "";
     BEGIN
 
@@ -4472,7 +4505,7 @@ BEGIN
     RULE                 "Max Elevation";
     DESCRIPTION          "This rule prevents overtopping. If a previous rule sets the outflow such that the elevation would overtop the dam, this rule will set the outflow to prevent this. The ";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow" , "Set January-March Initial Baseflow" , "Set August Outflow" , "Set April Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } ) COMMENTED_BY "This is necessary for 1,2,3 rule order to prevent trumping of lower priority rules. <br>Not necessary in 3,2,1 order but does not hurt anything. ";
+    RULE_EXEC_CONSTRAINT "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow_BORG_AWIS" , "Set January-March Initial Baseflow" , "Set August Outflow" , "Set April Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } ) COMMENTED_BY "This is necessary for 1,2,3 rule order to prevent trumping of lower priority rules. <br>Not necessary in 3,2,1 order but does not hurt anything. ";
     NOTES                "";
     BEGIN
 
@@ -4503,7 +4536,7 @@ BEGIN
     RULE                 "Safe Channel Capacity";
     DESCRIPTION          "Prevents outflow from exceeding safe channel capacity unless there is a chance of overtopping, in which case, the &quot;Max Elevation&quot; rule will take precedence. ";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow" , "Set January-March Initial Baseflow" , "Set August Outflow" , "Set April Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } );
+    RULE_EXEC_CONSTRAINT "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow_BORG_AWIS" , "Set January-March Initial Baseflow" , "Set August Outflow" , "Set April Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } );
     NOTES                "";
     BEGIN
 
@@ -4515,24 +4548,11 @@ BEGIN
     END
     UUID "{8ddd636a-65cf-4952-8b0a-fe536b91f3f5}";;
 
-    RULE                 "Set September-March Baseflow";
-    DESCRIPTION          "Execution Constraint: September<br><br>Description: Compute the steady flow over September to March necsessary to meet Apr 1 target. Change in storage plus forecasted volume divided by 7 months.  The next months will look back at this value.<br>  <br>Slots Set: Fontenelle.Outflow<br>  <br><br><br>";
-    ACTIVE               FALSE;
-    RULE_EXEC_CONSTRAINT "GetMonthAsString"( @"t" ) IN { "September" };
-    NOTES                "CF, 20180620: Flowrate calculation was rewritten so that RiverWare calculates the correct number of days  ";
-    BEGIN
-
-    INACTIVE      PRINT "September";
-
-      $ "Fontenelle.Outflow" [] := ( ( "ElevationToStorage"( % "Fontenelle", $ "Fontenelle.Pool Elevation" [@"t - 1"] ) - "ElevationToStorage"( % "Fontenelle", $ "FontenelleData.April1Target" [] ) + "SumFlowsToVolume"( $ "Fontenelle.Inflow", @"t", @"t + 6" ) ) - "EstimateEvaporation"( % "Fontenelle", "ElevationToStorage"( % "Fontenelle", $ "Fontenelle.Pool Elevation" [@"t - 1"] ), "ElevationToStorage"( % "Fontenelle", $ "FontenelleData.April1Target" [] ), @"t - 1", @"t + 6" ) ) / ( @"24:00:00 March Max DayOfMonth, Next Year" - @"24:00:00 August Max DayOfMonth, Current Year" ) COMMENTED_BY "CF: Flowrate calculation was rewritten so that RiverWare calculates the correct number of days   <br>";
-
-    END
-    UUID "{fc40a12a-6898-4200-9dfb-4f5717c6cbb3}";;
-
     RULE                 "Set September-March Baseflow_BORG_AWIS";
     DESCRIPTION          "Execution Constraint: September<br><br>Description: Compute the steady flow over September to March necsessary to meet Apr 1 target. Change in storage plus forecasted volume divided by 7 months.  The next months will look back at this value.<br>  <br>Slots Set: Fontenelle.Outflow<br>  <br><br><br>";
     ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT "GetMonthAsString"( @"t" ) IN { "September" };
+  NAMES_COLOR  "#5500ff";
     NOTES                "CF, 20180620: Flowrate calculation was rewritten so that RiverWare calculates the correct number of days  ";
     BEGIN
 
