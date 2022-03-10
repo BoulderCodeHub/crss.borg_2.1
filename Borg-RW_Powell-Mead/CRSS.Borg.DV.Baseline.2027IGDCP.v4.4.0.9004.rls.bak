@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 8.2.2 Patch
-# Created 15:27 January 13, 2022
+# Created 15:39 January 13, 2022
 # 
 RULESET
 NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run)";
@@ -805,21 +805,24 @@ BEGIN
 
       IF_STATEMENT (NaNToZero ( $ "EqualizationData.CarryoverEQFlag" [@"t - 1"] ) == 1.00000000) THEN
             WITH_STATEMENT (NUMERIC addRelease = "Min"( ( "GetMaxReleaseGivenInflow"( % "Powell", $ "Powell.Inflow" [], @"t" ) - $ "Powell.Outflow" [] ) COMMENTED_BY "Amount the current month's release can be increased", "VolumeToFlow"( $ "EqualizationData.CarryoverEQVolume" [@"t - 1"], @"t" ) COMMENTED_BY "Remaining EQ carryover volume" )) DO
-            IF_STATEMENT (( addRelease > 0.00000000 "acre-ft/month" ) COMMENTED_BY "if powell is below 3490, &quot;GetMaxReleaseGivenInflow&quot; will return 0 af/month and <br>then reduce the previously set outflow. this ensures that outflow can only stay the <br>same or be increased <br>") THEN
+            IF_STATEMENT (( addRelease > 0.00000000 "acre-ft/month" ) COMMENTED_BY "RMS: when powell is near or below 3490, &quot;GetMaxReleaseGivenInflow&quot; function <br>can return a value less than previously set Powell.Outflow (or can return 0). Don't <br>want to reduce Powell.Outflow, so checking to make sure addRelease is positive <br>before revising outflow. Also need this check for the statements below that <br>calculate remaining carryover equalization release volumes  <br>") THEN
             $ "Powell.Outflow" [] := $ "Powell.Outflow" [] + addRelease;
 
-      ELSE
-            $ "Powell.Outflow" [] := $ "Powell.Outflow" [];
+            $ "EqualizationData.CarryoverEQReleaseMade" [] := addRelease;
 
       END_IF_STATEMENT;
-
-            $ "EqualizationData.CarryoverEQReleaseMade" [] := addRelease;
 
           DESCRIPTION          "If not able to release all the carryover volume in the current month, update the EQ <br>volume and Flag so this rule will execute again next month.";
       IF_STATEMENT ("FlowToVolume"( addRelease, @"t" ) < $ "EqualizationData.CarryoverEQVolume" [@"t - 1"]) THEN
             $ "EqualizationData.CarryoverEQFlag" [] := 1.00000000;
 
+            IF_STATEMENT (addRelease > 0.00000000 "acre-ft/month") THEN
             $ "EqualizationData.CarryoverEQVolume" [] := $ "EqualizationData.CarryoverEQVolume" [@"t - 1"] - "FlowToVolume"( addRelease, @"t" );
+
+      ELSE
+            $ "EqualizationData.CarryoverEQVolume" [] := $ "EqualizationData.CarryoverEQVolume" [@"t - 1"];
+
+      END_IF_STATEMENT;
 
       END_IF_STATEMENT;
 
