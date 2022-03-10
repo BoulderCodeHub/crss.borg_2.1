@@ -1,5 +1,5 @@
-# RiverWare_Ruleset 8.2.2 Patch
-# Created 15:39 January 13, 2022
+# RiverWare_Ruleset 8.4
+# Created 10:42 March 2, 2022
 # 
 RULESET
 NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run)";
@@ -768,7 +768,7 @@ BEGIN
 
     RULE                 "Add Carryover Equalization Release";
     DESCRIPTION          "As it is not always possible to completely Equalize in the water year due to maximum release constraints and errors in the forecast, this rule will add on additional releases to Powell in next water year to finish equalizing.  There carryover EQ volume will be released in 1 month if possible, up to the maximum release constraint.  If any remains, it will be released in the subsequent month, until no more carryover exists.";
-    ACTIVE               FALSE;
+    ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "ThisRule" );
   NAMES_COLOR  "#000000";
     NOTES                "";
@@ -794,44 +794,6 @@ BEGIN
 
     END
     UUID "{0793497b-97e0-4931-8bcd-be4aa1640daf}";;
-
-    RULE                 "Add Carryover Equalization Release_BORG";
-    DESCRIPTION          "As it is not always possible to completely Equalize in the water year due to maximum release constraints and errors in the forecast, this rule will add on additional releases to Powell in next water year to finish equalizing.  There carryover EQ volume will be released in 1 month if possible, up to the maximum release constraint.  If any remains, it will be released in the subsequent month, until no more carryover exists.";
-    ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "ThisRule" );
-  NAMES_COLOR  "#5500ff";
-    NOTES                "";
-    BEGIN
-
-      IF_STATEMENT (NaNToZero ( $ "EqualizationData.CarryoverEQFlag" [@"t - 1"] ) == 1.00000000) THEN
-            WITH_STATEMENT (NUMERIC addRelease = "Min"( ( "GetMaxReleaseGivenInflow"( % "Powell", $ "Powell.Inflow" [], @"t" ) - $ "Powell.Outflow" [] ) COMMENTED_BY "Amount the current month's release can be increased", "VolumeToFlow"( $ "EqualizationData.CarryoverEQVolume" [@"t - 1"], @"t" ) COMMENTED_BY "Remaining EQ carryover volume" )) DO
-            IF_STATEMENT (( addRelease > 0.00000000 "acre-ft/month" ) COMMENTED_BY "RMS: when powell is near or below 3490, &quot;GetMaxReleaseGivenInflow&quot; function <br>can return a value less than previously set Powell.Outflow (or can return 0). Don't <br>want to reduce Powell.Outflow, so checking to make sure addRelease is positive <br>before revising outflow. Also need this check for the statements below that <br>calculate remaining carryover equalization release volumes  <br>") THEN
-            $ "Powell.Outflow" [] := $ "Powell.Outflow" [] + addRelease;
-
-            $ "EqualizationData.CarryoverEQReleaseMade" [] := addRelease;
-
-      END_IF_STATEMENT;
-
-          DESCRIPTION          "If not able to release all the carryover volume in the current month, update the EQ <br>volume and Flag so this rule will execute again next month.";
-      IF_STATEMENT ("FlowToVolume"( addRelease, @"t" ) < $ "EqualizationData.CarryoverEQVolume" [@"t - 1"]) THEN
-            $ "EqualizationData.CarryoverEQFlag" [] := 1.00000000;
-
-            IF_STATEMENT (addRelease > 0.00000000 "acre-ft/month") THEN
-            $ "EqualizationData.CarryoverEQVolume" [] := $ "EqualizationData.CarryoverEQVolume" [@"t - 1"] - "FlowToVolume"( addRelease, @"t" );
-
-      ELSE
-            $ "EqualizationData.CarryoverEQVolume" [] := $ "EqualizationData.CarryoverEQVolume" [@"t - 1"];
-
-      END_IF_STATEMENT;
-
-      END_IF_STATEMENT;
-
-      END_WITH_STATEMENT;
-
-      END_IF_STATEMENT;
-
-    END
-    UUID "{1e2fc619-2dbd-4dfc-8d23-1836251ca0d9}";;
 
     RULE                 "Equalization Tier";
     DESCRIPTION          "This rule fires monthly January through September and computes the Equalization (EQ) release from Powell, given that the conditions for EQ are met. Note that Powell's previous EOCY storage is compared to the EQ Line. This has the effect of not allowing Powell to bounce in and out of EQ. The new EQ conditions in the Guidelines (release to keep Mead above 1105 so as Powell doesn't go more than 20' below the EQ Line) are performed in the function CheckEqualizationRelease_Mead1105. ";
@@ -4495,7 +4457,7 @@ BEGIN
     RULE                 "Min Flow";
     DESCRIPTION          "CF, 20180620: Use higher minimum's in PeriodicMinFlow (from MTOM) representing operator preference. Provides better matching of historical releases based on my analysis <br>This rule ensurs that the minimum instream flow requirements are met. If a lower priority rule sets the flow lower than the min flow then this rule resets the flow. ";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT ( "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow_BORG_AWIS" , "Set January-March Initial Baseflow" , "Set August Outflow" , "Set April Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } ) AND NOT "HasRuleFiredSuccessfully"( "Min Flow" ) ) COMMENTED_BY "This is necessary for 1,2,3 rule order to prevent trumping of lower priority rules. <br>Not necessary in 3,2,1 order but does not hurt anything. ";
+    RULE_EXEC_CONSTRAINT ( "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow" , "Set January-March Initial Baseflow" , "Set August Outflow" , "Set April Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } ) AND NOT "HasRuleFiredSuccessfully"( "Min Flow" ) ) COMMENTED_BY "This is necessary for 1,2,3 rule order to prevent trumping of lower priority rules. <br>Not necessary in 3,2,1 order but does not hurt anything. ";
     NOTES                "";
     BEGIN
 
@@ -4510,7 +4472,7 @@ BEGIN
     RULE                 "Max Elevation";
     DESCRIPTION          "This rule prevents overtopping. If a previous rule sets the outflow such that the elevation would overtop the dam, this rule will set the outflow to prevent this. The ";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow_BORG_AWIS" , "Set January-March Initial Baseflow" , "Set August Outflow" , "Set April Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } ) COMMENTED_BY "This is necessary for 1,2,3 rule order to prevent trumping of lower priority rules. <br>Not necessary in 3,2,1 order but does not hurt anything. ";
+    RULE_EXEC_CONSTRAINT "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow" , "Set January-March Initial Baseflow" , "Set August Outflow" , "Set April Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } ) COMMENTED_BY "This is necessary for 1,2,3 rule order to prevent trumping of lower priority rules. <br>Not necessary in 3,2,1 order but does not hurt anything. ";
     NOTES                "";
     BEGIN
 
@@ -4541,7 +4503,7 @@ BEGIN
     RULE                 "Safe Channel Capacity";
     DESCRIPTION          "Prevents outflow from exceeding safe channel capacity unless there is a chance of overtopping, in which case, the &quot;Max Elevation&quot; rule will take precedence. ";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow_BORG_AWIS" , "Set January-March Initial Baseflow" , "Set August Outflow" , "Set April Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } );
+    RULE_EXEC_CONSTRAINT "HasAnyRuleFired"( { "Safe Channel Capacity" , "Set September-March Baseflow" , "Set January-March Initial Baseflow" , "Set August Outflow" , "Set April Outflow" , "Set Baseflow in off month" , "Set June Outflow" , "Set July Outflow" } );
     NOTES                "";
     BEGIN
 
@@ -4553,17 +4515,16 @@ BEGIN
     END
     UUID "{8ddd636a-65cf-4952-8b0a-fe536b91f3f5}";;
 
-    RULE                 "Set September-March Baseflow_BORG_AWIS";
+    RULE                 "Set September-March Baseflow";
     DESCRIPTION          "Execution Constraint: September<br><br>Description: Compute the steady flow over September to March necsessary to meet Apr 1 target. Change in storage plus forecasted volume divided by 7 months.  The next months will look back at this value.<br>  <br>Slots Set: Fontenelle.Outflow<br>  <br><br><br>";
     ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT "GetMonthAsString"( @"t" ) IN { "September" };
-  NAMES_COLOR  "#5500ff";
     NOTES                "CF, 20180620: Flowrate calculation was rewritten so that RiverWare calculates the correct number of days  ";
     BEGIN
 
     INACTIVE      PRINT "September";
 
-      $ "Fontenelle.Outflow" [] := "Min"( ( ( ( "ElevationToStorage"( % "Fontenelle", $ "Fontenelle.Pool Elevation" [@"t - 1"] ) - "ElevationToStorage"( % "Fontenelle", $ "FontenelleData.April1Target" [] ) + "SumFlowsToVolume"( $ "Fontenelle.Inflow", @"t", @"t + 6" ) ) - "EstimateEvaporation"( % "Fontenelle", "ElevationToStorage"( % "Fontenelle", $ "Fontenelle.Pool Elevation" [@"t - 1"] ), "ElevationToStorage"( % "Fontenelle", $ "FontenelleData.April1Target" [] ), @"t - 1", @"t + 6" ) ) / ( @"24:00:00 March Max DayOfMonth, Next Year" - @"24:00:00 August Max DayOfMonth, Current Year" ) COMMENTED_BY "CF: Flowrate calculation was rewritten so that RiverWare calculates the correct number of days   <br>" ), "AvailableWaterInStorage"( % "Fontenelle" ) );
+      $ "Fontenelle.Outflow" [] := ( ( "ElevationToStorage"( % "Fontenelle", $ "Fontenelle.Pool Elevation" [@"t - 1"] ) - "ElevationToStorage"( % "Fontenelle", $ "FontenelleData.April1Target" [] ) + "SumFlowsToVolume"( $ "Fontenelle.Inflow", @"t", @"t + 6" ) ) - "EstimateEvaporation"( % "Fontenelle", "ElevationToStorage"( % "Fontenelle", $ "Fontenelle.Pool Elevation" [@"t - 1"] ), "ElevationToStorage"( % "Fontenelle", $ "FontenelleData.April1Target" [] ), @"t - 1", @"t + 6" ) ) / ( @"24:00:00 March Max DayOfMonth, Next Year" - @"24:00:00 August Max DayOfMonth, Current Year" ) COMMENTED_BY "CF: Flowrate calculation was rewritten so that RiverWare calculates the correct number of days   <br>";
 
     END
     UUID "{fc40a12a-6898-4200-9dfb-4f5717c6cbb3}";;

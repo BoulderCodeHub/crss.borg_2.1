@@ -1,0 +1,2 @@
+to update initial conditions for March 2022 borg runs had to change years for initial conditions data- had to go backward two years b/c our CRSS model run starts in 2021 and initial conditions need to be in terms of 2020 and 2021
+(using the iniital conditions from the official jan 2022 crss run meant that the initial conditions were to start crss in 2023 b/c crmms was used to simulate 2022)
