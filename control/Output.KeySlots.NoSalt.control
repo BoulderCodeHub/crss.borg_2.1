@@ -12,3 +12,18 @@ Surplus.Flood Control Surplus Flag: file=$Robust_DIR/results/KeySlots.rdf
 
 TotVal.Powell: file=$Robust_DIR/results/KeySlots.rdf
 
+#########################################
+#####  Lake Mead Policy Variables ######
+#######################################
+
+Mead Decision Variables.From BorgRW: file=$Robust_DIR/results/MeadDVs.From_BorgRW.rdf
+Mead Decision Variables.Compressed: file=$Robust_DIR/results/MeadDVs.Compressed.rdf
+Mead Decision Variables.Full: file=$Robust_DIR/results/MeadDVs.Full.rdf
+Mead Decision Variables.Surplus d From Borg: file=$Robust_DIR/results/MeadDVs.Surplus_DVs.rdf
+
+###########################################
+#####  Lake Powell Policy Variables ######
+#########################################
+
+Powell Decision Variables.From Borg Powell Tier Table: file=$Robust_DIR/results/PowellDVs.From_Borg_Powell_Tier_Table.rdf
+Powell Decision Variables.Increment_EQ: file=$Robust_DIR/results/PowellDVs.Increment_EQ.rdf
