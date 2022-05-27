@@ -2,7 +2,7 @@
 <!--
 CADSWES, University of Colorado, http://cadswes.colorado.edu/
 RiverSMART 8.4
-Document created on Fri May 27 10:10:47 2022
+Document created on Fri May 27 11:20:44 2022
 Document created by ealexander
 -->
 <Study uuid="{8aa60b63-cb72-4d06-a324-76113223009d}" mode="fullstudy">
@@ -39,7 +39,7 @@ Document created by ealexander
 <plugin minor="1" patch="0" major="1"><type>Temporal Disagg</type>
 </plugin>
 </pluginList>
-<fileInfo><createdOn>Fri May 27 10:10:47 2022</createdOn>
+<fileInfo><createdOn>Fri May 27 11:20:44 2022</createdOn>
 <createdBy>ealexander</createdBy>
 </fileInfo>
 <name></name>
@@ -83,7 +83,7 @@ Document created by ealexander
 <fileName>UBDelivery.AnnualNormal.rdf</fileName>
 </fileConfig>
 </fileNode>
-<eventNode type="RiverWare Model" nodeNum="3"><scenePos x="2049.91" y="2318.18"></scenePos>
+<eventNode type="RiverWare Model" nodeNum="3"><scenePos x="2049.91" y="2319.18"></scenePos>
 <eventConfig><uuid>{175748ea-eecc-4fd7-a41b-77f156128864}</uuid>
 <name>CRSS.Borg_2.0</name>
 <placeholder>0</placeholder>
@@ -91,7 +91,7 @@ Document created by ealexander
 <scope>event</scope>
 <config><ParamDat>
 <ModelParams>
-<ModelFile>$Robust_DIR/model/CRSS.Borg_2.0.mdl</ModelFile>
+<ModelFile>$Borg_DIR/CRSS.Borg_2.0.mdl</ModelFile>
 </ModelParams>
 </ParamDat>
 </config>
