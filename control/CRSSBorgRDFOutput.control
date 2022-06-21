@@ -163,6 +163,7 @@ Powell Decision Variables.Increment_EQ: file=$Robust_DIR/results/PowellDVs.Incre
 ###########################################
 #####  Basin Study Metrics ###############
 #########################################
+
 Metrics.Average Lower Basin Policy Shortage: file=$Robust_DIR/results/Metrics.rdf
 Metrics.Lee Ferry Deficit: file=$Robust_DIR/results/Metrics.rdf
 Metrics.Frequency of Mexico Delivery Reduction: file=$Robust_DIR/results/Metrics.rdf
@@ -175,3 +176,5 @@ Metrics.Average Upper Basin Power Generation Capacity: file=$Robust_DIR/results/
 Metrics.Average Mead Generation Capacity: file=$Robust_DIR/results/Metrics.rdf
 Metrics.Frequency of Mead Spill: file=$Robust_DIR/results/Metrics.rdf
 Metrics.Frequency of Powell Spill: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequncy of Gunnison At Crystal Falling Below Instream Flow Right: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequncy of Yampa River near Maybell Falling Below Recovery Program Baseflow: file=$Robust_DIR/results/Metrics.rdf
