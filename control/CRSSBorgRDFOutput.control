@@ -178,3 +178,23 @@ Metrics.Frequency of Mead Spill: file=$Robust_DIR/results/Metrics.rdf
 Metrics.Frequency of Powell Spill: file=$Robust_DIR/results/Metrics.rdf
 Metrics.Frequncy of Gunnison At Crystal Falling Below Instream Flow Right: file=$Robust_DIR/results/Metrics.rdf
 Metrics.Frequncy of Yampa River near Maybell Falling Below Recovery Program Baseflow: file=$Robust_DIR/results/Metrics.rdf
+
+
+###########################################
+#####  Sub - Basin Study Metrics #########
+#########################################
+
+LBHydrologicShortage.AnnualPolicyShortage: file=$Robust_DIR/results/SubMetrics.rdf
+PowellOperation.10 Year Compact Volume: file=$Robust_DIR/results/SubMetrics.rdf
+MexicoDiversion.Total Diversion: file=$Robust_DIR/results/SubMetrics.rdf
+Navajo.Pool Elevation: file=$Robust_DIR/results/SubMetrics.rdf
+Mead.Pool Elevation: file=$Robust_DIR/results/SubMetrics.rdf
+Metrics.Upper Basin Annual Energy Sum: file=$Robust_DIR/results/SubMetrics.rdf
+Metrics.Mead Annual Energy Generation: file=$Robust_DIR/results/SubMetrics.rdf
+Metrics.Parker And Davis Annual Energy Generation: file=$Robust_DIR/results/SubMetrics.rdf
+Metrics.Upper Basin Power Plants Available Generation Capacity: file=$Robust_DIR/results/SubMetrics.rdf
+Metrics.Mead.Power Capacity: file=$Robust_DIR/results/SubMetrics.rdf
+Mead.Spill: file=$Robust_DIR/results/SubMetrics.rdf
+Powell.Spill: file=$Robust_DIR/results/SubMetrics.rdf
+GunnisonAtCrystal.Gage Inflow: file=$Robust_DIR/results/SubMetrics.rdf
+YampaNearMaybell.Gage Inflow: file=$Robust_DIR/results/SubMetrics.rdf
