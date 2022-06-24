@@ -186,15 +186,15 @@ Metrics.Frequncy of Yampa River near Maybell Falling Below Recovery Program Base
 
 LBHydrologicShortage.AnnualPolicyShortage: file=$Robust_DIR/results/SubMetrics.rdf
 PowellOperation.10 Year Compact Volume: file=$Robust_DIR/results/SubMetrics.rdf
-MexicoDiversion.Total Diversion: file=$Robust_DIR/results/SubMetrics.rdf
-Navajo.Pool Elevation: file=$Robust_DIR/results/SubMetrics.rdf
+MexicoDiversion.Total Diversion: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
+Navajo.Pool Elevation: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
 Mead.Pool Elevation: file=$Robust_DIR/results/SubMetrics.rdf
 Metrics.Upper Basin Annual Energy Sum: file=$Robust_DIR/results/SubMetrics.rdf
 Metrics.Mead Annual Energy Generation: file=$Robust_DIR/results/SubMetrics.rdf
 Metrics.Parker And Davis Annual Energy Generation: file=$Robust_DIR/results/SubMetrics.rdf
-Metrics.Upper Basin Power Plants Available Generation Capacity: file=$Robust_DIR/results/SubMetrics.rdf
-Metrics.Mead.Power Capacity: file=$Robust_DIR/results/SubMetrics.rdf
-Mead.Spill: file=$Robust_DIR/results/SubMetrics.rdf
-Powell.Spill: file=$Robust_DIR/results/SubMetrics.rdf
-GunnisonAtCrystal.Gage Inflow: file=$Robust_DIR/results/SubMetrics.rdf
-YampaNearMaybell.Gage Inflow: file=$Robust_DIR/results/SubMetrics.rdf
+Metrics.Upper Basin Power Plants Available Generation Capacity: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
+Mead.Power Capacity: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
+Mead.Spill: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
+Powell.Spill: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
+GunnisonAtCrystal.Gage Inflow: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
+YampaNearMaybell.Gage Inflow: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
