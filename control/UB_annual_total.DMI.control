@@ -1,5 +1,5 @@
 #annual UB demand scalar slot
 
-UB demand scenario scaling.total UB demand less AZ: file=$Robust_DIR/dmi/UB_annual_demand/trace1/UB_annual_demand.txt units=acre-ft scale=1e+06 import=resize precision=model
+UB demand scenario scaling.total UB demand less AZ: scale=1.0 import=resize
 
-# NOT RUN EqualizationData.UB annual demand: file=$Robust_DIR/dmi/UB_annual_demand/trace1/UB_annual_demand.txt units=acre-ft scale=1e+06 import=resize precision=model
+# NOT RUN EqualizationData.UB annual demand: scale=1.0 import=resize

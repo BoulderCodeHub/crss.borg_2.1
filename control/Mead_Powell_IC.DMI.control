@@ -1,7 +1,7 @@
 #Mead Pool Elevation
-Mead and Powell initial conditions.Mead Initial Pool Elevation: file=$Robust_DIR/Initial_Conditions/trace1/Mead_PE.txt units=ft scale=1.0 import=resize precision=model
+Mead and Powell initial conditions.Mead Initial Pool Elevation: scale=1.0 import=resize
 
 #Powell Pool Elevation
-Mead and Powell initial conditions.Powell Initial Pool Elevation: file=$Robust_DIR/Initial_Conditions/trace1/Powell_PE.txt units=ft scale=1.0 import=resize precision=model
+Mead and Powell initial conditions.Powell Initial Pool Elevation: scale=1.0 import=resize
 
 
