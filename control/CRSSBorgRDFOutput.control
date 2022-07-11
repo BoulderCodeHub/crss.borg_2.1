@@ -178,6 +178,16 @@ Metrics.Frequency of Mead Spill: file=$Robust_DIR/results/Metrics.rdf
 Metrics.Frequency of Powell Spill: file=$Robust_DIR/results/Metrics.rdf
 Metrics.Frequncy of Gunnison At Crystal Falling Below Instream Flow Right: file=$Robust_DIR/results/Metrics.rdf
 Metrics.Frequncy of Yampa River near Maybell Falling Below Recovery Program Baseflow: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Wet Peak Flow Duration: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Mod Wet Peak Flow Duration: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Average Peak Flow Duration: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Mod Dry Peak Flow Duration: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Dry Peak Flow Duration: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Wet Spring Peak Flow: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Mod Wet Spring Peak Flow: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Average Spring Peak Flow: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Mod Dry Spring Peak Flow: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Dry Spring Peak Flow: file=$Robust_DIR/results/Metrics.rdf
 
 
 ###########################################
@@ -198,3 +208,16 @@ Mead.Spill: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
 Powell.Spill: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
 GunnisonAtCrystal.Gage Inflow: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
 YampaNearMaybell.Gage Inflow: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
+Metrics.PeakFlowDurationR2_Wet: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
+Metrics.PeakFlowDurationR2_ModWet_Final: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
+Metrics.PeakFlowDurationR2_Avg_Final: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
+Metrics.PeakFlowDurationR2_ModWet_Final: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
+Metrics.PeakFlowDurationR2_Dry_Final: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
+Metrics.Wet Spring Peak Flow Check: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
+Metrics.Mod Wet Spring Peak Flow Check: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
+Metrics.Average Spring Peak Flow Check: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
+Metrics.Mod Dry Spring Peak Flow Check: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
+Metrics.Dry Spring Peak Flow Check: file=$Robust_DIR/results/SubMetrics_Monthly.rdf
+
+
+
