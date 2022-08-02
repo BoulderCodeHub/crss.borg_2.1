@@ -1,8 +1,8 @@
 # RiverWare_Ruleset 8.4
-# Created 10:42 March 2, 2022
+# Created 17:04 August 1, 2022
 # 
 RULESET
-NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run)";
+NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run) (from MRM run) (from MRM run)";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "Ruleset that assumes the IG and the DCP are in effect through 2060.";
 PRECISION   2;
@@ -768,7 +768,7 @@ BEGIN
 
     RULE                 "Add Carryover Equalization Release";
     DESCRIPTION          "As it is not always possible to completely Equalize in the water year due to maximum release constraints and errors in the forecast, this rule will add on additional releases to Powell in next water year to finish equalizing.  There carryover EQ volume will be released in 1 month if possible, up to the maximum release constraint.  If any remains, it will be released in the subsequent month, until no more carryover exists.";
-    ACTIVE               TRUE;
+    ACTIVE               FALSE;
     RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "ThisRule" );
   NAMES_COLOR  "#000000";
     NOTES                "";
@@ -794,6 +794,35 @@ BEGIN
 
     END
     UUID "{0793497b-97e0-4931-8bcd-be4aa1640daf}";;
+
+    RULE                 "Add Carryover Equalization Release_BORG";
+    DESCRIPTION          "As it is not always possible to completely Equalize in the water year due to maximum release constraints and errors in the forecast, this rule will add on additional releases to Powell in next water year to finish equalizing.  There carryover EQ volume will be released in 1 month if possible, up to the maximum release constraint.  If any remains, it will be released in the subsequent month, until no more carryover exists.";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "ThisRule" );
+  NAMES_COLOR  "#0000ff";
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT (NaNToZero ( $ "EqualizationData.CarryoverEQFlag" [@"t - 1"] ) == 1.00000000) THEN
+            WITH_STATEMENT (NUMERIC addRelease = "Min"( ( "Max"( "GetMaxReleaseGivenInflow"( % "Powell", $ "Powell.Inflow" [], @"t" ), "BypassCapacity"( $ "Powell.Pool Elevation" [] ) ) - $ "Powell.Outflow" [] ) COMMENTED_BY "Amount the current month's release can be increased", "VolumeToFlow"( $ "EqualizationData.CarryoverEQVolume" [@"t - 1"], @"t" ) COMMENTED_BY "Remaining EQ carryover volume" )) DO
+            $ "Powell.Outflow" [] := $ "Powell.Outflow" [] + addRelease;
+
+            $ "EqualizationData.CarryoverEQReleaseMade" [] := addRelease;
+
+          DESCRIPTION          "If not able to release all the carryover volume in the current month, update the EQ <br>volume and Flag so this rule will execute again next month.";
+      IF_STATEMENT ("FlowToVolume"( addRelease, @"t" ) < $ "EqualizationData.CarryoverEQVolume" [@"t - 1"]) THEN
+            $ "EqualizationData.CarryoverEQFlag" [] := 1.00000000;
+
+            $ "EqualizationData.CarryoverEQVolume" [] := $ "EqualizationData.CarryoverEQVolume" [@"t - 1"] - "FlowToVolume"( addRelease, @"t" );
+
+      END_IF_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END
+    UUID "{952791df-1f4f-4af1-bbcc-8dade7a20f31}";;
 
     RULE                 "Equalization Tier";
     DESCRIPTION          "This rule fires monthly January through September and computes the Equalization (EQ) release from Powell, given that the conditions for EQ are met. Note that Powell's previous EOCY storage is compared to the EQ Line. This has the effect of not allowing Powell to bounce in and out of EQ. The new EQ conditions in the Guidelines (release to keep Mead above 1105 so as Powell doesn't go more than 20' below the EQ Line) are performed in the function CheckEqualizationRelease_Mead1105. ";
@@ -844,7 +873,7 @@ BEGIN
 
       "Powell.Outflow" [] := IF ( "StartYearInEqualization_BORG"(  ) COMMENTED_BY "By comparing to Powell's actual storage at beginning of year, EQ is an annual decision" )
  THEN
-  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
+  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease_BORG"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
  ENDIF;
 
       $ "EqualizationData.EqualBasinStatesFlag" [] := IF ( "StartYearInEqualization_BORG"(  ) )
