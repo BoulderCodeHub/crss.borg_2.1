@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 8.4
-# Created 08:29 March 24, 2022
+# Created 09:47 August 5, 2022
 # 
 RULESET
 NAME "CRSS.Baseline.2027IGDCP.v4.4.0.9004 (from MRM run) (from MRM run) (from MRM run)";
@@ -807,7 +807,7 @@ BEGIN
     BEGIN
 
       IF_STATEMENT (NaNToZero ( $ "EqualizationData.CarryoverEQFlag" [@"t - 1"] ) == 1.00000000) THEN
-            WITH_STATEMENT (NUMERIC addRelease = "Min"( ( "GetMaxReleaseGivenInflow"( % "Powell", $ "Powell.Inflow" [], @"t" ) - $ "Powell.Outflow" [] ) COMMENTED_BY "Amount the current month's release can be increased", "VolumeToFlow"( $ "EqualizationData.CarryoverEQVolume" [@"t - 1"], @"t" ) COMMENTED_BY "Remaining EQ carryover volume" )) DO
+            WITH_STATEMENT (NUMERIC addRelease = "Min"( ( "Max"( "GetMaxReleaseGivenInflow"( % "Powell", $ "Powell.Inflow" [], @"t" ), "BypassCapacity"( $ "Powell.Pool Elevation" [] ) ) - $ "Powell.Outflow" [] ) COMMENTED_BY "Amount the current month's release can be increased", "VolumeToFlow"( $ "EqualizationData.CarryoverEQVolume" [@"t - 1"], @"t" ) COMMENTED_BY "Remaining EQ carryover volume" )) DO
             IF_STATEMENT (( addRelease > 0.00000000 "acre-ft/month" ) COMMENTED_BY "RMS: when powell is near or below 3490, &quot;GetMaxReleaseGivenInflow&quot; function <br>can return a value less than previously set Powell.Outflow (or can return 0). Don't <br>want to reduce Powell.Outflow, so checking to make sure addRelease is positive <br>before revising outflow. Also need this check for the statements below that <br>calculate remaining carryover equalization release volumes  <br>") THEN
             $ "Powell.Outflow" [] := $ "Powell.Outflow" [] + addRelease;
 
@@ -885,7 +885,7 @@ BEGIN
 
       "Powell.Outflow" [] := IF ( "StartYearInEqualization_BORG"(  ) COMMENTED_BY "By comparing to Powell's actual storage at beginning of year, EQ is an annual decision" )
  THEN
-  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
+  "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease_BORG"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) ) ), $ "Powell.Storage" [@"t - 1"], @"t" )
  ENDIF;
 
       $ "EqualizationData.EqualBasinStatesFlag" [] := IF ( "StartYearInEqualization_BORG"(  ) )
@@ -1050,7 +1050,7 @@ BEGIN
     ENDIF COMMENTED_BY "Release for Balancing if 1) Powell is in the correct elevation tier 2) EQ conditions are not met 3) EQ has <br>not yet trumped 4) Mead is less than mead ref elev trigger <br>"
    ENDIF
   ELSE
-   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) COMMENTED_BY "Constrain EQ Release to bring Mead to 1105 or Powell 20 ft below the EQ Line." ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead below 1105 then EQ release must 1) bring Mead to 1105 2) take Powell 20 ft below the EQ Line or 3) equalize. Whatever occurs first. " COMMENTED_BY "EQ trumps Upper Elevation Balancing if EQ conditions are met OR EQ trumped last month"
+   "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease_BORG"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) COMMENTED_BY "Constrain EQ Release to bring Mead to 1105 or Powell 20 ft below the EQ Line." ) ), $ "Powell.Storage" [@"t - 1"], @"t" ) COMMENTED_BY "If Mead below 1105 then EQ release must 1) bring Mead to 1105 2) take Powell 20 ft below the EQ Line or 3) equalize. Whatever occurs first. " COMMENTED_BY "EQ trumps Upper Elevation Balancing if EQ conditions are met OR EQ trumped last month"
   ENDIF
  ENDIF;
 
@@ -1074,7 +1074,7 @@ BEGIN
     DESCRIPTION          "If in September, and it's a year that switched to EQ in April, then see if we were able to fully <br>equalize.  If not, then set the carryover equalization flag and volume.";
       IF_STATEMENT ($ "Powell Decision Variables.PowellReleaseTier" [@"24:00:00 December 31, Current Year"] == 1.00000000 AND @"t" == @"24:00:00 September Max DayOfMonth, Current Year" AND NOT ( NOT "EqualizationConditionsMet_BORG"(  ) AND IsNaN $ "Coordinated Operation.EQTrumpUpperLevelBalancingFlag" [@"t - 1"] )) THEN
             WITH_STATEMENT (NUMERIC remainingWYRel = "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) + "ForecastPowellRelease"(  )) DO
-            WITH_STATEMENT (NUMERIC powellRel = "FlowToVolume"( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) ) ), $ "Powell.Storage" [@"t - 1"], @"t" ), @"t" )) DO
+            WITH_STATEMENT (NUMERIC powellRel = "FlowToVolume"( "SolveOutflow"( % "Powell", $ "Powell.Inflow" [], "PowellComputeStorageAtGivenOutflow"( "ComputePowellRelease_BORG"( "CheckEqualizationRelease_Mead1105_BORG"( "ConvertPowellRelease"( "ComputeEqualizationReleaseList"( $ "EqualizationData.ForecastEOWYSPowell" [], $ "EqualizationData.ForecastEOWYSMead" [] ) ) ) ) ), $ "Powell.Storage" [@"t - 1"], @"t" ), @"t" )) DO
             IF_STATEMENT (( "Floor"( remainingWYRel - powellRel, 100.00000000 "acre-ft" ) > 0.00000000 "acre-ft" ) COMMENTED_BY "Round the difference down to the nearest 100 acre-ft to keep from setting this when there are only minor differences between the two volume") THEN
             $ "EqualizationData.CarryoverEQFlag" [] := 1.00000000;
 
