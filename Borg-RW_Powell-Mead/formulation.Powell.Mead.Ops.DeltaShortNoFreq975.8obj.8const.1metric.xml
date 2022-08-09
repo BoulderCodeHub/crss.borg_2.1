@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<borgRwConfig>
+    <rwExec>C:\Program Files\CADSWES\RiverWare 8.4\riverware.exe</rwExec>
+		<populationSize>100</populationSize>
+		<maxEvaluations>5000</maxEvaluations>
+    <!-- numVar equals sum of <column> <numRow> values -->
+    <variableList numVar="44">
+        <!-- either a single <variable> element which
+             is applied to all variables or a <variable>
+             element for each variable -->
+        <variable>
+			<!--RMS: letting all borg variables have 0-1 range for now but may need to change this--> 
+            <bounds lower="0.0" upper="1.0"/>
+        </variable>
+    </variableList>
+    <objectiveList numObj="8"> 
+    	<objective>
+            <file>Objective_Powell_3490</file>
+            <epsilon>1</epsilon>
+            <function>AVERAGE</function>
+			<nanReplacement>99999</nanReplacement>
+        </objective>
+		<objective>
+            <file>Objective_Powell_WY_Release</file>
+            <epsilon>50000</epsilon>
+            <function>AVERAGE</function>
+			<nanReplacement>99999</nanReplacement>
+        </objective>
+		<objective>
+            <file>Objective_Lee_Ferry_Deficit</file>
+            <epsilon>3</epsilon>
+            <function>AVERAGE</function>
+			<nanReplacement>99999</nanReplacement>
+        </objective>
+		<objective>
+            <file>Objective_Avg_Combo_Storage</file>
+            <epsilon>100000</epsilon>
+            <function>AVERAGE</function>
+			<nanReplacement>99999</nanReplacement>
+        </objective>
+		<objective>
+            <file>Objective_Mead_1000</file>
+            <epsilon>1</epsilon>
+            <function>AVERAGE</function>
+			<nanReplacement>99999</nanReplacement>
+        </objective>
+		<objective>
+            <file>Objective_LB_Shortage_Volume</file>
+            <epsilon>50000</epsilon>
+            <function>AVERAGE</function>
+			<nanReplacement>99999</nanReplacement>
+        </objective>
+		<objective>
+            <file>Objective_Max_Annual_LB_Shortage</file>
+            <epsilon>50000</epsilon>
+            <function>AVERAGE</function>
+			<nanReplacement>99999</nanReplacement>
+        </objective>
+		<objective>
+            <file>Objective_Max_Delta_Annual_Shortage</file>
+            <epsilon>50000</epsilon>
+            <function>MAXIMUM</function>
+			<nanReplacement>99999</nanReplacement>
+        </objective>
+    </objectiveList>
+	
+	<metricList numMetrics="1"> 
+			<metric>
+				<file>Objective_LB_Shortage_Frequency</file>
+				<aggregationMethod>Average</aggregationMethod>
+			</metric>
+		</metricList>
+		
+		
+    <constraintList numConstraints="8">
+		<constraint>
+            <file>Objective_Mead_1000</file>
+            <comparisonOperator>LessThanOrEqualTo</comparisonOperator>
+			<threshold>20</threshold>
+            <scaleFactor>1</scaleFactor>
+            <aggregationMethod>SatisOfAveVal</aggregationMethod>
+        </constraint>
+		<constraint>
+            <file>Objective_LB_Shortage_Volume</file>
+            <comparisonOperator>LessThanOrEqualTo</comparisonOperator>
+			<threshold>750000</threshold>
+            <scaleFactor>1</scaleFactor>
+            <aggregationMethod>SatisOfAveVal</aggregationMethod>
+        </constraint>
+		<constraint>
+            <file>Objective_Max_Annual_LB_Shortage</file>
+            <comparisonOperator>IsValid</comparisonOperator>
+            <scaleFactor>1000</scaleFactor>
+            <aggregationMethod>SumOfSatisVals</aggregationMethod>
+        </constraint>
+		<constraint>
+            <file>Objective_Max_Delta_Annual_Shortage</file>
+            <comparisonOperator>IsValid</comparisonOperator>
+            <scaleFactor>1000</scaleFactor>
+            <aggregationMethod>SumOfSatisVals</aggregationMethod>
+        </constraint>
+		<constraint>
+            <file>Objective_Powell_3490</file>
+            <comparisonOperator>LessThanOrEqualTo</comparisonOperator>
+			<threshold>10</threshold>
+            <scaleFactor>1</scaleFactor>
+            <aggregationMethod>SatisOfAveVal</aggregationMethod>
+        </constraint>
+		<constraint>
+            <file>Objective_Powell_WY_Release</file>
+            <comparisonOperator>IsValid</comparisonOperator>
+            <scaleFactor>1000</scaleFactor>
+            <aggregationMethod>SumOfSatisVals</aggregationMethod>
+        </constraint>
+		<constraint>
+            <file>Objective_Lee_Ferry_Deficit</file>
+            <comparisonOperator>LessThanOrEqualTo</comparisonOperator>
+			<threshold>5</threshold>
+            <scaleFactor>1</scaleFactor>
+            <aggregationMethod>SatisOfAveVal</aggregationMethod>
+        </constraint>
+		<constraint>
+            <file>Objective_Avg_Combo_Storage</file>
+            <comparisonOperator>IsValid</comparisonOperator>
+            <scaleFactor>1000</scaleFactor>
+            <aggregationMethod>SumOfSatisVals</aggregationMethod>
+        </constraint>
+	</constraintList>
+		
+	
+        
+		<columnList numCol="9"> <!--RMS: numCol = number of separate input text files; some files have more than one of Borg's variables in them-->
+        <column>
+            <file>Mead_Surplus_DV.txt</file>
+			<!--RMS: numRow = number of Borg's variables that are written to the input text file-->
+            <numRow>2</numRow>
+            <limits lower="0" upper="75"/> 
+			<!--RMS: the following line allows you to append a first row and/or a last row to any column; if no need, use "NaN"-->
+            <rows first="NaN" last="NaN"/>
+			<!--RMS: delta determines whether the values written into a table slot will be descending (delta = 1) or ascending (delta = -1). If ascending, the first
+			Borg variable will be multiplied by all of the Borg variables associated with the subsequent table rows; the second Borg variable will be multiplied by
+			the subsequent variables (but not the first variable), etc., to create a list of table values that gets larger by the row-->
+            <delta>1</delta>
+			<!--RMS: nanRows = the number of rows of "NaN" to add to the end of a column; this feature will probably be unique to TRWD-->
+            <nanRows>0</nanRows>
+			<roundingIncrement>5.0</roundingIncrement>
+        </column>
+        <column>
+            <file>Mead_Shortage_e_DV.txt</file>
+            <numRow>8</numRow>
+            <limits lower="975♠" upper="1100"/> 
+			<rows first="NaN" last="NaN"/>
+            <delta>1</delta>
+            <nanRows>0</nanRows>
+			<roundingIncrement>5.0</roundingIncrement>
+        </column>
+        <column>
+            <file>Mead_Shortage_V_DV.txt</file>
+            <numRow>8</numRow>
+            <limits lower="100000" upper="2400000"/> 
+            <rows first="NaN" last="NaN"/>
+            <delta>1</delta>
+            <nanRows>0</nanRows>
+			<roundingIncrement>50000.0</roundingIncrement>
+        </column>
+		<!--BEGIN POWELL VARIABLES-->
+		<column>
+            <file>Powell_Tier_Elevation_DV.txt</file>
+            <numRow>5</numRow>
+            <limits lower="3370" upper="3700"/> 
+            <rows first="NaN" last="NaN"/>
+            <delta>1</delta>
+            <nanRows>0</nanRows>
+			<roundingIncrement>5.0</roundingIncrement>
+        </column>
+		<column>
+            <file>Powell_Mead_Reference_Elevation_DV.txt</file>
+            <numRow>5</numRow>
+            <limits lower="975" upper="1100"/> 
+            <rows first="NaN" last="NaN"/>
+            <delta>1</delta>
+            <nanRows>0</nanRows>
+			<roundingIncrement>5.0</roundingIncrement>
+        </column>
+		<column>
+            <file>Powell_Range_Number_DV.txt</file>
+            <numRow>5</numRow>
+            <limits lower="0" upper="46"/> 
+            <rows first="NaN" last="NaN"/>
+            <delta>999</delta>
+            <nanRows>0</nanRows>
+			<roundingIncrement>1.0</roundingIncrement>
+        </column>
+		<column>
+            <file>Powell_Balance_Tier_Variable_DV.txt</file>
+            <numRow>5</numRow>
+            <limits lower="0" upper="1"/> 
+            <rows first="NaN" last="NaN"/>
+            <delta>999</delta>
+            <nanRows>0</nanRows>
+			<roundingIncrement>1.0</roundingIncrement>
+        </column>
+		<column>
+            <file>Powell_Primary_Release_Volume_DV.txt</file>
+            <numRow>5</numRow>
+            <limits lower="5000000" upper="15000000"/> 
+            <rows first="NaN" last="NaN"/>
+            <delta>1</delta>
+            <nanRows>0</nanRows>
+			<roundingIncrement>10000.0</roundingIncrement>
+        </column>
+		<column>
+            <file>Powell_Increment_EQ_DV.txt</file>
+            <numRow>1</numRow>
+            <limits lower="0" upper="3"/> 
+            <rows first="NaN" last="NaN"/>
+            <delta>999</delta>
+            <nanRows>0</nanRows>
+			<roundingIncrement>1.0</roundingIncrement>
+        </column>
+		
+		
+    </columnList>
+</borgRwConfig>
