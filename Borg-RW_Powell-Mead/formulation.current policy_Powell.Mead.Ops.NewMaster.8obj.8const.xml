@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <borgRwConfig>
-    <rwExec>C:\Program Files\CADSWES\RiverWare 8.2.2\riverware.exe</rwExec>
+    <rwExec>C:\Program Files\CADSWES\RiverWare 8.4.4\riverware.exe</rwExec>
 	<fileDrivenRun inputFile="current_policy_ForFileDrivenRun.txt"/>
 		<populationSize>100</populationSize>
 		<maxEvaluations>10000</maxEvaluations>

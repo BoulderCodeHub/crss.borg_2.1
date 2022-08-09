@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <borgRwConfig>
-    <rwExec>C:\Program Files\CADSWES\RiverWare 8.4\riverware.exe</rwExec>
+    <rwExec>C:\Program Files\CADSWES\RiverWare 8.4.4\riverware.exe</rwExec>
 		<populationSize>100</populationSize>
 		<maxEvaluations>5000</maxEvaluations>
     <!-- numVar equals sum of <column> <numRow> values -->

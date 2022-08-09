@@ -9,8 +9,9 @@ my $obj = 'Objectives';
 
 #slot name for each objective slot that you're outputting to Borg
 #not all of these slots will be used for any particular formulation, but want to minimize the amount of changes for different formulations
-my @slots = ('Objective_Avg_Combo_Storage', 'Objective_LB_Shortage_Frequency', 'Objective_LB_Shortage_Volume', 'Objective_Lee_Ferry_Deficit',
-				'Objective_Max_Annual_LB_Shortage', 'Objective_Mead_1000', 'Objective_Powell_3490', 'Objective_Powell_WY_Release');
+my @slots = ('Objective_Avg_Combo_Storage', 'Objective_LB_Shortage_Volume', 'Objective_Lee_Ferry_Deficit',
+				'Objective_Mead_1000', 'Objective_Powell_3490', 'Objective_Powell_WY_Release',
+				'Objective_LB_Shortage_Frequency', 'Objective_Max_Annual_LB_Shortage', 'Objective_Max_Delta_Annual_Shortage');
 
 # get the trace number.
 $ARGV[-1] =~ /\-STrace=(\d+)/;
