@@ -1,0 +1,1888 @@
+commit bc9f7019ca4e8e6c439c27afc7ce666e866b2ecf
+Author: Elliot Alexander <42253401+eaalexander@users.noreply.github.com>
+Date:   Wed Dec 9 16:45:32 2020 -0700
+
+    Copied over the gitignore file from the crss dir
+
+commit fb018faae8103ece37476d4fbe89cd718641fa84
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Dec 10 15:52:15 2020 -0700
+
+    Copied over all the files from the crss offical/Redesign 12/10/20 CF commit
+
+commit 1cf0b38a6385e32d55c552a109d6c45c7951e0ec
+Author: ealexander <ealexander@usbr.gov>
+Date:   Mon Dec 21 10:14:28 2020 -0700
+
+    -Started off with the  CRSS.V4.4.1.2021.Feb2020_9011 model and saved model file as a different name
+    
+    - Changed canvas color and RiverWare icon color
+
+commit f2ff0c1d6bad097ac8ddeff972c0eeea8b080f8a
+Author: ealexander <ealexander@usbr.gov>
+Date:   Mon Dec 21 12:08:01 2020 -0700
+
+    - Imported the Objective and Mead Decision Variable Data object
+    
+    -- Also added the Objective_Avg_Combo_Storage slot and the EOCY_Combo_Storage to the Objectives data object
+
+commit c0380849a6d788933df54aedc7a7153dc6298877
+Author: ealexander <ealexander@usbr.gov>
+Date:   Mon Dec 21 15:36:07 2020 -0700
+
+    - Imported the Borg Pre Processing Initialization Ruleset
+
+commit fd247e3fe0c2267889ce399707f75fbdb4bda081
+Author: ealexander <ealexander@usbr.gov>
+Date:   Mon Dec 21 16:06:33 2020 -0700
+
+    - Added the Borg DV Input and Objectives Output DMIs to the model
+    
+    -- Also updated the DNF with Salinity MRM configuration
+
+commit 1d212e480784e796ef180eeeeca47eeeb8be35c4
+Author: ealexander <ealexander@usbr.gov>
+Date:   Mon Dec 28 15:45:25 2020 -0700
+
+    Added a new user defined function which include IsShortageFromInput(), ComputeSurplusDep7StatePlanLevel3() and ComputeSurplusDiv7StatePlanLevel3()
+
+commit c16ad31f3d69d46f3350da6acbca7c6a65386248
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Jan 6 14:27:04 2021 -0700
+
+    - model changes -- Created new MWD and SNWP Level 3 Surplus schedules in the 7 State Plan Surplus Schedules data object. -- Modified the Surplus Triggers.7 State Plan Level 2 & Level 3 to be an series slot with expression instead of hard coded series slots and to key off of the Mead Decision Variable Surplus DV slots.
+    
+    - ruleset changes -- saved ruleset to RW v 8.0.3
+
+commit ef980c5f5db0e927b42cc433212c869549a185e1
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Jan 6 14:38:07 2021 -0700
+
+    - Turned off Water Quality in the Rulebased Simulation Run Parameters
+    
+    - Changed the first simulation year of SystemConditions.LBShortageTier 2021 timestep to output and cleared the 0 value
+
+commit 809a576a6ec50b816e684b32a57237131b359630
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Jan 7 16:27:22 2021 -0700
+
+    - replaced SNWPSchedule.Diversion Schedule and SNWPSchedule.Depletion Schedule slot in the ComputeSurplusDiv7StatePlanLevel3() global function with SNWPDiversion:SNWPDiversion.Depletion Schedule & SNWPDiversion:SNWPDiversion.Depletion Schedule slots
+    
+    -replaced SNWPSchedule.Depletion Schedule slot with the SNWPDiversion:SNWPDiversion.Depletion Schedule slot in the expression logic for the SNWP Level 3 slot in the 7 State Plan Surplus Schedules data object.
+
+commit be411f79b28dc13f88b3fb5cdf135a9dc8e4372d
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Jan 13 14:01:46 2021 -0700
+
+    -replaced MWDSchedule.Input Depletion Normal Schedule slot with the MWDDiversion:MWDDiversion.Depletion Schedule slot in the expression logic for the MWD Level 3 slot in the 7 State Plan Surplus Schedules data object.
+
+commit a55a6bb39770d4dff7bc2812b05f3c362680bf0c
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Jan 22 15:14:51 2021 -0700
+
+    Modified the GetNVShortageOrSurplusDelivery() function to key off of the Mead Decision Variable data objection
+
+commit a746ac1fb981041e2429deab408c3948318762d7
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Feb 4 09:57:34 2021 -0700
+
+    -Updated the GetNVShortageOrSurplusDelivery() function in the NV ICS Functions global function set.
+    
+    -- Changed the "SNWPSchedule.Depletion Schedule" to " "SNWPDiversion:SNWPDiversion.Depletion Schedule"
+
+commit a29be94ffe5e842bd2d08bea507b08778ac8fa00
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Feb 4 11:40:05 2021 -0700
+
+    - Modified the SNWPStepShortageRatio() function in the Guideline Shortage Functions group
+
+commit 7ff1f5740a1c575f3c2f5ad7089c788ac7bea30b
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Feb 4 13:17:12 2021 -0700
+
+    Changed the "SNWPSchedule.Depletion Schedule" reference to  "SNWPDiversion:SNWPDiversion.Depletion Schedule"  in the SNWPStepShortageRatio() function
+
+commit 89567516e6247e76aa1eb28df53e11837a8b941d
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Feb 9 13:23:36 2021 -0700
+
+    -Saved a new ruleset file for use in the CRSS.Borg_2.0 model
+
+commit 8aacfceaa0c46e76f384c50664c80c457914e590
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Feb 9 14:06:45 2021 -0700
+
+    - Created a single trace MRM "CRSS Borg DNF Single Trace" to test CRSS Borg 2.0 runs
+    
+    - Started to modify AZ ICS rules
+
+commit 09315599ce2afa3cce1901196b1bae0829cd6226
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Feb 11 11:27:16 2021 -0700
+
+    - Fixed the spelling in the AZForebearedReturnFlow.Inflow slot in the AZForebearedReturnFlow.xlsx file and in the file name
+    
+    - Updated the name of the CRSS Borg DNF Single Trace MRM
+
+commit 1eb63266804ba2e1dcc674815cdbd875e1bc61a6
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Feb 11 11:45:09 2021 -0700
+
+    Updated the 2016 UB and LB Demands DMI to point to the corrected AZForebearedReturnFlow xlsx file in the CRSS.V4.1.2021.Feb2020_9011 model
+
+commit 1d474d5dcd45ed01e1e7c4523da95f4cae6faa72
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Feb 11 12:10:39 2021 -0700
+
+    -Updated the rulesets in the DNF single trace test and CRSS Borg DNF single trace test and CRSS Borg DNF single trace test MRM
+    
+    - Also added the Borg DV Input Initilization DMI to the CRSS Borg DNF single trace test MRM
+
+commit a354a3c4421ab3e4f2e3cd4c93c19c235d2a1f3f
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Feb 11 13:08:27 2021 -0700
+
+    -Update the time range in the expression slots in the Objectives data object to have the new modeling horizon of 2021 to 2060
+
+commit a2e2fed9291a07104a266845e8ea22a0ae78b417
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Feb 11 13:17:56 2021 -0700
+
+    - Updated the Consecutive Shortage Counter expression slot date range to start in 2021
+
+commit 85e599d1038dbc4852ba64073cf93001b8673698
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Feb 16 14:24:31 2021 -0700
+
+    - Started to modify the Nevada ICS rules in the ICS and Other Project Water Rules group to turn off Nevada ICS puts and takes
+
+commit 9355afd343b380a2d6df596d59127953b6c8f41c
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Feb 16 15:11:33 2021 -0700
+
+    Set all of the slot selections within the For loop to equal zero acre feet in the SNWP ICS Annual to Monthly rule to turn off Nevada ICS puts/takes. 
+
+commit df6768da0238cab785da1e01e31cfc8e457015db
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Feb 16 16:29:07 2021 -0700
+
+    Started to modify the California ICS rules in the ICS and Other Project Water Rules and the LB DCP and MX BWSCP groups to turn off IID and MWD ICS puts and takes
+
+commit 49acea2a687146b94fe4895be0548ed9e007084a
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Feb 17 09:38:03 2021 -0700
+
+    -Modified the Reduce Mexico by Computed BWSCP Savings and Create BWSCP Savings rule setting BWSCP ICS puts and takes to be 0 acre-ft
+
+commit cee44df0921b322cec3ab40bc75c558689adbed5
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Feb 17 13:55:28 2021 -0700
+
+    - Set all the Intentionally Created Surplus (ICS) initial balances in the Arizona ICS, California ICS, ICMA and Nevada ICS for select data objects.
+
+commit b0075f1f5385348217f6c6cf79ae59a51f038738
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Feb 18 16:07:20 2021 -0700
+
+    - Created an input folder in the CRSS.Borg_2.0 directory
+    
+    - Created input decision variable files that replicate the 8 tier DCP policy structure for Lake Mead
+
+commit 3f127ded3a886fab337d7af0e2ed767ccc172816
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Feb 18 16:17:36 2021 -0700
+
+    Updated the DCP Surplus Decision Variables to match the PA
+
+commit 1b1adddbec2e208f6b61eea1585c1aae8563a2d2
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Feb 19 09:37:05 2021 -0700
+
+    -Added policy variable input control file to the input folder
+    
+    -Updated the file paths in the CRSS.CRSS.Borg_2.0 model to point to $Borg_DIR
+
+commit f292b66a0071ccb3df729f1325e1563951f785b0
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Feb 19 09:57:01 2021 -0700
+
+    - Added two rows to the Mead Decision Variables.Compressed and Mead Decision Variables.FromBorgRW table slots.
+    
+    - Modified the Re Sort E initialization rule under the Borg Pre Processing group to resort a 8 row table instead of a 6 row table.
+
+commit 49691e4130943372422cc027c1f876112884ccf1
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Feb 19 11:07:35 2021 -0700
+
+    -Created input decision variable files that replicate the 3 tier PA policy structure for Lake Mead
+
+commit a0ed7c288a7b9f2ee285665a07db8e057b50a889
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Feb 19 13:59:58 2021 -0700
+
+    -Updated all of the table lookup functions and references to the last row of the Mead Decision Variabeles.From BorgRW table slot to be indexed to the 8th row instead of the 5th row. This requirement me to change the following global functions:
+    
+                            -IsShortageFromInput()
+                            -SNWPStepShortageRatio()
+                            - GetNVShortageOrSurplusDelivery()
+
+commit 056690ebc332efb917670e8fcd7dbffc8b814c64
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Feb 23 10:42:24 2021 -0700
+
+    - Added aug_2020 folder to the dmi/InitialConditions/ directory folder
+
+commit 9ac3c0823ed6362eb1bc9b400da9b9ac1655f534
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Feb 23 11:21:42 2021 -0700
+
+    -Updated the Import Initial Conditions From MTOM and 24MS input DMI to point to the aug_2020 folder in both model
+    
+    - Changed the key file paths from $CRSS_DIR to $Borg_DIR in both models
+
+commit b596b415e135f4bd4ec959b9d2ef60712f1100ac
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Feb 23 14:15:28 2021 -0700
+
+    -Removed the word Tribal from "ArizonaMiscUses:EnvironmentalTribal.Depletion Schedule" for both the baselin CRSS model and the CRSS.Borg_2.0 model
+
+commit 921015ce2d809a785ef98046170284b62900128e
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Feb 25 12:05:36 2021 -0700
+
+    - cleared out the policy variable values in the CRSS.Borg_2.0 model file
+    
+    - Turn off DCP shortage reduction by setting DCP.EndDCP[year] to January 2010 in the Set ICSPut and Take Date rule
+
+commit ee5821be5a3661f49bc1ad1e36cc74f6ac937532
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Feb 26 11:11:05 2021 -0700
+
+    Turned off Upper Basin Drought Operations (Extended Operations) by setting ExtendedOperations.ExtendedOperationsFlag[month] to be equal to zero. 
+
+commit ceb836f37f8d97bab9e7015e725492c9eff4c01c
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Feb 26 14:16:02 2021 -0700
+
+    - Modified the Set Shortage Tier rule in the Shortage Rules group.
+    
+    -- Replaced the DetermineShortageTier() function that only works with 3 shortage tiers with a TableLookup function using the previous EOCY Lake Mead Pool Elevation to grab the shortage level from the Mead Decision Variables.Full table generated by the Borg Pre Processing initialization rules.
+
+commit 29537cd699ed210af631a5073388c46baf78107f
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Feb 26 15:47:42 2021 -0700
+
+    -Added a series expression slot LBShort.IIDShort which accounts for the shortage to IID when AZ's allocation goes dry and IID takes on the remainder shortage. This only happens when a policy shortage is implemented with a shortage reduction of ~2 MAF or higher.
+    
+    -Added series expression slot LBShort.AnnualIIDShort
+    
+    -Edited series expression slot LBShort.AnnualLBMexicoShort to include LBShort.AnnualIID
+
+commit 64d726fccb43880b0043dba013c5876e241ce073
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Mar 2 14:32:29 2021 -0700
+
+    - Modified the ComputeStepShortageDepletion() function in the Guideline Shortage Function global function set
+    
+    --Replaced dependency on Shortage.LowerBasinMexicoShortageAmount table slot with Table Lookup for AZ,MX, and NV Mead Decision Variable.Full.Shortage Reduction table slot.
+    ---These shortage volumes are multiplied by AZ,MX, and NV Shortage Percentages
+    ---This change will slightly misalign current operations simulation. For example NV shortage reduction volume for level one is 13 KAF and will be 13.33337 KAF by multiplying by 3.333%
+    ---I also added IID to take shortage which made sure CAP depletion doesn't go below zero
+
+commit 4dbad5490e5c40c842289c00237ea5e624d34f07
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Mar 2 15:38:47 2021 -0700
+
+    - Modified the ListLBNormalWaterUsersByProvider() function in the New General Functions group.
+    
+    -- Removed the IIDDiversionMandI ,IIDDiversionNRG , and IIDDiversionFWR  IID Water Users
+    - Modified the ComputeStepShortageDepletion() function in the Guideline Shortage Function global function set
+    -- I also removed the "DuringTermOfMinute()" if statement in the Mexico block since simulation will always be after Minutes 323 timeframe. (January, 2021)
+
+commit 86e59426d538945b1ccd9f5b060000b0b16f5abb
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Mar 3 10:38:46 2021 -0700
+
+    Added curly brackets to IID water users in the ListLBNormalWaterUsersByProvider() function
+
+commit 247ce8189f5ceb067f22f256670a5ca140da82d6
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Mar 4 10:50:53 2021 -0700
+
+    - Added a IIDSpecifiedShortage slot in the LBShort data object
+    
+    - Modified the Reduce Use for IG Shortage Conditions rule in the Shortage Rule group
+
+commit 7117356bb1d86a2a0ed8ab8b0edd1e9a5e24a480
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Mar 4 13:39:51 2021 -0700
+
+    - Modified the Reduce Use for IG Shortage Conditions rule in the Shortage Rule group
+    
+    --  Removed the Shortage.shortageSlot[date] = 1.00 statement
+
+commit 658f513299877f6b8c6b51f711526cba7fee6498
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Mar 5 11:42:49 2021 -0700
+
+    - Updated the global functions and Rules to point to the Borg functions
+    
+    -  In the ComputeStepShortageDepletion() function, I changed the IID water user to take shortage to be $ "IIDDiversion:IIDDiversionAG.Depletion Schedule" depletion slot selection in the
+    - Changed the time range of the "SpecifiedShortage" slots in the LBShort to match the run range.
+
+commit 1010580c1d5b12c7c151d53ff6cedf398c0f1802
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Mar 11 16:22:45 2021 -0700
+
+    - Created a new function called GetIGShortageVolume_BORG() which determine shortage reduction volumes based on Lake Mead policy variables and it is used to assign the specified shortage slots in the LB Short data object.
+    
+    - changed the ruleset by just adding a subtracting debuging break points
+
+commit f04341001a73a888885f15c0e0baaee93d0d4e56
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Mar 12 09:23:05 2021 -0700
+
+    -Moved the Shortage and Surplus rules group to be just below the Powell Rules group.
+    
+    - Deleted an development version of the Reduce Use for IG Shortage Conditions rule.
+
+commit 41dd9a08f98bfad1de72ac8ed8d9c148ee5ebaa9
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Mar 12 09:44:43 2021 -0700
+
+    - created a baseline model to compare runs with the CRSS.Borg_2.0 model
+    
+    - Set all the Intentionally Created Surplus (ICS) initial balances in the Arizona ICS, California ICS, ICMA and Nevada ICS for select data objects to 0 acre-feet.
+
+commit 695f85a67c9544061d738ec0d33d3d38e646946b
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Mar 12 13:52:24 2021 -0700
+
+    - created a new ruleset for the baseline model
+    
+    - Implemented rule changes to the ICS and Other Project Water Rules to turn off ICS functionality for Arizona, MWD, IID, Nevada, and ICMA
+    - updated the ruleset path for the DNF single trace test MRM in the baseline model
+    - updated the path in the Import Initial Conditions From MTOM to 24MS in the baseline model
+
+commit e95631fe5f4ea294b24fb5c093072479c021959e
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Mar 12 13:57:34 2021 -0700
+
+    - Renamed the CRSS Borg 2.0 baseline model
+
+commit 62b5a2ee252dca7d64a83b2009e1e62171f623a0
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Mar 12 15:20:18 2021 -0700
+
+    - set MWD ICS.BICSInitialBalance to 0.
+    
+    - set MWD ICS.InitialBalance to 0.
+    - Implemented rule changes to the MX BWSCP rules to turn off ICS functionality for Arizona, MWD, IID, Nevada, and ICMA
+
+commit 7e08fd6fe1d974c02a624869525f6a500ba330cd
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Mar 19 10:05:10 2021 -0600
+
+    - deleted a shortage rule that I used for development purposes
+    
+    - Modified the Set Surplus Conditions Flag rule in the Normal and Other Rules group.
+    -The main modification is that the SummaryOutputData.LBSurplusConditions rule can be set by the Level 3 (Partial Domestic Surplus) elevation in addition to Level 2 (Domestic Surplus) elevation.
+
+commit 2cbda6fd436c7124dd185a04f2c4507b4bc5b64a
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Mar 19 14:19:23 2021 -0600
+
+    - Modified the execution constraint of the Domestic 7 State Plan Level 2 Surplus rule in the Surplus Rules group. 
+    
+    --The additional execution constraint includes a AND Surplus Triggers.7 State Plan Level 2[@"t-1"] != 1,200.00 "ft". When the Surplus trigger level 2 values is = to 12000 then both the d1 and d2 policy variables are both equal to 0 ft. This policy variable combination leads to surplus operation being "turned off". This added execution constraint allow for this policy variable combination to make this rule not fire. 
+
+commit f924d3f68da6b8e57730dbab449edc20c9cead1e
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Mar 19 15:59:53 2021 -0600
+
+    -Created a Partial Domestic Surplus (7 State Plan Level 3 No ICS) rule in the Surplus Rules group.
+    
+    --Structurally, the Partial Domestic Surplus (7 State Plan Level 3 No ICS) rule is similar to the Domestic surplus rule; however it utilizes the ComputeSurplusDiv/Depl7StatePlanLevel3()  functions instead of the Level 2 functions and allows additional Partial Domestic Surplus (PDS) delivery to "MWD" and "SNWP" only. CAP didn't get additional PDS surplus delivery to align what was done in the 2001 Interim Surplus Guidelines.
+    
+    --There is an execution constraint checks to see which surplus condition Lake Mead's Pool Elevation falls below Level 2 (DS) but above Level 3 (PDS) surplus flags, then this rule will fire.
+
+commit 598fe01d6792d51a325ff577a7f1c4f1967f0624
+Author: ealexander <ealexander@usbr.gov>
+Date:   Mon Mar 22 13:33:46 2021 -0600
+
+    - Updated the surplus policy variable text file to be a policy that would enable partial domestic surplus ops
+    
+    - Modified the "7 State Plan Surplus Schedules.SNWP Level 3" expression slot logic, so the partial domestic surplus schedule (level 3) is always less than or equal to SNWP's domestic surplus schedule
+
+commit 6c8ec322360ce167296a9b8fa0550ba274c5d67b
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Mar 23 15:43:50 2021 -0600
+
+    - changed the color of the Set Surplus Condtions Flag rule to blue
+
+commit e2e2e29d65687f9179e7670341f35195cafc0c13
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Mar 25 10:40:18 2021 -0600
+
+    - Worked on preparing the CRSS baseline model (CRSS.Borg_2.0_Baseline) and ruleset (CRSS.Baseline.2027IGDCP.v4.4.9004_baseline_DCP_OFF.rls & CRSS.Baseline.2027IGDCP.v4.4.9004_baseline_DCP_ON.rls) for the upcoming comparison runs
+    
+    --Turned off Upper Basin Drought Ops in the Set ICS Put and Take Dates  in both baseline rulesets.
+    --Turned off DCP shortage reduction by setting  the DCP.EndDCP[year] slot in the Set Operational Dates rules  to DateToNumber(@"24:00:00 December 31, 2010") in the Set ICS Put and Take Dates rule and saved this ruleset as "CRSS.Baseline.2027IGDCP.v4.4.0.9004_baseline_DCP_OFF"
+    --Renamed the baseline ruleset that left DCP shortage reductions on to "CRSS.Baseline.2027IGDCP.v4.4.0.9004_baseline_DCP_OFF"
+    --Deleted the old baseline ruleset
+
+commit daf99f7a3ea7d6b56656b62bf3e837a87af17b7e
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Mar 25 12:03:30 2021 -0600
+
+    - Updated the Output.control file to point to the $Borg_DIR
+    
+    -Created a Output_CRSS.Borg_2.0.control file which is a copy of the Output.control file with Lake Mead objective slot and decision variable slot output added in.
+
+commit dd726f7e42bd282a1e326c8eb12098abeea7cb9a
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Mar 25 14:14:18 2021 -0600
+
+    - fixed errors in the Output_CRSS.Borg_2.0.control file
+
+commit ad84667362e3a94c9f1ac5ab3b361c1e23a5c832
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Mar 26 08:32:43 2021 -0600
+
+    - Created a MRM configuration for both the Baseline model runs with DCP turned on and DCP turned off in the CRSS.Borg_2.0_Baseline model.
+
+commit 9d80d2f56c7511b2ce8dbf36b17c07d0d91ab1b0
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Mar 26 13:47:12 2021 -0600
+
+    - Updated the execution constraint for the Re Sort E initilization rule. Now the rule will only fire if the shortage elevations variables are listed in a decending order. The elevation variables are always read into the From BorgRW table in a decending order, so this rule will only fire if the table hasn't been flipped yet.
+
+commit e1589cbf065b7886d3827645c27874df10b980ee
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Mar 26 16:28:03 2021 -0600
+
+    - Changed the way IID took CAP shortage reductions. CAP will now take shortage redcutions until going dry and then IID will take the remainder of CAP's shortage reductions after CAP goes dry. Specifically, two functions were created ActualCAPShortage() and IIDShortage(). These functions replaced some of the CAP and IID logic within the ComputeStepShortageDepletion().
+
+commit f17eb472948f2ff1d69fbb662469b0507663f629
+Author: ealexander <ealexander@usbr.gov>
+Date:   Mon Mar 29 11:51:38 2021 -0600
+
+    - Added a new table (From BorgRW_Flipped) to Mead Decision Variables data object
+
+commit 5e3b95523ec7fb78aa91065ecf264aede03d161d
+Author: ealexander <ealexander@usbr.gov>
+Date:   Mon Mar 29 14:00:00 2021 -0600
+
+    - Added a the DATETIME date argument and the VolumeToFlow function to the IIDShortage() function.
+
+commit d882387e0ce667506003353641f1e21ccdc2abda
+Author: ealexander <ealexander@usbr.gov>
+Date:   Mon Mar 29 15:46:35 2021 -0600
+
+    -Replaced the reference to From BorgRW table with a reference to  From BorgRW_Flipped version in the following rules/functions:
+    
+            1) Re Sort E - IR
+            2) Set Compressed Table from BorgRW Table - IR
+            3) ComputeFullTableRows() - IR
+            4) Set Shortage Tier - R
+            5) ComputeStepShortageDepletion()
+            6) GetIGShortageVolume_BORG()
+            7) GetNVShortageOrSurplusDelivery()
+            8) IsShortageFromInput()
+                 9) SNWPStepShortageRatio()
+    -I also updated the DecisionVars.Input.DMI.control file so the shortage volumes are read into the From BorgRE_Flipped table
+
+commit b27eda98fc410d4f1c700797defcf55ee9337747
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Mar 30 09:34:34 2021 -0600
+
+    - Set the input decision variables to be equal to the PA policy
+    
+    - Corrected the logic in the GetIGShortageVolume_BORG() to match the updated ComputeStepShortageDepletion() function
+
+commit 0935acd33fe144a14520b966ca7294b26d8d38f5
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Mar 30 10:32:18 2021 -0600
+
+    - Created a MRM called DNF CRSS_Borg
+    
+    - Save IC into the CRSS.Borg_2.0 model and the CRSS.Borg_2.0_Baseline
+
+commit 8f2367b251ce1f66ea099770e736160fead28367
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Mar 30 12:03:55 2021 -0600
+
+    - modified the gitignore file to ignore the results/ folder
+    
+    - configure the CRSS.Borg_2.0 model run the following scenario CRSS.Borg_2.0__Mead_2007IG&DCP
+
+commit c88925aaa7e3292fe3ff9b08a2579b1ab82c4513
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Mar 30 15:01:54 2021 -0600
+
+    - Added the LBShort.IIDSpecifiedShortage to the Output_CRSS.Borg_2.0.control file.
+
+commit e2f7b506f8d50153ff55f86bc600937015afa2c8
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Mar 30 16:09:35 2021 -0600
+
+    - Configured the input files to run the Mead 2007 IG scenario
+
+commit 601185444daf0f98e12cdd2eabcc75c9ede0be46
+Author: ealexander <ealexander@usbr.gov>
+Date:   Mon Apr 5 15:32:31 2021 -0600
+
+    - Re-Saved the CRSS.Borg_2.0 MRM configuration
+    
+    - Re-Saved the CRSS.Borg_2.0_Baseline MRM configuration
+    - Modified the ComputeStepShortageDepletion() and the GetIGShortageVolume() functions in the CRSS.Borg_2.0_Baseline model to only grab Shortage reduction volumes from the Mexico Assumed column for when diversion == Mexico.
+
+commit b33ad7f48e97fa7498080012c12768d5e440ee1a
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Apr 6 15:31:54 2021 -0600
+
+    - Re-Saved the CRSS.Borg_2.0 MRM configuration
+    
+    - Re-Saved the CRSS.Borg_2.0_Baseline MRM configuration
+    -  Modified the CAP ComputeStepShortageDepletion() function in the CRSS.Borg_2.0 model. I noticed the CAP shortage reduction wasn't being subtracting from CAPSchedule.Depletion Schedule slot. I added back the SumFlowsToVolume(CAPSchedule.Depletion Schedule) block into the diversion == "CAP" section of this function.
+
+commit 3248152892c4b7ba2da52601d029a670b006d89c
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Apr 6 16:06:16 2021 -0600
+
+    - Updated the policy variable input files to run the 2007IG&DCP scenario
+
+commit 3a466e6f3f845cfb5e087a36a7300d83da047dba
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Apr 7 09:44:53 2021 -0600
+
+    - Re-Saved the CRSS.Borg_2.0 MRM configuration
+    
+    - Re-Saved the CRSS.Borg_2.0_Baseline MRM configuration
+    -  Set the LB Shortage Tier initial timestep to output.
+
+commit d36f982c1f4095ce2d6b1534d58028d2d169bcd1
+Author: ealexander <ealexander@usbr.gov>
+Date:   Mon Apr 19 09:40:57 2021 -0600
+
+    -Updated CRSS.Borg_2.0 MRM configuration for QC runs
+
+commit d0fffe05ac098e4a6f5f89bc88c5873bbce18963
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Apr 21 10:30:14 2021 -0600
+
+    - Updated the MRM configuration in the CRSS.Borg_2.0 and CRSS.Borg_2.0_Baseline model
+    
+    - Disabled the InDCPTimeSpan() execution constraint in the Implement Fed DCP Water rule in the CRSS.Borg_2.0_Baseline ruleset.
+    - Cleared out the 2020 initial ICS balances in the CRSS.Borg_2.0_Baseline model.
+
+commit 35380c92d99934710824e6dc938ec71f6fb2663a
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Apr 29 16:46:39 2021 -0600
+
+    - Modified the Compute CA DCP Contributions rule in the CRSS.Borg_2.0 and CRSS Baseline DCP On ruleset. This change added the functions back to the "MWD"..Additional Annual Contribution slots.
+    
+    - Saved the CRSS.Borg_2.0_DCP model file to start a model dedicated to CRSS.Borg_2.0 recreating the PA&DCP operation.
+
+commit ddff5228556b970051952f781c43f718ae9807ee
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu May 6 09:02:08 2021 -0600
+
+    - Modified the Compute CA DCP Contributions, MWD ICS Annual to Monthly During DCP, andReduce Mexico by Computed BWSCP Savings and Create BWSCP Savings rules adding back the logic for AdditionalContribution in the Baseline DCP ON ruleset
+    
+    - deleted CRSS.Borg_2.0_DCP model
+    - turned off the Implement Fed DCP Water rule in the CRSS.Borg_2.0 ruleset and made a name change to the rule
+
+commit 491b51dff7dc7824b078a707fbfc0024943a17e7
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu May 6 09:22:03 2021 -0600
+
+    - Updated the Baseline DNF with DCP MRM configuration
+
+commit c537a161384639fbea169133ad80bb2a4481dc08
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue May 11 11:03:12 2021 -0600
+
+    - Added a Powell Decision Variables data object into CRSS.Borg_2.0 which hold the potential Lake Powell decision variables slot values.
+
+commit 8a0a00783ed8fb571180f681a33456c71f24c8f9
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu May 13 15:05:58 2021 -0600
+
+    - Added a mock up of a "Powell Full" table slot in the Powell Decision Variables data object.
+    
+    - Added a PowellReleaseTier slot in the Powell Decision Variable data object.
+    - Started working on a "Set Lake Powell Release Tier" rule in the ruleset.
+    - Started working on a "Generic Lake Powell Release Tier" rule in the ruleset.
+    - Switched the Mead DVs to the PA
+
+commit 9feca78c42e16c11f90ee0a407a90f5e59c97df1
+Author: ealexander <ealexander@usbr.gov>
+Date:   Mon May 17 14:27:52 2021 -0600
+
+    - Added an execution constraint to the Generic Lake Powell Release Tier rule
+
+commit 967427f59e5dc7ae5c81e5ef62b4447a9450d99a
+Author: Rebecca Smith <resm1653@colorado.edu>
+Date:   Tue May 18 10:53:23 2021 -0600
+
+    saved CRSS.Borg_2.0 model in RW 8.2.2
+
+commit 178f052eb59220e24060633a3b53dbebbf493ba1
+Author: Rebecca Smith <resm1653@colorado.edu>
+Date:   Tue May 18 11:05:17 2021 -0600
+
+    saved ruleset CRSS.Borg_2.0 ruleset to RW 8.2.2; turned Fed 100kaf rule on; set input files to be DCP scenario
+
+commit 504d6f3403dc4747685166896b6fd22325e80922
+Author: Rebecca Smith <resm1653@colorado.edu>
+Date:   Tue May 18 11:42:09 2021 -0600
+
+    changed rule # 153 "safe channel capacity" so that rules referenced in execution constraints matched names or rules in ruleset
+
+commit 15a0f10c9e16ba2d06d096a126bc340080871c20
+Author: Rebecca Smith <resm1653@colorado.edu>
+Date:   Tue May 18 11:48:05 2021 -0600
+
+    changed execution constraints in "min flow" and "max flow" fontenelle rules so that list of rules matches names of rules in ruleset
+
+commit aaf28630039acfc5201e6e066a4ba49e6fceea98
+Author: Alan Butler <rabutler@usbr.gov>
+Date:   Tue May 18 14:39:29 2021 -0600
+
+    updated readme
+
+commit 38e3445884c44c547438d50e3da6e3b72ef26af2
+Merge: 15a0f10c9 aaf286300
+Author: Rebecca Smith <resm1653@colorado.edu>
+Date:   Tue May 18 14:43:11 2021 -0600
+
+    Merge branch 'main' of https://github.com/eaalexander/crss.borg_2.0 into main
+
+commit 9583a78350127be40eec38544451664cc3d03ea5
+Author: Rebecca Smith <resm1653@colorado.edu>
+Date:   Tue May 18 15:20:25 2021 -0600
+
+    changed DVs to IG only inputs; turned off fed 100 kaf rule
+
+commit 748e5ca8b375158924f4ee7384714938bfb23326
+Author: Rebecca Smith <resm1653@colorado.edu>
+Date:   Tue May 18 15:59:49 2021 -0600
+
+    daved baseline model in RW 8.2.2; changed baseline rulesets w/ DCP OFF and ON so that Fontenelle rule execution constraints match names of rules in ruleset
+
+commit bcf7a8f8979628a0575aed740831e3f2a5860d0b
+Author: Rebecca Smith <resm1653@colorado.edu>
+Date:   Tue May 18 16:42:15 2021 -0600
+
+    checking github pw/pat
+
+commit f1f76df5e1afd4b9a2d14dfbcab993b3c578a0cb
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue May 18 16:47:47 2021 -0600
+
+    trying to cache PAT on laptop
+
+commit 23777d95445d7da64de5672d680eafb8432c079b
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue May 18 16:50:23 2021 -0600
+
+    checking PAT
+
+commit 6724abdd5ec58e2a7090446e78b7cfbd818f2a71
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed May 19 11:59:02 2021 -0600
+
+    -Changed the color of the Lake Powell Rules that I recently added
+    
+    - Changed the "Primary Release" column in the Powell Decision Variables.Powell Full table to be units of AF instead of KAF.
+
+commit 0f3ff727f5fcd80b52b8699bcb66ccc6d1d952d2
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed May 19 13:43:56 2021 -0600
+
+    -  Created a PowellReducedRelforCurrentMonth_BORG function that uses a table lookup function to get a Lake Powell's static release volume in AF.
+    
+    -Added the PowellReducedRelforCurrentMonth_BORG function to the Generic Lake Powell Release Tier rule
+
+commit c923f33b1cdd3d7bb93eda815b4ee05fa0d93270
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed May 19 15:44:03 2021 -0600
+
+    - Added a 5 and 15 MAF column to the Powell.Monthly Release Table slot.
+    
+    - Created a PowellReleaseTiers_BORG function that includes the 5 MAF and 15 MAF releases in the list.
+
+commit e2fb744c9720f74349cdefc186d0deeb0cebf314
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed May 19 16:36:14 2021 -0600
+
+    - Created a GetPowellReleaseColumnIndex_BORG function that uses the PowellReleaseTiers_BORG function.
+    
+    - Created a Powell Equalization Line series slot with expression which create the Lake Powell MOEA policies' equalization line using the elev_EQ and Increment_EQ decision variables.
+
+commit 6bb7eef11f776cf94984df02c4778e06df8c5e30
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu May 20 12:25:11 2021 -0600
+
+    - Added a Powell Full Table_End which is a view of the Full table at the last simulation year.
+    
+    - Update the 15 AF column of the Powell.MonthlyReleaseTable so the Oct - Dec monthly values match the other columns values.
+    - Updated the logic of the Set Lake Powell Release Tier rule to check if Powell PE is above the current EQL and the TableLookUpDefaultTol function uses the Powell Full Table_End now.
+
+commit c07cc97fa64ad659bb0300185fd5bf2a4926bc68
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu May 20 14:25:03 2021 -0600
+
+    - Changed the name of the Generic Lake Powell Release Tier to be Generic Lake Powell Release Volume rule
+    
+    - Added a From Borg Powell input table called "From Borg Powell Tier Table"
+    - Updated the table lookup function in the PowellReducedRelforCurrentMonth_BORG to reference the Powell Decision Variables.From Borg Powell Tier Table
+    - Updated the Generic Lake Powell Release Volume rule to take the Powell Release Tier Number in the PowellReducedRelforCurrentMonth_BORG funciton call out.
+
+commit fcb0dfd882054bfb3516581ab5b820050f0861bf
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu May 20 15:04:49 2021 -0600
+
+    - Updated the Generic Lake Powell Release Volume rule to use a table lookup to determine the bal_Tier variable value.
+    
+    - Added a Range Number column to the range table in the Powell Decision Variable Data Object
+
+commit 99d5d88aa6f67ae4be95f5707715b636e4376a67
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri May 21 12:47:59 2021 -0600
+
+    - Updated the Powell Equalization Line expression slot to reference the Elev_Tier table.
+    
+    - Added the Mead Reference Elevation to the Powell Decision Variables.From Borg Powell Tier Table
+    - Update the Generic Lake Powell Release Volume rule to use a table lookup for the Mead Reference Elevation.
+    - Update the ComputePowellReleaseBalancing_BORG function which replaces all the references to "minRelease" and "maxRelease" with a table lookup function to get these release values from the Powell Decision Variables.range table
+
+commit e511147f265a4f3bec6bd9fd698c9d4ab9c4d7a8
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri May 21 15:18:30 2021 -0600
+
+    - Added a flag in the Generic Powell Release Volume Rule
+    
+    - Moved the Generic Powell Release Volume rule to be above the LEB rule.
+    - Updated the From Borg Powell Tier Table
+
+commit 75dab6f199be2bd95cac7c8aac0b6f71b058dee1
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Fri May 21 16:09:39 2021 -0600
+
+    duplicated generic release volume rule and fixed the argument in one of the PowellReducedRelforCurrentMonth_BORG function calls (was using powell outflow, should have been using powell release tier).
+
+commit 9844286f2a27198d947a1fb9284ad14edf103c67
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Fri May 21 17:49:17 2021 -0600
+
+    to make generic release rule run, changed constraints in ComputePowellReleaseBalancing_BORG function back to the original text input constraints. generic release rule works properly (pending checks) but need to replace the PowellReducedRelforCurrentMonth functions with something that will take NUMERIC and then revise constraints in ComputePowellReleaseBalancing_BORG function.
+
+commit 0f346275a506504590bc624ef6866687ebae3c74
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue May 25 11:08:52 2021 -0600
+
+    - changed constraints in ComputePowellReleaseBalancing_BORG function to reference PowellReducedRelforCurrentMonth_BORG instead of PowellReducedRelforCurrentMonth
+    
+    - wrote new function "PowellReducedRelforCurrentMonth_BORG_Balancing" to use in constraints of function "ComputePowellReleaseBalancing_BORG"
+
+commit ccd5fb66b2fe0df0b0bdb2f7d74a86dddc631ff0
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue May 25 17:22:14 2021 -0600
+
+    - changed LEBT row in "From borg powell tier table" to have tier # 999 to test bottom tier rule; changed in powell full and powell full end tables
+    
+    - added bottom tier release rule and disabled LEBT release rule
+    
+    - add row to top of 4 tables on powell object: powell.Max Turbine Q, best turbine Q, Best Power Coefficient, and Max Power Coefficient so that the model could interpolate at lower than 300 ft of head
+
+commit 2c754d808ee6ae86b87263cf2a0e4e06bded0405
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu May 27 16:30:46 2021 -0600
+
+    - Cleaned up the slots in the Powell Decision Variable objects
+    
+    - cleaned up the old model files sitting in the model folder
+    - cleaned up the old ruleset files sitting in the ruleset folder
+    - Good luck with the crss.borg development while I am away!
+
+commit 89fd7b29e63778f295454cf39364ae1bb605d151
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Fri Jun 4 14:56:22 2021 -0600
+
+    - created StartYearInEqualization_BORG function to change references to decision variables and use PE instead of storage
+    
+    - created Equalization Tier_BORG rule to reference new StartYearInEqualization_BORG function
+    
+    - created Powell Decision Variables.Powell Equalization Storage to convert elevation to storage b/c many rules and functions use storage instead of PE
+    
+    - created CheckEqualizationRelease_Mead1105_BORG function so that Equalization Tier_BORG could reference decision variable table for eq line
+    
+    - created Powell Decision Variables.Shifted EQ Storage to have a reference storage for when powell eq release should stop based on being #ft below eq line (currently 20ft b/c we're leaving eq stuff from 2007 IG in place)
+    
+    - checked BORG eqalization rule by starting EQ tier at 3580 and using 1 ft increment. kept things in this state for now.
+
+commit 97d11a6c4748ba9ca2871e92e43ef1a2db515831
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Fri Jun 11 13:29:55 2021 -0600
+
+    adapted all changes from generic powell release and bottom tier rules to key off of functions instead of table lookups:
+    
+    - created GetPowellTierNum function to get powell tier num from borg variable table (to avoid double table lookups)
+    
+    - created GetMeadRefElev function to get powell tier num from borg variable table (to avoid double table lookups)
+    
+    - created GetPowellPrimaryRel function to feed into PowellReducedRelforCurrentMonth_BORG function
+    
+    - created GetPowellBalRelRangeNum function to feed into PowellReducedRelforCurrentMonth_BORG_Balancing function
+    
+    - revised Generic Lake Powell Release Volume rule to use all of the new/revised functions
+
+commit c14fc88eea5c864502a6571c8361840b3a944547
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Mon Jun 14 12:16:46 2021 -0600
+
+    - remove constraint "NOT IsNaN EqualizationData.MinObjRelFlag" from rules so i can get rid of min obj release. Alan said it was fine to get rid of it even in non-Borg rules so that's what i did. took it out of every rule above the "Meet Powell Min Objective Release" rule (Borg and non-Borg rules)
+    
+    - created PowellComputeRunoffSeasonRelease_BORG function so we could refer to the GetPowellReleaseColumnIndex_BORG function
+    
+    - created PowellRunoffSeasonStorage_BORG so we could refer to the PowellComputeRunoffSeasonRelease_BORG function
+    
+    - created PowellComputeFallSeasonRelease_BORG function so we could refer to the GetPowellReleaseColumnIndex_BORG function
+    
+    - created PowellFallSeasonStorage_BORG so we could refer to the PowellComputeRunoffSeasonRelease_BORG function
+    
+    - created Powell Operations Rule_BORG rule to refer to above functions
+    
+    - created CheckPowellBalancing function to be able to look up whether a tier has balancing enabled
+    
+    - fixed Generic Lake Powell Release Volume rule- i used a table lookup to get tier number instead of checking to see if tier allowed for balancing
+
+commit a312321c6cd5e628f46dae2f1501a0de9d89027f
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Mon Jun 14 13:59:46 2021 -0600
+
+    - created AnnualMinObjectiveRelease_BORG function to replace static 8.23 w/ min primary rel from borg
+
+commit 24d6ab64e4f83fb1fe26cbbb3482cc4dd79cb3be
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Mon Jun 14 20:35:34 2021 -0600
+
+    - changed the name of the original AnnualMinObjectiveRelease function to say "OG" and called the "_BORG" function just "AnnualMinObjectiveRelease" to minimize the amount of duplicate rules and functions
+    
+    - renamed original PowellMinObjRelData.Annual Volume slot w/ "_OG" and created a new scalar w/ expression to refer to the dynamic value. just to avoid confusion, not used anywhere
+    
+    - anywhere there's an "_OG" label on a function it's b/c the untagged function is the borg version. these will always have the black/blue colored text also (started using "_OG" and trading out original name when needed to replace a lot of MinObjRel stuff w/in functions). note that there are many rules and functions that don't look like they've changed b/c they're the same except the sub-functions they refer to are changed.
+    
+    - created "Powell Operations Rule_BORG" to change the fall season operation to refer to PowellFallSeasonStorage_BORG function
+    
+    - fixed a few things in the GetPowellPrimaryRel, GetPowellBal... functions
+    
+    - note that the CheckPowellBalancing function won't work if the bottom row of the first column in From Borg Powell Tier table is NaN. have placeholders in that column for now
+    
+    - tiers are working at this point, still need to investigate why the OND releases are the values they are
+
+commit da6a3a2bd23e77dacee0833589fed51189ccf66b
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue Jun 22 11:34:47 2021 -0600
+
+    - created "Anual Min Obj Rel" slot on Powell Decision Variables object to easily track that value
+    
+    - changed AnnualMinObjectiveRelease_BORG function to refer to the new slot
+
+commit 8f9a50fdd4e5099922a1760c35000b1639ac5443
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue Jun 22 14:17:50 2021 -0600
+
+    - changed PowellMinObjRelforCurrentMonth_BORG function to check if it was OND so that it would take the standard rel pattern for those months regardless of min obj rel value and then only adjust jan-sept to meet annual vol
+    
+    - created BORG version of min obj rel rule
+
+commit d4312166fb698a9907594c539bb54bb7ca423cc6
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue Jun 22 16:22:49 2021 -0600
+
+    - created SCTs for annual and monthly slots
+
+commit 84897ae054009e5786035daad1178a2a1fc994d6
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue Jun 22 16:28:29 2021 -0600
+
+    - configured SCTs
+
+commit 44fb3a93d193c8e9639d48a1b409109ddcddd2e3
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue Jun 22 18:15:07 2021 -0600
+
+    - changed functions PowellMinObjRelVolumeSpring_BORG and ComputeScheduledMinObjRelRemainingThruSept_BORG  and PowellMinObjRelVolumeFall_BORG from OG versions so they would use the dynamic min obj rel to lookup values in powell monthly rel table
+    
+    - change bottom tier value from 999 to 13 b/c the table lookup won't work past that number; changed in full table end and beginning and constraint in bottom tier rule
+    
+    - now all tiers except UEBT should be working
+    
+    - created rw package to easily load things
+
+commit b026e046ccfa4fdbded53d595d54fa88bcc8dd54
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Wed Jun 23 11:51:02 2021 -0600
+
+    - revised ComputePowellReleaseBalancing function to use GetPowellBalRelRangeNum function instead of double table lookup
+    
+    - everything is working, functions are tidy, starting on UEBT stuff
+
+commit 3254f6f563f7adc13cc89da78649e9755f184d18
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Wed Jun 23 14:59:49 2021 -0600
+
+    - assuming EOWY forecasting does not need Borg revisions- revisit this
+    
+    - created PowellUpperTierElevation slot on powell decision variables object to have an easy way to track bottom of UEBT and to keep structure of OG InUpperElevationBalancingTier rule
+    
+    - created InUpperElevationBalancingTier_BORG function to change references and be dynamic w/ whether a UEBT exists
+    
+    - created InUpperElevationBalancingTier_BORG function to refer to Borg-related slots and be dynamic
+    
+    - created StartYearInEqualization_BORG function to refer to the Borg equalization line
+    
+    - created two UEBT_BORG rules
+    
+    - created EqualizationConditionsMet_BORG function
+    
+    - model will run w/ the new UEBT borg rules but not sure what's happening in the uebt tier yet
+
+commit 03d44acb7fe887e55d7597acb116aed9d8549511
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Mon Jul 5 16:58:53 2021 -0600
+
+    ***finished getting UEBT behavior dialed in***
+    
+    - for UEBT rules added check to see if balancing is turned on (want to be able to have tier right below equalization not balance)
+    
+    - revised function "AnnualReducedRelease" to point to primary release volume for borg tiers. the original required a column index argument, but the new one does not require an argument so wherever this function is included i revised to remove the column index argument ***this was the critical piece for getting proper interpolation b/t monthly release columns***
+    
+    - turned off all of the "_OG" functions b/c they wouldn't validate after removing the column index argument from "AnnualReducedRelease" function
+    
+    - created "PowellReducedRelforCurrentMonth_BORG_Balancing_BottomTier" function which calls "PowellReducedRelVolRemaining_BottomTier" b/c the generic versions use the primary release volume and the bottom tier will not have a primary release volume
+
+commit 24f20173f69583bb03bd99ee59f7e2e3106fad0e
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Mon Jul 5 17:09:20 2021 -0600
+
+    - set up variables to recreate 2007 IG
+
+commit 51b27215e37d23e1a1d5165896884a4d9e056a85
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue Jul 6 12:22:14 2021 -0600
+
+    - hardcoded a few things in crss.borg_2.0 model to map to IG/DCP for comparison
+    
+    - deleted some borg rules that were under dev but no longer needed
+    - turned off "implement fed dcp water" rule in baseline_DCP_OFF ruleset
+    - created riversmart study
+
+commit 1ae28b8baef3e5670322363de72b02c764224d42
+Author: Rebecca Smith <resm1653@colorado.edu>
+Date:   Wed Jul 7 10:28:32 2021 -0600
+
+    - changed path in baseline model to use $Borg_DIR instead of $CRSS_DIR
+    
+    - added baeline model and rules to riversmart study
+
+commit 01645fe030d9ba2cce0aa179267f155f914d7318
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Thu Jul 8 16:28:02 2021 -0600
+
+    - changed EQ line in borg model temporarily to match baseline for comparison purposes
+    
+    - changed to DCP mead variables in borg model
+    
+    - added constraint to general powell release rule to check if july smoothing had been triggered
+
+commit 7e9c58fc11244de730f293aaa5811d3801547912
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Fri Jul 9 13:48:29 2021 -0600
+
+    - revised july smooth operations constraint on generic release volume rule
+    
+    - added row to bottom of Powell.Max Turbine Q so that the interpolation wouldn't fail past 568 ft operating head (the original last row). just copied turbine capacity from previous row b/c doesn't seem like it should matter. the reason i did this is b/c the function ComputePowellRelease wasn't returning values if the max constraint wasn't solving. for borg model
+    
+    - added another row to same table in baseline model but it didn't make any difference. keeping it anyway
+    
+    - moved "set lake powell release tier" rule to a lower prioirity
+    
+    - added a UEBT release volume rule so in that tier it would release more than primary release to meet preferred late summer/fall storage levels (brings the "powell operations rule_borg" back so that higher releases can be set when powell is high near EOWY)
+    
+    - added "Powell Limit Outflow Rule1" to reduce release down to 25,000 cfs if previous rule sets outflow too high
+
+commit 63ba0dae8b7b8f6382124e85a92b791749f18dc7
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue Jul 20 12:04:19 2021 -0600
+
+    - brought back the "pre-powell" model and ruleset- the one saved by elliot on 5/6/21 that in theory is what was approved as "close enough" to baseline w/ only mead functionality
+    
+    - fixed the fontenelle rules in pre-powell so that the constraints referenced the updated rules created by conor
+    
+    - turned on fed 100 kaf in all three rulesets
+    
+    - added a trace by trace excel workbook for interactive debugging
+
+commit 006b8072e59e97f980e268010d6ea72ee4e58e6a
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue Jul 20 14:04:29 2021 -0600
+
+    - added new sheets in excel workbook to compare EOWY forecasts b/t models
+
+commit df0e41d3a27149f90d9c9d52380b203f9f66f73e
+Author: Rebecca Smith <resm1653@colorado.edu>
+Date:   Tue Jul 20 15:36:43 2021 -0600
+
+    - added pre-powell to riversmart study
+
+commit f74d7c4e48a716c0f66683aeb5761f719319c1f8
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue Jul 20 15:59:22 2021 -0600
+
+    - created MERT borg debug rule to force pre powell and baseline models to release 2 maf in fall even if in MERT
+
+commit 4fc487bb8d08e9fe6cd7b06078b4e3f8c0569ff0
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue Jul 27 11:36:15 2021 -0600
+
+    - added Baseline DNF with DCP MRM to riversmart study and changed links to set up new baseline comparison run
+
+commit c59aac5108bc17b1870f1a2fda42e7f1cc294663
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue Jul 27 12:06:57 2021 -0600
+
+    - changed $Borg_DIR/ruleset/CRSS.Baseline.2027IGDCP.v4.4.0.9004_baseline_DCP_ON.rls to turn off original MERT rule (keeping Borg debug MERT rule on)
+
+commit c1ab30f8aab53b5b01386ef434fadcd7e2364c0c
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue Jul 27 12:10:05 2021 -0600
+
+    - changed DNF MRM in pre-powell model to point to correct ruleset
+
+commit 957339535a250a1f5ae6c1e6f1b4d1661e8676ac
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue Jul 27 12:13:32 2021 -0600
+
+    - changed DNF MRM to point to correct ruleset in CRSS.Borg_2.0 model
+
+commit a53789d10dab91ab12acec08a95e669e54117cc4
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Thu Jul 29 12:18:35 2021 -0600
+
+    - switched back to original MERT rule in baseline DCP on ruleset to compare to May 6th runs
+
+commit 4d464526c196a97d66a4f97f9edd621d280ccec6
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Thu Jul 29 13:11:25 2021 -0600
+
+    - reset baseline model to 5/6/21 commit
+    
+    - adjusted baseline DCP on ruleset to fix fontenelle rule constraints
+    - added the MERT debug rule but didn't turn it on (trying to match elliot's baseline for now)
+    - put my baseline model and ruleset in folders for safe keeping
+
+commit a777b9d9016dab0eb5b0a44820c994a054489b82
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Thu Jul 29 14:13:13 2021 -0600
+
+    - went back to 5/6/21 model and ruleset for baseline comparisons b/t rw versions
+
+commit 5094baa479105f52a6ae64e3d6803811446d874e
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Aug 10 13:57:36 2021 -0400
+
+    - Added a Mead Only CRSS.Borg_2.0 model file and ruleset file take from the May 6th commit
+
+commit 4dbb68b2400c0fc83e259a2ea7a8a68fa3511e00
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Mon Aug 23 15:29:19 2021 -0600
+
+    - added "Powell Tier Elevation" column to "From Borg Powell Tier Table". This column should replace whatever "Elev_Tiers" is being used for
+    
+    - changed expression in slot "Powell Equalization Line_USE WITH BORG" to reference "From Borg Powell Tier Table" column instead of "Elev_Tiers"
+    
+    - changed expression in slot "PowellUpperTierElevation" to reference  "From Borg Powell Tier Table" column instead of "Elev_Tiers"
+    
+    - deleted "pre-powell" model and ruleset (now working from "mead only" model for powell dev debug)
+    
+    - deleted "From MRM" from name of ruleset
+
+commit 8d26c017c159e5537ee0bf07e8850f0c4fa01139
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Mon Aug 23 16:32:34 2021 -0600
+
+    - fixed expression in "PowellUpperTierElevation" slot
+
+commit 9f6d3d1d8f452c58b97445093056a51bdb3f260b
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Mon Aug 23 18:19:18 2021 -0600
+
+    - changed MeadOnly model background color
+    
+    - added "Fall Outflow Volume" to "Powell Operation" object in crss.borg_2.0 and mead only models and added to SCT
+    
+    - fixed "PowellUpperTierElevation" again
+    
+    - created a rulest "mead only MERT adj" to test whether fall releases were the only differences in the models. it forces the fall release when in MERT to be 2 maf instead of 1.58
+    
+    - revised riversmart study to run dev model vs. mead only w/ MERTadj on BA
+
+commit 621010619bf3e89aa3cf27daee49ec5151f7c40a
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Aug 25 10:57:01 2021 -0400
+
+    -Added table slots, user functions and initialization rules to dynamically create the Lake Powell Policy tables.
+    
+    List of model changed in IR work:
+            - Added the following slots to the Powell Decision Variables data object:
+                    ○ Elev_Tiers_Flipped
+                    ○ Compressed
+                    ○ Removed the "Elev_Tiers" table
+            - Added the following IRs to the Borg Powell Pre Processing group:
+                    ○ Re Sort Elev Tier
+                    ○ Set Compressed Table from Elev_Tiers Table
+                    ○ Bottom Tier rule
+                    ○ Populating From Borg Powell Tier Table - Powell Release Tier Number Column
+            - Added the following functions to the Borg Powell Pre Processing group:
+                    ○ minPowellElevation
+                    ○ maxPowellElevation
+                    ○ computeCompressedPowellRows
+                    ○ computePowellFullTableRows
+                    ○ addPowellFullTableRows
+                    ○ addPowellFullTableRows
+                    ○ fillOutFullPowellTableRows
+
+commit 6a423208fda2c28ab08f5dc6943f6b55dedaba02
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Aug 25 16:27:35 2021 -0400
+
+    - Added: From Borg Powell Tier Table Collapsing Rule to Powell IRs
+
+commit 903936134b913e71a277fbae3c29d75f8d81ae8a
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Aug 25 17:57:24 2021 -0400
+
+    Added the following IRs to the Powell IR group:
+    
+    From Borg Powell Tier Table Collapsing Rule - Forward
+     From Borg Powell Tier Table Collapsing Rule - Backward
+
+commit 60306594374a2bb2411ff04928cdb603a7bd519c
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Mon Aug 30 10:00:21 2021 -0600
+
+    - worked on IRs to replace from borg table rows for repeating elevations. addressed the case where elevations repeat and primary releases repeat - the highest row of the double repeat will govern
+
+commit 195f51288dec5d3abcddf3a868f56023c67e2e39
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Aug 31 15:40:39 2021 -0400
+
+            - I created the following IRs, functions, and table slots to create the Powell Full_End table.
+    
+                    ○ New Initialization Rules
+                            § Re Sort Elev Tier_End
+                            § Set Compressed Table from Elev_Tiers Table_End
+                            § Set Powell Full_End Table From Compressed Table
+                            § Bottom Tier rule End
+                    ○ New functions
+                            § computePowellFullTableRows_End
+                    ○ New table slots
+                            § Elev_Tiers_Flipped
+                            § Compressed_End
+                            § Number of simulation years
+                            § Powell Full_End
+                                    □ The old Powell Full_End was saved as Powell Full_End_OG
+            - I also fixed the slot reference in the Powell Equalization Line_USE WITH BORG slot
+
+commit 013b14e196f94ca599c55256690722701d4cc868
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Sep 1 11:20:43 2021 -0400
+
+    - Created input text files and modified the "DecisionVars.Input.DMI.control" file so Powell decision variables can be inputed into the CRSS.Borg_2.0 model
+
+commit 4045dde4907afd041cf2d3033731dd03197f3896
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Sep 1 13:31:10 2021 -0400
+
+    - Updated the DecisionVars.Input.DMI.control file and Powell DMI input files to use a generic file naming convention
+    
+    - Deleted Powell Decision Variable.ScalarWithExpr slot since it caused the model to abort for Powell policy's with all 3370' Powell tier elevation.
+
+commit d9a43e7b7b23102a842db2cf68c86865c710c6d0
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Fri Sep 3 11:56:01 2021 -0600
+
+    - added Powell_Increment_EQ.txt to input folder and added the increment variable to the input DMI control file
+    
+    - switched over to the Powell Equalization Line slots that should be used w/ Borg (changed names)
+    
+    - switched over to borg-based min obj release slots
+    
+    - cleaned up slots in powell dv object
+    
+    - changed some IR rule names to use correct slot names
+
+commit 4022cf9bd8599849e6a9342921f3bc7adb1f7ff4
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Sep 7 10:54:08 2021 -0400
+
+    - Updated the function reference to be computePowellFullTableRows_End in the Set Powell Full_End Table From Compressed_End Table IR.
+    
+    -added back Powell Decision Variable.collape index slot
+    - Added a blank row after the 1.0 value in the Powell_Increment_EQ_DV.txt file
+
+commit 66ca5f802138e4b5c491e62a625ed01573352663
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue Sep 7 16:43:51 2021 -0600
+
+    - removed dummy statement in compressing rule #4
+    
+    - re-removed collapse index slot from powell dv object
+    
+    - fixed shifted EQ storage slot to take min of 20ft or EQ line-3370
+    
+    - added another constraint to elliot's bottom tier IRs to only fire if the last row's tier elevation is 3370. this will ensure that borg can create policies w/o bottom tiers.  this doesn't "add" a bottom tier it, it converts one if borg doesn't fill in every tier. still leaves the variables associated w/ the tier that became the bottom tier as dummies but i think that's unavoidable.
+    
+    - added "clear these slots" group to powell DV object to remember which things needed to be cleared for testing
+
+commit bffe2775c3e02cb946bbfdf0e07bedba70ef8cbb
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Sep 9 12:04:21 2021 -0400
+
+    - Updated the Execution constraint in the Bottom Tier rule End to only check to see if the last row in the Powell Pool Elevation column of the From Borg Powell Tier Table is equal to 3370' in order to fire.
+    
+    - Updated the Powell Decision Variable.Shifted EQ Storage expression slot to work with low Lake Powell Pool Elevations
+    - Update the Generic Lake Powell Release Volume execution constraint to see if release tier is less than 13 and is greater than 0
+    - Updated the Populating From Borg Powell Tier Table - Powell Release Tier Number Column IR to look up the the tier number from the Powell Full_End table and uses the Powell Pool Elevation from the End_Flipped table as the lookup key
+    - Updated the Borg DV input control file so it reads in generic input text files
+    - Update the input text files so we have a copy of each of the IG policy variable formulations
+    ----- END OF POWELL & MEAD MODEL DEVELOPMENT ------
+
+commit 7becd719db783f8ecd34dd2203a58ea6e9bc7896
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Thu Sep 9 15:58:20 2021 -0600
+
+    - created traces DMI for hydrology traces
+    
+    - revised DNF CRSS_Borg MRM
+
+commit 555447397ed18df81007d31d0b8f509f5cb6d5e7
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Thu Sep 9 18:42:53 2021 -0600
+
+    - changed trace DMI and MRM again to separate hydrology and evap (had to revert back to elliot's commit on 9/9/21 to clear out the reservoir storages that were input by the mead-only trace input dmi). new dmi is a dmi group called  "CRSS.Borg_RandomDNF_Evap" and it's modeled after the "MRM FlowInput" dmi group used by others
+    
+    - updated "DNF CRSS_Borg" MRM to use new dmi group
+    
+    - updated "DNF CRSS_Borg" MRM to point to proper output dmi, no rdf control file
+    
+    - added directory that has the structure and files for a borg run
+
+commit 205611723d6fa7919b47fde2918de3101e089315
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Fri Sep 10 09:29:16 2021 -0600
+
+    - fixed "_DIR" in trace and evap control files
+    
+    - changed traces to correct 8-trace set
+
+commit e8fb4b903aed6f35acf251647d810b9d5d2db545
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Mon Oct 4 13:32:38 2021 -0600
+
+    - changed powell primary release variable to be descending in formulation xml
+
+commit eb9e6f5bfb817f9aca09a783ecdc86b1a88acffe
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Nov 10 08:49:17 2021 -0500
+
+    - Added description to all of the Powell and Mead initilization rules in the CRSS.Borg_2.0 and the CRSS.Borg_2.0_MeadOnly RiverWare model.
+    
+    - Also renamed some of the IRs so they are easier to understand.
+
+commit 8850fc2bb904e3819f25ed28488d73856984b8dc
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Nov 10 10:29:54 2021 -0500
+
+    - Imported Nathan's SOWs IRs into the CRSS.Borg_2.0 model
+    
+    - Imported Nathan's SOWs data objects into the CRSS.Borg_model
+
+commit f032314069c8fbaaddc26f707a8586e913e4a83f
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Nov 10 11:26:40 2021 -0500
+
+    - Update the DNF CRSS_Borg single trace test MRM for Borg-RiverWare runs so it runs interactively for single traces
+    
+    - Added Nathan's CRSSBorgRDFOutput.control, Mead_Powell_IC.DMI.control, UB_annual_total.DMI.control,and Traces.Input.DMI.control files into our control file folder group
+    - Created a new MRM called Robustness SOW which will be used for Robustness RiverSMART Runs
+    - Added the first 300 Initial Mead and Powell PE folders to the SOW_Initial_Conditions folder in the dmi folder group
+    - Added the first 300 UB annual demand folders to the SOW_UB_annual_demand folder in the dmi folder group
+    - Created a blank SOW_Hydrology folder in the dmi folder group
+    - Created SOW Hydrology, SOW IC, and SOW UB demand scalar slot DMIs and the SOW DMI group
+
+commit 9af6cdf0c6e23afb9ccf50100928c34726b89f79
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Wed Nov 10 09:48:01 2021 -0700
+
+    - added current_policy_ForFileDrivenRun.txt to import current policy Borg_DIR for a file driven borg run to
+    
+    - added formulation.current policy_Powell.Mead.Ops.NewMaster.8obj.8const.txt to Borg_DIR as a special formulation to do a file driven run w/ current policy. the rounding for Mead shortage vol is set to 500 AF so that exact volumes for DCP/IG can be recreated
+    - added a version of Borg-RW user guide from 2017. not sure if this is latest
+
+commit 8a0fe25b93e8b6eb2821bdd7d065f5f24ded959f
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Nov 16 14:00:47 2021 -0500
+
+    - Added DIT_CRSS_LBshortageEIS_2016UCRC_v1.5_2021_Repeat wb to the dmi folder
+    
+    - Created a new DMI called 2016 UB and LB Demands_2021_Repeat
+
+commit c93909c25caaa15b2250b72102fa4e212cd3cf8a
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Nov 17 10:33:37 2021 -0500
+
+    - Created a new IR in the Set Demand and Evap group called Scale UB Schedules. This rule scales each of the UB schedules based on a UB demand scaling coefficent. Also, renamed this old rule as Scale UB Schedules_NATHAN
+    
+    - Enabled the Set UB demand scenario scaling coefficient initilization rule
+    - Created a slot in the UBDelivery data object that is called AnnualNormal_without_UBAZ to QC demand scenarios
+    - Cleaned up and enabled all of the key Robustness IRs.
+    - Saved the model with the un-scaled UB Demand baseline
+
+commit 4aa0003a3b4c6f7e08202465becb2e0af18c1766
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Nov 19 11:00:30 2021 -0500
+
+    - Added a CRSS.Borg_2.0 robustness RiverSMART study to the directory
+    
+    - Added a Mead_and_Powell_Policy folder to the dmi folder. This folder contains the archive of Mead and Powell MOEA generated policies from the 5000 NFE MOEA run
+    - Added a control file and a new DMI to the CRSS.Borg_2.0. This Borg DV Input Sequence DMI is for the DMI sequence event in the RiverSMART study.
+    - deleted the input folder in the head of of the repo. The correct input folder lives within the Borg-RW_Powell-Mead folder
+
+commit 4bf98747166a1f77a14245f860c2b13761ccb257
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Dec 1 15:33:14 2021 -0500
+
+    - Cleaned up the CRSS.Borg_2.0 directory
+    
+    - Renamed the robustness model in the modeling directory to "CRSS.Borg_2.0_RobustnessRiverSmart"
+
+commit 30a43705128654a557f1e6c281d343fed09f8fb8
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Wed Dec 1 15:53:02 2021 -0700
+
+    - added two directories w/ UB demand, initical conditions, hydrology, and evap for two robustness experiments (300 SOWs and 500 SOWs)
+
+commit d0d08cb60f27936ea591b35da06bb8bcddd7b875
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Dec 3 09:21:04 2021 -0500
+
+    - Deleted the SOW_Hydrology, SOW_Initial_Conditions, and SOW_UB_annual_demand folders in the dmi subfolder.
+    
+    - Updated the CRSS.Borg_2.0 SOW DMIs to point to the Dec2021_Robustness_Runs_500 folder.
+    - Updated RiverSmart study file paths for testing
+
+commit 80488e3d2102aabc18b2b9cec6ffb91b97dbcf88
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Dec 3 14:21:59 2021 -0500
+
+    CRSS.Borg_2.0 git changes:
+    
+    - Updated the Robustness SOW MRM to have 500 traces.
+    - Updated the CRSSBorgRDFOutput.control file to match crss slot name changes
+
+commit 36f9da224f6c86b61714552c249b008d6beae90d
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Mon Dec 6 13:54:09 2021 -0700
+
+    - changed start date in hydrology input files to 2021-1-31
+
+commit 61c0b6f9e28e64eef096b9daefe00dc39b5f1d59
+Merge: 36f9da224 80488e3d2
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Mon Dec 6 14:03:41 2021 -0700
+
+    Merge branch 'main' of https://github.com/BoulderCodeHub/crss.borg_2.0 into main
+
+commit db0269ed45b98c3b3f22ebac12244de61f120ddb
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Mon Dec 6 14:48:21 2021 -0700
+
+    - intermediate step to redo my push of hydrology inputs w/ new start date- removed my hydrology directories so i can push, then will add back in and push
+
+commit 64b58821df7621a4fa39446bc2727a7c8f8cd2db
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Mon Dec 6 14:57:55 2021 -0700
+
+    - added hydrology folders back into SOW directories. the hydrology inputs now have the correct start date
+
+commit e5612fe678022f67d295c3cce2160a1d8d461e0b
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Dec 7 16:46:47 2021 -0500
+
+    - Created a temp folder in the CRSS.Borg_2.0 directory to point the RiverWare working directory towards
+    
+    -Update RiverSMART study's links to reflect previous name changes
+    - Updated the CRSSBorgRDFOutput.control file to output Powell and Mead policy variables
+    - Created a Robustness SOW_RW_QC MRM configuration to help QC RiverSMART runs
+
+commit f884a4039bac2166c0665b5dad399f40df20fbbb
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Dec 8 08:42:54 2021 -0500
+
+    - Updated the CRSSBorgRDFOutput.control file with a minor name change
+    
+    - Updated the CRSS.Borg_2.0_Robustness_RiverSMART_Study study's DMI Seq event to point to the 605 MOEA policies
+
+commit f989e1415223969ebe91b78331b5259ffe968f58
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Jan 5 13:43:13 2022 -0500
+
+    - Added a single CO water user depletion and diversion requested to be output in the CRSSBorgRDFOutput.control for QC testing
+    
+    - Created a Baseline UB demand text file in the trace 1 UB Annual Demand folder
+
+commit 86859d5e5b85ba9d45252618b479d03a5affbaac
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Jan 5 14:59:14 2022 -0500
+
+    - Added a UBDelivery.AnnualNormal_without_UBAZ slot to Output control file for QC testing
+
+commit fbb4d03d55f0fd0535fc34c0755dc20b65eafac2
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Jan 6 10:15:50 2022 -0500
+
+    - Added a Fontenelle Fix version of the model and ruleset files. This fix updates Fontenelle's Set Channel Capacity rule based on the January 2021 CRSS updated ruleset. This fix also replicates the FontenelleShouldMakeSafeChannelCapacityRelease function which is needed in the updated Set Channel Capacity rule.
+    
+    - Updated the RiverSMART study to have the Fontenelle fix model and ruleset
+
+commit d268619426eb821dfd9013f464e8fd309cea573c
+Author: ealexander <ealexander@usbr.gov>
+Date:   Mon Jan 10 17:09:38 2022 -0500
+
+    - Added the 2016 UB and LB Demands_2021_Repeat DMI to the SOW DMI group
+
+commit 1093703a0e51d89abebb87193d8f74d2a57efeaf
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Tue Jan 11 16:06:40 2022 -0700
+
+    - added 2016 demands 2021 repeat dmi to SOW dmi group
+    
+    - reconfigured MRM in fontenelle fix model
+    
+    - created fontenelle fix 2 ruleset to test a rule that limits fontenelle outflow to available storage.
+    
+    - reconfigured MRM in fontenelle fix model to run w/ new ruleset
+
+commit 601504a9388e550a9c4030e8f33b52205b98a4f3
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Jan 12 11:00:18 2022 -0500
+
+    - Updated the RiverWare model and RiverSMART study to run the Fontenellefix_2 ruleset on BA
+    
+    - Renabled the "Set September-March Baseflow_BORG_AWIS" in the Fontenellefix_2 ruleset
+
+commit 8e6f8acc30c43d9eeb0e9d0b86f43448e7039450
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Thu Jan 13 15:46:27 2022 -0700
+
+    - added "Objectives.Annual LF Natural Flow" slot to fontenelle fix model
+    
+    - added "Add Carryover Equalization Release_BORG" to fontenelle fix 2 ruleset. original rule resulted in previously set powell.outflow getting subtracted from itself b/c "GetMaxReleaseGivenInflow" returned 0 af/month (b/c powell is below 3490). new rule ensures that carryover equalization release only increases, not decreases previously set outflow
+    
+    - changed name of fontenelle baseflow rule in the execution constraints of three higher priority rules
+    
+    - made new sct to help debug powell
+    
+    - added new fontenelle and powell carryover storage rules to pre-2026 analysis ruleset
+
+commit 78a15f2ddceef91e9ede5021034873eda4635708
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Jan 19 15:45:09 2022 -0500
+
+    - cleared out the Powell and Mead policy variable slots
+
+commit e42b1fccba280c1136a368db1fafcb3ea00e94e4
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Jan 21 13:29:29 2022 -0500
+
+    - Replaced the CRSS.Borg_2.0 model and ruleset with the fontelle fixed model and rulesets. This was done since the fontelle fix version is now the most recent/working version.
+    
+    - All the MRM and RiverSMART references to the fontelle fixed versions were replaced with the normal CRSS.Borg_2.0 naming convention.
+
+commit e318e9eb1957567635a7921d1380b2fdb28d3622
+Author: ealexander <ealexander@usbr.gov>
+Date:   Mon Feb 28 17:37:07 2022 -0500
+
+    - Moved the RREnergyUsesShoshonePowerPlant water user to the UpperColoradoReach in the CRSS.Borg_2.0_RobustnessRiverSmart and CRSS.Borg_2.0 models
+    
+    - Moved the RREnergyUsesShoshonePowerPlant water user to the UpperColoradoReach in the DIT_CRSS_LBshortageEIS_2016UCRC_v1.5 excel file
+
+commit fff12ef89ba84a18bdea9346ce27d8634fb0661b
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Mar 1 14:24:07 2022 -0500
+
+    - Updated the RREnergyUsesShoshonePowerPlant water user repeated 2021 schedule in the DIT_CRSS_LBshortageEIS_2016UCRC_v1.5_Repeat excel file
+    
+     - Read in the updated UB repeated and LB normal demands into the  CRSS.Borg_2.0_RobustnessRiverSmart model and then saved the model
+
+commit 2d445f52f380a561d9850974a729192f0d7c4b45
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Mar 1 16:17:30 2022 -0500
+
+    - The following LB shortage fixes were made to the CRSS.Borg_2.0 model:
+    
+    -- LBShort.SNWPShort expression slot was calculating positive shortage quantities; therefore, I fixed this issue by multiplying the SNWPShort slot's SNWPDiversion;SNWPDiversion.Depletion Schedule Cutback [] by negative 1, so this LB State shortage quantity is aligned with the other LB States and it now calculates correctly at the annual level.
+    -- Replaced the summation function in the LBShort.AnnualIIDshort expression slot to now use the SumVolumeMax0 function. Also, changed this slot to calculate at an annual time step (instead of a monthly timestep).
+    --The ComputeStepShortageDepletion function was updated so that the IID Shortage function is multiplied by IID's monthly shortage percentage.
+
+commit 169143bc79a04b34024a87fb84f13ccfed6db8a8
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Mar 1 16:39:45 2022 -0500
+
+    - The following LB shortage fixes were made to theCRSS.Borg_2.0_RobustnessRiverSmart model:
+    
+    -- LBShort.SNWPShort expression slot was calculating positive shortage quantities; therefore, I fixed this issue by multiplying the SNWPShort slot's SNWPDiversion;SNWPDiversion.Depletion Schedule Cutback [] by negative 1, so this LB State shortage quantity is aligned with the other LB States and it now calculates correctly at the annual level.
+    -- Replaced the summation function in the LBShort.AnnualIIDshort expression slot to now use the SumVolumeMax0 function. Also, changed this slot to calculate at an annual time step (instead of a monthly timestep).
+    --The ComputeStepShortageDepletion function was updated so that the IID Shortage function is multiplied by IID's monthly shortage percentage.
+
+commit c34cca82866369d5b5df3f3eb8747df05e06588c
+Author: Rebecca Smith <resm1653@colorado.edu>
+Date:   Wed Mar 2 10:01:23 2022 -0700
+
+    - updated "Import Initial Conditions From MTOM and 24MS" input DMI to point to jan_2022 initial conditions in CRSS.Borg_2.0 model
+    
+    - ran updated DMI to update the initial conditions in CRSS.Borg_2.0 model and saved the model
+    
+    - did not update anything in RiverSmart model
+
+commit 078af71b7d3c9e966a04e5e5e79e2e0cadc6c618
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Mar 10 15:06:25 2022 -0500
+
+    -Saved the CRSS.Borg_2.0 model and ruleset into RW 8.4
+
+commit ca1ab34785c0549852fd7fa31d9682de033e6174
+Author: Rebecca Smith <resm1653@colorado.edu>
+Date:   Thu Mar 10 14:23:13 2022 -0700
+
+    - updated files in dmi/IniitalConditions to have latest from Jan 2022 runs (but in the CrmmsToCRSS excel workbooks the years have all been dialed back by 1-2; see README)
+    
+    - updated initial conditions in CRSS.Borg_2.0.mdl
+    
+    - updated initial conditions DMI in CRSS.Borg_2.0_RobustnessRiverSmart.mdl to point to Jan 2022 workbooks
+    
+    - ran updated initial conditions DMI in CRSS.Borg_2.0_RobustnessRiverSmart.mdl so now it matches CRSS.Borg_2.0 model (even though powell and mead PEs will get overwritten in SOW robustness runs)
+
+commit f0ba4d65a593aa59329423a83bf6cae6ac5e6526
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Mar 11 14:21:29 2022 -0500
+
+    - Updated the CRSS.Borg_2.0 directory to run a RiverSMART study to get output from MOEA policies
+
+commit 7b6636ab01f92dc2771811474c133e1a5e3c8186
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Mar 11 15:46:19 2022 -0500
+
+    - Replaced the CRSS_DIR references to be Robust_DIR references in the Output.KeySlots.NoSalt.control file
+
+commit fed7f1a9984644950a30f1cf7b58189e1eb52ed8
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Mar 17 14:04:06 2022 -0400
+
+    Updated the Output.KeySlots.NoSalt.control file to have Mead and Powell policy variable output
+
+commit 1359b491b708d59432171348d3473ea220afbb00
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Mar 17 15:44:46 2022 -0400
+
+    Removed the initialization DMI in the model's DNF CRSS_Borg_RiverSMART MRM configuration
+
+commit 4581409375f0e8d3aec3f7044fc1009cb1642752
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Mar 24 08:31:56 2022 -0400
+
+    Save the CRSS.Borg.DV.Baseline.2027IGDCP.v4.4.0.9004.rls into RW version 8.4
+
+commit 94bc11d447637bd4240f01b617b8939276c797b0
+Author: Rebecca Smith <resm1653@colorado.edu>
+Date:   Thu May 5 17:32:40 2022 -0600
+
+    - put original 8 traces of hydrology in old folder
+    
+    - added 8 new traces sampled from 1931-2019 ISM
+
+commit 75aad2e6dd4e8ca50ff207c381c3bcce766eaaf9
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed May 25 14:57:22 2022 -0400
+
+    - Created the input text files for the 131 policies from the RampingRunFixed_5-9-22 MOEA run
+
+commit dbed55b62f3edcff5c963d15d48765ff6c514a7f
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri May 27 09:28:10 2022 -0400
+
+    - Updated the DecisionVars.Input.DMI.Robustness.control file to point to the $Robust_DIR/dmi/Mead_and_Powell_Policies_131/ folder
+
+commit ac4f871747c31c0c039e7907ac8236d345eb3606
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri May 27 10:07:17 2022 -0400
+
+    - Updated the DecisionVars.Input.DMI.MOEA.control file to point to the $Robust_DIR/dmi/Mead_and_Powell_Policies_131/ folder.
+
+commit 0614d5eb1f1175b8df18446a6219b59b031d4345
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri May 27 10:11:06 2022 -0400
+
+    - Updated the Lake Powell and Mead MOEA Policies DMI Seq event in the CRSS.Borg_2.0_MOEA_RiverSMART_Study.rsm to use 131 policies.
+
+commit 9a6bd2e0d7cf3a6080ec6e649f9d28139543e48c
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri May 27 11:24:02 2022 -0400
+
+    Update the model file path on the MOEA RiverSMART study
+
+commit eb30b7b1c452477c53cbff4042b9fc0a157d9b13
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Jun 14 16:00:06 2022 -0400
+
+    - Added a Metrics DataObject to store the Basin Study metric formulations in the CRSS.Borg_2.0_Robustness model.
+    
+    - Started adding Basin Study metrics to the Metrics DataObject
+
+commit 8c6ecee432c194bc85f30f04822a05c8d73f8e07
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Jun 15 11:05:56 2022 -0400
+
+    - Changed the Average Mead Energy Generation slot's units to be of Energy
+    
+    - Changed the Average Parker And Davis Energy Generation slot's units to be of Energy
+
+commit 82103e82fca5d50d9272dfa431d600270b80e86b
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Jun 15 14:27:21 2022 -0400
+
+    - Updated the DNF CRSS_Borg single trace test MRM to point to the CRSS.Borg_RandomDNF_Evap DMI group
+
+commit 322c3f314b00fa7fb056c1d2f72177ca1d36074c
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Jun 16 16:44:02 2022 -0400
+
+    Continued to implement Basin Study metrics into the Metrics data object.
+
+commit d7d94cb1384ebc1715954a7954c52b0e5695b192
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Jun 17 13:54:18 2022 -0400
+
+    - Continued to add Basin Study metrics in the Metrics data object. Added two flood control metrics
+    
+    - updated the CRSSBorgRDFOutput.control to output the Basin Study metrics
+
+commit 1cbe3d6ec27a870377f7fe2d1c77ee885f893ca0
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Jun 21 15:27:33 2022 -0400
+
+    - Added two Ecological Resource metrics to the Metric data object. These metrics were also added to the CRSSBorgRDFOutput.control file.
+
+commit 45351223269eba44d4772651247ba223bb51b826
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Jun 23 14:44:25 2022 -0400
+
+    Added sub metric slots to the CRSSBorgRDFOutput.control file.
+
+commit fbd15857b91d477b75480af22058d8db91f33c93
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Jun 24 14:16:49 2022 -0400
+
+    - Added sub metric monthly rdf for the sub metric slots with non annual time series to the CRSSBorgRDFOutput.control file.
+    
+    - Started to create output CSV formulations in the Robustness SOW MRM
+
+commit 87c92fb112237ccf5908df6d6f2944d4e31fa948
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Jun 28 13:40:04 2022 -0400
+
+    - Started to implement 10 Flaming Gorge Ecological Resources Metrics into the Metrics data object
+
+commit e06b840ae275765556ff95559b62f196e0dbbf42
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Jun 29 16:46:55 2022 -0400
+
+    - Continued to refine the 5 Flaming Gorge Peak Flow Duration Metrics into the Metrics dataobject.
+
+commit 77a7236cc7f3f739ba63f0fbededa69e2e7a7fbc
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Jul 8 11:35:39 2022 -0400
+
+    - Continued to refine the Flaming Gorge Ecological Resource Metrics in the Metrics dataobject.
+
+commit 71f82a29ad9e361e8ec36fdcec84e19e00cb2ed0
+Author: ealexander <ealexander@usbr.gov>
+Date:   Mon Jul 11 10:46:13 2022 -0400
+
+    Added the Flaming Gorge peak flow duration and spring peak from metrics to the CRSSBorgRDFOutput.control file
+
+commit 648896a0f32d88e60ec0319b3ba60bb460baf368
+Author: ealexander <ealexander@usbr.gov>
+Date:   Mon Jul 11 14:01:59 2022 -0400
+
+    - Updated the DecisionVars.Input.DMI.Robustness.control file to input the 331 archive MOEA policies.
+    
+    - Updated the Robustness SOW MRM to output all the sub metric slots
+
+commit 1f5b34f0924610809e1db0ec980405c878d242ad
+Author: ealexander <ealexander@usbr.gov>
+Date:   Mon Jul 11 16:32:28 2022 -0400
+
+    - Updated the the CRSS.Borg_2.0_Robustness_RiverSMART_Study.rsm configuration
+    
+    -- Updated the RiverWare exe to point to RW 84
+    -- changed the DMI Seq to be 1 through 331
+    - changed the CRSS.Borg model to point to the 300 SOWs
+    -updated the SOWs DMIs and control files to point to the 300 SOWs
+    - Created new trace based control files for the SOW ICs
+
+commit b91a3ede99fa713f59200314f2078d00a30b3017
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Wed Jul 13 09:50:26 2022 -0600
+
+    - added 283 policies from fixed full hydrology ramping run (+ current policy = 284) to dmi for use in robustness runs
+
+commit b8153c8b0a897d88c44059f50e4bddce68a06bc1
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Wed Jul 13 11:15:40 2022 -0600
+
+    - changed names of initial conditions and ub_demand input files for robustness runs (changed for 300 SOW and 500 SOW)
+
+commit 01f62d2438f0ef5b550787ae2b22d192ebb7b210
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Jul 13 14:23:45 2022 -0400
+
+    - Updated the the DecisionVars.Input.DMI.Robustness.control to point to the 284 policies
+    
+    - Updated the CRSS.Borg_2.0_Robustness_RiverSMART_Study Policy DMI Sequence config to point to the 284 policies
+    - Clicked allow spacing in the SOW IC and the SOW UB demand scalar slot DMI configuration in the RiverWare model
+
+commit 2a56ebd7295515e9411afaef863158ad3984a1b4
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Jul 14 15:12:50 2022 -0400
+
+    -Created new slots in the Metrics and Objectives data objects which repeats calculated metric and objective annual scalar slots
+    
+    - Configured the Robustness SOW MRM csv output to output these new objective and metric repeated slots to their own csv files
+
+commit 776243cedd675bec59a8ed753a583154f0902ca2
+Author: ealexander <ealexander@usbr.gov>
+Date:   Thu Jul 21 09:52:18 2022 -0400
+
+    -Changed the RW icon color for the CRSS.Borg_2.0 (MOEA) model
+    
+    -Added Objective_Max_Delta_Annual_Shortage, Objective_Max_Delta_Annual_Shortage_repeated, and DeltaPolicyShortage slots to the Objectives data object in the CRSS.Borg_2.0 (Robustness) model
+    - Updated the Robustness SOW MRM to output the Max Delta Shortage objective and sub objective slots to csv
+
+commit 80e449e383917ac7d2a6fa2715f0a3bd3eeb67a1
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Jul 22 10:33:53 2022 -0400
+
+    - Added LBHydrologicShortage.AnnualTotalShortage to the SubObjectivesSlots.csv output configuration.
+    
+    - Corrected the spelling of Frequency in Metrics.Frequency of Yampa River near Maybell Falling Below Recovery Program Baseflow slots
+    - Corrected the spelling of Frequency in Metrics.Frequency of Gunnison At Crystal Falling Below Instream Flow Right
+
+commit 4fd8c041f92917fbbeeb553d0b443bc5da088f58
+Author: rebecca <rebeccasmith@usbr.gov>
+Date:   Fri Jul 22 09:23:36 2022 -0600
+
+    updated hydrology files for trace-based riversmart runs
+    
+    - "Random_DNF_8" directory w/ 8 traces sampled from full ISM
+    - "Random_DNF_8_dry" directory w/ 8 traces sampled from 1931-2019 ISM (w/ avg flow under 14 maf)
+
+commit 7500d7a1db35663e2e5fa1f2fd781d8b371df648
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Jul 22 15:53:43 2022 -0400
+
+    - Added SOW.txt to the Dec2021_Robustness_Runs_300 directory folder
+    
+    -  Reverted adding LBHydrologicShortage.AnnualTotalShortage to the SubObjectivesSlots.csv output configuration.
+    - Reverted the spelling of Frequency in Metrics.Frequency of Yampa River near Maybell Falling Below Recovery Program Baseflow slots
+    - Reverted the spelling of Frequency in Metrics.Frequency of Gunnison At Crystal Falling Below Instream Flow Right
+    - Added the Metrics data object to the MOEA model
+    - Added the repeated Objective slots to the Objective data object in the MOEA model
+    - Configured DNF CRSS_Borg_RiverSMART MRM to output the same CSVs as the Robustness MRM
+    - Updated the MOEA RiverSMART study to run the 284 policies
+
+commit ae9019fe07a75c167cf27f798aeb94cbb6bdfd4a
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Jul 22 16:10:15 2022 -0400
+
+    - Deleted the imported Objectives1 dataobject in the MOEA model
+
+commit 140851a78cbe7caa0ee7d1f2d4fee6c2ff9a06fd
+Author: ealexander <ealexander@usbr.gov>
+Date:   Tue Aug 2 15:09:44 2022 -0400
+
+    - Updated the CRSS.Borg_2.0 MOEA model in the following ways:
+    
+    - - Created a new ComputePowellRelease_BORG function where the Max Constraint was changed to get the max value between the GetMaxReleaseGivenInflow function call and BypassCapacity function call.
+    - - Changed the NaturalFlowInput input DMI to point to the Random_DNF_8_dry folder
+    - Updated the CRSS.Borg_2.0 ruleset in the following way:
+    - - Modified the Equalization Tier_BORG rule to use the ComputePowellRelease_BORG function.
+    - - Created a new rule Add Carryover Equalization Release_BORG that adds max function around the GetMaxReleaseGivenInflow function call and BypassCapacity function call.
+    - Copied the input text files from policy5 from 131 MOEA policies to the Borg-RW_Powell-Mead/input folder
+
+commit dd1c3e7a3605f8ef6e0f321160fd93b655732215
+Author: ealexander <ealexander@usbr.gov>
+Date:   Wed Aug 3 15:56:46 2022 -0400
+
+    - Updated the Upper Elevation Balancing Tier April thru Sept_BORG rule (29) by changing the ComputePowellRelease funciton to call the ComputePowellRelease_BORG function.
+    
+    - Deleted a couple of unused slots in the Powell Decision Variables data object
+
+commit eb7a5891476d8bed643debc2397775d152fab960
+Author: ealexander <ealexander@usbr.gov>
+Date:   Fri Aug 5 09:55:59 2022 -0400
+
+     - In the robustness RiverWare model "CRSS.Borg_2.0_RobustnessRiverSmart.mdl" the ComputePowellRelease_BORG function was created to address the issue of this function's max constraint setting Powell.Outflow to zero.
+    
+    - Updated the CRSS.Borg_2.0_RobustnessRiverSmart ruleset in the following ways:
+    - Updated the Equalization Tier_BORG rule to use the ComputePowellRelease_BORG function.
+    - Updated the Add Carryover Equalization Release_BORG rule by adding the max function around the GetMaxReleaseGivenInflow function call and BypassCapacity function calls.
+    - Updated the Upper Elevation Balancing Tier April thru Sept_BORG rule (29) by changing the ComputePowellRelease funciton to call the ComputePowellRelease_BORG function.
+
+commit 545c4477d3f74f2eb8fc8531ed03c69e99d451a6
+Author: ealexander <ealexander@usbr.gov>
+Date:   Mon Aug 8 13:25:46 2022 -0400
+
+    Created a copy of the CRSS.Borg_2.0 model and saved it to RW version 8.4.4
+
+commit c93cf190b057ad0c893b2670fe3530f68cb17b69
+Author: Rebecca Smith <resm1653@colorado.edu>
+Date:   Tue Aug 9 16:16:59 2022 -0600
+
+    - added formulation files that have constraints and deltashort objective
+    
+    - added "AllValues_CurrentPolicy.txt" to be able to do file driven run
+    - (not sure why these files weren't in the repository but i've been using them for runs for a while now)
+
+commit 811bfc1e97a4437b92c11c7450b1552f9bd90a4f
+Author: Rebecca Smith <resm1653@colorado.edu>
+Date:   Tue Aug 9 17:44:23 2022 -0600
+
+    - added "temp" folder (required for borg run)
+    
+    - updated DMI "CRSS.Borg_RandomDNF_Evap" to point to top directory "$Borg_DIR/Random_DNF_8/" (instead of $Borg_DIR/Random_DNF_8_dry/)
+    
+    - saved ruleset in 8.4.4
+    
+    - deleted borg run output files
+    
+    - updated formulation files to point to 8.4.4
+    
+    - changed "Borg.Output.DMI.control" and "append.tracenumbers.pl" to match the latest formulation (using minimize max delta shortage)
+    
+    *now the "Borg-RW_Powell-Mead" is in the correct configuration to do a run w/ the zero release correction and the latest formulation
