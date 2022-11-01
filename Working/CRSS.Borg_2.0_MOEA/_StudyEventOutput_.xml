@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CADSWES, University of Colorado, http://cadswes.colorado.edu/
+
+Document created on Tue Oct 18 11:56:29 2022
+Document created by resm1653
+-->
+<RwModelEvent>
+<inputList type="Model"><input type="Model" name="CRSS.Borg_2.0_MOEA" uuid="{175748ea-eecc-4fd7-a41b-77f156128864}"><modelPath>$Borg_DIR/CRSS.Borg_2.0.mdl</modelPath>
+</input>
+</inputList>
+</RwModelEvent>

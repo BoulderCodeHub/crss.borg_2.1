@@ -1,0 +1,141 @@
+# Powell
+Powell.Inflow: file=$Robust_DIR/results/Res_Short_Flow.rdf
+Powell.Outflow: file=$Robust_DIR/results/Res_Short_Flow.rdf
+Powell.Pool Elevation: file=$Robust_DIR/results/Res_Short_Flow.rdf
+PowellOperation.PowellWYRelease: file=$Robust_DIR/results/Res_Short_Flow.rdf
+PowellOperation.Powell10YearWYRelease: file=$Robust_DIR/results/Res_Short_Flow.rdf
+TotVal.Powell: file=$Robust_DIR/results/Res_Short_Flow.rdf
+
+# Important flow points
+CumulativeNaturalFlow.AboveLeesFerry: file=$Robust_DIR/results/Res_Short_Flow.rdf
+
+
+# Mead
+Mead.Inflow: file=$Robust_DIR/results/Res_Short_Flow.rdf
+Mead.Outflow: file=$Robust_DIR/results/Res_Short_Flow.rdf
+Mead.Pool Elevation: file=$Robust_DIR/results/Res_Short_Flow.rdf
+TotVal.Mead: file=$Robust_DIR/results/Res_Short_Flow.rdf
+
+
+# LB/MX Shortage
+LBShort.AnnualMexicoShort: file=$Robust_DIR/results/Res_Short_Flow.rdf
+LBShort.AnnualLBMexicoShort: file=$Robust_DIR/results/Res_Short_Flow.rdf
+LBHydrologicShortage.AnnualTotalShortage: file=$Robust_DIR/results/Res_Short_Flow.rdf
+
+
+# Annual actual depletions per state
+
+Computed State Depletions.Arizona Annual Actual: file=$Robust_DIR/results/Depletions_Etc.rdf
+Computed State Depletions.California Annual Actual: file=$Robust_DIR/results/Depletions_Etc.rdf
+Computed State Depletions.Colorado Annual Actual: file=$Robust_DIR/results/Depletions_Etc.rdf
+Computed State Depletions.Mexico Annual Actual: file=$Robust_DIR/results/Depletions_Etc.rdf
+Computed State Depletions.Nevada Annual Actual: file=$Robust_DIR/results/Depletions_Etc.rdf
+Computed State Depletions.New Mexico Annual Actual: file=$Robust_DIR/results/Depletions_Etc.rdf
+Computed State Depletions.Utah Annual Actual: file=$Robust_DIR/results/Depletions_Etc.rdf
+Computed State Depletions.Wyoming Annual Actual: file=$Robust_DIR/results/Depletions_Etc.rdf
+UBDelivery.AnnualActual: file=$Robust_DIR/results/Depletions_Etc.rdf
+#UBDelivery.AnnualNormal_without_UBAZ: file=$Robust_DIR/results/Depletions_Etc.rdf
+LBDelivery.AnnualActualDelivery: file=$Robust_DIR/results/Depletions_Etc.rdf
+
+# Annual normal depletions per state
+
+Computed State Depletions.Arizona Annual Normal: file=$Robust_DIR/results/Depletions_Etc.rdf
+Computed State Depletions.California Annual Normal: file=$Robust_DIR/results/Depletions_Etc.rdf
+Computed State Depletions.Colorado Annual Normal: file=$Robust_DIR/results/Depletions_Etc.rdf
+Computed State Depletions.Nevada Annual Normal: file=$Robust_DIR/results/Depletions_Etc.rdf
+Computed State Depletions.New Mexico Annual Normal: file=$Robust_DIR/results/Depletions_Etc.rdf
+Computed State Depletions.Utah Annual Normal: file=$Robust_DIR/results/Depletions_Etc.rdf
+Computed State Depletions.Wyoming Annual Normal: file=$Robust_DIR/results/Depletions_Etc.rdf
+
+# Annual shortages per state (actual - normal depletions ---> positive is surplus, negative is shortage)
+
+# UBShort
+UBShort.AnnualColoradoShort: file=$Robust_DIR/results/Depletions_Etc.rdf
+UBShort.AnnualNewMexicoShort: file=$Robust_DIR/results/Depletions_Etc.rdf
+UBShort.AnnualUtahShort: file=$Robust_DIR/results/Depletions_Etc.rdf
+UBShort.AnnualWyomingShort: file=$Robust_DIR/results/Depletions_Etc.rdf
+UBShort.AnnualArizonaShort: file=$Robust_DIR/results/Depletions_Etc.rdf
+UBShort.AnnualUBShort: file=$Robust_DIR/results/Depletions_Etc.rdf
+
+# LBShort
+LBShort.AnnualLBMexicoShort: file=$Robust_DIR/results/Depletions_Etc.rdf
+# AnnualLBMexShortForCumShort excludes IID, AnnualLBMexicoShort includes IID
+LBShort.AnnualLBMexShortForCumShort: file=$Robust_DIR/results/Depletions_Etc.rdf
+LBShort.AnnualArizonaShort: file=$Robust_DIR/results/Depletions_Etc.rdf
+LBShort.AnnualCAPShort: file=$Robust_DIR/results/Depletions_Etc.rdf
+LBShort.AnnualIIDShort: file=$Robust_DIR/results/Depletions_Etc.rdf
+LBShort.AnnualMexicoShort: file=$Robust_DIR/results/Depletions_Etc.rdf
+LBShort.AnnualMWDShort: file=$Robust_DIR/results/Depletions_Etc.rdf
+LBShort.AnnualSNWPShort: file=$Robust_DIR/results/Depletions_Etc.rdf
+LBShort.AnnualArizonaPriority2and3Short: file=$Robust_DIR/results/Depletions_Etc.rdf
+LBShort.AnnualArizonaPriority4OtherShort: file=$Robust_DIR/results/Depletions_Etc.rdf
+LBShort.ConsecutiveYearShortage: file=$Robust_DIR/results/Depletions_Etc.rdf
+
+
+# SOW checks
+#UB demand scenario scaling.total UB demand less AZ: file=$Robust_DIR/results/SOW.rdf
+#UB demand scenario scaling.demand scaling coefficient: file=$Robust_DIR/results/SOW.rdf
+#EqualizationData.Equalization Line: file=$Robust_DIR/results/SOW.rdf
+#MiscUsesAbvGlenwoodSprings:Agriculture.Diversion Requested: file=$Robust_DIR/results/SOW.rdf
+#MiscUsesAbvGlenwoodSprings:Agriculture.Depletion Requested: file=$Robust_DIR/results/SOW.rdf
+
+
+# Objectives
+Objectives.Objective_LB_Max_Cons_Shortage_Duration: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_LB_Shortage_Frequency: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_LB_Shortage_Volume: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Avg_Combo_Storage: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Lee_Ferry_Deficit: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Max_Annual_LB_Shortage: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Mead_1000: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Powell_3490: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Powell_WY_Release: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Max_Delta_Annual_Shortage: file=$Robust_DIR/results/Objectives.rdf
+
+
+#########################################
+#####  Lake Mead Policy Variables ######
+#######################################
+
+Mead Decision Variables.From BorgRW: file=$Robust_DIR/results/PolicyVars.rdf
+Mead Decision Variables.Compressed: file=$Robust_DIR/results/PolicyVars.rdf
+Mead Decision Variables.Full: file=$Robust_DIR/results/PolicyVars.rdf
+Mead Decision Variables.Surplus d From Borg: file=$Robust_DIR/results/PolicyVars.rdf
+
+###########################################
+#####  Lake Powell Policy Variables ######
+#########################################
+
+Powell Decision Variables.From Borg Powell Tier Table: file=$Robust_DIR/results/PolicyVars.rdf
+Powell Decision Variables.Increment_EQ: file=$Robust_DIR/results/PolicyVars.rdf
+
+###########################################
+#####  Basin Study Metrics ###############
+#########################################
+
+Metrics.Average Lower Basin Policy Shortage: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Lee Ferry Deficit: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Mexico Delivery Reduction: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Navajo 5990: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Mead 1000: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Average Upper Basin Energy Generation: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Average Mead Energy Generation: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Average Parker And Davis Energy Generation: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Average Upper Basin Power Generation Capacity: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Average Mead Generation Capacity: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Mead Spill: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Powell Spill: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequncy of Gunnison At Crystal Falling Below Instream Flow Right: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequncy of Yampa River near Maybell Falling Below Recovery Program Baseflow: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Wet Peak Flow Duration: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Mod Wet Peak Flow Duration: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Average Peak Flow Duration: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Mod Dry Peak Flow Duration: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Dry Peak Flow Duration: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Wet Spring Peak Flow: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Mod Wet Spring Peak Flow: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Average Spring Peak Flow: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Mod Dry Spring Peak Flow: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Dry Spring Peak Flow: file=$Robust_DIR/results/Metrics.rdf
+
+

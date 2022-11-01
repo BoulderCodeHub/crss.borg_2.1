@@ -2,11 +2,11 @@
 <!--
 CADSWES, University of Colorado, http://cadswes.colorado.edu/
 
-Document created on Mon Jan 10 17:09:03 2022
-Document created by ealexander
+Document created on Tue Oct 18 11:56:29 2022
+Document created by resm1653
 -->
 <RwPolicyEvent>
-<inputList type="Policy"><input type="Policy" name="CRSS.Borg_2.0_Ruleset" uuid="{d21def27-a958-42f1-a711-d94193d96651}"><rulesetPath>$Robust_DIR/ruleset/CRSS.Borg.DV.Baseline.2027IGDCP.v4.4.0.9004.rls</rulesetPath>
+<inputList type="Policy"><input type="Policy" name="CRSS.Borg_2.0_Ruleset" uuid="{d21def27-a958-42f1-a711-d94193d96651}"><rulesetPath>$Robust_DIR/Borg-RW_Powell-Mead/CRSS.Borg.DV.Baseline.2027IGDCP.v4.4.0.9004.rls</rulesetPath>
 </input>
 </inputList>
 </RwPolicyEvent>

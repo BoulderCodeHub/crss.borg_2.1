@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CADSWES, University of Colorado, http://cadswes.colorado.edu/
+
+Document created on Tue Oct 18 11:52:47 2022
+Document created by resm1653
+-->
+<RwMrmEvent>
+<inputList type="MRM Config"><input name="DNF CRSS_Borg_RiverSMART" uuid="{0bb67964-bf1e-4a19-89c5-703c774a0583}" type="MRM Config"><configName>DNF CRSS_Borg_RiverSMART</configName>
+<saveModel flag="0" policy="afterall"></saveModel>
+</input>
+</inputList>
+</RwMrmEvent>

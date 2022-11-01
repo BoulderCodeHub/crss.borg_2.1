@@ -3,34 +3,34 @@
 
 
 #Mead Surplus Decsion Variable Input
-Mead Decision Variables.Surplus d From Borg: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_131/policy1/Mead_Surplus_DV.txt units=ft scale=1.0 import=fixed precision=model
+Mead Decision Variables.Surplus d From Borg: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_128/policy1/Mead_Surplus_DV.txt units=ft scale=1.0 import=fixed precision=model
 
 #Mead Shortage Decsion Variable Input
 #Tiers Distances from Dead Pool Elevation
-Mead Decision Variables.From BorgRW.Elevation: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_131/policy1/Mead_Shortage_e_DV.txt units=ft scale=1.0 import=fixed precision=model
+Mead Decision Variables.From BorgRW.Elevation: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_128/policy1/Mead_Shortage_e_DV.txt units=ft scale=1.0 import=fixed precision=model
 
 #Shortage Reduction Volumes
-Mead Decision Variables.From BorgRW.Shortage Reduction: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_131/policy1/Mead_Shortage_V_DV.txt units=acre-ft scale=1.0 import=fixed precision=model
-Mead Decision Variables.From BorgRW_Flipped.Shortage Reduction: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_131/policy1/Mead_Shortage_V_DV.txt units=acre-ft scale=1.0 import=fixed precision=model
+Mead Decision Variables.From BorgRW.Shortage Reduction: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_128/policy1/Mead_Shortage_V_DV.txt units=acre-ft scale=1.0 import=fixed precision=model
+Mead Decision Variables.From BorgRW_Flipped.Shortage Reduction: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_128/policy1/Mead_Shortage_V_DV.txt units=acre-ft scale=1.0 import=fixed precision=model
 
 ##########################
 #####  Lake Powell ######
 ########################
 
 #Powell Tier Elevation Decision Variable Input
-Powell Decision Variables.From Borg Powell Tier Table.Powell Tier Elevation: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_131/policy1/Powell_Tier_Elevation_DV.txt units=ft scale=1.0 import=fixed precision=model
+Powell Decision Variables.From Borg Powell Tier Table.Powell Tier Elevation: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_128/policy1/Powell_Tier_Elevation_DV.txt units=ft scale=1.0 import=fixed precision=model
 
 #Powell Mead Reference Elevation Decision Variable Input
-Powell Decision Variables.From Borg Powell Tier Table.Mead Reference Elevation: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_131/policy1/Powell_Mead_Reference_Elevation_DV.txt units=ft scale=1.0 import=fixed precision=model
+Powell Decision Variables.From Borg Powell Tier Table.Mead Reference Elevation: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_128/policy1/Powell_Mead_Reference_Elevation_DV.txt units=ft scale=1.0 import=fixed precision=model
 
 #Powell Range Number Decision Variable Input
-Powell Decision Variables.From Borg Powell Tier Table.Range Number: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_131/policy1/Powell_Range_Number_DV.txt units=ft scale=1.0 import=fixed precision=model
+Powell Decision Variables.From Borg Powell Tier Table.Range Number: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_128/policy1/Powell_Range_Number_DV.txt units=ft scale=1.0 import=fixed precision=model
 
 #Powell Balance Tier Variable Decision Variable Input
-Powell Decision Variables.From Borg Powell Tier Table.Balance Tier Variable: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_131/policy1/Powell_Balance_Tier_Variable_DV.txt units=ft scale=1.0 import=fixed precision=model
+Powell Decision Variables.From Borg Powell Tier Table.Balance Tier Variable: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_128/policy1/Powell_Balance_Tier_Variable_DV.txt units=ft scale=1.0 import=fixed precision=model
 
 #Powell Primary Release Volume Decision Variable Input
-Powell Decision Variables.From Borg Powell Tier Table.Primary Release Volume: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_131/policy1/Powell_Primary_Release_Volume_DV.txt units=ft scale=1.0 import=fixed precision=model
+Powell Decision Variables.From Borg Powell Tier Table.Primary Release Volume: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_128/policy1/Powell_Primary_Release_Volume_DV.txt units=ft scale=1.0 import=fixed precision=model
 
 #Powell Equalization Increment Decision Variable Input
-Powell Decision Variables.Increment_EQ: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_131/policy1/Powell_Increment_EQ_DV.txt units=ft scale=1.0 import=fixed precision=model
+Powell Decision Variables.Increment_EQ: file=$Robust_DIR/dmi/Mead_and_Powell_Policies_128/policy1/Powell_Increment_EQ_DV.txt units=ft scale=1.0 import=fixed precision=model

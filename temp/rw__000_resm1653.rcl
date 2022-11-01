@@ -1,0 +1,3 @@
+OpenWorkspace {C:/crss.borg_2.0/Borg-RW_Powell-Mead/CRSS.Borg_2.0.mdl}
+StartController !MRM {DNF CRSS_Borg_RiverSMART_QAQC_RDF} firstTrace=1 numTrace=1 {ctlFile=C:/crss.borg_2.0/temp/rw__000_resm1653.ctl} distribMode=0
+CloseWorkspace
