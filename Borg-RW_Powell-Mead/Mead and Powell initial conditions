@@ -1,0 +1,31 @@
+# RiverWare_Object 8.4.4 Patch
+# Created 12:39 November 11, 2022
+# CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
+# objects:  1
+# clusters: 0
+# 
+DST 0
+FlagEncoding 3
+# Section: Objects
+set obj {Mead and Powell initial conditions}
+set o "$ws.Mead and Powell initial conditions"
+$ws SimObj $obj {DataObj} 1430 2616 {} 2215 457 1476 50
+"$o" geospatialCoords 0 0 1476 -15
+"$o" UUID {7f74ed06-0bec-4efc-8d2a-bcd0e43e5fe2}
+"$o" objOrd wsList 6104
+"$o" objSlotOrderType ListOrder_DEFAULT 0 Ascend
+"$o" {ScalarSlot} {Mead Initial Pool Elevation}
+set s "$o.Mead Initial Pool Elevation"
+"$s" order 1 
+"$s" UUID {e109724a-f945-4d1d-8881-6dc39005a12e}
+"$s" units {Length} 1 {m} {%f} 2
+"$s" value 293.32230878728467 {m}
+"$o" {ScalarSlot} {Powell Initial Pool Elevation}
+set s "$o.Powell Initial Pool Elevation"
+"$s" order 1 
+"$s" UUID {8b4b3240-68f8-4918-8405-d69b51979d3c}
+"$s" units {Length} 1 {m} {%f} 2
+"$s" value 1098.0657094583653 {m}
+"$o" hideSlots 0 hideOff hideEmptyOff
+# Section: Snapshot Object Relationships
+# Section: Links

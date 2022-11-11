@@ -1,0 +1,6 @@
+#Mead Pool Elevation
+Mead and Powell initial conditions.Mead Initial Pool Elevation: file=$Robust_DIR/dmi/InitialConditions/IC_for_Nov2022_Robustness/3525_1020/Mead_Initial_PE.txt units=ft scale=1.0 import=fixed precision=model
+
+#Powell Pool Elevation
+Mead and Powell initial conditions.Powell Initial Pool Elevation: file=$Robust_DIR/dmi/InitialConditions/IC_for_Nov2022_Robustness/3525_1020/Powell_Initial_PE.txt units=ft scale=1.0 import=fixed precision=model
+

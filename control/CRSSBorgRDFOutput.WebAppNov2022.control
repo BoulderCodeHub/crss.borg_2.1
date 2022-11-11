@@ -1,0 +1,112 @@
+
+
+#########################################
+#####  Lake Mead Policy Variables ######
+#######################################
+
+Mead Decision Variables.From BorgRW: file=$Robust_DIR/results/MeadDVs.rdf
+Mead Decision Variables.Compressed: file=$Robust_DIR/results/MeadDVs.rdf
+Mead Decision Variables.Full: file=$Robust_DIR/results/MeadDVs.rdf
+Mead Decision Variables.Surplus d From Borg: file=$Robust_DIR/results/MeadDVs.rdf
+
+###########################################
+#####  Lake Powell Policy Variables ######
+#########################################
+
+Powell Decision Variables.From Borg Powell Tier Table: file=$Robust_DIR/results/PowellDVs.rdf
+Powell Decision Variables.Increment_EQ: file=$Robust_DIR/results/PowellDVs.rdf
+
+
+# Powell
+Powell.Inflow: file=$Robust_DIR/results/WebApp.rdf
+Powell.Outflow: file=$Robust_DIR/results/WebApp.rdf
+Powell.Pool Elevation: file=$Robust_DIR/results/WebApp.rdf
+
+# Mead
+Mead.Pool Elevation: file=$Robust_DIR/results/WebApp.rdf
+
+# Important flow points
+CumulativeNaturalFlow.AboveLeesFerry: file=$Robust_DIR/results/WebApp.rdf
+
+
+#Objectives
+Objectives.Objective_LB_Max_Cons_Shortage_Duration: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_LB_Shortage_Frequency: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_LB_Shortage_Volume: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Avg_Combo_Storage: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Lee_Ferry_Deficit: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Max_Annual_LB_Shortage: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Mead_1000: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Powell_3490: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Powell_WY_Release: file=$Robust_DIR/results/Objectives.rdf
+Objectives.Objective_Max_Delta_Annual_Shortage: file=$Robust_DIR/results/Objectives.rdf
+
+#Sub-Objective Slots
+Objectives.Consecutive Shortage Counter: file=$Robust_DIR/results/WebApp.rdf
+Objectives.LB Shortage indicator function: file=$Robust_DIR/results/WebApp.rdf
+Objectives.Lee Ferry Deficit indicator function: file=$Robust_DIR/results/WebApp.rdf
+Objectives.Mead 1000 indicator function: file=$Robust_DIR/results/WebApp.rdf
+Objectives.Powell 34900 indicator function: file=$Robust_DIR/results/WebApp.rdf
+Objectives.EOCY_Combo_Storage: file = $Robust_DIR/results/WebApp.rdf
+Objectives.DeltaPolicyShortage: file = $Robust_DIR/results/WebApp.rdf
+LBHydrologicShortage.AnnualTotalShortage: file=$Robust_DIR/results/WebApp.rdf
+LBHydrologicShortage.AnnualPolicyShortage: file=$Robust_DIR/results/WebApp.rdf
+PowellOperation.10 Year Compact Volume: file=$Robust_DIR/results/WebApp.rdf
+PowellOperation.PowellWYRelease: file=$Robust_DIR/results/WebApp.rdf
+
+
+
+###########################################
+#####  Basin Study Metrics ###############
+#########################################
+
+Metrics.Average Lower Basin Policy Shortage: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Lee Ferry Deficit: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Mexico Delivery Reduction: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Navajo 5990: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Mead 1000: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Average Upper Basin Energy Generation: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Average Mead Energy Generation: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Average Parker And Davis Energy Generation: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Average Upper Basin Power Generation Capacity: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Average Mead Generation Capacity: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Mead Spill: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Powell Spill: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequncy of Gunnison At Crystal Falling Below Instream Flow Right: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequncy of Yampa River near Maybell Falling Below Recovery Program Baseflow: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Wet Peak Flow Duration: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Mod Wet Peak Flow Duration: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Average Peak Flow Duration: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Mod Dry Peak Flow Duration: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Dry Peak Flow Duration: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Wet Spring Peak Flow: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Mod Wet Spring Peak Flow: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Average Spring Peak Flow: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Mod Dry Spring Peak Flow: file=$Robust_DIR/results/Metrics.rdf
+Metrics.Frequency of Dry Spring Peak Flow: file=$Robust_DIR/results/Metrics.rdf
+
+
+###########################################
+#####  Sub - Basin Study Metrics #########
+#########################################
+
+LBHydrologicShortage.AnnualPolicyShortage: file=$Robust_DIR/results/WebApp.rdf
+PowellOperation.10 Year Compact Volume: file=$Robust_DIR/results/WebApp.rdf
+Metrics.Upper Basin Annual Energy Sum: file=$Robust_DIR/results/WebApp.rdf
+Metrics.Mead Annual Energy Generation: file=$Robust_DIR/results/WebApp.rdf
+Metrics.Parker And Davis Annual Energy Generation: file=$Robust_DIR/results/WebApp.rdf
+Metrics.Upper Basin Power Plants Available Generation Capacity: file=$Robust_DIR/results/WebApp.rdf
+Mead.Power Capacity: file=$Robust_DIR/results/WebApp.rdf
+Mead.Spill: file=$Robust_DIR/results/WebApp.rdf
+Powell.Spill: file=$Robust_DIR/results/WebApp.rdf
+Metrics.PeakFlowDurationR2_Wet: file=$Robust_DIR/results/WebApp.rdf
+Metrics.PeakFlowDurationR2_ModWet_Final: file=$Robust_DIR/results/WebApp.rdf
+Metrics.PeakFlowDurationR2_Avg_Final: file=$Robust_DIR/results/WebApp.rdf
+Metrics.PeakFlowDurationR2_ModWet_Final: file=$Robust_DIR/results/WebApp.rdf
+Metrics.PeakFlowDurationR2_Dry_Final: file=$Robust_DIR/results/WebApp.rdf
+Metrics.Wet Spring Peak Flow Check: file=$Robust_DIR/results/WebApp.rdf
+Metrics.Mod Wet Spring Peak Flow Check: file=$Robust_DIR/results/WebApp.rdf
+Metrics.Average Spring Peak Flow Check: file=$Robust_DIR/results/WebApp.rdf
+Metrics.Mod Dry Spring Peak Flow Check: file=$Robust_DIR/results/WebApp.rdf
+Metrics.Dry Spring Peak Flow Check: file=$Robust_DIR/results/WebApp.rdf
+
