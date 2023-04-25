@@ -1,0 +1,6 @@
+TRACE: OpenWorkspace $Borg_DIR/CRSS.Borg_2.0.mdl 
+_REQINFO_:    "Model File Information: "
+_REQINFO_:    "Last saved on: 04-06-2023 16:45:19."
+_REQINFO_:    "Last saved by "HAZE7392" using "RiverWare 8.5.6"."
+TRACE: StartController !MRM {DNF CRSS_Borg} distribMode=1 
+TRACE: CloseWorkspace 
